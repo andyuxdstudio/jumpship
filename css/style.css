@@ -1,0 +1,535 @@
+/* Jump Ship, stage 1: skeleton and look.
+   Design idea: a sea chart. Pale shallows, deep-water ink, one buoy-yellow signal.
+   Light mode is "day chart", dark mode is "night watch". */
+
+:root {
+  --shallows: #e3f1f3;
+  --surface: #f7fbfc;
+  --ink: #0c2a45;
+  --ink-soft: #35536b;
+  --current: #0b6270;
+  --rule: #9cc2ca;
+  --buoy: #f2b134;
+  --on-buoy: #0c2a45;
+  --focus: #0c2a45;
+  --contour: #7fb0bb;
+  --course: #0b6270;
+
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);
+  --step-0: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.3rem, 1.5rem + 4vw, 4.4rem);
+
+  --gutter: 1rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: clamp(3.5rem, 2rem + 6vw, 7rem);
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --shallows: #071c2f;
+    --surface: #0d2b45;
+    --ink: #e8f3f6;
+    --ink-soft: #b3cad5;
+    --current: #78cdd9;
+    --rule: #2f5570;
+    --focus: #f2b134;
+    --contour: #1f4a63;
+    --course: #78cdd9;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--shallows);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--current);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.15em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  background: var(--buoy);
+  color: var(--on-buoy);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.skip:focus {
+  top: 0.5rem;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 74rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Preview bar: delete this element from index.html when the tools are live. */
+.preview-bar {
+  background: var(--buoy);
+  color: var(--on-buoy);
+  font-size: var(--step--1);
+  padding: 0.5rem 0;
+}
+
+.preview-bar p {
+  max-width: 70ch;
+}
+
+/* Header */
+.site-header {
+  padding-block: var(--space-2);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 2.75rem;
+}
+
+.brand svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--ink);
+}
+
+/* Hero */
+.hero {
+  padding-block: var(--space-4) var(--space-5);
+}
+
+.hero .wrap {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .hero .wrap {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-5);
+  }
+}
+
+.hero h1 {
+  font-size: var(--step-3);
+  max-width: 17ch;
+}
+
+.hero-lede {
+  margin-top: var(--space-3);
+  max-width: 34rem;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.hero-actions {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--buoy);
+  color: var(--on-buoy);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--on-buoy);
+  border-radius: 0.4rem;
+}
+
+.btn:hover {
+  background: #ffc450;
+}
+
+.hero-note {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  max-width: 24rem;
+}
+
+/* The chart: the one memorable element */
+.chart {
+  margin: 0;
+}
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 34rem;
+}
+
+.chart .contour {
+  fill: none;
+  stroke: var(--contour);
+  stroke-width: 1.5;
+}
+
+.chart .land {
+  fill: var(--surface);
+}
+
+.chart .course {
+  fill: none;
+  stroke: var(--course);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 2 9;
+}
+
+.chart .mark {
+  fill: var(--shallows);
+  stroke: var(--course);
+  stroke-width: 3;
+}
+
+.chart .mark-end {
+  fill: var(--buoy);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.chart .reveal {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 14;
+  stroke-linecap: butt;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+
+.chart .label {
+  font-family: var(--font-body);
+  font-size: 22px;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--shallows);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chart .reveal {
+    animation: chart-draw 2.6s ease-out 0.4s both;
+  }
+
+  .chart .mark-end,
+  .chart .end-label {
+    animation: chart-arrive 0.5s ease-out 3s both;
+  }
+}
+
+@keyframes chart-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes chart-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sections */
+.section {
+  padding-block: var(--space-5);
+  border-top: 2px solid var(--rule);
+}
+
+.section-head {
+  max-width: 40rem;
+  margin-bottom: var(--space-4);
+}
+
+.section-head h2 {
+  font-size: var(--step-2);
+}
+
+.section-head p {
+  margin-top: var(--space-2);
+  color: var(--ink-soft);
+}
+
+/* How it works: a real sequence, so numbered stops on a course line */
+.legs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: leg;
+  display: grid;
+  gap: var(--space-4);
+  max-width: 44rem;
+  position: relative;
+}
+
+.legs::before {
+  content: "";
+  position: absolute;
+  left: 1.4rem;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  border-left: 3px dotted var(--course);
+}
+
+.leg {
+  position: relative;
+  padding-left: 4.25rem;
+  counter-increment: leg;
+}
+
+.leg::before {
+  content: counter(leg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.85rem;
+  height: 2.85rem;
+  display: grid;
+  place-items: center;
+  background: var(--shallows);
+  border: 3px solid var(--course);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.leg h3 {
+  font-size: var(--step-1);
+}
+
+.leg-plain {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.leg p {
+  margin-top: 0.6rem;
+  max-width: 36rem;
+}
+
+.side-note {
+  margin-top: var(--space-4);
+  max-width: 44rem;
+  padding: var(--space-2) var(--space-3);
+  border: 2px dashed var(--rule);
+  border-radius: 0.4rem;
+}
+
+/* Example match: placed like a label on a chart, not a SaaS card */
+.match {
+  max-width: 40rem;
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-left-width: 0.7rem;
+  border-radius: 0.25rem;
+  padding: var(--space-3);
+}
+
+.match h3 {
+  font-size: var(--step-2);
+}
+
+.match-port {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.match-why {
+  margin-top: var(--space-2);
+}
+
+.match dl {
+  margin: var(--space-3) 0 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.match dt {
+  font-weight: 700;
+}
+
+.match dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.chips {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips li {
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--rule);
+  border-radius: 99rem;
+  font-size: var(--step--1);
+}
+
+.match-caption {
+  margin-top: var(--space-2);
+  max-width: 40rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+/* Straight talk */
+.promises {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40rem;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.promises li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.promises li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--buoy);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+/* Footer */
+.site-footer {
+  padding-block: var(--space-4);
+  border-top: 2px solid var(--rule);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  justify-content: space-between;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
