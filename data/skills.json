@@ -1,0 +1,18 @@
+[
+  { "id": "user-research", "label": "User research" },
+  { "id": "usability-testing", "label": "Usability testing" },
+  { "id": "wireframing-prototyping", "label": "Wireframing and prototyping" },
+  { "id": "interaction-design", "label": "Interaction design" },
+  { "id": "visual-design", "label": "Visual design" },
+  { "id": "design-systems", "label": "Design systems" },
+  { "id": "information-architecture", "label": "Information architecture" },
+  { "id": "content-microcopy", "label": "Content and microcopy" },
+  { "id": "accessibility", "label": "Accessibility" },
+  { "id": "journey-mapping", "label": "Journey mapping and service blueprints" },
+  { "id": "stakeholder-management", "label": "Stakeholder management" },
+  { "id": "workshop-facilitation", "label": "Workshop facilitation" },
+  { "id": "product-strategy", "label": "Product strategy and prioritisation" },
+  { "id": "data-analytics", "label": "Data and analytics" },
+  { "id": "front-end-prototyping", "label": "Front-end prototyping (HTML and CSS)" },
+  { "id": "team-leadership", "label": "Team leadership and mentoring" }
+]

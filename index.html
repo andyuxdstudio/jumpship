@@ -6,6 +6,7 @@
   <title>Jump Ship</title>
   <meta name="description" content="Jump Ship maps the UX skills you already have to careers that fit your hours, your pay and your family, then lets you try one in about two hours.">
   <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L16 21 L5 21 Z' fill='%23f2b134' stroke='%230c2a45' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M18 8 L18 21 L27 21 Z' fill='none' stroke='%230c2a45' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M3 25 H29 L26 29 H6 Z' fill='%230c2a45'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
   <!-- Delete this bar when the tools are live (stage 8). -->
   <div class="preview-bar" role="note">
     <div class="wrap">
-      <p>Preview build, stage 1 of 8. The look and layout are real. The filters, matches and tasters arrive in the next stages.</p>
+      <p>Preview build, stage 2 of 8. The limits and skill picker work and save on your device. Matches, the wheel and tasters arrive next.</p>
     </div>
   </div>
 
@@ -33,6 +34,7 @@
       </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
+          <li><a href="#start">Set your course</a></li>
           <li><a href="#how">How it works</a></li>
           <li><a href="#example">Example match</a></li>
           <li><a href="#straight-talk">Straight talk</a></li>
@@ -48,7 +50,7 @@
           <h1 id="hero-title">Your UX skills can take you further than your job title.</h1>
           <p class="hero-lede">Tell us the pay and hours your family needs. Jump Ship maps the work you already do to careers that fit, then lets you try one in about two hours.</p>
           <div class="hero-actions">
-            <a class="btn" href="#how">Chart my course</a>
+            <a class="btn" href="#start">Chart my course</a>
             <p class="hero-note">No sign-up. Your answers stay on your device.</p>
           </div>
         </div>
@@ -82,6 +84,87 @@
             <text class="label end-label" x="280" y="470" text-anchor="end">A port that fits</text>
           </svg>
         </figure>
+      </div>
+    </section>
+
+    <section class="section" id="start" aria-labelledby="start-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="start-title">Set your course</h2>
+          <p>Two questions about your limits, then the UX work you do. It takes about two minutes.</p>
+        </div>
+
+        <div class="course">
+          <form class="course-form" id="course-form" novalidate>
+            <fieldset class="group">
+              <legend>Your limits</legend>
+              <p class="group-note">Careers that break either limit never appear in your matches.</p>
+
+              <div class="field">
+                <label for="income">Lowest salary you can accept</label>
+                <p class="hint" id="income-hint">Per year, before tax, in pounds.</p>
+                <div class="money">
+                  <span class="money-sign" aria-hidden="true">£</span>
+                  <input id="income" name="income" type="text" inputmode="numeric" autocomplete="off" aria-describedby="income-hint income-error" placeholder="45,000">
+                </div>
+                <p class="error" id="income-error" hidden></p>
+              </div>
+
+              <fieldset class="field choices">
+                <legend>Most hours a week you can work in person</legend>
+                <p class="hint" id="hours-hint">Time at a desk, a client's office or on site. Working from home does not count.</p>
+                <label class="choice"><input type="radio" name="hours" value="0" aria-describedby="hours-hint"><span>None, fully remote</span></label>
+                <label class="choice"><input type="radio" name="hours" value="8" aria-describedby="hours-hint"><span>Up to 8 hours (about 1 day)</span></label>
+                <label class="choice"><input type="radio" name="hours" value="16" aria-describedby="hours-hint"><span>Up to 16 hours (about 2 days)</span></label>
+                <label class="choice"><input type="radio" name="hours" value="24" aria-describedby="hours-hint"><span>Up to 24 hours (about 3 days)</span></label>
+                <label class="choice"><input type="radio" name="hours" value="40" aria-describedby="hours-hint"><span>Full time in person</span></label>
+              </fieldset>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend>The UX work you do</legend>
+              <p class="group-note">Tick everything you have done in the last year or two. Your matches are built from these.</p>
+              <ul class="skills" id="skills" role="list">
+                <li class="skills-loading">Loading skills.</li>
+              </ul>
+              <noscript><p class="error">Jump Ship needs JavaScript to show the skills list.</p></noscript>
+
+              <div class="field add-skill">
+                <label for="custom-skill">Add one we missed</label>
+                <div class="add-row">
+                  <input id="custom-skill" type="text" maxlength="60" autocomplete="off" aria-describedby="custom-error" placeholder="For example, design critique">
+                  <button class="btn-secondary" type="button" id="add-skill">Add skill</button>
+                </div>
+                <p class="error" id="custom-error" hidden></p>
+              </div>
+            </fieldset>
+
+            <div class="form-foot">
+              <p class="status" id="status" role="status"></p>
+              <button class="btn-quiet" type="button" id="clear-answers">Clear my answers</button>
+            </div>
+          </form>
+
+          <aside class="summary" aria-labelledby="summary-title">
+            <h3 id="summary-title">Your course so far</h3>
+            <dl>
+              <div>
+                <dt>Lowest salary</dt>
+                <dd id="sum-income">Not set</dd>
+              </div>
+              <div>
+                <dt>In-person hours</dt>
+                <dd id="sum-hours">Not set</dd>
+              </div>
+              <div>
+                <dt>Skills</dt>
+                <dd id="sum-skills-count">None picked yet</dd>
+              </div>
+            </dl>
+            <ul class="chips" id="sum-skills" aria-label="Skills you picked" hidden></ul>
+            <p class="summary-note">Your answers stay on this device. Your top five matches arrive in the next stage.</p>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -173,5 +256,7 @@
       <p><a href="https://github.com/andyuxdstudio/jumpship/blob/main/docs/PRD.md">Read the plan</a></p>
     </div>
   </footer>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
