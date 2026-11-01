@@ -1158,12 +1158,13 @@ body.no-scroll { overflow: hidden; }
 .fin-move { transform-box: fill-box; transform-origin: 50% 100%; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .fin-a .fin-move { animation: fin-sway 3.2s ease-in-out infinite alternate; }
-  .fin-b .fin-move { animation: fin-sway 3.8s ease-in-out -1.4s infinite alternate; }
+  .fin-a .fin-move { animation: fin-patrol 5s ease-in-out infinite alternate; }
+  .fin-b .fin-move { animation: fin-patrol 5s ease-in-out -2.5s infinite alternate; }
 }
-@keyframes fin-sway {
-  from { transform: translateX(-4px) rotate(-3deg); }
-  to { transform: translateX(4px) translateY(1px) rotate(3deg); }
+/* Straight horizontal line, one way and back, no rotation or drift */
+@keyframes fin-patrol {
+  from { transform: translateX(-14px); }
+  to { transform: translateX(14px); }
 }
 
 /* ---------- Wildcard character ---------- */
