@@ -1238,7 +1238,7 @@ body.no-scroll { overflow: hidden; }
 
 .match.has-char {
   width: 100%;
-  max-width: 62rem;
+  max-width: none;
   display: flex;
   flex-direction: column;
 }
@@ -1329,7 +1329,7 @@ body.no-scroll { overflow: hidden; }
 .ai-risk-basis:last-child { margin-bottom: 0; }
 
 /* Wheel result is wider than the matches list */
-#wheel-result.results, #matches-list.results { max-width: 62rem; }
+#wheel-result.results, #matches-list.results { max-width: none; }
 
 
 .brand-jump { font-style: italic; }
@@ -1589,3 +1589,11 @@ body.no-scroll { overflow: hidden; }
 #wheel-button::before, .hero .btn::before { content: none; display: none; }
 
 .hero h1, .hero-lede { margin-inline: auto; }
+
+/* The career card spans the full width of the container */
+.results { max-width: none; }
+.results .match { max-width: none; }
+
+/* Footer: the two links sit together on the right with a 24px gap */
+.site-footer .wrap { justify-content: flex-start; column-gap: 24px; }
+.site-footer .wrap > p:first-child { margin-right: auto; }
