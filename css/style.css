@@ -1126,34 +1126,40 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ---------- Wildcard character ---------- */
-.wild-item {
+.wild-item { display: block; }
+
+.wild-item > .match {
+  width: 100%;
+  max-width: 62rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-3);
 }
-
-.wild-item > .match { width: 100%; }
 
 .wild-char {
   flex: none;
   width: 8.5rem;
   height: auto;
   order: -1;
+  align-self: center;
+  margin-bottom: var(--space-2);
 }
 
 @media (min-width: 52rem) {
-  .wild-item { flex-direction: row; align-items: flex-end; gap: var(--space-2); }
-  .wild-item > .match { width: auto; flex: 1 1 0; min-width: 0; }
-  .wild-char { width: 9rem; order: 0; }
-}
-
-/* On wide screens the card keeps its full width and the character
-   stands beside it, in the empty space to the right. */
-@media (min-width: 74rem) {
-  .wild-item { position: relative; display: block; }
-  .wild-item > .match { width: 100%; }
-  .wild-char { position: absolute; left: calc(100% + var(--space-3)); bottom: 0; width: 11rem; }
+  .wild-item > .match {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 12rem;
+    column-gap: var(--space-3);
+    align-items: start;
+  }
+  .wild-item > .match > * { grid-column: 1; }
+  .wild-item > .match > .wild-char {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    order: 0;
+    width: 12rem;
+    align-self: center;
+    margin: 0;
+  }
 }
 
 /* ---------- Menu: hamburger on small screens ---------- */
@@ -1213,3 +1219,6 @@ body.no-scroll { overflow: hidden; }
 .ai-risk-figure { margin: 0 0 var(--space-2); font-weight: 700; }
 .ai-risk-basis { margin: 0 0 var(--space-2); font-size: 0.9rem; }
 .ai-risk-basis:last-child { margin-bottom: 0; }
+
+/* Wheel result is wider than the matches list */
+#wheel-result.results { max-width: 62rem; }

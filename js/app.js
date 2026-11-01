@@ -684,7 +684,7 @@
     art.setAttribute("focusable", "false");
     use.setAttribute("href", "#ch-" + wild.id);
     art.appendChild(use);
-    item.appendChild(art);
+    card.appendChild(art);
     return item;
   }
 
