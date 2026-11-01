@@ -1129,5 +1129,29 @@
     }
   })();
 
+  // The fin on the wave dividers: one slow pass (about 110 px a second), then ten seconds of calm.
+  // The timing depends on how wide the screen is, so the keyframes are written here.
+  (function finTiming() {
+    var style = document.createElement("style");
+    document.head.appendChild(style);
+    function set() {
+      var span = window.innerWidth + 270;      // the wave path starts 240px off the left edge
+      var pathPx = 3360;                      // horizontal length of that path
+      var travel = span / 110;                // seconds for one pass
+      var total = travel + 10;
+      var end = Math.min(100, (span / pathPx) * 100).toFixed(2);
+      var go = ((travel / total) * 100).toFixed(2);
+      var after = (parseFloat(go) + 0.1).toFixed(2);
+      style.textContent =
+        "@keyframes fin-glide{0%{offset-distance:0%;opacity:1}" +
+        go + "%{offset-distance:" + end + "%;opacity:1}" +
+        after + "%{offset-distance:" + end + "%;opacity:0}" +
+        "100%{offset-distance:" + end + "%;opacity:0}}" +
+        ".section::after,.site-footer::after{animation-duration:" + total.toFixed(1) + "s!important}";
+    }
+    set();
+    window.addEventListener("resize", set);
+  })();
+
   start();
 })();

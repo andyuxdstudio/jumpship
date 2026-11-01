@@ -1331,18 +1331,19 @@ body.no-scroll { overflow: hidden; }
   opacity: 0;
   pointer-events: none;
 }
+/* One slow pass, then ten seconds of calm. js/app.js rewrites the timing to fit the screen width. */
 @media (prefers-reduced-motion: no-preference) {
   .section::after,
-  .site-footer::after { animation: fin-glide 64s linear infinite; }
-  .section:nth-of-type(2)::after { animation-delay: -12s; animation-duration: 72s; }
-  .section:nth-of-type(3)::after { animation-delay: -41s; animation-duration: 68s; }
-  .section:nth-of-type(4)::after { animation-delay: -27s; animation-duration: 76s; }
-  .site-footer::after { animation-delay: -50s; animation-duration: 70s; }
+  .site-footer::after { animation: fin-glide 30s linear infinite; }
+  .section:nth-of-type(2)::after { animation-delay: -3s; }
+  .section:nth-of-type(3)::after { animation-delay: -7s; }
+  .section:nth-of-type(4)::after { animation-delay: -11s; }
+  .site-footer::after { animation-delay: -5s; }
 }
 @keyframes fin-glide {
   0%   { offset-distance: 0%; opacity: 1; }
-  38%  { offset-distance: 100%; opacity: 1; }
-  39%  { offset-distance: 100%; opacity: 0; }
+  40%  { offset-distance: 100%; opacity: 1; }
+  41%  { offset-distance: 100%; opacity: 0; }
   100% { offset-distance: 100%; opacity: 0; }
 }
 
