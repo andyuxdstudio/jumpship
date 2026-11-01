@@ -1244,5 +1244,17 @@
     });
   })();
 
+  // Back to top link in the footer: smooth scroll, then move focus to the skip link area at the top.
+  (function backToTop() {
+    var link = document.getElementById("back-to-top");
+    if (!link) return;
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
+      var brand = document.querySelector(".brand");
+      if (brand) brand.focus({ preventScroll: true });
+    });
+  })();
+
   start();
 })();
