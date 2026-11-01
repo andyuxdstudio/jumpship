@@ -1304,7 +1304,7 @@ body.no-scroll { overflow: hidden; }
   -webkit-mask: var(--btn-icon) center / contain no-repeat;
   mask: var(--btn-icon) center / contain no-repeat;
 }
-#jump-button { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M14 3 L14 21 L4 21 Z M17 8 L17 21 L28 21 Z' fill='black'/%3E%3Cpath d='M2 24 H30 L27 29 H5 Z' fill='black'/%3E%3C/svg%3E"); }
+#jump-button { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='33 0 30 30'%3E%3Cpath d='M36 11 C38.200 8.800 41 7.500 44 7 M36.800 16.800 C39.200 14.600 42 13.200 45 12.500 M36.600 10.400 C38 9.400 39.500 8.800 41 8.500' fill='none' stroke='black' stroke-opacity='0.55' stroke-width='1.600' stroke-linecap='round'/%3E%3Cg transform='rotate(35 51 15)' stroke='black' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='51' cy='7.500' r='3.800' fill='black' stroke-width='1'/%3E%3Cpath d='M51 11 V19' stroke-width='3' fill='none'/%3E%3Cpath d='M51 13 L46.500 9 M51 13 L55.500 9' stroke-width='2' fill='none'/%3E%3Cpath d='M51 19 L48 25.500 M51 19 L54 25.500' stroke-width='2' fill='none'/%3E%3C/g%3E%3C/svg%3E"); }
 #wheel-button { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='16' cy='16' r='8'/%3E%3Cpath d='M16 3v26M3 16h26M6.800 6.800l18.400 18.400M6.800 25.200L25.200 6.800'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='3.500' fill='black'/%3E%3Ccircle cx='16' cy='3' r='2' fill='black'/%3E%3Ccircle cx='16' cy='29' r='2' fill='black'/%3E%3Ccircle cx='3' cy='16' r='2' fill='black'/%3E%3Ccircle cx='29' cy='16' r='2' fill='black'/%3E%3C/svg%3E"); }
 
 /* An occasional shark fin gliding along the wave dividers. It rides the same wave curve as the line,
@@ -1345,3 +1345,4 @@ body.no-scroll { overflow: hidden; }
 }
 
 .hero .btn { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='black' stroke-width='2.400'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Cpath d='M16 6 L20 16 L12 16 Z' fill='black'/%3E%3Cpath d='M16 26 L20 16 L12 16 Z' fill='none' stroke='black' stroke-width='1.600' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E"); }
+#jump-button::before { width: 1.8em; height: 1.8em; margin-right: 0.5rem; }
