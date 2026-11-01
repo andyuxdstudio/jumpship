@@ -863,6 +863,7 @@
     matchesNotice.hidden = true;
     matchesTitle.textContent = "Your top five matches";
     matchesIntro.textContent = MATCHES_INTRO;
+    matchesSection.classList.remove("is-empty");
 
     if (careers === null) return;
     if (!careers.length) {
@@ -889,6 +890,7 @@
     if (result.shown.length === 0) {
       matchesTitle.textContent = "No matches have been found this time.";
       matchesIntro.textContent = "Try selecting more skills or modifying your income floor.";
+      matchesSection.classList.add("is-empty");
       matchesStatus.textContent = "";
     } else {
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
