@@ -1435,3 +1435,9 @@ body.no-scroll { overflow: hidden; }
   .tip-body:not([hidden]) { animation: tip-in 0.18s ease-out; }
 }
 @keyframes tip-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* Tighter spacing between the AI tooltip link and the pay caption (halved) */
+.matches-status { margin-top: calc(var(--space-3) / 2); }
+.matches-status:empty { min-height: 0; margin-top: 0; }
+.results { margin-top: calc(var(--space-3) / 2); }
+.match-caption { margin-top: calc(var(--space-2) / 2); }
