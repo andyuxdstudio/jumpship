@@ -29,6 +29,7 @@
   var matchesStatus = document.getElementById("matches-status");
   var matchesList = document.getElementById("matches-list");
   var matchesNotes = document.getElementById("matches-notes");
+  var matchesNotice = document.getElementById("matches-notice");
 
   var catalogue = [];
   var careers = null; /* null while loading, an array once loaded (empty if it failed) */
@@ -410,7 +411,7 @@
       flags.push("Starting offers may be lower than your floor. The low end of advertised pay is " + money(career.pay.p10) + ".");
     }
     if (result.flags.hoursStretch) {
-      flags.push("Fully remote roles are rarer here. Most employers ask for about a day in person.");
+      flags.push("Not fully remote: most employers ask for about a day a week in person.");
     }
     if (result.flags.limitedData) {
       flags.push("Limited data: " + result.flags.limitedData);
@@ -431,9 +432,25 @@
     return item;
   }
 
+  function showRemoteNotice() {
+    var paragraph = document.createElement("p");
+    var title = document.createElement("strong");
+    title.textContent = "No fully remote roles found. ";
+    paragraph.appendChild(title);
+    paragraph.appendChild(document.createTextNode(
+      "None of the " + careers.length + " careers we cover is a fully remote role, so here is the next best thing: " +
+      "careers where employers typically ask for about a day a week in person. " +
+      "Our hours are estimates and vary by employer, so check each job ad for what it requires."
+    ));
+    matchesNotice.appendChild(paragraph);
+    matchesNotice.hidden = false;
+  }
+
   function renderMatches() {
     matchesList.textContent = "";
     matchesNotes.textContent = "";
+    matchesNotice.textContent = "";
+    matchesNotice.hidden = true;
 
     if (careers === null) return;
     if (!careers.length) {
@@ -468,6 +485,7 @@
     } else {
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
         (result.fitting === 1 ? " career that fits" : " careers that fit") + " your limits and skills.";
+      if (state.hours === 0) showRemoteNotice();
       result.shown.forEach(function (entry) { matchesList.appendChild(buildCard(entry)); });
       if (result.fitting < JumpShipMatch.TOP) {
         addNote("Only " + result.fitting + " of the " + result.counts.total + " careers fit. Lowering your salary floor, allowing more hours in person or ticking more skills would widen the list.");
