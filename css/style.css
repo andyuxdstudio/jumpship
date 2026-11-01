@@ -1674,3 +1674,6 @@ body.has-result .seabed {
 }
 @keyframes boat-wave-l { from { transform: rotate(-38deg); } to { transform: rotate(24deg); } }
 @keyframes boat-wave-r { from { transform: rotate(38deg); } to { transform: rotate(-24deg); } }
+
+/* Bring the sea floor 25% closer to the career card */
+body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
