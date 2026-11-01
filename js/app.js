@@ -540,7 +540,7 @@
         dd.appendChild(list);
         var src = document.createElement("span");
         src.className = "pay-source";
-        if (wild.aiRisk.sources.length) src.appendChild(document.createTextNode("Sources: "));
+        src.appendChild(document.createTextNode("Sources: "));
         wi.sources.forEach(function (s, i) {
           if (i) { src.appendChild(document.createTextNode(", ")); }
           var a = document.createElement("a");
