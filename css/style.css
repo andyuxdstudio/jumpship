@@ -1346,3 +1346,12 @@ body.no-scroll { overflow: hidden; }
   line-height: 1.4;
   margin-top: calc(0.5rem - var(--space-4));
 }
+
+/* Summary box: just the icon, heading and a waiting line until the first answer */
+.summary-waiting {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+.summary:not(.is-waiting) .summary-waiting,
+.summary.is-waiting .summary-body { display: none; }

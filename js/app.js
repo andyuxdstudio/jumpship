@@ -288,6 +288,9 @@
   }
 
   function renderSummary() {
+    var started = incomeInput.value.length > 0 || state.income !== null || state.hours !== null ||
+      state.skills.length + state.custom.length > 0;
+    document.getElementById("summary").classList.toggle("is-waiting", !started);
     sumIncome.textContent = state.income === null ? "Not set" : "£" + formatIncome(state.income) + " a year";
     sumHours.textContent = hoursLabel();
 
@@ -1015,6 +1018,7 @@
 
     form.addEventListener("submit", function (event) { event.preventDefault(); });
     incomeInput.addEventListener("input", handleIncomeInput);
+    incomeInput.addEventListener("input", renderSummary);
     incomeInput.addEventListener("blur", handleIncomeBlur);
     form.addEventListener("change", handleHoursChange);
     skillsList.addEventListener("change", handleSkillChange);

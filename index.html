@@ -183,8 +183,10 @@
             </div>
           </form>
 
-          <aside class="summary" aria-labelledby="summary-title">
+          <aside class="summary is-waiting" id="summary" aria-labelledby="summary-title">
             <h3 id="summary-title">Your trajectory so far</h3>
+            <p class="summary-waiting" id="summary-waiting">Waiting for instruction...</p>
+            <div class="summary-body" id="summary-body">
             <dl>
               <div>
                 <dt>Lowest salary</dt>
@@ -209,6 +211,7 @@
                 <input id="share-link" type="text" readonly>
               </div>
               <p class="summary-note">The link holds your answers in its address, so anyone you send it to can see them. Nothing is stored on a server.</p>
+            </div>
             </div>
           </aside>
         </div>
