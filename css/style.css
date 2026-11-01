@@ -1342,7 +1342,7 @@ body.no-scroll { overflow: hidden; }
 
 /* Jump ship error: small, tucked under the button */
 .error-warn {
-  font-size: 0.6875rem;
+  font-size: 0.825rem;
   line-height: 1.4;
   margin-top: calc(0.5rem - var(--space-4));
 }
