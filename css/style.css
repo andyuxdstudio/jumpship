@@ -1677,3 +1677,32 @@ body.has-result .seabed {
 
 /* Bring the sea floor 25% closer to the career card */
 body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
+
+/* "Your career alternative" as a canted badge on the upper right of the career card */
+#result .section-head { margin: 0; }
+#wheel-result { margin-top: var(--space-4); }
+.match { position: relative; }
+.career-badge {
+  position: absolute;
+  top: -1.15rem;
+  right: 1.5rem;
+  transform: rotate(2.5deg);
+  filter: drop-shadow(0 2px 0 color-mix(in srgb, var(--ink) 35%, transparent));
+}
+.career-badge-text {
+  display: block;
+  padding: 0.5rem 1.7rem 0.5rem 1.2rem;
+  background: var(--buoy);
+  color: var(--on-buoy);
+  font-weight: 700;
+  font-size: var(--step-0);
+  line-height: 1.2;
+  white-space: nowrap;
+  clip-path: polygon(0 0, 100% 0, 93% 100%, 4% 100%);
+}
+@media (max-width: 30rem) {
+  .career-badge { right: 0.75rem; }
+  .career-badge-text { font-size: var(--step--1); padding: 0.4rem 1.4rem 0.4rem 0.9rem; }
+}
+#result.wheel-section { padding-top: var(--space-4); }
+#wheel-result { margin-top: var(--space-3); }

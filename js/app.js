@@ -52,6 +52,14 @@
     var details = document.createElement("dl");
 
     card.className = "match";
+    var badge = document.createElement("span");
+    badge.className = "career-badge";
+    badge.setAttribute("aria-hidden", "true");
+    var badgeText = document.createElement("span");
+    badgeText.className = "career-badge-text";
+    badgeText.textContent = "Your career alternative";
+    badge.appendChild(badgeText);
+    card.appendChild(badge);
     card.setAttribute("aria-labelledby", "wild-" + wild.id);
     heading.id = "wild-" + wild.id;
     heading.textContent = wild.name;
