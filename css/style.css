@@ -1598,3 +1598,22 @@ body.no-scroll { overflow: hidden; }
 /* Footer: the two links sit together on the right with a 24px gap */
 .site-footer .wrap { justify-content: flex-start; column-gap: 24px; }
 .site-footer .wrap > p:first-child { margin-right: auto; }
+
+/* ---------- A little boat sails along the wave divider above the footer ---------- */
+.site-footer { overflow-x: clip; }
+.drift-boat {
+  position: absolute;
+  left: 0;
+  top: -74px;
+  width: 7rem;
+  pointer-events: none;
+  transform: translateX(33vw);
+}
+.drift-boat svg { display: block; width: 100%; height: auto; transform-origin: 50% 90%; }
+@media (prefers-reduced-motion: no-preference) {
+  .drift-boat { animation: drift-first 16s linear forwards, drift-loop 22s linear 17s infinite; }
+  .drift-boat svg { animation: drift-bob 3.4s ease-in-out infinite alternate; }
+}
+@keyframes drift-first { from { transform: translateX(33vw); } to { transform: translateX(calc(100vw + 20px)); } }
+@keyframes drift-loop { from { transform: translateX(-9rem); } to { transform: translateX(calc(100vw + 20px)); } }
+@keyframes drift-bob { from { transform: rotate(-2.2deg) translateY(1px); } to { transform: rotate(2.2deg) translateY(-1px); } }
