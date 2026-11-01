@@ -1334,15 +1334,9 @@ body.no-scroll { overflow: hidden; }
 /* Wheel result is wider than the matches list */
 #wheel-result.results, #matches-list.results { max-width: 62rem; }
 
-/* Share link fallback box */
-.share-box { margin-top: var(--space-2); max-width: 36rem; }
-.share-box label { display: block; font-weight: 700; margin-bottom: 0.3rem; }
-.share-box input { width: 100%; font: inherit; padding: 0.6rem 0.75rem; border: 2px solid var(--ink); border-radius: 0.4rem; background: var(--surface); color: var(--ink); }
 
 .brand-jump { font-style: italic; }
 
-.summary-share { margin-top: var(--space-2); display: grid; gap: 0.4rem; justify-items: start; }
-.summary-share .status:empty { display: none; }
 
 /* Icons inside the two main action buttons. Drawn with a mask so they take the button's text colour, including on hover. */
 #jump-button::before,
