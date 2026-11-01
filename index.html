@@ -89,11 +89,24 @@
             <path class="contour" d="M 385 468 C 392 427 441 407 487 415 C 526 422 535 450 529 476 C 523 494 492 498 450 494 C 410 490 382 485 385 468 Z"/>
             <path class="contour land" d="M 430 465 C 436 445 462 436 487 441 C 507 445 510 460 505 473 C 500 481 482 483 460 481 C 440 479 428 476 430 465 Z"/>
 
+            <!-- Shark fins either side of the course -->
+            <g class="fin fin-a" transform="translate(232 326)">
+              <g class="fin-move">
+                <path class="fin-body" d="M-10 0 C-4 -2 0 -10 3 -18 C6 -10 11 -3 16 0 Z"/>
+                <path class="fin-ripple" d="M-16 3 q4 -3 8 0 t8 0 t8 0 t8 0 t8 0"/>
+              </g>
+            </g>
+            <g class="fin fin-b" transform="translate(344 352) scale(-1 1)">
+              <g class="fin-move">
+                <path class="fin-body" d="M-10 0 C-4 -2 0 -10 3 -18 C6 -10 11 -3 16 0 Z"/>
+                <path class="fin-ripple" d="M-16 3 q4 -3 8 0 t8 0 t8 0 t8 0 t8 0"/>
+              </g>
+            </g>
             <!-- The course -->
             <path class="course" d="M 255 255 C 345 285 235 365 302 432" mask="url(#reveal)"/>
             <circle class="mark" cx="255" cy="255" r="9"/>
             <circle class="mark-end" cx="302" cy="432" r="12"/>
-            <g class="boat-still" transform="translate(240 213)">
+            <g class="boat-still" transform="translate(265 213)">
               <path class="boat-sail" d="M14 2 L14 24 L2 24 Z"/>
               <path class="boat-sail2" d="M16 8 L16 24 L27 24 Z"/>
               <path class="boat-hull" d="M0 28 H30 L27 33 H3 Z"/>

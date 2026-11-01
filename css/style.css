@@ -1153,6 +1153,20 @@ body.no-scroll { overflow: hidden; }
   to { offset-distance: 86%; }
 }
 
+/* ---------- Shark fins beside the course ---------- */
+.fin-body { fill: var(--ink); stroke: var(--ink); stroke-width: 0.75; stroke-linejoin: round; opacity: 0.85; }
+.fin-ripple { fill: none; stroke: var(--course); stroke-width: 1.2; stroke-linecap: round; opacity: 0.8; }
+.fin-move { transform-box: fill-box; transform-origin: 50% 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fin-a .fin-move { animation: fin-sway 3.2s ease-in-out infinite alternate; }
+  .fin-b .fin-move { animation: fin-sway 3.8s ease-in-out -1.4s infinite alternate; }
+}
+@keyframes fin-sway {
+  from { transform: translateX(-4px) rotate(-3deg); }
+  to { transform: translateX(4px) translateY(1px) rotate(3deg); }
+}
+
 /* ---------- Wildcard character ---------- */
 .wild-item { display: block; }
 
