@@ -475,6 +475,18 @@
     return line;
   }
 
+  function buildCharacter(id) {
+    var art = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    art.setAttribute("class", "wild-char");
+    art.setAttribute("viewBox", "0 0 120 130");
+    art.setAttribute("aria-hidden", "true");
+    art.setAttribute("focusable", "false");
+    use.setAttribute("href", "#ch-" + id);
+    art.appendChild(use);
+    return art;
+  }
+
   function buildCard(result) {
     var career = result.career;
     var item = document.createElement("li");
@@ -589,6 +601,8 @@
       card.appendChild(flagList);
     }
 
+    card.classList.add("has-char");
+    card.appendChild(buildCharacter(career.id));
     item.appendChild(card);
     return item;
   }
@@ -682,15 +696,8 @@
 
     item.className = "wild-item";
     item.appendChild(card);
-    var art = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    art.setAttribute("class", "wild-char");
-    art.setAttribute("viewBox", "0 0 120 130");
-    art.setAttribute("aria-hidden", "true");
-    art.setAttribute("focusable", "false");
-    use.setAttribute("href", "#ch-" + wild.id);
-    art.appendChild(use);
-    card.appendChild(art);
+    card.classList.add("has-char");
+    card.appendChild(buildCharacter(wild.id));
     return item;
   }
 

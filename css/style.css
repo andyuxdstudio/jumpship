@@ -1180,7 +1180,7 @@ body.no-scroll { overflow: hidden; }
 /* ---------- Wildcard character ---------- */
 .wild-item { display: block; }
 
-.wild-item > .match {
+.match.has-char {
   width: 100%;
   max-width: 62rem;
   display: flex;
@@ -1197,14 +1197,14 @@ body.no-scroll { overflow: hidden; }
 }
 
 @media (min-width: 52rem) {
-  .wild-item > .match {
+  .match.has-char {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 12rem;
     column-gap: var(--space-3);
     align-items: start;
   }
-  .wild-item > .match > * { grid-column: 1; }
-  .wild-item > .match > .wild-char {
+  .match.has-char > * { grid-column: 1; }
+  .match.has-char > .wild-char {
     grid-column: 2;
     grid-row: 1 / span 6;
     order: 0;
@@ -1273,4 +1273,4 @@ body.no-scroll { overflow: hidden; }
 .ai-risk-basis:last-child { margin-bottom: 0; }
 
 /* Wheel result is wider than the matches list */
-#wheel-result.results { max-width: 62rem; }
+#wheel-result.results, #matches-list.results { max-width: 62rem; }
