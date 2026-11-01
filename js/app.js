@@ -1044,60 +1044,103 @@
     }
   })();
 
-  /* ---------- Background waves: slow parallax that eases to a stop ---------- */
+  /* ---------- Background: drifting underwater dust. The bigger the speck, the faster it moves as you scroll ---------- */
 
-  (function () {
-    var root = document.documentElement;
-    var motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
-    var SPEED = 0.8;     /* how far the waves are pushed back against the page */
-    var EASE_MS = 450;   /* larger means a longer, softer stop */
-    var current = 0;
-    var running = false;
-    var last = 0;
+  (function underwaterDust() {
+    var canvas = document.createElement("canvas");
+    canvas.className = "dust";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.insertBefore(canvas, document.body.firstChild);
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    function target() {
-      return (window.pageYOffset || 0) * SPEED;
-    }
+    var specks = [];
+    var width = 0, height = 0, ratio = 1;
+    var queued = false;
+    var startTime = Date.now();
 
-    function set(value) {
-      root.style.setProperty("--wave-a", value.toFixed(1) + "px");
-    }
-
-    function frame(now) {
-      if (motionQuery && motionQuery.matches) {
-        running = false;
-        root.style.removeProperty("--wave-a");
-        return;
+    function build() {
+      specks = [];
+      var count = Math.max(40, Math.min(110, Math.round(width * height / 14000)));
+      for (var i = 0; i < count; i += 1) {
+        // Many small specks, fewer large ones
+        var r = 1 + Math.pow(Math.random(), 2.2) * 11;
+        specks.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: r,
+          speed: 0.12 + r * 0.075,            // larger means faster
+          squash: 0.8 + Math.random() * 0.4,   // slightly uneven, not perfect circles
+          tilt: Math.random() * Math.PI,
+          phase: Math.random() * Math.PI * 2,
+          sway: 4 + Math.random() * 10,
+          alpha: 0.05 + Math.random() * 0.07
+        });
       }
-      var dt = Math.min(now - last, 64);
-      last = now;
-      var goal = target();
-      current += (goal - current) * (1 - Math.exp(-dt / EASE_MS));
-      if (Math.abs(goal - current) < 0.15) {
-        current = goal;
-        set(current);
-        running = false;
-        return;
+    }
+
+    function size() {
+      ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      build();
+      draw();
+    }
+
+    function colour() {
+      var dark = document.documentElement.getAttribute("data-theme") === "dark";
+      return dark ? "232,243,246" : "12,42,69";
+    }
+
+    function draw() {
+      queued = false;
+      var calm = reducedMotion();
+      var scroll = calm ? 0 : (window.pageYOffset || 0);
+      var t = calm ? 0 : (Date.now() - startTime) / 1000;
+      var rgb = colour();
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      for (var i = 0; i < specks.length; i += 1) {
+        var d = specks[i];
+        var span = height + d.r * 4;
+        // Scrolling down pushes specks up, faster for bigger ones. Wrap around the screen.
+        var y = ((d.y - scroll * d.speed) % span + span) % span - d.r * 2;
+        var x = d.x + Math.sin(t * 0.25 + d.phase) * d.sway;
+        var g = ctx.createRadialGradient(x, y, 0, x, y, d.r);
+        g.addColorStop(0, "rgba(" + rgb + "," + d.alpha + ")");
+        g.addColorStop(0.7, "rgba(" + rgb + "," + (d.alpha * 0.8).toFixed(3) + ")");
+        g.addColorStop(1, "rgba(" + rgb + ",0)");
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(d.tilt);
+        ctx.scale(1, d.squash);
+        ctx.translate(-x, -y);
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
       }
-      set(current);
-      window.requestAnimationFrame(frame);
     }
 
-    function wake() {
-      if (running) return;
-      running = true;
-      last = window.performance.now();
-      window.requestAnimationFrame(frame);
+    function queue() {
+      if (!queued) { queued = true; window.requestAnimationFrame(draw); }
     }
 
-    current = target();
-    set(current);
-    window.addEventListener("scroll", wake, { passive: true });
-    if (motionQuery && motionQuery.addEventListener) {
-      motionQuery.addEventListener("change", function () {
-        if (motionQuery.matches) { root.style.removeProperty("--wave-a"); } else { current = target(); set(current); }
-      });
+    // Slow idle drift, so the water is never completely still
+    var idle = null;
+    function startIdle() {
+      if (idle || reducedMotion()) return;
+      idle = window.setInterval(function () { if (!document.hidden) queue(); }, 66);
     }
+
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", size);
+    new MutationObserver(queue).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    size();
+    startIdle();
   })();
 
   // Sea creatures near the wheel drift at their own random speeds as the page scrolls (parallax).
