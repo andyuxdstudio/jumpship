@@ -1198,16 +1198,6 @@ body.no-scroll { overflow: hidden; }
   .chart .boat { animation: chart-sail 3.6s ease-in-out 0.5s both; }
 }
 
-/* The sailor tumbles as he jumps along the course, three turns, and lands upright */
-.sailor-spin { transform-box: fill-box; transform-origin: 50% 50%; }
-@media (prefers-reduced-motion: no-preference) {
-  .chart .sailor-spin { animation: sailor-spin 3.6s ease-in-out 0.5s both; }
-}
-@keyframes sailor-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(1080deg); }
-}
-
 @keyframes chart-sail {
   from { offset-distance: 23%; }
   to { offset-distance: 86%; }
