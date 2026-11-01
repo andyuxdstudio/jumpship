@@ -197,6 +197,7 @@
     if (!ctx) return;
 
     var stars = [];
+    var clouds = [];
     var shots = [];
     var width = 0, height = 0, ratio = 1;
     var startTime = Date.now();
@@ -220,6 +221,30 @@
       }
     }
 
+    function buildClouds() {
+      clouds = [];
+      var count = Math.max(3, Math.min(6, Math.round(width / 260)));
+      for (var i = 0; i < count; i += 1) {
+        var depth = 0.35 + Math.random() * 0.65;               // nearer clouds are bigger and faster
+        var w = 70 + depth * 110;
+        var bumps = [];
+        var n = 4 + Math.floor(Math.random() * 3);
+        for (var k = 0; k < n; k += 1) {
+          var t = n === 1 ? 0.5 : k / (n - 1);
+          var r = w * (0.13 + 0.11 * Math.sin(Math.PI * t) + Math.random() * 0.04);
+          bumps.push({ dx: (t - 0.5) * w * 0.9, dy: -r * 0.45 - Math.random() * w * 0.04, r: r });
+        }
+        clouds.push({
+          x: Math.random() * (width + 400),
+          y: 30 + Math.random() * Math.max(120, height * 0.55),
+          w: w, depth: depth, bumps: bumps,
+          drift: 5 + depth * 13,                               // pixels a second, right to left
+          par: 0.04 + depth * 0.12,                            // scroll parallax
+          alpha: 0.35 + depth * 0.3
+        });
+      }
+    }
+
     function size() {
       ratio = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
@@ -227,7 +252,12 @@
       canvas.width = Math.round(width * ratio);
       canvas.height = Math.round(height * ratio);
       build();
+      buildClouds();
       draw(Date.now());
+    }
+
+    function isDark() {
+      return document.documentElement.getAttribute("data-theme") === "dark";
     }
 
     function colour() {
@@ -251,6 +281,25 @@
       });
     }
 
+    function drawClouds(t, scroll) {
+      for (var i = 0; i < clouds.length; i += 1) {
+        var c = clouds[i];
+        var span = width + c.w + 200;
+        var x = ((c.x - t * c.drift - scroll * c.par * 0.3) % span + span) % span - c.w * 0.5 - 100;
+        var y = c.y - scroll * c.par;
+        ctx.fillStyle = "rgba(255,255,255," + c.alpha.toFixed(3) + ")";
+        ctx.beginPath();
+        for (var k = 0; k < c.bumps.length; k += 1) {
+          var b = c.bumps[k];
+          ctx.moveTo(x + b.dx + b.r, y + b.dy);
+          ctx.arc(x + b.dx, y + b.dy, b.r, 0, Math.PI * 2);
+        }
+        // a flat, soft underside
+        ctx.rect(x - c.w * 0.42, y - c.w * 0.04, c.w * 0.84, c.w * 0.08);
+        ctx.fill();
+      }
+    }
+
     function draw(now) {
       var calm = reducedMotion();
       var scroll = calm ? 0 : (window.pageYOffset || 0);
@@ -269,6 +318,12 @@
       ctx.beginPath();
       ctx.rect(0, 0, width, Math.max(0, horizon));
       ctx.clip();
+
+      if (!isDark()) {
+        drawClouds(t, scroll);
+        ctx.restore();
+        return;
+      }
 
       for (var i = 0; i < stars.length; i += 1) {
         var s = stars[i];
@@ -311,7 +366,7 @@
     function loop(now) {
       window.requestAnimationFrame(loop);
       if (document.hidden) return;
-      var wait = shots.length ? 33 : 90;     // smooth while a star is streaking, calm otherwise
+      var wait = (shots.length || !isDark()) ? 33 : 90;     // smooth while a star is streaking, calm otherwise
       if (now - last < wait) return;
       last = now;
       draw(Date.now());
