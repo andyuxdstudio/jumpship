@@ -1326,6 +1326,8 @@ body.no-scroll { overflow: hidden; }
   offset-rotate: 0deg;
   offset-anchor: 50% 96%;
   offset-distance: 0%;
+  transform: scaleX(-1);
+  transform-origin: 50% 100%;
   opacity: 0;
   pointer-events: none;
 }
