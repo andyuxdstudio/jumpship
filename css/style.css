@@ -1085,23 +1085,23 @@ body.no-scroll { overflow: hidden; }
 
 .creature {
   position: absolute;
-  width: 5.1rem;
-  height: 5.1rem;
+  width: 2.55rem;
+  height: 2.55rem;
   opacity: 0.95;
   pointer-events: none;
 }
 
-.c-octopus { left: 0; top: -1.8rem; }
-.c-dolphin { left: min(16.5rem, 40vw); top: -3rem; width: 6rem; height: 6rem; }
-.c-fish { left: min(22.5rem, 62vw); bottom: -0.6rem; width: 3.6rem; height: 3.6rem; }
-.c-axolotl { left: 28.5rem; top: -2.1rem; width: 5.7rem; height: 5.7rem; }
-.c-shark { left: 7.5rem; bottom: -2.2rem; width: 6rem; height: 6rem; }
-.c-squid { left: 31rem; bottom: -1.6rem; width: 5.2rem; height: 5.2rem; }
+.c-octopus { left: 1.28rem; top: -0.52rem; }
+.c-dolphin { left: min(18rem, 40vw); top: -1.5rem; width: 3rem; height: 3rem; }
+.c-fish { left: min(23.4rem, 62vw); bottom: 0.3rem; width: 1.8rem; height: 1.8rem; }
+.c-axolotl { left: 29.9rem; top: -0.68rem; width: 2.85rem; height: 2.85rem; }
+.c-shark { left: 9rem; bottom: -0.7rem; width: 3rem; height: 3rem; }
+.c-squid { left: 32.3rem; bottom: -0.3rem; width: 2.6rem; height: 2.6rem; }
 
 @media (max-width: 40rem) {
   .c-axolotl, .c-fish, .c-shark, .c-squid { display: none; }
-  .c-dolphin { left: calc(62vw + 0.5rem); top: 0; width: 5rem; height: 5rem; }
-  .c-octopus { width: 4.2rem; height: 4.2rem; }
+  .c-dolphin { left: calc(62vw + 1.75rem); top: 1.25rem; width: 2.5rem; height: 2.5rem; }
+  .c-octopus { width: 2.1rem; height: 2.1rem; }
 }
 
 /* Creatures drift gently while the wheel spins */
