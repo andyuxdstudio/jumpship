@@ -1115,9 +1115,11 @@ body.no-scroll { overflow: hidden; }
 .c-axolotl { left: 29.9rem; top: -0.68rem; width: 2.85rem; height: 2.85rem; }
 .c-shark { left: 9rem; bottom: -0.7rem; width: 3rem; height: 3rem; }
 .c-squid { left: 32.3rem; bottom: -0.3rem; width: 2.6rem; height: 2.6rem; }
+.c-snake { left: 3.8rem; bottom: -0.6rem; width: 3rem; height: 3rem; }
+.c-ray { left: 14.8rem; bottom: -0.9rem; width: 3.2rem; height: 3.2rem; }
 
 @media (max-width: 40rem) {
-  .c-axolotl, .c-fish, .c-shark, .c-squid { display: none; }
+  .c-axolotl, .c-fish, .c-shark, .c-squid, .c-snake, .c-ray { display: none; }
   .c-dolphin { left: calc(62vw + 1.75rem); top: 1.25rem; width: 2.5rem; height: 2.5rem; }
   .c-octopus { width: 2.1rem; height: 2.1rem; }
 }
@@ -1131,6 +1133,8 @@ body.no-scroll { overflow: hidden; }
   .c-shark { right: 5rem; top: 14.5rem; }
   .c-fish { right: 17rem; top: 19rem; }
   .c-squid { right: 2.5rem; top: 21.5rem; }
+  .c-snake { right: 8.5rem; top: 8.5rem; }
+  .c-ray { right: 10rem; top: 25rem; }
 }
 
 /* Creatures drift gently while the wheel spins */
@@ -1141,6 +1145,8 @@ body.no-scroll { overflow: hidden; }
   .is-spinning .c-fish { animation-name: creature-drift; animation-duration: 1.6s; }
   .is-spinning .c-shark { animation-name: creature-swim; animation-duration: 2.8s; animation-delay: -1.1s; }
   .is-spinning .c-squid { animation-name: creature-bob; animation-duration: 2.1s; animation-delay: -0.5s; }
+  .is-spinning .c-snake { animation-name: creature-drift; animation-duration: 1.9s; animation-delay: -0.7s; }
+  .is-spinning .c-ray { animation-name: creature-swim; animation-duration: 2.4s; animation-delay: -1.5s; }
   .is-spinning .c-axolotl { animation-name: creature-bob; animation-duration: 2.3s; animation-delay: -0.8s; }
 }
 @keyframes creature-bob { from { transform: translateY(-5px) rotate(-4deg); } to { transform: translateY(5px) rotate(4deg); } }
