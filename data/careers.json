@@ -192,6 +192,11 @@
         "why": "You already map journeys, which is the core method of service design."
       },
       {
+        "id": "service-blueprints",
+        "weight": 2,
+        "why": "You already blueprint services, showing the front and back stage that service design joins up."
+      },
+      {
         "id": "workshop-facilitation",
         "weight": 2,
         "why": "You run sessions that get a group to agree, which service design depends on."
@@ -411,6 +416,11 @@
         "id": "journey-mapping",
         "weight": 2,
         "why": "You map how work flows, which analysts do to find where a process breaks."
+      },
+      {
+        "id": "service-blueprints",
+        "weight": 1,
+        "why": "You show what sits behind a service, which helps an analyst find where a process breaks."
       },
       {
         "id": "information-architecture",
