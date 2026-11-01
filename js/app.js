@@ -1216,5 +1216,16 @@
     });
   })();
 
+  // Button at the end of the matches: back up to the top of Set your trajectory.
+  (function backToStart() {
+    var button = document.getElementById("back-to-start");
+    var target = document.getElementById("start-title");
+    if (!button || !target) return;
+    button.addEventListener("click", function () {
+      document.getElementById("start").scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
+      target.focus({ preventScroll: true });
+    });
+  })();
+
   start();
 })();

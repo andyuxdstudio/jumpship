@@ -1446,3 +1446,5 @@ body.no-scroll { overflow: hidden; }
 #matches.is-empty .toggle,
 #matches.is-empty .tip,
 #matches.is-empty .match-caption { display: none; }
+
+.back-to-start { margin-top: var(--space-3); }
