@@ -103,7 +103,7 @@ Three questions remain open, and nothing is built until this PRD is agreed.
 
 - **Jump ship flow:** answering the form and pressing Jump ship plays a short boat-and-shark animation, then shows the top five matches, each with a character, pay, AI exposure, ways in and a two-hour taster. Fully remote work is flagged before the results.
 - **Matching:** 14 experience design adjacent careers, ranked on hours, income, skills and an optional low-AI preference.
-- **Change course entirely:** a spin-the-wheel feature with 32 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.
+- **Change course entirely:** a spin-the-wheel feature with 56 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.
 - **Saving and sharing:** answers save on the device. Copy link puts the answers in the address after the #, so nothing reaches a server.
 - **Analytics:** none at launch. Feedback goes by an email link in the footer.
 - **Accessibility:** automated checks for contrast, names, headings, targets and focus pass in light and dark at desktop and phone width.

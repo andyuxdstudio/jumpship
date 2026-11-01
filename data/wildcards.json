@@ -577,5 +577,427 @@
         }
       ]
     }
+  },
+  {
+    "id": "painter-and-decorator",
+    "name": "Painter and decorator",
+    "hook": "Finishes building interiors and exteriors with paint, wallpaper and other coverings.",
+    "pay": "£21,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/painter-and-decorator",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores painters (construction and maintenance) 50 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hgv-driver",
+    "name": "HGV driver",
+    "hook": "Moves goods, including bulk materials and liquids, from suppliers to customers across the UK.",
+    "pay": "£27,000 starting to £47,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/large-goods-vehicle-driver",
+    "aiRisk": {
+      "percent": 35,
+      "basis": "AI Exposure scores heavy truck drivers 58 out of 100 overall. We rounded up because driverless lorries are being tested.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bus-or-coach-driver",
+    "name": "Bus or coach driver",
+    "hook": "Carries passengers on routes that range from local trips to journeys overseas.",
+    "pay": "£25,000 starting to £37,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/bus-or-coach-driver",
+    "aiRisk": {
+      "percent": 30,
+      "basis": "AI Exposure scores bus drivers 57 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "butcher",
+    "name": "Butcher",
+    "hook": "Prepares and sells meat and poultry, and makes sausages, burgers and pies.",
+    "pay": "£18,000 starting to £26,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/butcher",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores butchers and meat cutters 61 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hairdresser",
+    "name": "Hairdresser",
+    "hook": "Cuts, shaves, colours and styles customers' hair.",
+    "pay": "£19,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hairdresser",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores hairdressers 42 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "police-officer",
+    "name": "Police officer",
+    "hook": "Responds to incidents, investigates crimes and works with communities to keep them safe.",
+    "pay": "£30,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/police-officer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores police patrol officers 38 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dentist",
+    "name": "Dentist",
+    "hook": "Examines, diagnoses and treats problems with teeth and gums, and helps patients prevent dental disease.",
+    "pay": "£55,000 starting to £117,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dentist",
+    "aiRisk": {
+      "percent": null,
+      "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
+      "sources": []
+    }
+  },
+  {
+    "id": "librarian",
+    "name": "Librarian",
+    "hook": "Manages access to books, digital resources, archives and computers in public and commercial libraries.",
+    "pay": "£25,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/librarian",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores librarians 58 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "actor",
+    "name": "Actor",
+    "hook": "Uses speech, movement and expression to bring characters to life in theatre, film, television and radio.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/actor",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores actors 44 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "musician",
+    "name": "Musician",
+    "hook": "Writes or plays music across many genres, including classical, pop and rock.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/classical-musician",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores musicians and singers 39 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dancer",
+    "name": "Dancer",
+    "hook": "Performs in a wide range of styles, from classical ballet to street dance, on stage and in recorded shows.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dancer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores dancers 40 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "journalist",
+    "name": "Newspaper or magazine journalist",
+    "hook": "Produces written pieces for local, regional, national and online outlets.",
+    "pay": "£24,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/newspaper-journalist",
+    "aiRisk": {
+      "percent": 35,
+      "basis": "AI Exposure scores reporters and journalists 48 out of 100 overall. We rounded up because AI writing tools already compete with parts of this work.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "primary-school-teacher",
+    "name": "Primary school teacher",
+    "hook": "Supports the learning, social and emotional growth of children aged 3 to 11.",
+    "pay": "£34,000 starting to £53,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/primary-school-teacher",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure only lists a combined group of school teachers, which it scores 36 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "coastguard",
+    "name": "Coastguard",
+    "hook": "Coordinates search and rescue, monitors shipping and organises pollution clean-ups along the UK coastline.",
+    "pay": "£25,000 starting to £37,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/coastguard",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, other protective service workers, 37 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "tourist-guide",
+    "name": "Tourist guide",
+    "hook": "Leads visitors through historic buildings, parks, galleries and museums in cities, towns and rural areas.",
+    "pay": "£19,000 starting to £25,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tourist-guide",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores tour and travel guides 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "locksmith",
+    "name": "Locksmith",
+    "hook": "Fits, fixes and maintains locks for homes and businesses.",
+    "pay": "£23,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/locksmith",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores locksmiths and safe repairers 64 out of 100 overall. We lowered it because most of the work is hands-on call-outs.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dispensing-optician",
+    "name": "Dispensing optician",
+    "hook": "Fits customers with glasses and contact lenses and advises them on eye care.",
+    "pay": "£28,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dispensing-optician",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores dispensing opticians 47 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "land-surveyor",
+    "name": "Land surveyor",
+    "hook": "Maps terrain and collects data for civil engineering and construction projects.",
+    "pay": "£20,000 starting to £50,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/land-surveyor",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores surveyors 50 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "veterinary-nurse",
+    "name": "Veterinary nurse",
+    "hook": "Helps vets treat and care for animals that are ill or injured.",
+    "pay": "£24,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/veterinary-nurse",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores the closest match, veterinary technologists and technicians, 38 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "midwife",
+    "name": "Midwife",
+    "hook": "Looks after expectant parents and newborns from pregnancy through labour and the postnatal period.",
+    "pay": "£32,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/midwife",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "AI Exposure scores nurse midwives 48 out of 100 overall. We lowered it because the work is hands-on and personal.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cabin-crew",
+    "name": "Cabin crew",
+    "hook": "Makes sure airline passengers have a safe, comfortable and enjoyable flight.",
+    "pay": "£21,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/cabin-crew",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores flight attendants 45 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fishing-boat-deckhand",
+    "name": "Fishing boat deckhand",
+    "hook": "Runs and maintains fishing gear, nets and lines, and processes the catch as it comes in.",
+    "pay": "£22,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/fishing-boat-deckhand",
+    "aiRisk": {
+      "percent": null,
+      "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
+      "sources": []
+    }
+  },
+  {
+    "id": "dental-hygienist",
+    "name": "Dental hygienist",
+    "hook": "Helps prevent tooth decay and gum disease while advising patients on maintaining good oral health.",
+    "pay": "£32,000 starting to £57,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dental-hygienist",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores dental hygienists 57 out of 100 overall. We lowered it because the work is hands-on.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "animal-care-worker",
+    "name": "Animal care worker",
+    "hook": "Looks after animals at kennels, rescue centres, pet shops and sanctuaries.",
+    "pay": "£21,000 starting to £24,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/animal-care-worker",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, animal caretakers, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
   }
 ]
