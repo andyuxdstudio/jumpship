@@ -173,38 +173,6 @@
 
   wheelButton.addEventListener("click", spinWheel);
 
-  /* ---------- Menu: hamburger on small screens ---------- */
-
-  (function () {
-    var header = document.querySelector(".site-header");
-    var toggle = document.getElementById("nav-toggle");
-    var nav = document.getElementById("site-nav");
-    if (!header || !toggle || !nav) return;
-    var small = window.matchMedia ? window.matchMedia("(max-width: 63.99rem)") : null;
-
-    header.classList.add("nav-js");
-    toggle.hidden = false;
-
-    function setOpen(open, refocus) {
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      nav.classList.toggle("is-open", open);
-      if (!open && refocus) { toggle.focus(); }
-    }
-
-    toggle.addEventListener("click", function () {
-      setOpen(toggle.getAttribute("aria-expanded") !== "true");
-    });
-    nav.addEventListener("click", function (event) {
-      if (event.target.closest && event.target.closest("a")) { setOpen(false); }
-    });
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { setOpen(false, true); }
-    });
-    if (small && small.addEventListener) {
-      small.addEventListener("change", function () { setOpen(false); });
-    }
-  })();
-
   /* ---------- Background: small, subtle ocean bubbles. Bigger bubbles move faster as you scroll ---------- */
 
   (function oceanBubbles() {
