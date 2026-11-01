@@ -301,16 +301,6 @@ a:hover {
   stroke-dashoffset: 0;
 }
 
-.chart .label {
-  font-family: var(--font-body);
-  font-size: 22px;
-  fill: var(--ink);
-  paint-order: stroke;
-  stroke: var(--shallows);
-  stroke-width: 5px;
-  stroke-linejoin: round;
-}
-
 @keyframes chart-draw {
   from {
     stroke-dashoffset: 1;
