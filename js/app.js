@@ -401,6 +401,34 @@
       dd.textContent = "Usually at least " + DAYS[career.minHours] + " a week in person. This is our estimate and it varies by employer.";
     });
 
+    if (career.waysIn) {
+      addRow(details, "Ways in", function (dd) {
+        var wi = career.waysIn;
+        var list = document.createElement("ul");
+        list.className = "ways-in";
+        wi.routes.forEach(function (text) {
+          var li = document.createElement("li");
+          li.textContent = text;
+          list.appendChild(li);
+        });
+        dd.appendChild(list);
+        var src = document.createElement("span");
+        src.className = "pay-source";
+        src.appendChild(document.createTextNode("Sources: "));
+        wi.sources.forEach(function (s, i) {
+          if (i) { src.appendChild(document.createTextNode(", ")); }
+          var a = document.createElement("a");
+          a.href = s.url;
+          a.rel = "noopener";
+          a.textContent = s.label;
+          src.appendChild(a);
+        });
+        src.appendChild(document.createTextNode("."));
+        dd.appendChild(src);
+        if (wi.caveat) { addLine(dd, "next-step", wi.caveat); }
+      });
+    }
+
     card.appendChild(heading);
     card.appendChild(why);
     card.appendChild(uses);
