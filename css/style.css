@@ -1658,3 +1658,14 @@ body.has-result .seabed {
   -webkit-mask: var(--sand-ridge) repeat-x 0 0 / 300px 40px;
   mask: var(--sand-ridge) repeat-x 0 0 / 300px 40px;
 }
+
+/* The sailor on the drifting boat waves both arms: hello, or perhaps mayday */
+.boat-arm { transform-box: fill-box; }
+.boat-arm-l { transform-origin: 100% 100%; }
+.boat-arm-r { transform-origin: 0% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .boat-arm-l { animation: boat-wave-l 0.55s ease-in-out infinite alternate; }
+  .boat-arm-r { animation: boat-wave-r 0.55s ease-in-out infinite alternate-reverse; }
+}
+@keyframes boat-wave-l { from { transform: rotate(-38deg); } to { transform: rotate(24deg); } }
+@keyframes boat-wave-r { from { transform: rotate(38deg); } to { transform: rotate(-24deg); } }
