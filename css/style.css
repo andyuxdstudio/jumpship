@@ -56,6 +56,19 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --warn: #f2b134;
+  --shallows: #071c2f;
+  --surface: #0d2b45;
+  --ink: #e8f3f6;
+  --ink-soft: #b3cad5;
+  --current: #78cdd9;
+  --rule: #2f5570;
+  --focus: #f2b134;
+  --contour: #1f4a63;
+  --course: #78cdd9;
+}
+
 *,
 *::before,
 *::after {
@@ -1448,3 +1461,45 @@ body.no-scroll { overflow: hidden; }
 #matches.is-empty .match-caption { display: none; }
 
 .back-to-start { margin-top: var(--space-3); }
+
+/* Dark and light mode switch in the header */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-toggle::before {
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 14.500A8.500 8.500 0 0 1 9.500 4 8.500 8.500 0 1 0 20 14.500z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 14.500A8.500 8.500 0 0 1 9.500 4 8.500 8.500 0 1 0 20 14.500z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+:root[data-theme="dark"] .theme-toggle::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4.500' fill='black'/%3E%3Cpath d='M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900l2.100 2.100M17 17l2.100 2.100M4.900 19.100 7 17M17 7l2.100-2.100' stroke='black' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4.500' fill='black'/%3E%3Cpath d='M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900l2.100 2.100M17 17l2.100 2.100M4.900 19.100 7 17M17 7l2.100-2.100' stroke='black' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+}
+.theme-toggle:hover { background: var(--buoy); color: var(--on-buoy); border-color: var(--on-buoy); }
+@media (min-width: 64rem) {
+  .site-nav { margin-left: auto; }
+}
+@media (max-width: 63.99rem) {
+  .theme-toggle { order: 1; margin-left: auto; }
+  .nav-toggle { order: 2; margin-left: 0; }
+  .site-nav { order: 3; }
+}
+@media (max-width: 30rem) {
+  .brand { gap: 0.4rem; font-size: 1.25rem; }
+  .brand svg { width: 4.3rem; height: 2.55rem; }
+  .site-header .wrap { column-gap: 0.4rem; }
+}

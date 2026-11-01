@@ -11,6 +11,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* Set the theme before the page paints so there is no flash. A saved choice wins, then the device setting. */
+    (function () {
+      var theme = null;
+      try { theme = window.localStorage.getItem("jumpship.theme"); } catch (e) { /* storage is optional */ }
+      if (theme !== "dark" && theme !== "light") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
@@ -45,6 +56,7 @@
           <li><a href="#straight-talk">Straight talk</a></li>
         </ul>
       </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" hidden></button>
     </div>
   </header>
 

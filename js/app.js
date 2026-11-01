@@ -1225,5 +1225,24 @@
     });
   })();
 
+  // Dark and light switch in the header. The head script has already set data-theme.
+  (function themeSwitch() {
+    var button = document.getElementById("theme-toggle");
+    if (!button) return;
+    var root = document.documentElement;
+    function current() { return root.getAttribute("data-theme") === "dark" ? "dark" : "light"; }
+    function label() {
+      button.setAttribute("aria-label", current() === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    }
+    button.hidden = false;
+    label();
+    button.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { window.localStorage.setItem("jumpship.theme", next); } catch (error) { /* saving is optional */ }
+      label();
+    });
+  })();
+
   start();
 })();
