@@ -910,35 +910,60 @@
       });
   }
 
-  /* ---------- Background waves: slow parallax while scrolling ---------- */
+  /* ---------- Background waves: slow parallax that eases to a stop ---------- */
 
   (function () {
     var root = document.documentElement;
-    var ticking = false;
     var motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+    var SPEED = 0.8;     /* how far the waves are pushed back against the page */
+    var EASE_MS = 450;   /* larger means a longer, softer stop */
+    var current = 0;
+    var running = false;
+    var last = 0;
 
-    function paint() {
-      ticking = false;
+    function target() {
+      return (window.pageYOffset || 0) * SPEED;
+    }
+
+    function set(value) {
+      root.style.setProperty("--wave-a", value.toFixed(1) + "px");
+    }
+
+    function frame(now) {
       if (motionQuery && motionQuery.matches) {
+        running = false;
         root.style.removeProperty("--wave-a");
-        root.style.removeProperty("--wave-b");
         return;
       }
-      var y = window.pageYOffset || 0;
-      root.style.setProperty("--wave-a", Math.round(y * 0.8) + "px");
-      root.style.setProperty("--wave-b", Math.round(y * 0.5) + "px");
-    }
-
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(paint);
+      var dt = Math.min(now - last, 64);
+      last = now;
+      var goal = target();
+      current += (goal - current) * (1 - Math.exp(-dt / EASE_MS));
+      if (Math.abs(goal - current) < 0.15) {
+        current = goal;
+        set(current);
+        running = false;
+        return;
       }
+      set(current);
+      window.requestAnimationFrame(frame);
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    if (motionQuery && motionQuery.addEventListener) { motionQuery.addEventListener("change", paint); }
-    paint();
+    function wake() {
+      if (running) return;
+      running = true;
+      last = window.performance.now();
+      window.requestAnimationFrame(frame);
+    }
+
+    current = target();
+    set(current);
+    window.addEventListener("scroll", wake, { passive: true });
+    if (motionQuery && motionQuery.addEventListener) {
+      motionQuery.addEventListener("change", function () {
+        if (motionQuery.matches) { root.style.removeProperty("--wave-a"); } else { current = target(); set(current); }
+      });
+    }
   })();
 
   start();
