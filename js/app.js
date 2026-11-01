@@ -711,6 +711,17 @@
       risk.className = "ai-risk";
       risk.setAttribute("role", "group");
       risk.setAttribute("aria-label", "AI risk estimate");
+      var robot = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      robot.setAttribute("class", "ai-robot");
+      robot.setAttribute("aria-hidden", "true");
+      robot.setAttribute("focusable", "false");
+      var robotUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      robotUse.setAttribute("href", "#ic-robot");
+      robot.appendChild(robotUse);
+      risk.appendChild(robot);
+      var riskText = document.createElement("div");
+      riskText.className = "ai-risk-text";
+      risk.appendChild(riskText);
       big.className = "ai-risk-figure";
       var hasPct = typeof wild.aiRisk.percent === "number";
       big.textContent = hasPct
@@ -730,9 +741,9 @@
         if (i) src.appendChild(document.createTextNode(", "));
         src.appendChild(a);
       });
-      risk.appendChild(big);
-      risk.appendChild(basis);
-      if (wild.aiRisk.sources.length) risk.appendChild(src);
+      riskText.appendChild(big);
+      riskText.appendChild(basis);
+      if (wild.aiRisk.sources.length) riskText.appendChild(src);
       card.appendChild(risk);
     }
 

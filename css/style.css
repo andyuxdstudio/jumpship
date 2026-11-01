@@ -1562,3 +1562,17 @@ body.no-scroll { overflow: hidden; }
   text-transform: uppercase;
   color: var(--current);
 }
+
+/* Robot head icon at the left of the AI risk box */
+.ai-risk {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+}
+.ai-robot { width: 3.25rem; height: 3.25rem; flex: none; }
+.ai-risk-text { min-width: 0; }
+@media (max-width: 30rem) {
+  .ai-risk { grid-template-columns: 1fr; }
+  .ai-robot { width: 2.75rem; height: 2.75rem; margin-bottom: 0.5rem; }
+}
