@@ -1244,49 +1244,5 @@
     });
   })();
 
-  // Faint sea creatures in the page background, in the same colour and strength the waves had.
-  // The pattern is shuffled on every visit: random creatures, places, sizes and turns.
-  (function backgroundCreatures() {
-    var shapes = [
-      { fill: "M6 32c8-12 24-14 36-4l14-8v24l-14-8C30 46 14 44 6 32z" },
-      { fill: "M6 44C8 28 22 16 40 18c4-8 10-8 14-8-2 4-2 8-6 11 6 2 10 8 10 14-6-4-10-3-14 0 0 8-8 14-20 14-8 0-16-3-18-9z M30 20c-4-8-2-12 0-14 4 2 6 8 4 14z" },
-      { fill: "M4 38C14 26 34 22 50 30l10-10-2 13 5 12-13-6C34 50 14 50 4 38z M28 25 33 10 41 27z" },
-      { fill: "M14 30c0-12 8-20 18-20s18 8 18 20c0 4-2 7-4 9H18c-2-2-4-5-4-9z", line: "M20 39c-3 6-8 6-9 12M28 40c-1 7-6 8-5 13M36 40c1 7 5 8 5 13M44 39c3 6 8 6 9 11", w: 2.5 },
-      { fill: "M32 4c9 6 12 20 8 32H24C20 24 23 10 32 4z M24 16 14 20l10 6z M40 16l10 4-10 6z", line: "M25 36c-2 8-6 12-5 20M29 36c0 8-2 14-1 22M35 36c0 8 2 14 1 22M39 36c2 8 6 12 5 20", w: 2.5 },
-      { fill: "M3 30C13 18 24 15 32 20 40 15 51 18 61 30 51 42 40 42 32 46 24 42 13 42 3 30z", line: "M32 44C34 52 40 58 48 62", w: 2.5 },
-      { line: "M6 44C14 20 26 22 32 34S50 50 55 28", w: 6 },
-      { fill: "M12 34a20 16 0 1 0 40 0 20 16 0 1 0-40 0z", line: "M14 26 6 20M13 31 4 31M14 36 6 42M50 26l8-6M51 31l9 0M50 36l8 6", w: 2.5 }
-    ];
-    var W = 1100, H = 920, MARGIN = 80, COUNT = 15, MIN_GAP = 190;
-    var placed = [];
-    var out = "";
-    var tries = 0;
-    while (placed.length < COUNT && tries < 800) {
-      tries += 1;
-      var x = MARGIN + Math.random() * (W - 2 * MARGIN);
-      var y = MARGIN + Math.random() * (H - 2 * MARGIN);
-      var near = placed.some(function (q) { return Math.hypot(q[0] - x, q[1] - y) < MIN_GAP; });
-      if (near) continue;
-      placed.push([x, y]);
-      var shape = shapes[Math.floor(Math.random() * shapes.length)];
-      var size = 1.1 + Math.random() * 0.9;                 // 64px base, so about 70 to 130px
-      var turn = (Math.random() - 0.5) * 60;                // up to 30 degrees either way
-      var flip = Math.random() < 0.5 ? -1 : 1;
-      out += '<g transform="translate(' + x.toFixed(0) + " " + y.toFixed(0) + ") rotate(" + turn.toFixed(0) +
-        ") scale(" + (size * flip).toFixed(2) + " " + size.toFixed(2) + ') translate(-32 -32)">' +
-        (shape.fill ? '<path d="' + shape.fill + '"/>' : "") +
-        (shape.line ? '<path d="' + shape.line + '" fill="none" stroke-width="' + shape.w + '" stroke-linecap="round"/>' : "") +
-        "</g>";
-    }
-    function tile(colour, opacity) {
-      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + " " + H + '">' +
-        '<g opacity="' + opacity + '" fill="' + colour + '" stroke="' + colour + '">' + out + "</g></svg>";
-      return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
-    }
-    var root = document.documentElement;
-    root.style.setProperty("--creatures-light", tile("#0c2a45", 0.049));
-    root.style.setProperty("--creatures-dark", tile("#e8f3f6", 0.042));
-  })();
-
   start();
 })();
