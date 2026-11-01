@@ -1608,5 +1608,6 @@ body.no-scroll { overflow: hidden; }
 /* ---------- Jump scene in the hero (replaces the wheel) ---------- */
 .hero-scene { width: min(42rem, 150%); max-width: none; }
 .hero { overflow-x: clip; }
-.hero-scene .jump-title[hidden] { display: none; }
+.hero-scene .jump-title[hidden] { display: block; visibility: hidden; }
+.hero-wheel #wheel-status { min-height: 1.5em; margin: 0; }
 .hero-wheel { min-height: 0; }
