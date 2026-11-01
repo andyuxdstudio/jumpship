@@ -258,6 +258,17 @@
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       ctx.clearRect(0, 0, width, height);
 
+      // The first wave divider on the page is the horizon. Nothing is drawn below it.
+      var horizon = height;
+      var edges = [document.getElementById("result"), document.querySelector(".site-footer")];
+      for (var e = 0; e < edges.length; e += 1) {
+        if (edges[e] && !edges[e].hidden) { horizon = Math.min(height, edges[e].getBoundingClientRect().top); break; }
+      }
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(0, 0, width, Math.max(0, horizon));
+      ctx.clip();
+
       for (var i = 0; i < stars.length; i += 1) {
         var s = stars[i];
         var y = ((s.y - scroll * s.speed) % height + height) % height;
@@ -268,7 +279,7 @@
         ctx.fill();
       }
 
-      if (calm) return;
+      if (calm) { ctx.restore(); return; }
       if (now >= nextShot) {
         launchShot();
         nextShot = now + 7000 + Math.random() * 9000;
@@ -293,6 +304,7 @@
         ctx.lineTo(hx - m.vx * tail, hy - m.vy * tail);
         ctx.stroke();
       }
+      ctx.restore();
     }
 
     function loop(now) {
