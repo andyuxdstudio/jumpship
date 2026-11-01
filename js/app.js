@@ -1164,5 +1164,36 @@
     }
   })();
 
+  // Sea creatures near the wheel drift at their own random speeds as the page scrolls (parallax).
+  (function creatureParallax() {
+    var creatures = Array.prototype.slice.call(document.querySelectorAll(".creature"));
+    var box = document.querySelector(".wheel-box");
+    if (!creatures.length || !box) return;
+    var motion = creatures.map(function () {
+      var sign = Math.random() < 0.5 ? -1 : 1;
+      return { y: sign * (0.12 + Math.random() * 0.28), x: (Math.random() - 0.5) * 0.2 };
+    });
+    var queued = false;
+    function update() {
+      queued = false;
+      if (reducedMotion()) {
+        creatures.forEach(function (el) { el.style.translate = ""; });
+        return;
+      }
+      var rect = box.getBoundingClientRect();
+      if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
+      var offset = rect.top + rect.height / 2 - window.innerHeight / 2;
+      creatures.forEach(function (el, i) {
+        el.style.translate = (offset * motion[i].x).toFixed(1) + "px " + (offset * motion[i].y).toFixed(1) + "px";
+      });
+    }
+    function queue() {
+      if (!queued) { queued = true; window.requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    update();
+  })();
+
   start();
 })();
