@@ -1155,7 +1155,6 @@ body.no-scroll { overflow: hidden; }
 
 /* ---------- Shark fins beside the course ---------- */
 .fin-body { fill: var(--ink); stroke: var(--ink); stroke-width: 0.75; stroke-linejoin: round; opacity: 0.85; }
-.fin-ripple { fill: none; stroke: var(--course); stroke-width: 1.2; stroke-linecap: round; opacity: 0.8; }
 .fin-move { transform-box: fill-box; transform-origin: 50% 100%; }
 
 @media (prefers-reduced-motion: no-preference) {
