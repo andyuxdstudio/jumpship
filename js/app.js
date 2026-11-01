@@ -781,6 +781,34 @@
     matchesTitle.focus({ preventScroll: true });
   }
 
+  var jumpError = document.getElementById("jump-error");
+
+  function missingSelections() {
+    var missing = [];
+    if (state.income === null) missing.push("your lowest salary");
+    if (state.hours === null) missing.push("your in-person hours");
+    if (state.skills.length + state.custom.length === 0) missing.push("at least one skill");
+    return missing;
+  }
+
+  function clearJumpError() {
+    jumpError.hidden = true;
+    jumpError.textContent = "";
+  }
+
+  function tryJump() {
+    var missing = missingSelections();
+    if (missing.length) {
+      var list = missing.length === 1 ? missing[0]
+        : missing.slice(0, -1).join(", ") + " and " + missing[missing.length - 1];
+      jumpError.textContent = "Selections are required. Add " + list + " to jump ship.";
+      jumpError.hidden = false;
+      return;
+    }
+    clearJumpError();
+    startJump();
+  }
+
   function startJump() {
     if (!jumpOverlay.hidden) return;
     var reduce = reducedMotion();
@@ -797,7 +825,9 @@
     jumpTimer = window.setTimeout(finishJump, reduce ? 1000 : 2800);
   }
 
-  jumpButton.addEventListener("click", startJump);
+  jumpButton.addEventListener("click", tryJump);
+  document.getElementById("course-form").addEventListener("input", clearJumpError);
+  document.getElementById("course-form").addEventListener("change", clearJumpError);
   jumpAgain.addEventListener("click", startJump);
   jumpSkip.addEventListener("click", finishJump);
   wheelButton.addEventListener("click", spinWheel);

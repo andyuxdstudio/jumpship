@@ -12,6 +12,7 @@
   --current: #0b6270;
   --rule: #9cc2ca;
   --buoy: #f2b134;
+  --warn: #b24a00;
   --on-buoy: #0c2a45;
   --focus: #0c2a45;
   --contour: #7fb0bb;
@@ -42,6 +43,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --warn: #f2b134;
     --shallows: #071c2f;
     --surface: #0d2b45;
     --ink: #e8f3f6;
@@ -538,6 +540,8 @@ a:hover {
   max-width: 36rem;
   font-weight: 700;
 }
+
+.error-warn { color: var(--warn); }
 
 .error[hidden] {
   display: none;
@@ -1138,7 +1142,7 @@ body.no-scroll { overflow: hidden; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { --waves: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(232,243,246,0.042)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E"); }
 }
-:root[data-theme="dark"] { --waves: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(232,243,246,0.042)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E"); }
+:root[data-theme="dark"] { --warn: #f2b134; --waves: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(232,243,246,0.042)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E"); }
 
 /* ---------- The boat on the chart ---------- */
 .chart .boat { display: none; }
