@@ -1190,13 +1190,22 @@ body.no-scroll { overflow: hidden; }
   }
 }
 
-.boat-hull { fill: var(--ink); stroke: var(--ink); stroke-width: 0.75; stroke-linejoin: round; }
-.boat-sail { fill: var(--buoy); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
-.boat-sail2 { fill: var(--surface); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
+.boat-hull { fill: var(--ink); stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.boat-sail { fill: var(--buoy); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.boat-sail2 { fill: var(--surface); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
 
 @media (prefers-reduced-motion: no-preference) {
   .chart .boat { animation: chart-sail 3.6s ease-in-out 0.5s both; }
 }
+
+/* Arms wave while he travels, then settle */
+.chart .arm { transform-box: view-box; transform-origin: 51px 13px; }
+@media (prefers-reduced-motion: no-preference) {
+  .chart .arm-l { animation: wave-l 0.36s ease-in-out 0.5s 10 alternate both; }
+  .chart .arm-r { animation: wave-r 0.36s ease-in-out 0.5s 10 alternate both; }
+}
+@keyframes wave-l { from { transform: rotate(0deg); } to { transform: rotate(-60deg); } }
+@keyframes wave-r { from { transform: rotate(0deg); } to { transform: rotate(60deg); } }
 
 @keyframes chart-sail {
   from { offset-distance: 23%; }
