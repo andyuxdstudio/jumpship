@@ -231,7 +231,16 @@
 
     function buildClouds() {
       clouds = [];
-      var count = Math.max(3, Math.min(6, Math.round(width / 260)));
+      // Each cloud keeps to its own horizontal lane, so clouds never overlap whatever speed they drift at
+      var laneTop = 200;
+      var laneBottom = Math.max(laneTop + 110, height * 0.75);
+      var lanes = [];
+      for (var ly = laneTop; ly <= laneBottom; ly += 115) lanes.push(ly);
+      for (var s = lanes.length - 1; s > 0; s -= 1) {
+        var pick = Math.floor(Math.random() * (s + 1));
+        var swap = lanes[s]; lanes[s] = lanes[pick]; lanes[pick] = swap;
+      }
+      var count = Math.min(lanes.length, Math.max(3, Math.min(6, Math.round(width / 260))));
       for (var i = 0; i < count; i += 1) {
         var depth = 0.35 + Math.random() * 0.65;               // nearer clouds are bigger and faster
         var w = 70 + depth * 110;
@@ -244,7 +253,7 @@
         }
         clouds.push({
           x: Math.random() * (width + 400),
-          y: 200 + Math.random() * Math.max(120, height * 0.45),
+          y: lanes[i] + (Math.random() * 16 - 8),
           w: w, depth: depth, bumps: bumps,
           drift: 5 + depth * 13,                               // pixels a second, right to left
           par: 0.04 + depth * 0.12,                            // scroll parallax
@@ -293,8 +302,8 @@
       for (var i = 0; i < clouds.length; i += 1) {
         var c = clouds[i];
         var span = width + c.w + 200;
-        var x = ((c.x - t * c.drift - scroll * c.par * 0.3) % span + span) % span - c.w * 0.5 - 100;
-        var y = c.y - scroll * c.par;
+        var x = ((c.x - t * c.drift - scroll * c.par * 1.5) % span + span) % span - c.w * 0.5 - 100;
+        var y = c.y - scroll * 0.08;
         // Soft white body with a faint blue-grey shadow beneath, no outline
         ctx.save();
         ctx.shadowColor = "rgba(90,140,160,0.30)";
