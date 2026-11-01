@@ -1031,18 +1031,29 @@ body.no-scroll { overflow: hidden; }
   .is-running .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
   .is-running .jump-captain { animation: jump-leap 2.6s ease-in forwards; transform-origin: 200px 110px; }
   .is-running .jump-splash { animation: jump-splash 2.6s ease-out forwards; }
-  .is-running .jump-fish { animation: jump-swim 2.6s ease-in-out forwards; }
+  .is-running .jump-shark { animation: jump-swim 2.6s ease-in-out forwards; }
+  .is-running .jump-jaw { animation: jump-chomp 2.6s ease-in-out forwards; }
 }
+
+.jump-jaw { transform-box: fill-box; transform-origin: 75% 0%; }
+.jump-shark { transform: translateX(8px); }
+.jump-art { overflow: hidden; }
 
 @keyframes jump-bob { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg) translateY(2px); } }
 @keyframes jump-leap {
   0%, 30% { transform: translate(0, 0) rotate(0); opacity: 1; }
   50% { transform: translate(40px, -42px) rotate(180deg); opacity: 1; }
-  72% { transform: translate(66px, 36px) rotate(360deg); opacity: 1; }
-  80%, 100% { transform: translate(70px, 62px) rotate(380deg); opacity: 0; }
+  66% { transform: translate(62px, 6px) rotate(330deg); opacity: 1; }
+  77% { transform: translate(68px, 70px) rotate(380deg); opacity: 1; }
+  79%, 100% { transform: translate(68px, 70px) rotate(380deg); opacity: 0; }
 }
-@keyframes jump-splash { 0%, 72% { opacity: 0; transform: translateY(14px); } 82% { opacity: 0.9; transform: translateY(-6px); } 100% { opacity: 0; transform: translateY(-14px); } }
-@keyframes jump-swim { 0% { transform: translateX(0); } 100% { transform: translateX(240px); } }
+@keyframes jump-splash { 0%, 76% { opacity: 0; transform: translateY(14px); } 84% { opacity: 0.9; transform: translateY(-4px); } 100% { opacity: 0; transform: translateY(-12px); } }
+@keyframes jump-swim { 0% { transform: translateX(-10px); } 74% { transform: translateX(198px); } 100% { transform: translateX(236px); } }
+@keyframes jump-chomp {
+  0%, 52% { transform: rotate(0); }
+  64%, 76% { transform: rotate(34deg); }
+  82%, 100% { transform: rotate(0); }
+}
 
 /* ---------- Wheel section ---------- */
 .wheel-section {

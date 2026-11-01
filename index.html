@@ -323,13 +323,6 @@
         <circle cx="24" cy="30" r="2.4" fill="var(--ink)"/><circle cx="40" cy="30" r="2.4" fill="var(--ink)"/>
         <path d="M26 39c4 4 8 4 12 0" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
       </symbol>
-      <symbol id="c-shark" viewBox="0 0 64 64">
-        <path d="M12 36C22 24 42 22 61 34 46 45 24 47 12 36z" fill="#8fb0c7" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M12 36 3 24 7 36 3 48z" fill="#8fb0c7" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M29 27 36 11 43 29z" fill="#8fb0c7" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-        <circle cx="50" cy="33" r="2.2" fill="var(--ink)"/>
-        <path d="M40 34c1 3 1 5 0 7M45 35c1 2 1 4 0 6" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
-      </symbol>
       <symbol id="c-squid" viewBox="0 0 64 64">
         <path d="M32 4c10 8 12 22 8 32H24C20 26 22 12 32 4z" fill="#b9a5e0" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
         <path d="M25 37c-2 8-5 10-4 17M32 37v18M39 37c2 8 5 10 4 17" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
@@ -357,7 +350,20 @@
           <circle cx="262" cy="152" r="5"/><circle cx="276" cy="140" r="4"/><circle cx="250" cy="138" r="4"/><circle cx="268" cy="128" r="3"/>
         </g>
         <path class="jump-sea" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V200 H0 z"/>
-        <svg class="jump-fish" x="14" y="160" width="44" height="44" aria-hidden="true"><use href="#c-shark"/></svg>
+        <g class="jump-shark">
+          <g transform="translate(0 152)">
+            <path d="M10 22 0 6 6 22 0 38z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M33 13 41 -4 50 12z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M8 22C20 8 46 6 79 20L60 25H8z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M58 25h20l-3 6-4-6-4 6-4-6-3 6z" fill="#fff" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round" transform="translate(0 -1)"/>
+            <g class="jump-jaw">
+              <path d="M8 25H72C64 37 28 40 8 27z" fill="#fff" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M56 25l3-6 4 6 4-6 4 6 3-6" fill="#fff" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/>
+            </g>
+            <circle cx="62" cy="15" r="2.4" fill="var(--ink)"/>
+            <path d="M44 14c1.5 3 1.5 6 0 9M49 14c1.5 3 1.5 6 0 9M54 14c1.5 3 1.5 6 0 9" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </g>
       </svg>
       <p class="jump-title" id="jump-title">Jumping ship</p>
       <div class="jump-bar" aria-hidden="true"><span id="jump-fill"></span></div>
