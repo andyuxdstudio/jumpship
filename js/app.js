@@ -646,7 +646,17 @@
     flags.appendChild(flag);
     card.appendChild(flags);
 
+    item.className = "wild-item";
     item.appendChild(card);
+    var art = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    art.setAttribute("class", "wild-char");
+    art.setAttribute("viewBox", "0 0 120 130");
+    art.setAttribute("aria-hidden", "true");
+    art.setAttribute("focusable", "false");
+    use.setAttribute("href", "#ch-" + wild.id);
+    art.appendChild(use);
+    item.appendChild(art);
     return item;
   }
 
@@ -673,9 +683,9 @@
     wheelBusy = true;
     wheelButton.disabled = true;
     wheelStatus.textContent = "Spinning.";
-    wheelTurn += 720 + Math.floor(Math.random() * 360);
+    wheelTurn += 1440 + Math.floor(Math.random() * 360);
     wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
-    window.setTimeout(wheelShow, 2200);
+    window.setTimeout(wheelShow, 5000);
   }
 
   /* ---------- Jump ship ---------- */
@@ -909,6 +919,38 @@
         scheduleMatches();
       });
   }
+
+  /* ---------- Menu: hamburger on small screens ---------- */
+
+  (function () {
+    var header = document.querySelector(".site-header");
+    var toggle = document.getElementById("nav-toggle");
+    var nav = document.getElementById("site-nav");
+    if (!header || !toggle || !nav) return;
+    var small = window.matchMedia ? window.matchMedia("(max-width: 47.99rem)") : null;
+
+    header.classList.add("nav-js");
+    toggle.hidden = false;
+
+    function setOpen(open, refocus) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      nav.classList.toggle("is-open", open);
+      if (!open && refocus) { toggle.focus(); }
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest && event.target.closest("a")) { setOpen(false); }
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { setOpen(false, true); }
+    });
+    if (small && small.addEventListener) {
+      small.addEventListener("change", function () { setOpen(false); });
+    }
+  })();
 
   /* ---------- Background waves: slow parallax that eases to a stop ---------- */
 
