@@ -859,6 +859,7 @@
     matchesNotes.textContent = "";
     matchesNotice.textContent = "";
     matchesNotice.hidden = true;
+    matchesTitle.textContent = "Your top five matches";
 
     if (careers === null) return;
     if (!careers.length) {
@@ -883,13 +884,8 @@
     });
 
     if (result.shown.length === 0) {
-      if (result.counts.limits === 0) {
-        matchesStatus.textContent = "None of the " + result.counts.total + " careers we cover clear both your limits.";
-        addNote("Lowering your salary floor or allowing more hours in person would widen the list.");
-      } else {
-        matchesStatus.textContent = "Careers clear your limits, but none use the skills you picked.";
-        addNote("Tick more of the experience design work you do above. Your matches are built from those skills.");
-      }
+      matchesTitle.textContent = "No matches have been found this time. Try selecting more skills or modifying your income floor.";
+      matchesStatus.textContent = "";
     } else {
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
         (result.fitting === 1 ? " career that fits" : " careers that fit") + " your limits and skills.";
