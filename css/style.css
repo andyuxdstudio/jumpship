@@ -1119,6 +1119,8 @@ body.no-scroll { overflow: hidden; }
   font-weight: 700;
 }
 
+.taster summary::marker { color: var(--buoy); }
+
 .taster > p, .taster > ol, .taster > fieldset, .taster > details { margin-top: var(--space-3); }
 .taster-steps { padding-left: 1.2rem; display: grid; gap: 0.4rem; }
 .taster-feel { border: 0; padding: 0; margin-inline: 0; }
