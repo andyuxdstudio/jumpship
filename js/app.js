@@ -861,6 +861,11 @@
     var reduce = reducedMotion();
     jumpOpener = document.activeElement;
     jumpTitle.textContent = reduce ? "Setting sail" : "Jumping ship";
+    var titleDots = document.createElement("span");
+    titleDots.className = "dots";
+    titleDots.setAttribute("aria-hidden", "true");
+    titleDots.innerHTML = "<span>.</span><span>.</span><span>.</span>";
+    jumpTitle.appendChild(titleDots);
     jumpOverlay.hidden = false;
     document.body.classList.add("no-scroll");
     jumpSkip.focus();
