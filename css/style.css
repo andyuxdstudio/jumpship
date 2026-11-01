@@ -1545,3 +1545,13 @@ body.no-scroll { overflow: hidden; }
   z-index: -1;
   pointer-events: none;
 }
+
+/* Primary and secondary buttons share one height */
+.btn,
+.btn-secondary {
+  box-sizing: border-box;
+  height: 3.25rem;
+  min-height: 3.25rem;
+  padding-block: 0;
+}
+.course-form input[type="text"] { min-height: 3.25rem; }
