@@ -946,3 +946,37 @@ a:hover {
   display: grid;
   gap: 0.4rem;
 }
+
+.wheel-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.wheel {
+  width: min(14rem, 60vw);
+  height: auto;
+  flex: none;
+}
+
+#wheel-spin {
+  transform-origin: 0 0;
+  transition: transform 2.1s cubic-bezier(0.15, 0.7, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wheel-spin { transition: none; }
+}
+
+.wheel-rim, .wheel-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 6;
+}
+
+.wheel-ring { stroke-width: 3; }
+.wheel-spokes line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+.wheel-handles circle { fill: var(--buoy); stroke: var(--ink); stroke-width: 2; }
+.wheel-hub { fill: var(--buoy); stroke: var(--ink); stroke-width: 3; }
+#wheel-result { margin-top: var(--space-4); }

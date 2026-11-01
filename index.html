@@ -190,6 +190,37 @@
       </div>
     </section>
 
+    <section class="section" id="wheel" aria-labelledby="wheel-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="wheel-title">Can't choose? Let the wheel pick</h2>
+          <p>The wheel picks any one of the 14 careers we cover. It ignores your limits, so if it lands outside them, the card will say so.</p>
+        </div>
+        <div class="wheel-box">
+          <svg class="wheel" id="wheel-art" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
+            <g id="wheel-spin">
+              <circle r="62" class="wheel-rim"/>
+              <circle r="44" class="wheel-ring"/>
+              <g class="wheel-spokes">
+                <line x1="0" y1="-92" x2="0" y2="92"/><line x1="-92" y1="0" x2="92" y2="0"/>
+                <line x1="-65" y1="-65" x2="65" y2="65"/><line x1="-65" y1="65" x2="65" y2="-65"/>
+              </g>
+              <g class="wheel-handles">
+                <circle cx="0" cy="-92" r="6"/><circle cx="0" cy="92" r="6"/><circle cx="-92" cy="0" r="6"/><circle cx="92" cy="0" r="6"/>
+                <circle cx="-65" cy="-65" r="6"/><circle cx="65" cy="65" r="6"/><circle cx="-65" cy="65" r="6"/><circle cx="65" cy="-65" r="6"/>
+              </g>
+              <circle r="14" class="wheel-hub"/>
+            </g>
+          </svg>
+          <div class="wheel-side">
+            <button type="button" class="btn" id="wheel-button">Spin the wheel</button>
+            <p class="status" id="wheel-status" role="status"></p>
+          </div>
+        </div>
+        <ol class="results" id="wheel-result" role="list"></ol>
+      </div>
+    </section>
+
     <section class="section" id="how" aria-labelledby="how-title">
       <div class="wrap">
         <div class="section-head">

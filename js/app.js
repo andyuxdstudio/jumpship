@@ -430,8 +430,8 @@
     }
 
     card.appendChild(heading);
-    card.appendChild(why);
-    card.appendChild(uses);
+    if (result.why.length) { card.appendChild(why); }
+    if (result.matchedIds.length) { card.appendChild(uses); }
     card.appendChild(details);
 
     var flags = [];
@@ -444,6 +444,7 @@
     if (career.pay.median < 40000) {
       flags.push("Low pay: " + money(career.pay.median) + " in the middle is the lowest of the careers we cover. Check it carries your household before you invest time.");
     }
+    (result.extraFlags || []).forEach(function (text) { flags.push(text); });
     if (result.flags.limitedData) {
       flags.push("Limited data: " + result.flags.limitedData);
     }
@@ -461,6 +462,69 @@
 
     item.appendChild(card);
     return item;
+  }
+
+  /* ---------- Wheel ---------- */
+
+  var wheelButton = document.getElementById("wheel-button");
+  var wheelSpin = document.getElementById("wheel-spin");
+  var wheelStatus = document.getElementById("wheel-status");
+  var wheelResult = document.getElementById("wheel-result");
+  var wheelTurn = 0;
+  var wheelBusy = false;
+
+  function wheelPick() {
+    var picked = {};
+    state.skills.forEach(function (id) { picked[id] = true; });
+    var career = careers[Math.floor(Math.random() * careers.length)];
+    var matched = career.skills.filter(function (skill) { return picked[skill.id]; })
+      .sort(function (a, b) { return b.weight - a.weight; });
+    var extra = [];
+    if (state.income !== null && state.income > career.pay.median) {
+      extra.push("Outside your income floor: the middle of advertised pay is " + money(career.pay.median) + ", below your " + money(state.income) + ".");
+    }
+    if (state.hours !== null && JumpShipMatch.hoursFit(career.minHours, state.hours) === "no") {
+      extra.push("Outside your hours: employers usually ask for " + DAYS[career.minHours] + " a week in person.");
+    }
+    return {
+      career: career,
+      matchedIds: matched.map(function (skill) { return skill.id; }),
+      why: matched.slice(0, 2).map(function (skill) { return skill.why; }),
+      extraFlags: extra,
+      flags: {
+        lowStart: state.income !== null && state.income > career.pay.p10 && state.income <= career.pay.median,
+        limitedData: career.limitedData || null,
+        hoursStretch: state.hours === 0 && JumpShipMatch.hoursFit(career.minHours, 0) === "stretch"
+      }
+    };
+  }
+
+  function wheelShow() {
+    var result = wheelPick();
+    wheelResult.textContent = "";
+    wheelResult.appendChild(buildCard(result));
+    wheelStatus.textContent = "The wheel chose " + result.career.name + ".";
+    wheelBusy = false;
+    wheelButton.disabled = false;
+    wheelButton.textContent = "Spin again";
+  }
+
+  if (wheelButton) {
+    wheelButton.addEventListener("click", function () {
+      if (wheelBusy) return;
+      if (!careers || !careers.length) {
+        wheelStatus.textContent = "The careers did not load. Refresh the page and try again.";
+        return;
+      }
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) { wheelShow(); return; }
+      wheelBusy = true;
+      wheelButton.disabled = true;
+      wheelStatus.textContent = "Spinning.";
+      wheelTurn += 720 + Math.floor(Math.random() * 360);
+      wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
+      window.setTimeout(wheelShow, 2200);
+    });
   }
 
   function showRemoteNotice() {
