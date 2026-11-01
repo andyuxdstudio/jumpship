@@ -302,7 +302,7 @@
       for (var i = 0; i < clouds.length; i += 1) {
         var c = clouds[i];
         var span = width + c.w + 200;
-        var x = ((c.x - t * c.drift - scroll * c.par * 1.5) % span + span) % span - c.w * 0.5 - 100;
+        var x = ((c.x - t * c.drift) % span + span) % span - c.w * 0.5 - 100;
         var y = c.y - scroll * 0.08;
         // Soft white body with a faint blue-grey shadow beneath, no outline
         ctx.save();
