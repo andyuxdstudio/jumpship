@@ -1063,13 +1063,13 @@
       specks = [];
       var count = Math.max(40, Math.min(110, Math.round(width * height / 14000)));
       for (var i = 0; i < count; i += 1) {
-        // Many small specks, fewer large ones
-        var r = 1 + Math.pow(Math.random(), 2.2) * 11;
+        // Small specks only, a few slightly bigger than the rest
+        var r = 1 + Math.pow(Math.random(), 2.2) * 3.5;
         specks.push({
           x: Math.random() * width,
           y: Math.random() * height,
           r: r,
-          speed: 0.12 + r * 0.075,            // larger means faster
+          speed: 0.12 + r * 0.2,              // larger means faster
           squash: 0.8 + Math.random() * 0.4,   // slightly uneven, not perfect circles
           tilt: Math.random() * Math.PI,
           phase: Math.random() * Math.PI * 2,
@@ -1109,7 +1109,7 @@
         var y = ((d.y - scroll * d.speed) % span + span) % span - d.r * 2;
         var x = d.x + Math.sin(t * 0.25 + d.phase) * d.sway;
         // Progressive softness: the smallest specks are crisp, the largest are medium blurred.
-        var soft = Math.min(1, (d.r - 1) / 10);
+        var soft = Math.min(1, (d.r - 1) / 3.5);
         var reach = d.r * (1 + soft * 0.6);
         var core = 0.98 - soft * 0.8;
         var g = ctx.createRadialGradient(x, y, 0, x, y, reach);
