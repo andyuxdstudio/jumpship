@@ -916,9 +916,67 @@
     skillsList.appendChild(item);
   }
 
+  /* ---------- Share link: the answers live in the # part, never sent to a server ---------- */
+
+  function encodeShare(s) {
+    var data = JSON.stringify({ v: 1, i: s.income, h: s.hours, s: s.skills, c: s.custom, l: s.preferLowAi });
+    return btoa(unescape(encodeURIComponent(data))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }
+
+  function decodeShare(text) {
+    try {
+      var b64 = text.replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      var o = JSON.parse(decodeURIComponent(escape(atob(b64))));
+      if (!o || o.v !== 1) return null;
+      return sanitise({ income: o.i, hours: o.h, skills: o.s, custom: o.c, preferLowAi: o.l });
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function shareUrl() {
+    return window.location.origin + window.location.pathname + "#a=" + encodeShare(state);
+  }
+
+  var shareBox = document.getElementById("share-box");
+  var shareField = document.getElementById("share-link");
+
+  function copyLink() {
+    var url = shareUrl();
+    shareField.value = url;
+    function fallback() {
+      shareBox.hidden = false;
+      shareField.focus();
+      shareField.select();
+      setStatus("Copy the link from the box below.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () {
+        shareBox.hidden = true;
+        setStatus("Link copied. It holds your answers.");
+      }, fallback);
+    } else {
+      fallback();
+    }
+  }
+
   function start() {
     state = load();
+    var shared = null;
+    var hashMatch = /^#a=([A-Za-z0-9_-]+)$/.exec(window.location.hash || "");
+    if (hashMatch) {
+      shared = decodeShare(hashMatch[1]);
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      if (shared) state = shared;
+    }
     applyStateToForm();
+    if (shared) {
+      save();
+      setStatus("Loaded the answers from the link you opened. They are now saved on this device. Clear them to start again.");
+    }
 
     form.addEventListener("submit", function (event) { event.preventDefault(); });
     incomeInput.addEventListener("input", handleIncomeInput);
@@ -934,6 +992,7 @@
     });
     customInput.addEventListener("input", function () { showCustomError(""); });
     clearButton.addEventListener("click", clearAnswers);
+    document.getElementById("copy-link").addEventListener("click", copyLink);
     preferAi.addEventListener("change", handleAiToggle);
 
     if (!storageWorks) {
