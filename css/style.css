@@ -1080,9 +1080,9 @@ body.no-scroll { overflow: hidden; }
 }
 @keyframes jump-splash { 0%, 76% { opacity: 0; transform: translateY(14px); } 84% { opacity: 0.9; transform: translateY(-4px); } 100% { opacity: 0; transform: translateY(-12px); } }
 @keyframes jump-swim {
-  0% { transform: translate(-1000px, 0) rotate(0); animation-timing-function: linear; }
-  53% { transform: translate(180px, 0) rotate(0); animation-timing-function: ease-out; }
-  68% { transform: translate(215px, 0) rotate(0); animation-timing-function: ease-in; }
+  0%   { transform: translate(-1000px, 0) rotate(0);        animation-timing-function: cubic-bezier(0.25, 0.45, 0.45, 1); }
+  53%  { transform: translate(180px, 0) rotate(0);          animation-timing-function: ease-in-out; }
+  66%  { transform: translate(212px, 0) rotate(0);          animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0.55); }
   100% { transform: translate(1000px, 330px) rotate(20deg); }
 }
 @keyframes jump-chomp {
