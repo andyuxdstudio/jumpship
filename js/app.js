@@ -794,7 +794,6 @@
   var jumpOverlay = document.getElementById("jump-overlay");
   var jumpSkip = document.getElementById("jump-skip");
   var jumpTitle = document.getElementById("jump-title");
-  var jumpFill = document.getElementById("jump-fill");
   var matchesSection = document.getElementById("matches");
   var matchesTitle = document.getElementById("matches-title");
   var matchesIntro = document.getElementById("matches-intro");
@@ -851,14 +850,11 @@
     var reduce = reducedMotion();
     jumpOpener = document.activeElement;
     jumpTitle.textContent = reduce ? "Setting sail" : "Jumping ship";
-    jumpFill.style.transitionDuration = reduce ? "0s" : "2.6s";
-    jumpFill.style.width = "0%";
     jumpOverlay.hidden = false;
     document.body.classList.add("no-scroll");
     jumpSkip.focus();
-    void jumpFill.offsetWidth;
+    void jumpOverlay.offsetWidth;
     jumpOverlay.classList.add("is-running");
-    jumpFill.style.width = "100%";
     jumpTimer = window.setTimeout(finishJump, reduce ? 1000 : 2800);
   }
 
