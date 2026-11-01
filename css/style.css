@@ -981,8 +981,15 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-top: var(--space-4);
 }
+
+/* Jump ship sits straight after the skills; the save tools follow, closer together */
+.course-form > .actions { margin-top: calc(var(--space-3) * -0.5); }
+.course-form > .actions + .hint { margin-top: -2.25rem; }
+.form-foot { justify-content: flex-start; }
+.form-foot .status:empty { display: none; }
+.form-foot .status { flex-basis: 100%; }
+.form-tools { display: grid; gap: var(--space-2); }
 
 .stale {
   margin: var(--space-3) 0;
