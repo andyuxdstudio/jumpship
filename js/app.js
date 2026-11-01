@@ -694,6 +694,19 @@
     return item;
   }
 
+  /* Gently scroll so the result is on screen and the button stays in view. */
+  function revealWheelResult() {
+    var margin = 16;
+    var viewH = window.innerHeight || document.documentElement.clientHeight;
+    var buttonTop = wheelButton.getBoundingClientRect().top;
+    var resultBottom = wheelResult.getBoundingClientRect().bottom;
+    var needed = resultBottom - viewH + margin;
+    var allowed = buttonTop - margin;
+    var by = Math.min(needed, allowed);
+    if (by <= 4) return;
+    window.scrollBy({ top: by, behavior: reducedMotion() ? "auto" : "smooth" });
+  }
+
   function wheelShow() {
     var index;
     do { index = Math.floor(Math.random() * wildcards.length); } while (wildcards.length > 1 && index === lastWildcard);
@@ -704,6 +717,7 @@
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
     wheelBox.classList.remove("is-spinning");
+    revealWheelResult();
     wheelButton.disabled = false;
     wheelButton.textContent = "Spin again";
   }
