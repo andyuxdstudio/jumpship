@@ -1037,7 +1037,7 @@ body.no-scroll { overflow: hidden; }
   z-index: 100;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--surface) 98%, transparent);
+  background: var(--shallows);
   padding: 1rem;
 }
 
@@ -1578,39 +1578,12 @@ body.no-scroll { overflow: hidden; }
   .ai-robot { width: 2.75rem; height: 2.75rem; margin-bottom: 0.5rem; }
 }
 
-/* ---------- Wheel in the hero (replaces the sea chart) ---------- */
-.hero-wheel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: var(--space-3);
-  min-height: 24rem;
-}
-.hero-wheel .wheel { width: min(20rem, 70vw); margin: 0; }
-.hero-wheel .wheel-side { display: flex; flex-direction: column; align-items: center; text-align: center; }
-@media (min-width: 64rem) {
-  .hero-wheel .creature { left: auto; bottom: auto; }
-  .hero-wheel .c-octopus { right: 0; top: 0.5rem; }
-  .hero-wheel .c-dolphin { right: 1rem; top: auto; bottom: 5rem; }
-  .hero-wheel .c-axolotl { left: 0; right: auto; top: 3rem; }
-  .hero-wheel .c-shark { left: 0; right: auto; top: auto; bottom: 4rem; }
-  .hero-wheel .c-fish { left: 3rem; right: auto; top: 12rem; }
-  .hero-wheel .c-snake { right: 4rem; left: auto; top: 11rem; }
-  .hero-wheel .c-ray { left: 5rem; right: auto; top: 0; }
-  .hero-wheel .c-squid { right: 6rem; left: auto; bottom: 0; top: auto; }
-}
-
-/* Sea creatures hidden for now. Remove this rule to bring them back. */
-.creature { display: none !important; }
-
-/* ---------- Jump scene in the hero (replaces the wheel) ---------- */
-.hero-scene { width: min(42rem, 150%); max-width: none; }
-.hero { overflow-x: clip; }
-.hero-scene .jump-title[hidden] { display: block; visibility: hidden; }
-.hero-wheel #wheel-status { min-height: 1.5em; margin: 0; }
-.hero-wheel { min-height: 0; }
+/* ---------- Hero: one centred column. The jump scene lives in the overlay ---------- */
+.hero .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+.hero .wrap > div { max-width: 40rem; }
+.hero-actions { justify-content: center; }
+.jump-overlay .jump-stage { width: min(42rem, 100%); }
+.jump-overlay .jump-art { overflow: hidden; }
 
 /* The Jump button has no icon. */
 #wheel-button::before, .hero .btn::before { content: none; display: none; }

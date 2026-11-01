@@ -29,8 +29,10 @@
   /* ---------- Wheel ---------- */
 
   var wheelButton = document.getElementById("wheel-button");
-  var scene = document.getElementById("jump-scene");
+  var overlay = document.getElementById("jump-overlay");
+  var skipButton = document.getElementById("jump-skip");
   var sceneTitle = document.getElementById("jump-title");
+  var overlayTimer = null;
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
   var resultSection = document.getElementById("result");
@@ -130,7 +132,15 @@
     window.scrollTo({ top: top + 20, behavior: reducedMotion() ? "auto" : "smooth" });
   }
 
+  function closeOverlay() {
+    window.clearTimeout(overlayTimer);
+    overlay.hidden = true;
+    overlay.classList.remove("is-running");
+    document.body.classList.remove("no-scroll");
+  }
+
   function wheelShow() {
+    if (!wheelBusy) return;
     var index;
     do { index = Math.floor(Math.random() * wildcards.length); } while (wildcards.length > 1 && index === lastWildcard);
     lastWildcard = index;
@@ -140,11 +150,11 @@
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
-    scene.classList.remove("is-running");
-    sceneTitle.hidden = true;
+    closeOverlay();
     revealWheelResult();
     wheelButton.disabled = false;
     wheelButton.textContent = "Jump again";
+    wheelButton.focus({ preventScroll: true });
   }
 
   function spinWheel() {
@@ -154,15 +164,24 @@
       wheelStatus.textContent = "The wheel could not load its careers. Refresh the page and try again.";
       return;
     }
-    if (reducedMotion()) { wheelShow(); return; }
+    var reduce = reducedMotion();
     wheelBusy = true;
     wheelButton.disabled = true;
-    scene.classList.remove("is-running");
-    void scene.offsetWidth;
-    scene.classList.add("is-running");
-    sceneTitle.hidden = false;
-    window.setTimeout(wheelShow, 4400);
+    sceneTitle.firstChild.nodeValue = reduce ? "Setting sail" : "Jumping ship";
+    overlay.hidden = false;
+    document.body.classList.add("no-scroll");
+    skipButton.focus();
+    overlay.classList.remove("is-running");
+    void overlay.offsetWidth;
+    overlay.classList.add("is-running");
+    overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 4400);
   }
+
+  skipButton.addEventListener("click", wheelShow);
+  overlay.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") { wheelShow(); }
+    if (event.key === "Tab") { event.preventDefault(); skipButton.focus(); }
+  });
 
   wheelButton.addEventListener("click", spinWheel);
 
