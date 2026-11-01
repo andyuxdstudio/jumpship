@@ -64,6 +64,20 @@
     </section>
 
     <section class="section wheel-section" id="result" aria-labelledby="wheel-title" hidden>
+    <div class="drift-boat result-boat" aria-hidden="true">
+      <svg viewBox="60 20 190 136" focusable="false">
+        <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M70 122 H234 L214 150 H90 Z" fill="var(--ink)"/>
+        <g transform="translate(-12 0)">
+          <circle cx="200" cy="82" r="9" fill="#f3c9a5" stroke="var(--ink)" stroke-width="1.5"/>
+          <path d="M190 78 q10 -14 20 0 z" fill="var(--ink)"/><path d="M189 78 h22" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M200 91 v18" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M200 96 l-12 -9 M200 96 l12 -9" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M200 109 l-7 13 M200 109 l8 13" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
       <div class="wrap wheel-wrap">
         <div class="section-head">
           <h2 id="wheel-title" tabindex="-1">Your career alternative</h2>
@@ -75,7 +89,7 @@
   </main>
 
   <footer class="site-footer">
-      <div class="drift-boat" aria-hidden="true">
+      <div class="drift-boat footer-boat" aria-hidden="true">
         <svg viewBox="60 20 190 136" focusable="false">
           <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
           <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
@@ -89,6 +103,53 @@
           </g>
         </svg>
       </div>
+    <div class="seabed" aria-hidden="true">
+      <svg viewBox="0 0 1000 144" preserveAspectRatio="xMidYMax meet" focusable="false">
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <!-- branching coral -->
+          <g fill="none">
+            <path d="M110 140 V96 M110 120 L88 94 M110 108 L134 82 M88 94 L84 76 M134 82 L138 62 M134 82 L152 78" stroke="var(--ink)" stroke-width="12"/>
+            <path d="M110 140 V96 M110 120 L88 94 M110 108 L134 82 M88 94 L84 76 M134 82 L138 62 M134 82 L152 78" stroke="#f2a091" stroke-width="7"/>
+          </g>
+          <!-- fan coral -->
+          <g stroke="var(--ink)" stroke-width="2.5">
+            <path d="M212 142 L186 90 Q212 70 238 90 Z" fill="#6cc1c9"/>
+            <path d="M212 142 V84 M212 142 L196 88 M212 142 L228 88" fill="none" stroke-width="1.5"/>
+          </g>
+          <!-- tube coral -->
+          <g stroke="var(--ink)" stroke-width="2.5" fill="#f2b134">
+            <rect x="272" y="104" width="14" height="38" rx="7"/>
+            <rect x="290" y="94" width="14" height="48" rx="7"/>
+            <rect x="308" y="112" width="14" height="30" rx="7"/>
+          </g>
+          <!-- starfish -->
+          <path d="M440 118 L446 130 L460 131 L449 140 L453 153 L440 146 L427 153 L431 140 L420 131 L434 130 Z" transform="translate(0 -12)" fill="#f2b134" stroke="var(--ink)" stroke-width="2.5"/>
+          <g fill="var(--ink)"><circle cx="440" cy="125" r="1.6"/><circle cx="435" cy="130" r="1.3"/><circle cx="445" cy="130" r="1.3"/></g>
+          <!-- shipwreck -->
+          <g transform="rotate(-9 650 136)">
+            <path d="M560 112 H748 L722 142 H590 Z" fill="var(--ink)" stroke="var(--ink)" stroke-width="2.5"/>
+            <path d="M574 124 H736" stroke="var(--shallows)" stroke-width="2" fill="none" opacity="0.45"/>
+            <circle cx="610" cy="126" r="5" fill="var(--shallows)" stroke="none" opacity="0.55"/>
+            <circle cx="640" cy="126" r="5" fill="var(--shallows)" stroke="none" opacity="0.55"/>
+            <path d="M672 112 L666 62 L672 54 M666 62 L690 58" fill="none" stroke="var(--ink)" stroke-width="5"/>
+            <path d="M666 66 L638 106 H666 Z" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+          </g>
+          <g fill="none" stroke="var(--ink)" stroke-width="1.5" opacity="0.6">
+            <circle cx="690" cy="62" r="4"/><circle cx="697" cy="40" r="3"/><circle cx="686" cy="22" r="2.2"/>
+          </g>
+          <!-- seaweed -->
+          <g fill="none">
+            <path d="M846 142 C832 124 862 112 848 94 C836 78 862 68 852 50" stroke="var(--ink)" stroke-width="10"/>
+            <path d="M846 142 C832 124 862 112 848 94 C836 78 862 68 852 50" stroke="#7fb59a" stroke-width="5.5"/>
+          </g>
+          <!-- coral on the right -->
+          <g fill="none">
+            <path d="M920 142 V100 M920 124 L900 100 M920 112 L942 90 M942 90 L944 72" stroke="var(--ink)" stroke-width="12"/>
+            <path d="M920 142 V100 M920 124 L900 100 M920 112 L942 90 M942 90 L944 72" stroke="#c98fd0" stroke-width="7"/>
+          </g>
+        </g>
+      </svg>
+    </div>
     <div class="wrap">
       <p>JumpShip is made for folk in experience design navigating choppy waters.</p>
       <p><a href="mailto:andy.davies@lloydsbanking.com?subject=Jump%20Ship%20feedback">Tell us what you think</a></p>

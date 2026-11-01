@@ -147,6 +147,7 @@
     var wild = wildcards[index];
     wheelResult.textContent = "";
     resultSection.hidden = false;
+    document.body.classList.add("has-result");
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
