@@ -307,17 +307,6 @@ a:hover {
   stroke-linejoin: round;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .chart .reveal {
-    animation: chart-draw 2.6s ease-out 0.4s both;
-  }
-
-  .chart .mark-end,
-  .chart .end-label {
-    animation: chart-arrive 0.5s ease-out 3s both;
-  }
-}
-
 @keyframes chart-draw {
   from {
     stroke-dashoffset: 1;
@@ -1145,7 +1134,7 @@ body.no-scroll { overflow: hidden; }
   .chart .boat {
     display: block;
     offset-path: path("M 255 255 C 345 285 235 365 302 432");
-    offset-distance: 0%;
+    offset-distance: 23%;
     offset-rotate: 0deg;
   }
 }
@@ -1156,10 +1145,10 @@ body.no-scroll { overflow: hidden; }
 .boat-water { fill: none; stroke: var(--course); stroke-width: 1.6; stroke-linecap: round; opacity: 0.8; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .chart .boat { animation: chart-sail 2.6s ease-out 0.4s both; }
+  .chart .boat { animation: chart-sail 3.6s ease-in-out 0.5s both; }
 }
 
 @keyframes chart-sail {
-  from { offset-distance: 0%; }
-  to { offset-distance: 94%; }
+  from { offset-distance: 23%; }
+  to { offset-distance: 86%; }
 }
