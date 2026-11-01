@@ -1158,13 +1158,17 @@ body.no-scroll { overflow: hidden; }
 .fin-move { transform-box: fill-box; transform-origin: 50% 100%; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .fin-a .fin-move { animation: fin-patrol 5s ease-in-out infinite alternate; }
-  .fin-b .fin-move { animation: fin-patrol 5s ease-in-out -2.5s infinite alternate; }
+  .fin-a .fin-move { animation: fin-patrol 10s ease-in-out infinite; }
+  .fin-b .fin-move { animation: fin-patrol 10s ease-in-out -5s infinite; }
 }
-/* Straight horizontal line, one way and back, no rotation or drift */
+/* Straight horizontal line, one way and back. The fin faces the way it is
+   travelling, so it flips at each end. No rotation or drift. */
 @keyframes fin-patrol {
-  from { transform: translateX(-14px); }
-  to { transform: translateX(14px); }
+  0% { transform: translateX(14px) scaleX(1); }
+  49.9% { transform: translateX(-14px) scaleX(1); }
+  50% { transform: translateX(-14px) scaleX(-1); }
+  99.9% { transform: translateX(14px) scaleX(-1); }
+  100% { transform: translateX(14px) scaleX(1); }
 }
 
 /* ---------- Wildcard character ---------- */
