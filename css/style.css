@@ -1600,3 +1600,6 @@ body.no-scroll { overflow: hidden; }
   .hero-wheel .c-ray { left: 5rem; right: auto; top: 0; }
   .hero-wheel .c-squid { right: 6rem; left: auto; bottom: 0; top: auto; }
 }
+
+/* Sea creatures hidden for now. Remove this rule to bring them back. */
+.creature { display: none !important; }
