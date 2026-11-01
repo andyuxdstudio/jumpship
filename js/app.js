@@ -158,7 +158,7 @@
     wheelBox.classList.remove("is-spinning");
     revealWheelResult();
     wheelButton.disabled = false;
-    wheelButton.textContent = "Spin again";
+    wheelButton.textContent = "Jump again";
   }
 
   function spinWheel() {
