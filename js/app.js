@@ -150,6 +150,7 @@
   function spinWheel() {
     if (wheelBusy) return;
     if (!wildcards || !wildcards.length) {
+      wheelStatus.classList.remove("visually-hidden");
       wheelStatus.textContent = "The wheel could not load its careers. Refresh the page and try again.";
       return;
     }
