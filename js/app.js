@@ -910,5 +910,36 @@
       });
   }
 
+  /* ---------- Background waves: slow parallax while scrolling ---------- */
+
+  (function () {
+    var root = document.documentElement;
+    var ticking = false;
+    var motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+
+    function paint() {
+      ticking = false;
+      if (motionQuery && motionQuery.matches) {
+        root.style.removeProperty("--wave-a");
+        root.style.removeProperty("--wave-b");
+        return;
+      }
+      var y = window.pageYOffset || 0;
+      root.style.setProperty("--wave-a", Math.round(y * 0.7) + "px");
+      root.style.setProperty("--wave-b", Math.round(y * 0.3) + "px");
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(paint);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (motionQuery && motionQuery.addEventListener) { motionQuery.addEventListener("change", paint); }
+    paint();
+  })();
+
   start();
 })();
