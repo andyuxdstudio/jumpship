@@ -32,6 +32,9 @@
   var matchesNotice = document.getElementById("matches-notice");
 
   var catalogue = [];
+  var tasters = {};
+  var feelings = {};
+  var FEEL_KEY = "jumpship.feel.v1";
   var careers = null; /* null while loading, an array once loaded (empty if it failed) */
   var matchTimer = null;
   var storageWorks = true;
@@ -298,6 +301,128 @@
     scheduleMatches();
   }
 
+  /* ---------- Tasters ---------- */
+
+  var FEEL = [
+    { id: "absorbed", label: "I lost track of time", reading: "That kind of absorption is a good sign. Note what you were doing at that moment.", good: true },
+    { id: "fine", label: "It was fine, nothing more", reading: "Fine is useful to know. Try one more taster before you decide.", good: false },
+    { id: "stop", label: "I kept wanting to stop", reading: "That tells you something too. Write down what you wanted to stop, and you can cross this one off without regret.", good: false }
+  ];
+
+  try {
+    feelings = JSON.parse(window.localStorage.getItem(FEEL_KEY)) || {};
+  } catch (error) {
+    feelings = {};
+  }
+
+  function saveFeeling(id, value) {
+    feelings[id] = value;
+    try { window.localStorage.setItem(FEEL_KEY, JSON.stringify(feelings)); } catch (error) { /* saving is optional */ }
+  }
+
+  function buildTaster(career) {
+    var t = tasters && tasters[career.id];
+    if (!t) return null;
+
+    var box = document.createElement("details");
+    var summary = document.createElement("summary");
+    box.className = "taster";
+    summary.textContent = "Try it for two hours: " + t.title;
+    box.appendChild(summary);
+
+    var need = document.createElement("p");
+    var needLabel = document.createElement("strong");
+    needLabel.textContent = "You will need: ";
+    need.appendChild(needLabel);
+    need.appendChild(document.createTextNode(t.need));
+    box.appendChild(need);
+
+    var steps = document.createElement("ol");
+    steps.className = "taster-steps";
+    t.steps.forEach(function (step) {
+      var li = document.createElement("li");
+      var mins = document.createElement("strong");
+      mins.textContent = step.mins + " minutes. ";
+      li.appendChild(mins);
+      li.appendChild(document.createTextNode(step.text));
+      steps.appendChild(li);
+    });
+    box.appendChild(steps);
+
+    var good = document.createElement("p");
+    var goodLabel = document.createElement("strong");
+    goodLabel.textContent = "What good looks like: ";
+    good.appendChild(goodLabel);
+    good.appendChild(document.createTextNode(t.good));
+    box.appendChild(good);
+
+    var note = document.createElement("p");
+    note.className = "next-step";
+    note.textContent = "This task is our own suggestion. It is not taken from a source.";
+    box.appendChild(note);
+
+    var feel = document.createElement("fieldset");
+    var legend = document.createElement("legend");
+    var reply = document.createElement("p");
+    feel.className = "taster-feel";
+    legend.textContent = "How did that feel?";
+    feel.appendChild(legend);
+    reply.className = "taster-reply";
+    reply.setAttribute("role", "status");
+
+    function showReply(option) {
+      reply.textContent = "";
+      var reading = document.createElement("span");
+      reading.textContent = option.reading + " ";
+      var next = document.createElement("strong");
+      next.textContent = "Next step: ";
+      reply.appendChild(reading);
+      reply.appendChild(next);
+      reply.appendChild(document.createTextNode(option.good ? t.next : "Try the wheel, or pick another match and try its taster."));
+    }
+
+    FEEL.forEach(function (option) {
+      var label = document.createElement("label");
+      var input = document.createElement("input");
+      var text = document.createElement("span");
+      label.className = "choice";
+      input.type = "radio";
+      input.name = "feel-" + career.id;
+      input.value = option.id;
+      text.textContent = option.label;
+      if (feelings[career.id] === option.id) { input.checked = true; showReply(option); }
+      input.addEventListener("change", function () {
+        saveFeeling(career.id, option.id);
+        showReply(option);
+      });
+      label.appendChild(input);
+      label.appendChild(text);
+      feel.appendChild(label);
+    });
+    feel.appendChild(reply);
+    box.appendChild(feel);
+
+    var pause = document.createElement("p");
+    pause.className = "taster-pause";
+    pause.textContent = "Pause for a moment. Take one slow breath. Whatever you felt just now is information, not a verdict.";
+    box.appendChild(pause);
+
+    var talk = document.createElement("details");
+    var talkSummary = document.createElement("summary");
+    talk.className = "taster-talk";
+    talkSummary.textContent = "Talk to someone who does this job";
+    talk.appendChild(talkSummary);
+    var tip = document.createElement("p");
+    tip.textContent = "Ask a colleague, a professional network you already belong to or a local meetup who they know. Then send something like this.";
+    talk.appendChild(tip);
+    var quote = document.createElement("blockquote");
+    quote.textContent = "Hi, I'm a UX designer thinking about moving into " + career.name.toLowerCase() + " work. Could I ask you three questions over about fifteen minutes? What does a normal week look like? What surprised you? What would you do differently if you were starting again?";
+    talk.appendChild(quote);
+    box.appendChild(talk);
+
+    return box;
+  }
+
   /* ---------- Matches ---------- */
 
   var DAYS = { 8: "about 1 day", 16: "about 2 days", 24: "about 3 days", 40: "full time" };
@@ -434,6 +559,9 @@
     if (result.why.length) { card.appendChild(why); }
     if (result.matchedIds.length) { card.appendChild(uses); }
     card.appendChild(details);
+
+    var taster = buildTaster(career);
+    if (taster) { card.appendChild(taster); }
 
     var flags = [];
     if (result.flags.lowStart) {
@@ -762,6 +890,10 @@
         showSkillsLoadError();
         renderSummary();
       });
+
+    getJson("data/tasters.json")
+      .then(function (data) { tasters = data && typeof data === "object" ? data : {}; scheduleMatches(); })
+      .catch(function () { tasters = {}; });
 
     getJson("data/wildcards.json")
       .then(function (list) { wildcards = Array.isArray(list) ? list : []; })

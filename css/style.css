@@ -1108,3 +1108,26 @@ body.no-scroll { overflow: hidden; }
   .c-axolotl, .c-fish { display: none; }
   .c-dolphin { left: calc(60vw + 0.5rem); top: 0; }
 }
+
+/* ---------- Tasters ---------- */
+.taster {
+  margin-top: var(--space-3);
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
+.taster > summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.taster > p, .taster > ol, .taster > fieldset, .taster > details { margin-top: var(--space-3); }
+.taster-steps { padding-left: 1.2rem; display: grid; gap: 0.4rem; }
+.taster-feel { border: 0; padding: 0; margin-inline: 0; }
+.taster-feel legend { font-weight: 700; margin-bottom: 0.4rem; }
+.taster-reply { margin-top: 0.6rem; }
+.taster-pause { font-style: italic; }
+.taster-talk summary { cursor: pointer; }
+.taster-talk blockquote { margin: 0.6rem 0 0; padding-left: 0.9rem; border-left: 0.3rem solid var(--buoy); }
