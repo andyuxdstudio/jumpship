@@ -540,7 +540,7 @@
         dd.appendChild(list);
         var src = document.createElement("span");
         src.className = "pay-source";
-        src.appendChild(document.createTextNode("Sources: "));
+        if (wild.aiRisk.sources.length) src.appendChild(document.createTextNode("Sources: "));
         wi.sources.forEach(function (s, i) {
           if (i) { src.appendChild(document.createTextNode(", ")); }
           var a = document.createElement("a");
@@ -655,11 +655,16 @@
       risk.setAttribute("role", "group");
       risk.setAttribute("aria-label", "AI risk estimate");
       big.className = "ai-risk-figure";
-      big.textContent = "About " + wild.aiRisk.percent + "% risk that AI eliminates this role within 5 years";
+      var hasPct = typeof wild.aiRisk.percent === "number";
+      big.textContent = hasPct
+        ? "About " + wild.aiRisk.percent + "% risk that AI eliminates this role within 5 years"
+        : "No estimate of the risk that AI eliminates this role";
       basis.className = "ai-risk-basis";
-      basis.textContent = "Our rough guess, not a forecast. " + wild.aiRisk.basis + " None of these sites measure a five year job loss, so we blended them into one cautious number.";
+      basis.textContent = hasPct
+        ? "Our rough guess, not a forecast. " + wild.aiRisk.basis + " None of these sites measure a five year job loss, so we blended them into one cautious number."
+        : wild.aiRisk.basis;
       src.className = "ai-risk-basis";
-      src.appendChild(document.createTextNode("Sources: "));
+      if (wild.aiRisk.sources.length) src.appendChild(document.createTextNode("Sources: "));
       wild.aiRisk.sources.forEach(function (x, i) {
         var a = document.createElement("a");
         a.href = x.url;
@@ -670,7 +675,7 @@
       });
       risk.appendChild(big);
       risk.appendChild(basis);
-      risk.appendChild(src);
+      if (wild.aiRisk.sources.length) risk.appendChild(src);
       card.appendChild(risk);
     }
 

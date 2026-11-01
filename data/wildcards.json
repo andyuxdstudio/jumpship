@@ -142,5 +142,440 @@
         }
       ]
     }
+  },
+  {
+    "id": "firefighter",
+    "name": "Firefighter",
+    "hook": "Respond to emergency call outs, search and rescue incidents and road traffic accidents.",
+    "pay": "£28,000 starting to £42,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/firefighter",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "AI Exposure scores firefighters 32 out of 100 overall, with a Frey and Osborne figure of 17%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/firefighters"
+        }
+      ]
+    }
+  },
+  {
+    "id": "paramedic",
+    "name": "Paramedic",
+    "hook": "Responds to emergency call-outs and gives people life-saving medical help.",
+    "pay": "£32,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/paramedic",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores paramedics 37 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "chef",
+    "name": "Chef",
+    "hook": "Prepares, cooks and presents food in hotels, bars and restaurants.",
+    "pay": "£22,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chef",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores chefs and head cooks 39 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baker",
+    "name": "Baker",
+    "hook": "Makes bread, cakes and pastries by hand and with catering equipment.",
+    "pay": "£19,000 starting to £26,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/baker",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores bakers 57 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "florist",
+    "name": "Florist",
+    "hook": "Sells flowers and creates displays for weddings, funerals, events and special occasions.",
+    "pay": "£22,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/florist",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores the closest match, floral designers, 45 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "farmer",
+    "name": "Farmer",
+    "hook": "Grows crops and raises farm animals for food production.",
+    "pay": "£24,000 starting to £50,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/farmer",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores farmers, ranchers and agricultural managers 38 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "stonemason",
+    "name": "Stonemason",
+    "hook": "Carves and shapes stone blocks, and lays and fits stonework on construction, conservation and restoration projects.",
+    "pay": "£24,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/stonemason",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores stonemasons 41 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lifeguard",
+    "name": "Lifeguard",
+    "hook": "Monitors leisure pools and beaches to keep swimmers safe and responds to emergencies.",
+    "pay": "£19,000 starting to £27,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/lifeguard",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, lifeguards and ski patrol, 54 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gardener",
+    "name": "Gardener",
+    "hook": "Grows and looks after plants in parks, gardens and other green spaces.",
+    "pay": "£24,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/gardener",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, landscaping and groundskeeping workers, 45 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "airline-pilot",
+    "name": "Airline pilot",
+    "hook": "Flies passengers and cargo to destinations around the world.",
+    "pay": "£47,000 starting to £150,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/airline-pilot",
+    "aiRisk": {
+      "percent": 30,
+      "basis": "AI Exposure scores commercial pilots 50 out of 100 overall, with a Frey and Osborne figure of 55%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/commercial-pilots"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vet",
+    "name": "Vet",
+    "hook": "Diagnoses and treats sick and injured animals.",
+    "pay": "£32,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/vet",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores the closest match, veterinary technologists, 38 out of 100 overall. Its list of safest jobs puts veterinarians at 18 out of 100.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        },
+        {
+          "label": "AI Exposure, safest jobs",
+          "url": "https://www.aiexposure.org/jobs-safe-from-ai"
+        }
+      ]
+    }
+  },
+  {
+    "id": "outdoor-activities-instructor",
+    "name": "Outdoor activities instructor",
+    "hook": "Leads trips and teaches skills in pursuits like hill walking, climbing, canoeing and skiing.",
+    "pay": "£23,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/outdoor-activities-instructor",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, recreation workers, 35 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper",
+    "name": "Zookeeper",
+    "hook": "Looks after animals in zoos, safari parks and aquariums.",
+    "pay": "£21,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/zookeeper",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, animal caretakers, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "train-driver",
+    "name": "Train driver",
+    "hook": "Operates trains on the rail network, carrying passengers and freight around the country.",
+    "pay": "£28,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/train-driver",
+    "aiRisk": {
+      "percent": 35,
+      "basis": "AI Exposure scores the closest match, locomotive engineers, 61 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "wind-turbine-technician",
+    "name": "Wind turbine technician",
+    "hook": "Maintains and repairs wind farm turbines on land and at sea.",
+    "pay": "£25,000 starting to £47,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/wind-turbine-technician",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores wind turbine service technicians 46 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "stage-manager",
+    "name": "Stage manager",
+    "hook": "Co-ordinates productions and makes sure they run smoothly from rehearsals through to performance.",
+    "pay": "£25,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/stage-manager",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, producers and directors, 37 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "photographer",
+    "name": "Photographer",
+    "hook": "Takes and processes pictures of people, places, products and events.",
+    "pay": "£25,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/photographer",
+    "aiRisk": {
+      "percent": 30,
+      "basis": "AI Exposure scores photographers 41 out of 100 overall. We rounded up because AI image tools already compete with this work.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "plumber",
+    "name": "Plumber",
+    "hook": "Installs and repairs water and heating systems in homes and commercial properties.",
+    "pay": "£24,000 starting to £46,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/plumber",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores plumbers 41 out of 100 overall, with a Frey and Osborne figure of 35%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/plumbers-pipefitters-and-steamfitters"
+        }
+      ]
+    }
+  },
+  {
+    "id": "electrician",
+    "name": "Electrician",
+    "hook": "Installs power, lighting and renewable technologies in buildings.",
+    "pay": "£26,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/electrician",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, electrician helpers, 51 out of 100, but its list of safest jobs puts electricians at 14 out of 100.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        },
+        {
+          "label": "AI Exposure, safest jobs",
+          "url": "https://www.aiexposure.org/jobs-safe-from-ai"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bricklayer",
+    "name": "Bricklayer",
+    "hook": "Builds houses, repairs walls and chimneys and refurbishes decorative stonework.",
+    "pay": "£25,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/bricklayer",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores brickmasons and blockmasons 51 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/brickmasons-and-blockmasons"
+        }
+      ]
+    }
+  },
+  {
+    "id": "glazier",
+    "name": "Glazier",
+    "hook": "Fits and repairs windows, doors and glass panels in homes and businesses.",
+    "pay": "£23,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/glazier",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores glaziers 44 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "blacksmith",
+    "name": "Blacksmith",
+    "hook": "Creates decorative and everyday items using different metals, and makes and repairs industrial tools.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/blacksmith",
+    "aiRisk": {
+      "percent": null,
+      "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
+      "sources": []
+    }
+  },
+  {
+    "id": "lighting-technician",
+    "name": "Lighting technician",
+    "hook": "Sets up and operates lighting for concerts, conferences and theatre, and on film and TV productions.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/lighting-technician",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores the closest match, audio and video technicians, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sailing-instructor",
+    "name": "Sailing instructor",
+    "hook": "Teaches people to sail boats and yachts, and how to operate powered craft.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/sailing-instructor",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, recreation workers, 35 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    }
   }
 ]
