@@ -1306,37 +1306,39 @@ body.no-scroll { overflow: hidden; }
 #jump-button { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M14 3 L14 21 L4 21 Z M17 8 L17 21 L28 21 Z' fill='black'/%3E%3Cpath d='M2 24 H30 L27 29 H5 Z' fill='black'/%3E%3C/svg%3E"); }
 #wheel-button { --btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='16' cy='16' r='8'/%3E%3Cpath d='M16 3v26M3 16h26M6.800 6.800l18.400 18.400M6.800 25.200L25.200 6.800'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='3.500' fill='black'/%3E%3Ccircle cx='16' cy='3' r='2' fill='black'/%3E%3Ccircle cx='16' cy='29' r='2' fill='black'/%3E%3Ccircle cx='3' cy='16' r='2' fill='black'/%3E%3Ccircle cx='29' cy='16' r='2' fill='black'/%3E%3C/svg%3E"); }
 
-/* An occasional shark fin gliding along the wave dividers. Mostly idle, then a slow pass. */
+/* An occasional shark fin gliding along the wave dividers. It rides the same wave curve as the line,
+   is drawn as an open outline, and has no base, so nothing shows below the line. Mostly idle, then a slow pass. */
+.section,
+.site-footer { overflow-x: clip; }
 .section::after,
 .site-footer::after {
   content: "";
   position: absolute;
-  top: -12px;
+  top: 0;
   left: 0;
-  width: 16px;
-  height: 14px;
+  width: 17px;
+  height: 15px;
   background: var(--ink-soft);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 22'%3E%3Cpath d='M1 22 C1 13 5 4 10 0 C12 9 19 18 25 22 Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 22'%3E%3Cpath d='M1 22 C1 13 5 4 10 0 C12 9 19 18 25 22 Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 30 26'%3E%3Cpath d='M1 22 C1 13 5 4 10 0 C12 9 19 18 25 22' fill='none' stroke='black' stroke-width='2.400' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 30 26'%3E%3Cpath d='M1 22 C1 13 5 4 10 0 C12 9 19 18 25 22' fill='none' stroke='black' stroke-width='2.400' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  offset-path: path("M-240 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 s40 -7 60 0 s40 7 60 0");
+  offset-rotate: 0deg;
+  offset-anchor: 50% 96%;
+  offset-distance: 0%;
   opacity: 0;
   pointer-events: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   .section::after,
-  .site-footer::after { animation: fin-glide 48s linear infinite; }
-  .section:nth-of-type(2)::after { animation-delay: -10s; animation-duration: 56s; }
-  .section:nth-of-type(3)::after { animation-delay: -31s; animation-duration: 52s; }
-  .section:nth-of-type(4)::after { animation-delay: -22s; animation-duration: 60s; }
-  .site-footer::after { animation-delay: -40s; animation-duration: 58s; }
+  .site-footer::after { animation: fin-glide 64s linear infinite; }
+  .section:nth-of-type(2)::after { animation-delay: -12s; animation-duration: 72s; }
+  .section:nth-of-type(3)::after { animation-delay: -41s; animation-duration: 68s; }
+  .section:nth-of-type(4)::after { animation-delay: -27s; animation-duration: 76s; }
+  .site-footer::after { animation-delay: -50s; animation-duration: 70s; }
 }
 @keyframes fin-glide {
-  0%   { left: -3%; opacity: 0; transform: translateY(0); }
-  3%   { opacity: 1; }
-  8%   { transform: translateY(1.500px); }
-  14%  { transform: translateY(-0.500px); }
-  20%  { transform: translateY(1.500px); }
-  26%  { transform: translateY(0); }
-  28%  { opacity: 1; }
-  31%  { left: 103%; opacity: 0; }
-  100% { left: 103%; opacity: 0; }
+  0%   { offset-distance: 0%; opacity: 1; }
+  38%  { offset-distance: 100%; opacity: 1; }
+  39%  { offset-distance: 100%; opacity: 0; }
+  100% { offset-distance: 100%; opacity: 0; }
 }
