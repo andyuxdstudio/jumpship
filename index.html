@@ -228,7 +228,10 @@
           <input type="checkbox" id="prefer-low-ai" aria-describedby="ai-hint" checked>
           <span>Prefer careers with lower exposure to AI</span>
         </label>
-        <p class="hint" id="ai-hint">On by default. It moves careers where AI could do more of the work further down the list. It never hides one.</p>
+        <div class="tip" id="ai-tip">
+          <button type="button" class="tip-btn" aria-expanded="false" aria-controls="ai-hint">What's this?</button>
+          <p class="tip-body" id="ai-hint" role="tooltip" hidden>On by default. It moves careers where AI could do more of the work further down the list. It never hides one.</p>
+        </div>
 
         <p class="stale" id="matches-stale" role="status" hidden>You changed your answers, so these matches are out of date. <button type="button" class="btn-secondary" id="jump-again">Jump ship again</button></p>
         <p class="status matches-status" id="matches-status" role="status">Add your limits and skills above to see your matches.</p>

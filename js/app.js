@@ -1191,5 +1191,31 @@
     update();
   })();
 
+  // "What's this?" tooltip on the AI toggle: opens on click, tap, hover or keyboard focus, closes on Escape.
+  (function aiTip() {
+    var tip = document.getElementById("ai-tip");
+    if (!tip) return;
+    var btn = tip.querySelector(".tip-btn");
+    var body = tip.querySelector(".tip-body");
+    function set(open) {
+      body.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    var byHover = false;
+    btn.addEventListener("click", function () {
+      if (byHover) { byHover = false; return; }   // a mouse click on an already-open hover tip keeps it open
+      set(body.hidden);
+    });
+    tip.addEventListener("mouseenter", function () {
+      if (window.matchMedia("(hover: hover)").matches) { byHover = body.hidden; set(true); }
+    });
+    tip.addEventListener("mouseleave", function () {
+      if (window.matchMedia("(hover: hover)").matches) { byHover = false; set(false); }
+    });
+    tip.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") { set(false); }
+    });
+  })();
+
   start();
 })();

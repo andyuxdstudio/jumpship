@@ -1400,3 +1400,32 @@ body.no-scroll { overflow: hidden; }
   from { opacity: 0; max-height: 0; transform: translateY(-10px); }
   to   { opacity: 1; max-height: 36rem; transform: translateY(0); }
 }
+
+/* "What's this?" tooltip */
+.tip { margin: 0.35rem 0 0; max-width: 32rem; }
+.tip-btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted currentColor;
+  padding: 0;
+  font: inherit;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  cursor: help;
+}
+.tip-btn:hover, .tip-btn[aria-expanded="true"] { color: var(--ink); }
+.tip-body {
+  margin: 0.5rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 0.4rem;
+  font-size: var(--step--1);
+  color: var(--ink);
+}
+.tip-body[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .tip-body:not([hidden]) { animation: tip-in 0.18s ease-out; }
+}
+@keyframes tip-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
