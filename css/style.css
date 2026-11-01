@@ -1058,7 +1058,7 @@ body.no-scroll { overflow: hidden; }
   .is-running .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
   .is-running .jump-captain { animation: jump-leap 3.6s ease-in forwards; transform-origin: 200px 110px; }
   .is-running .jump-splash { animation: jump-splash 3.6s ease-out forwards; }
-  .is-running .jump-shark { animation: jump-swim 3.6s ease-in-out forwards; }
+  .is-running .jump-shark { animation: jump-swim 4.2s linear forwards; }
   .is-running .jump-jaw { animation: jump-chomp 3.6s ease-in-out forwards; }
   .is-running .jump-tail { animation: jump-wag 0.45s ease-in-out infinite; }
 }
@@ -1079,7 +1079,7 @@ body.no-scroll { overflow: hidden; }
   79%, 100% { transform: translate(68px, 80px) rotate(380deg); opacity: 0; }
 }
 @keyframes jump-splash { 0%, 76% { opacity: 0; transform: translateY(14px); } 84% { opacity: 0.9; transform: translateY(-4px); } 100% { opacity: 0; transform: translateY(-12px); } }
-@keyframes jump-swim { 0% { transform: translateX(-200px); } 74% { transform: translateX(180px); } 100% { transform: translateX(236px); } }
+@keyframes jump-swim { 0% { transform: translateX(-200px); } 63% { transform: translateX(180px); } 100% { transform: translateX(460px); } }
 @keyframes jump-chomp {
   0%, 56% { transform: rotate(0); }
   66%, 78% { transform: rotate(38deg); }
