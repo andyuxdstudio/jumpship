@@ -618,6 +618,7 @@
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
   var wildcards = null;
+  var themeData = null;   /* { labels, skills } from data/themes.json */
   var wheelTurn = 0;
   var wheelBusy = false;
   var lastWildcard = -1;
@@ -626,7 +627,21 @@
     return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
 
-  function buildWildcardCard(wild) {
+  function beyondReason(match) {
+    var labels = themeData && themeData.labels ? themeData.labels : {};
+    var themes = match.themes.map(function (t) { return labels[t] || t; });
+    var names = [];
+    match.matchedIds.forEach(function (id) {
+      for (var i = 0; i < catalogue.length; i += 1) {
+        if (catalogue[i].id === id) { names.push(catalogue[i].label.toLowerCase()); break; }
+      }
+    });
+    var skillText = names.slice(0, 2).join(" and ");
+    var themeText = themes.slice(0, 2).join(", and ");
+    return "Skills like " + skillText + " draw on " + themeText + ", which this job needs too.";
+  }
+
+  function buildWildcardCard(wild, match) {
     var item = document.createElement("li");
     var card = document.createElement("article");
     var heading = document.createElement("h3");
@@ -653,15 +668,39 @@
     });
 
     card.appendChild(heading);
+    if (match) {
+      var tag = document.createElement("p");
+      tag.className = "beyond-tag";
+      tag.textContent = "Beyond experience design";
+      card.appendChild(tag);
+    }
     card.appendChild(hook);
+    if (match) {
+      var because = document.createElement("p");
+      because.className = "match-why";
+      because.textContent = beyondReason(match);
+      card.appendChild(because);
+    }
     card.appendChild(details);
 
     var flags = document.createElement("ul");
     flags.className = "flags";
     flags.setAttribute("aria-label", "About this pick");
     var flag = document.createElement("li");
-    flag.textContent = "Picked at random. It is not matched to your skills, pay or hours, and we have not checked how it fits them.";
+    flag.textContent = match
+      ? "Matched on the kind of skills you picked, not on the exact work. Check the hours and the route in before you decide."
+      : "Picked at random. It is not matched to your skills, pay or hours, and we have not checked how it fits them.";
     flags.appendChild(flag);
+    if (match && match.flags.lowStart) {
+      var low = document.createElement("li");
+      low.textContent = "Starting pay is below your income floor. Experienced pay reaches it.";
+      flags.appendChild(low);
+    }
+    if (match && match.flags.payUnknown) {
+      var unknown = document.createElement("li");
+      unknown.textContent = "The source gives no pay range, so we could not check this against your income floor.";
+      flags.appendChild(unknown);
+    }
     card.appendChild(flags);
 
     if (wild.aiRisk) {
@@ -878,7 +917,7 @@
       hours: state.hours,
       skills: state.skills,
       preferLowAi: state.preferLowAi
-    });
+    }, wildcards && themeData ? { wildcards: wildcards, skillThemes: themeData.skills } : null);
 
     if (result.shown.length === 0) {
       matchesTitle.textContent = "No matches have been found this time.";
@@ -889,7 +928,9 @@
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
         (result.fitting === 1 ? " career that fits" : " careers that fit") + " your limits and skills.";
       if (state.hours === 0) showRemoteNotice();
-      result.shown.forEach(function (entry) { matchesList.appendChild(buildCard(entry)); });
+      result.shown.forEach(function (entry) {
+        matchesList.appendChild(entry.kind === "wild" ? buildWildcardCard(entry.career, entry) : buildCard(entry));
+      });
       if (result.fitting < JumpShipMatch.TOP) {
         addNote("Only " + result.fitting + " of the " + result.counts.total + " careers fit. Lowering your salary floor, allowing more hours in person or ticking more skills would widen the list.");
       }
@@ -998,8 +1039,12 @@
       .catch(function () { tasters = {}; });
 
     getJson("data/wildcards.json")
-      .then(function (list) { wildcards = Array.isArray(list) ? list : []; })
+      .then(function (list) { wildcards = Array.isArray(list) ? list : []; scheduleMatches(); })
       .catch(function () { wildcards = []; });
+
+    getJson("data/themes.json")
+      .then(function (data) { themeData = data && data.skills ? data : null; scheduleMatches(); })
+      .catch(function () { themeData = null; });
 
     getJson("data/careers.json")
       .then(function (list) {
@@ -1044,9 +1089,9 @@
     }
   })();
 
-  /* ---------- Background: drifting underwater dust. The bigger the speck, the faster it moves as you scroll ---------- */
+  /* ---------- Background: small, subtle ocean bubbles. Bigger bubbles move faster as you scroll ---------- */
 
-  (function underwaterDust() {
+  (function oceanBubbles() {
     var canvas = document.createElement("canvas");
     canvas.className = "dust";
     canvas.setAttribute("aria-hidden", "true");
@@ -1054,27 +1099,25 @@
     var ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    var specks = [];
+    var bubbles = [];
     var width = 0, height = 0, ratio = 1;
     var queued = false;
     var startTime = Date.now();
 
     function build() {
-      specks = [];
-      var count = Math.max(40, Math.min(110, Math.round(width * height / 14000)));
+      bubbles = [];
+      var count = Math.max(24, Math.min(60, Math.round(width * height / 26000)));
       for (var i = 0; i < count; i += 1) {
-        // Small specks only, a few slightly bigger than the rest
-        var r = 1 + Math.pow(Math.random(), 2.2) * 3.5;
-        specks.push({
+        var r = 2 + Math.pow(Math.random(), 1.5) * 5;   // 2px to 7px across, mostly small
+        bubbles.push({
           x: Math.random() * width,
           y: Math.random() * height,
           r: r,
-          speed: 0.12 + r * 0.2,              // larger means faster
-          squash: 0.8 + Math.random() * 0.4,   // slightly uneven, not perfect circles
-          tilt: Math.random() * Math.PI,
+          speed: 0.1 + r * 0.07,                          // larger means faster
+          rise: 2 + r * 1.2,                              // slow rise, pixels a second
           phase: Math.random() * Math.PI * 2,
-          sway: 4 + Math.random() * 10,
-          alpha: 0.05 + Math.random() * 0.07
+          sway: 3 + Math.random() * 7,
+          alpha: 0.07 + Math.random() * 0.06
         });
       }
     }
@@ -1102,30 +1145,24 @@
       var rgb = colour();
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       ctx.clearRect(0, 0, width, height);
-      for (var i = 0; i < specks.length; i += 1) {
-        var d = specks[i];
+      ctx.lineWidth = 1;
+      for (var i = 0; i < bubbles.length; i += 1) {
+        var d = bubbles[i];
         var span = height + d.r * 4;
-        // Scrolling down pushes specks up, faster for bigger ones. Wrap around the screen.
-        var y = ((d.y - scroll * d.speed) % span + span) % span - d.r * 2;
-        var x = d.x + Math.sin(t * 0.25 + d.phase) * d.sway;
-        // Progressive softness: the smallest specks are crisp, the largest are medium blurred.
-        var soft = Math.min(1, (d.r - 1) / 3.5);
-        var reach = d.r * (1 + soft * 0.6);
-        var core = 0.98 - soft * 0.8;
-        var g = ctx.createRadialGradient(x, y, 0, x, y, reach);
-        g.addColorStop(0, "rgba(" + rgb + "," + d.alpha + ")");
-        g.addColorStop(core, "rgba(" + rgb + "," + d.alpha + ")");
-        g.addColorStop(1, "rgba(" + rgb + ",0)");
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(d.tilt);
-        ctx.scale(1, d.squash);
-        ctx.translate(-x, -y);
-        ctx.fillStyle = g;
+        // Rising slowly on their own, and pushed up faster by scrolling when they are bigger
+        var y = ((d.y - scroll * d.speed - t * d.rise) % span + span) % span - d.r * 2;
+        var x = d.x + Math.sin(t * 0.3 + d.phase) * d.sway;
+        // A faint film, a thin rim and a small highlight, like a real bubble
         ctx.beginPath();
-        ctx.arc(x, y, reach, 0, Math.PI * 2);
+        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + rgb + "," + (d.alpha * 0.25).toFixed(3) + ")";
         ctx.fill();
-        ctx.restore();
+        ctx.strokeStyle = "rgba(" + rgb + "," + d.alpha.toFixed(3) + ")";
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x, y, d.r * 0.62, Math.PI * 1.15, Math.PI * 1.55);
+        ctx.strokeStyle = "rgba(" + rgb + "," + (d.alpha * 1.2).toFixed(3) + ")";
+        ctx.stroke();
       }
     }
 
@@ -1133,7 +1170,7 @@
       if (!queued) { queued = true; window.requestAnimationFrame(draw); }
     }
 
-    // Slow idle drift, so the water is never completely still
+    // Keep the slow rise going between scrolls
     var idle = null;
     function startIdle() {
       if (idle || reducedMotion()) return;

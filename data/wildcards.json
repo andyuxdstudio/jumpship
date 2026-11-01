@@ -15,7 +15,15 @@
           "url": "https://www.aiexposure.org/occupations/air-traffic-controllers"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "lead",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 48000,
+    "payTop": 100000
   },
   {
     "id": "merchant-navy-deck-officer",
@@ -33,7 +41,14 @@
           "url": "https://www.aiexposure.org/occupations/captains-mates-and-pilots-of-water-vessels"
         }
       ]
-    }
+    },
+    "themes": [
+      "lead",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 80000
   },
   {
     "id": "live-sound-engineer",
@@ -51,7 +66,14 @@
           "url": "https://www.aiexposure.org/occupations/sound-engineering-technicians"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 50000
   },
   {
     "id": "tree-surgeon",
@@ -69,7 +91,14 @@
           "url": "https://jobzonerisk.com/roles/tree-surgeon"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 35000
   },
   {
     "id": "archaeologist",
@@ -87,7 +116,14 @@
           "url": "https://www.aiexposure.org/will-ai-replace/anthropologists-and-archeologists"
         }
       ]
-    }
+    },
+    "themes": [
+      "research",
+      "story"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 40000
   },
   {
     "id": "countryside-ranger",
@@ -105,7 +141,15 @@
           "url": "https://www.aiexposure.org/will-ai-replace/forest-and-conservation-workers"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "teach",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 20000,
+    "payTop": 28000
   },
   {
     "id": "marine-biologist",
@@ -123,7 +167,14 @@
           "url": "https://www.aiexposure.org/occupations/zoologists-and-wildlife-biologists"
         }
       ]
-    }
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 12000,
+    "payTop": 45000
   },
   {
     "id": "farrier",
@@ -141,7 +192,13 @@
           "url": "https://nestorbot.vercel.app/disruption/farrier"
         }
       ]
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "firefighter",
@@ -159,7 +216,15 @@
           "url": "https://www.aiexposure.org/occupations/firefighters"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "lead",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 28000,
+    "payTop": 42000
   },
   {
     "id": "paramedic",
@@ -177,7 +242,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 48000
   },
   {
     "id": "chef",
@@ -195,7 +267,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 22000,
+    "payTop": 40000
   },
   {
     "id": "baker",
@@ -213,7 +292,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 19000,
+    "payTop": 26000
   },
   {
     "id": "florist",
@@ -231,7 +316,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 24,
+    "payFrom": 22000,
+    "payTop": 28000
   },
   {
     "id": "farmer",
@@ -249,7 +341,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "lead",
+      "tech",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 50000
   },
   {
     "id": "stonemason",
@@ -267,7 +367,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 40000
   },
   {
     "id": "lifeguard",
@@ -285,7 +391,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 19000,
+    "payTop": 27000
   },
   {
     "id": "gardener",
@@ -303,7 +416,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "research"
+    ],
+    "minHours": 24,
+    "payFrom": 24000,
+    "payTop": 32000
   },
   {
     "id": "airline-pilot",
@@ -321,7 +441,14 @@
           "url": "https://www.aiexposure.org/occupations/commercial-pilots"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 47000,
+    "payTop": 150000
   },
   {
     "id": "vet",
@@ -343,7 +470,15 @@
           "url": "https://www.aiexposure.org/jobs-safe-from-ai"
         }
       ]
-    }
+    },
+    "themes": [
+      "research",
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 65000
   },
   {
     "id": "outdoor-activities-instructor",
@@ -361,7 +496,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "teach",
+      "people",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 23000,
+    "payTop": 30000
   },
   {
     "id": "zookeeper",
@@ -379,7 +522,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "research",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 21000,
+    "payTop": 28000
   },
   {
     "id": "train-driver",
@@ -397,7 +548,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 28000,
+    "payTop": 65000
   },
   {
     "id": "wind-turbine-technician",
@@ -415,7 +572,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 47000
   },
   {
     "id": "stage-manager",
@@ -433,7 +597,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "lead",
+      "tech",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 48000
   },
   {
     "id": "photographer",
@@ -451,7 +623,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "story"
+    ],
+    "minHours": 16,
+    "payFrom": 25000,
+    "payTop": 45000
   },
   {
     "id": "plumber",
@@ -469,7 +648,15 @@
           "url": "https://www.aiexposure.org/occupations/plumbers-pipefitters-and-steamfitters"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "tech",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 46000
   },
   {
     "id": "electrician",
@@ -491,7 +678,14 @@
           "url": "https://www.aiexposure.org/jobs-safe-from-ai"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 26000,
+    "payTop": 45000
   },
   {
     "id": "bricklayer",
@@ -509,7 +703,13 @@
           "url": "https://www.aiexposure.org/occupations/brickmasons-and-blockmasons"
         }
       ]
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 45000
   },
   {
     "id": "glazier",
@@ -527,7 +727,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 23000,
+    "payTop": 40000
   },
   {
     "id": "blacksmith",
@@ -540,7 +747,13 @@
       "percent": null,
       "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
       "sources": []
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "lighting-technician",
@@ -558,7 +771,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "make",
+      "story"
+    ],
+    "minHours": 40,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "sailing-instructor",
@@ -576,7 +797,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "teach",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "painter-and-decorator",
@@ -594,7 +822,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 21000,
+    "payTop": 32000
   },
   {
     "id": "hgv-driver",
@@ -612,7 +847,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 27000,
+    "payTop": 47000
   },
   {
     "id": "bus-or-coach-driver",
@@ -630,7 +871,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 37000
   },
   {
     "id": "butcher",
@@ -648,7 +895,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 18000,
+    "payTop": 26000
   },
   {
     "id": "hairdresser",
@@ -666,7 +919,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 19000,
+    "payTop": 30000
   },
   {
     "id": "police-officer",
@@ -684,7 +944,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "research",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 48000
   },
   {
     "id": "dentist",
@@ -697,7 +965,15 @@
       "percent": null,
       "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
       "sources": []
-    }
+    },
+    "themes": [
+      "people",
+      "tech",
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 55000,
+    "payTop": 117000
   },
   {
     "id": "librarian",
@@ -715,7 +991,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "research",
+      "people",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 40000
   },
   {
     "id": "actor",
@@ -733,7 +1017,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "story",
+      "people"
+    ],
+    "minHours": 24,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "musician",
@@ -751,7 +1042,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "story",
+      "make"
+    ],
+    "minHours": 24,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "dancer",
@@ -769,7 +1067,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "story",
+      "make"
+    ],
+    "minHours": 24,
+    "payFrom": null,
+    "payTop": null
   },
   {
     "id": "journalist",
@@ -787,7 +1092,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "story",
+      "research"
+    ],
+    "minHours": 16,
+    "payFrom": 24000,
+    "payTop": 45000
   },
   {
     "id": "primary-school-teacher",
@@ -805,7 +1117,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "teach",
+      "people",
+      "story"
+    ],
+    "minHours": 40,
+    "payFrom": 34000,
+    "payTop": 53000
   },
   {
     "id": "coastguard",
@@ -823,7 +1143,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "lead",
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 37000
   },
   {
     "id": "tourist-guide",
@@ -841,7 +1169,15 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "story",
+      "teach",
+      "people"
+    ],
+    "minHours": 24,
+    "payFrom": 19000,
+    "payTop": 25000
   },
   {
     "id": "locksmith",
@@ -859,7 +1195,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "tech",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 23000,
+    "payTop": 30000
   },
   {
     "id": "dispensing-optician",
@@ -877,7 +1220,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 28000,
+    "payTop": 40000
   },
   {
     "id": "land-surveyor",
@@ -895,7 +1245,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 24,
+    "payFrom": 20000,
+    "payTop": 50000
   },
   {
     "id": "veterinary-nurse",
@@ -913,7 +1270,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 32000
   },
   {
     "id": "midwife",
@@ -931,7 +1295,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 48000
   },
   {
     "id": "cabin-crew",
@@ -949,7 +1320,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 21000,
+    "payTop": 28000
   },
   {
     "id": "fishing-boat-deckhand",
@@ -962,7 +1340,14 @@
       "percent": null,
       "basis": "We could not find a matching occupation with an AI score, so we have no estimate for this role.",
       "sources": []
-    }
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 22000,
+    "payTop": 30000
   },
   {
     "id": "dental-hygienist",
@@ -980,7 +1365,14 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 57000
   },
   {
     "id": "animal-care-worker",
@@ -998,6 +1390,13 @@
           "url": "https://www.aiexposure.org/occupations"
         }
       ]
-    }
+    },
+    "themes": [
+      "people",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 21000,
+    "payTop": 24000
   }
 ]

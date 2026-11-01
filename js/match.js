@@ -7,7 +7,12 @@
       in person, but they are flagged ("stretch") because fully remote roles are rarer.
    2. Skills. Each career lists the skills it draws on, weighted 2 (core) or 1 (supporting).
       A career's score is the total weight of the skills he picked. No overlap, no match.
-   3. Ranking. Highest score first. When "prefer lower AI exposure" is on, each step of
+   3. Beyond experience design. Each skill belongs to one to three themes (research, people,
+      teaching, making, leading, technical, storytelling). Careers outside the field carry the same
+      themes. A career scores when its themes overlap the picked skills' themes by at least three points,
+      and counts for about a third as much as a direct skill match, so exact skills still lead.
+      At most two of them appear in the top five. They are checked against the same pay and hours limits when they have the data.
+   4. Ranking. Highest score first. When "prefer lower AI exposure" is on, each step of
       AI exposure costs half a point, so exposure nudges the order and never hides a career. */
 (function (root, factory) {
   var api = factory();
@@ -22,6 +27,8 @@
   var LEVELS = { "Low": 0, "Low to medium": 1, "Medium": 2, "Medium to high": 3, "High": 4 };
   var AI_PENALTY = 0.5;
   var TOP = 5;
+  var WILD_WEIGHT = 0.35;
+  var MAX_BEYOND = 2;   /* at most two careers from outside the field in the top five */
 
   function exposureRank(career) {
     var value = LEVELS[career.ai && career.ai.level];
@@ -34,7 +41,56 @@
     return "no";
   }
 
-  function rank(careers, answers) {
+  function wildExposureRank(percent) {
+    if (typeof percent !== "number") return 2;
+    if (percent <= 10) return 0;
+    if (percent <= 25) return 1;
+    if (percent <= 45) return 2;
+    if (percent <= 65) return 3;
+    return 4;
+  }
+
+  /* Careers outside experience design, matched on themes rather than exact skills. */
+  function rankBeyond(wildcards, skillThemes, picked, answers) {
+    var strength = {};
+    Object.keys(picked).forEach(function (id) {
+      (skillThemes[id] || []).forEach(function (theme) {
+        strength[theme] = Math.min(3, (strength[theme] || 0) + 1);
+      });
+    });
+    var entries = [];
+    wildcards.forEach(function (wild) {
+      if (!wild.themes) return;
+      var hours = hoursFit(typeof wild.minHours === "number" ? wild.minHours : 40, answers.hours);
+      if (hours === "no") return;
+      if (typeof wild.payTop === "number" && answers.income > wild.payTop) return;
+      var matchedThemes = wild.themes.filter(function (theme) { return strength[theme]; });
+      var themeScore = matchedThemes.reduce(function (total, theme) { return total + strength[theme]; }, 0);
+      if (themeScore < 3) return;
+      var score = themeScore * WILD_WEIGHT;
+      var viaSkills = Object.keys(picked).filter(function (id) {
+        return (skillThemes[id] || []).some(function (theme) { return matchedThemes.indexOf(theme) !== -1; });
+      });
+      entries.push({
+        kind: "wild",
+        career: wild,
+        score: score,
+        adjusted: score - (answers.preferLowAi ? AI_PENALTY * wildExposureRank(wild.aiRisk && wild.aiRisk.percent) : 0),
+        matchedIds: viaSkills,
+        themes: matchedThemes,
+        why: [],
+        flags: {
+          lowStart: typeof wild.payFrom === "number" && answers.income > wild.payFrom,
+          limitedData: null,
+          payUnknown: typeof wild.payTop !== "number",
+          hoursStretch: hours === "stretch"
+        }
+      });
+    });
+    return entries;
+  }
+
+  function rank(careers, answers, options) {
     var picked = {};
     (answers.skills || []).forEach(function (id) { picked[id] = true; });
 
@@ -71,14 +127,33 @@
       });
     });
 
+    if (options && options.wildcards && options.skillThemes) {
+      rankBeyond(options.wildcards, options.skillThemes, picked, answers).forEach(function (entry) {
+        fitting.push(entry);
+      });
+    }
+
     fitting.sort(function (a, b) {
+      var medianA = a.kind === "wild" ? 0 : a.career.pay.median;
+      var medianB = b.kind === "wild" ? 0 : b.career.pay.median;
       return (b.adjusted - a.adjusted) ||
         (b.score - a.score) ||
-        (b.career.pay.median - a.career.pay.median) ||
+        (medianB - medianA) ||
         a.career.name.localeCompare(b.career.name);
     });
 
-    return { shown: fitting.slice(0, TOP), fitting: fitting.length, counts: counts };
+    var shown = [];
+    var beyond = 0;
+    fitting.forEach(function (entry) {
+      if (shown.length >= TOP) return;
+      if (entry.kind === "wild") {
+        if (beyond >= MAX_BEYOND) return;
+        beyond += 1;
+      }
+      shown.push(entry);
+    });
+
+    return { shown: shown, fitting: fitting.length, counts: counts };
   }
 
   return { rank: rank, exposureRank: exposureRank, hoursFit: hoursFit, AI_PENALTY: AI_PENALTY, TOP: TOP };
