@@ -991,6 +991,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  padding-top: 20px;
 }
 
 /* Jump ship sits straight after the skills; the save tools follow, closer together */
