@@ -240,7 +240,7 @@
           w: w, depth: depth, bumps: bumps,
           drift: 5 + depth * 13,                               // pixels a second, right to left
           par: 0.04 + depth * 0.12,                            // scroll parallax
-          alpha: 0.35 + depth * 0.3
+          alpha: 0.75 + depth * 0.2
         });
       }
     }
@@ -287,16 +287,19 @@
         var span = width + c.w + 200;
         var x = ((c.x - t * c.drift - scroll * c.par * 0.3) % span + span) % span - c.w * 0.5 - 100;
         var y = c.y - scroll * c.par;
-        ctx.fillStyle = "rgba(255,255,255," + c.alpha.toFixed(3) + ")";
-        ctx.beginPath();
-        for (var k = 0; k < c.bumps.length; k += 1) {
-          var b = c.bumps[k];
-          ctx.moveTo(x + b.dx + b.r, y + b.dy);
-          ctx.arc(x + b.dx, y + b.dy, b.r, 0, Math.PI * 2);
+        // Two passes: a slightly larger soft blue-grey shape for the edge, then the white body on top
+        for (var pass = 0; pass < 2; pass += 1) {
+          var grow = pass === 0 ? 2 : 0;
+          ctx.fillStyle = pass === 0 ? "rgba(122,166,180," + (c.alpha * 0.55).toFixed(3) + ")" : "rgba(255,255,255," + c.alpha.toFixed(3) + ")";
+          ctx.beginPath();
+          for (var k = 0; k < c.bumps.length; k += 1) {
+            var b = c.bumps[k];
+            ctx.moveTo(x + b.dx + b.r + grow, y + b.dy);
+            ctx.arc(x + b.dx, y + b.dy, b.r + grow, 0, Math.PI * 2);
+          }
+          ctx.rect(x - c.w * 0.42 - grow, y - c.w * 0.04, c.w * 0.84 + grow * 2, c.w * 0.08 + grow);
+          ctx.fill();
         }
-        // a flat, soft underside
-        ctx.rect(x - c.w * 0.42, y - c.w * 0.04, c.w * 0.84, c.w * 0.08);
-        ctx.fill();
       }
     }
 
