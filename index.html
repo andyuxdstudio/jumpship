@@ -69,7 +69,7 @@
           <svg class="creature c-ray" aria-hidden="true" focusable="false"><use href="#c-stingray"/></svg>
           <svg class="creature c-squid" aria-hidden="true" focusable="false"><use href="#c-wheel-squid"/></svg>
           <div class="jump-stage hero-scene" id="jump-scene">
-      <svg class="jump-art" viewBox="0 0 320 215" aria-hidden="true" focusable="false">
+      <svg class="jump-art" viewBox="-80 0 480 215" aria-hidden="true" focusable="false">
         <g class="jump-boat">
           <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
           <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
@@ -93,15 +93,15 @@
           </linearGradient>
           <linearGradient id="jump-sea-edge" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-            <stop offset="0.2" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="0.8" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="0.35" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="0.65" stop-color="#fff" stop-opacity="1"/>
             <stop offset="1" stop-color="#fff" stop-opacity="0"/>
           </linearGradient>
-          <mask id="jump-sea-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="215">
-            <rect width="320" height="215" fill="url(#jump-sea-edge)"/>
+          <mask id="jump-sea-mask" maskUnits="userSpaceOnUse" x="-80" y="0" width="480" height="215">
+            <rect x="-80" width="480" height="215" fill="url(#jump-sea-edge)"/>
           </mask>
         </defs>
-        <path class="jump-sea" mask="url(#jump-sea-mask)" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V215 H0 z"/>
+        <path class="jump-sea" mask="url(#jump-sea-mask)" d="M-80 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V215 H-80 z"/>
         <g class="jump-shark">
           <g transform="translate(0 153)" stroke="var(--ink)" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
             <g class="jump-tail"><path d="M24 27C16 20 9 10 0 1 4 14 4 22 8 28 4 35 6 43 3 51 12 45 19 37 24 29z" fill="#5b7f9c"/></g>
