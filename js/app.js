@@ -468,8 +468,6 @@
   /* ---------- Wheel ---------- */
 
   var wheelButton = document.getElementById("wheel-button");
-  var wheelSection = document.getElementById("wheel");
-  var wheelTitle = document.getElementById("wheel-title");
   var wheelSpin = document.getElementById("wheel-spin");
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
@@ -552,17 +550,9 @@
     window.setTimeout(wheelShow, 2200);
   }
 
-  function openWheel() {
-    wheelSection.hidden = false;
-    wheelSection.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
-    wheelTitle.focus({ preventScroll: true });
-    spinWheel();
-  }
-
   /* ---------- Jump ship ---------- */
 
   var jumpButton = document.getElementById("jump-button");
-  var spinButton = document.getElementById("spin-button");
   var jumpAgain = document.getElementById("jump-again");
   var jumpOverlay = document.getElementById("jump-overlay");
   var jumpSkip = document.getElementById("jump-skip");
@@ -610,7 +600,6 @@
   jumpButton.addEventListener("click", startJump);
   jumpAgain.addEventListener("click", startJump);
   jumpSkip.addEventListener("click", finishJump);
-  spinButton.addEventListener("click", openWheel);
   wheelButton.addEventListener("click", spinWheel);
   jumpOverlay.addEventListener("keydown", function (event) {
     if (event.key === "Escape") { finishJump(); }

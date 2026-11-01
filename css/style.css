@@ -996,7 +996,7 @@ a:hover {
   border-radius: 0.4rem;
 }
 
-.stale[hidden], .jump-overlay[hidden], #matches[hidden], #wheel[hidden], #nav-matches[hidden] { display: none; }
+.stale[hidden], .jump-overlay[hidden], #matches[hidden], #nav-matches[hidden] { display: none; }
 .stale .btn-secondary { margin-left: 0.5rem; }
 
 body.no-scroll { overflow: hidden; }
