@@ -1,0 +1,66 @@
+[
+  {
+    "id": "air-traffic-controller",
+    "name": "Air traffic controller",
+    "hook": "Gives information and instructions to airline pilots.",
+    "pay": "£48,000 starting to £100,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/air-traffic-controller"
+  },
+  {
+    "id": "merchant-navy-deck-officer",
+    "name": "Merchant Navy deck officer",
+    "hook": "Responsible for the safety, navigation, operation and crew of cargo and passenger ships.",
+    "pay": "£30,000 starting to £80,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-deck-officer"
+  },
+  {
+    "id": "live-sound-engineer",
+    "name": "Live sound engineer",
+    "hook": "Controls the sound at events like theatre performances, music concerts and festivals.",
+    "pay": "£25,000 starting to £50,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/live-sound-engineer"
+  },
+  {
+    "id": "tree-surgeon",
+    "name": "Tree surgeon",
+    "hook": "Works in towns and the countryside, assessing tree health and felling unsafe trees.",
+    "pay": "£25,000 starting to £35,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tree-surgeon/"
+  },
+  {
+    "id": "archaeologist",
+    "name": "Archaeologist",
+    "hook": "Learns about the past by studying written records, collecting oral histories and excavating remains.",
+    "pay": "£24,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/archaeologist"
+  },
+  {
+    "id": "countryside-ranger",
+    "name": "Countryside ranger",
+    "hook": "Helps protect the environment and support wildlife by looking after forests, coastlines, wetlands and parks.",
+    "pay": "£20,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/countryside-ranger"
+  },
+  {
+    "id": "marine-biologist",
+    "name": "Marine biologist",
+    "hook": "Studies organisms and ecosystems in the oceans and other saltwater environments.",
+    "pay": "Entry-level pay runs from about £12,000 to £30,000 depending on the role, and senior roles reach around £45,000",
+    "sourceLabel": "Prospects, November 2025",
+    "sourceUrl": "https://www.prospects.ac.uk/job-profiles/marine-biologist"
+  },
+  {
+    "id": "farrier",
+    "name": "Farrier",
+    "hook": "Looks after horses' hooves.",
+    "pay": "Pay varies, and the page gives no range",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/farrier"
+  }
+]

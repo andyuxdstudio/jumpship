@@ -321,7 +321,8 @@
 
   function scheduleMatches() {
     window.clearTimeout(matchTimer);
-    matchTimer = window.setTimeout(renderMatches, 250);
+    if (!hasJumped) return;
+    matchTimer = window.setTimeout(function () { matchesStale.hidden = false; }, 250);
   }
 
   function addNote(text) {
@@ -467,65 +468,154 @@
   /* ---------- Wheel ---------- */
 
   var wheelButton = document.getElementById("wheel-button");
+  var wheelSection = document.getElementById("wheel");
+  var wheelTitle = document.getElementById("wheel-title");
   var wheelSpin = document.getElementById("wheel-spin");
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
+  var wildcards = null;
   var wheelTurn = 0;
   var wheelBusy = false;
+  var lastWildcard = -1;
 
-  function wheelPick() {
-    var picked = {};
-    state.skills.forEach(function (id) { picked[id] = true; });
-    var career = careers[Math.floor(Math.random() * careers.length)];
-    var matched = career.skills.filter(function (skill) { return picked[skill.id]; })
-      .sort(function (a, b) { return b.weight - a.weight; });
-    var extra = [];
-    if (state.income !== null && state.income > career.pay.median) {
-      extra.push("Outside your income floor: the middle of advertised pay is " + money(career.pay.median) + ", below your " + money(state.income) + ".");
-    }
-    if (state.hours !== null && JumpShipMatch.hoursFit(career.minHours, state.hours) === "no") {
-      extra.push("Outside your hours: employers usually ask for " + DAYS[career.minHours] + " a week in person.");
-    }
-    return {
-      career: career,
-      matchedIds: matched.map(function (skill) { return skill.id; }),
-      why: matched.slice(0, 2).map(function (skill) { return skill.why; }),
-      extraFlags: extra,
-      flags: {
-        lowStart: state.income !== null && state.income > career.pay.p10 && state.income <= career.pay.median,
-        limitedData: career.limitedData || null,
-        hoursStretch: state.hours === 0 && JumpShipMatch.hoursFit(career.minHours, 0) === "stretch"
-      }
-    };
+  function reducedMotion() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  function buildWildcardCard(wild) {
+    var item = document.createElement("li");
+    var card = document.createElement("article");
+    var heading = document.createElement("h3");
+    var hook = document.createElement("p");
+    var details = document.createElement("dl");
+
+    card.className = "match";
+    card.setAttribute("aria-labelledby", "wild-" + wild.id);
+    heading.id = "wild-" + wild.id;
+    heading.textContent = wild.name;
+    hook.className = "match-why";
+    hook.textContent = wild.hook;
+
+    addRow(details, "Typical pay", function (dd) {
+      dd.appendChild(document.createTextNode(wild.pay + ". This is an estimate."));
+      var source = document.createElement("span");
+      source.className = "pay-source";
+      var link = document.createElement("a");
+      link.href = wild.sourceUrl;
+      link.rel = "noopener";
+      link.textContent = "Check the source: " + wild.sourceLabel;
+      source.appendChild(link);
+      dd.appendChild(source);
+    });
+
+    card.appendChild(heading);
+    card.appendChild(hook);
+    card.appendChild(details);
+
+    var flags = document.createElement("ul");
+    flags.className = "flags";
+    flags.setAttribute("aria-label", "About this pick");
+    var flag = document.createElement("li");
+    flag.textContent = "Picked at random. It is not matched to your skills, pay or hours, and we have not checked how it fits them.";
+    flags.appendChild(flag);
+    card.appendChild(flags);
+
+    item.appendChild(card);
+    return item;
   }
 
   function wheelShow() {
-    var result = wheelPick();
+    var index;
+    do { index = Math.floor(Math.random() * wildcards.length); } while (wildcards.length > 1 && index === lastWildcard);
+    lastWildcard = index;
+    var wild = wildcards[index];
     wheelResult.textContent = "";
-    wheelResult.appendChild(buildCard(result));
-    wheelStatus.textContent = "The wheel chose " + result.career.name + ".";
+    wheelResult.appendChild(buildWildcardCard(wild));
+    wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
     wheelButton.disabled = false;
     wheelButton.textContent = "Spin again";
   }
 
-  if (wheelButton) {
-    wheelButton.addEventListener("click", function () {
-      if (wheelBusy) return;
-      if (!careers || !careers.length) {
-        wheelStatus.textContent = "The careers did not load. Refresh the page and try again.";
-        return;
-      }
-      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduce) { wheelShow(); return; }
-      wheelBusy = true;
-      wheelButton.disabled = true;
-      wheelStatus.textContent = "Spinning.";
-      wheelTurn += 720 + Math.floor(Math.random() * 360);
-      wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
-      window.setTimeout(wheelShow, 2200);
-    });
+  function spinWheel() {
+    if (wheelBusy) return;
+    if (!wildcards || !wildcards.length) {
+      wheelStatus.textContent = "The wheel could not load its careers. Refresh the page and try again.";
+      return;
+    }
+    if (reducedMotion()) { wheelShow(); return; }
+    wheelBusy = true;
+    wheelButton.disabled = true;
+    wheelStatus.textContent = "Spinning.";
+    wheelTurn += 720 + Math.floor(Math.random() * 360);
+    wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
+    window.setTimeout(wheelShow, 2200);
   }
+
+  function openWheel() {
+    wheelSection.hidden = false;
+    wheelSection.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
+    wheelTitle.focus({ preventScroll: true });
+    spinWheel();
+  }
+
+  /* ---------- Jump ship ---------- */
+
+  var jumpButton = document.getElementById("jump-button");
+  var spinButton = document.getElementById("spin-button");
+  var jumpAgain = document.getElementById("jump-again");
+  var jumpOverlay = document.getElementById("jump-overlay");
+  var jumpSkip = document.getElementById("jump-skip");
+  var jumpTitle = document.getElementById("jump-title");
+  var jumpFill = document.getElementById("jump-fill");
+  var matchesSection = document.getElementById("matches");
+  var matchesTitle = document.getElementById("matches-title");
+  var matchesStale = document.getElementById("matches-stale");
+  var navMatches = document.getElementById("nav-matches");
+  var jumpTimer = null;
+  var jumpOpener = null;
+  var hasJumped = false;
+
+  function finishJump() {
+    if (jumpOverlay.hidden) return;
+    window.clearTimeout(jumpTimer);
+    jumpOverlay.hidden = true;
+    jumpOverlay.classList.remove("is-running");
+    document.body.classList.remove("no-scroll");
+    hasJumped = true;
+    matchesSection.hidden = false;
+    navMatches.hidden = false;
+    window.clearTimeout(matchTimer);
+    renderMatches();
+    matchesSection.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
+    matchesTitle.focus({ preventScroll: true });
+  }
+
+  function startJump() {
+    if (!jumpOverlay.hidden) return;
+    var reduce = reducedMotion();
+    jumpOpener = document.activeElement;
+    jumpTitle.textContent = reduce ? "Setting sail" : "Jumping ship";
+    jumpFill.style.transitionDuration = reduce ? "0s" : "2.6s";
+    jumpFill.style.width = "0%";
+    jumpOverlay.hidden = false;
+    document.body.classList.add("no-scroll");
+    jumpSkip.focus();
+    void jumpFill.offsetWidth;
+    jumpOverlay.classList.add("is-running");
+    jumpFill.style.width = "100%";
+    jumpTimer = window.setTimeout(finishJump, reduce ? 1000 : 2800);
+  }
+
+  jumpButton.addEventListener("click", startJump);
+  jumpAgain.addEventListener("click", startJump);
+  jumpSkip.addEventListener("click", finishJump);
+  spinButton.addEventListener("click", openWheel);
+  wheelButton.addEventListener("click", spinWheel);
+  jumpOverlay.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") { finishJump(); }
+    if (event.key === "Tab") { event.preventDefault(); jumpSkip.focus(); }
+  });
 
   function showRemoteNotice() {
     var paragraph = document.createElement("p");
@@ -542,6 +632,7 @@
   }
 
   function renderMatches() {
+    matchesStale.hidden = true;
     matchesList.textContent = "";
     matchesNotes.textContent = "";
     matchesNotice.textContent = "";
@@ -595,7 +686,8 @@
   function handleAiToggle() {
     state.preferLowAi = preferAi.checked;
     save();
-    scheduleMatches();
+    window.clearTimeout(matchTimer);
+    renderMatches();
   }
 
   /* ---------- Clearing ---------- */
@@ -681,6 +773,10 @@
         showSkillsLoadError();
         renderSummary();
       });
+
+    getJson("data/wildcards.json")
+      .then(function (list) { wildcards = Array.isArray(list) ? list : []; })
+      .catch(function () { wildcards = []; });
 
     getJson("data/careers.json")
       .then(function (list) {

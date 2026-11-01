@@ -18,7 +18,7 @@
   <!-- Delete this bar when the tools are live (stage 8). -->
   <div class="preview-bar" role="note">
     <div class="wrap">
-      <p>Preview build, stage 3 of 8. Matching works from your limits and skills. Ways in, the wheel and tasters arrive next.</p>
+      <p>Preview build, stage 5 of 8. Matching, ways in and the wheel work. Tasters arrive next.</p>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
         <ul>
           <li><a href="#start">Set your course</a></li>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#matches">Your matches</a></li>
+          <li id="nav-matches" hidden><a href="#matches">Your matches</a></li>
           <li><a href="#straight-talk">Straight talk</a></li>
         </ul>
       </nav>
@@ -143,6 +143,12 @@
               <p class="status" id="status" role="status"></p>
               <button class="btn-quiet" type="button" id="clear-answers">Clear my answers</button>
             </div>
+
+            <div class="actions">
+              <button class="btn" type="button" id="jump-button">Jump ship</button>
+              <button class="btn-secondary" type="button" id="spin-button">Spin the wheel</button>
+            </div>
+            <p class="hint">Jump ship shows your top five matches. The wheel shows a surprise career that has nothing to do with your answers.</p>
           </form>
 
           <aside class="summary" aria-labelledby="summary-title">
@@ -162,16 +168,16 @@
               </div>
             </dl>
             <ul class="chips" id="sum-skills" aria-label="Skills you picked" hidden></ul>
-            <p class="summary-note">Your answers stay on this device. Your top five matches appear below.</p>
+            <p class="summary-note">Your answers stay on this device. Press Jump ship to see your top five matches.</p>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="matches" aria-labelledby="matches-title">
+    <section class="section" id="matches" aria-labelledby="matches-title" hidden>
       <div class="wrap">
         <div class="section-head">
-          <h2 id="matches-title">Your top five matches</h2>
+          <h2 id="matches-title" tabindex="-1">Your top five matches</h2>
           <p>Ports: careers that clear your limits and use the skills you picked. Pay and AI figures are estimates, each with a source you can check.</p>
         </div>
 
@@ -181,6 +187,7 @@
         </label>
         <p class="hint" id="ai-hint">On by default. It moves careers where AI could do more of the work further down the list. It never hides one.</p>
 
+        <p class="stale" id="matches-stale" role="status" hidden>You changed your answers, so these matches are out of date. <button type="button" class="btn-secondary" id="jump-again">Jump ship again</button></p>
         <p class="status matches-status" id="matches-status" role="status">Add your limits and skills above to see your matches.</p>
         <div class="notice" id="matches-notice" role="note" hidden></div>
         <ol class="results" id="matches-list" role="list"></ol>
@@ -190,13 +197,31 @@
       </div>
     </section>
 
-    <section class="section" id="wheel" aria-labelledby="wheel-title">
-      <div class="wrap">
+    <section class="section wheel-section" id="wheel" aria-labelledby="wheel-title" hidden>
+      <svg class="helm-bg" viewBox="0 0 800 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <path d="M0 210 H800" class="helm-line"/>
+        <path d="M300 210 a100 100 0 0 1 200 0" class="helm-line"/>
+        <path d="M0 240 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" class="helm-line"/>
+        <path d="M0 268 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" class="helm-line"/>
+        <path d="M0 298 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" class="helm-line"/>
+        <g class="helm-wheel" transform="translate(400 400)">
+          <circle r="190"/><circle r="130"/>
+          <line x1="0" y1="-250" x2="0" y2="250"/><line x1="-250" y1="0" x2="250" y2="0"/>
+          <line x1="-177" y1="-177" x2="177" y2="177"/><line x1="-177" y1="177" x2="177" y2="-177"/>
+          <circle cx="0" cy="-250" r="16"/><circle cx="-177" cy="-177" r="16"/><circle cx="177" cy="-177" r="16"/>
+          <circle cx="-250" cy="0" r="16"/><circle cx="250" cy="0" r="16"/>
+        </g>
+      </svg>
+      <div class="wrap wheel-wrap">
         <div class="section-head">
-          <h2 id="wheel-title">Can't choose? Let the wheel pick</h2>
-          <p>The wheel picks any one of the 14 careers we cover. It ignores your limits, so if it lands outside them, the card will say so.</p>
+          <h2 id="wheel-title" tabindex="-1">Something completely different</h2>
+          <p>The wheel picks a career at random from outside UX. It ignores your skills and limits on purpose. Treat it as a look at a different shore, not a recommendation.</p>
         </div>
         <div class="wheel-box">
+          <svg class="creature c-octopus" aria-hidden="true" focusable="false"><use href="#c-octopus"/></svg>
+          <svg class="creature c-dolphin" aria-hidden="true" focusable="false"><use href="#c-dolphin"/></svg>
+          <svg class="creature c-fish" aria-hidden="true" focusable="false"><use href="#c-fish"/></svg>
+          <svg class="creature c-axolotl" aria-hidden="true" focusable="false"><use href="#c-axolotl"/></svg>
           <svg class="wheel" id="wheel-art" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
             <g id="wheel-spin">
               <circle r="62" class="wheel-rim"/>
@@ -276,6 +301,63 @@
       <p><a href="https://github.com/andyuxdstudio/jumpship/blob/main/docs/PRD.md">Read the plan</a></p>
     </div>
   </footer>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="c-octopus" viewBox="0 0 64 64">
+        <path d="M14 30c0-12 8-20 18-20s18 8 18 20c0 4-2 7-4 9H18c-2-2-4-5-4-9z" fill="#f2a091" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M20 39c-3 6-8 6-9 12M28 40c-1 7-6 8-5 13M36 40c1 7 5 8 5 13M44 39c3 6 8 6 9 11" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="26" cy="28" r="3" fill="var(--ink)"/><circle cx="38" cy="28" r="3" fill="var(--ink)"/>
+      </symbol>
+      <symbol id="c-dolphin" viewBox="0 0 64 64">
+        <path d="M6 44C8 28 22 16 40 18c4-8 10-8 14-8-2 4-2 8-6 11 6 2 10 8 10 14-6-4-10-3-14 0 0 8-8 14-20 14-8 0-16-3-18-9z" fill="#8fb7d0" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M30 20c-4-8-2-12 0-14 4 2 6 8 4 14" fill="#8fb7d0" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="16" cy="38" r="2.4" fill="var(--ink)"/>
+      </symbol>
+      <symbol id="c-fish" viewBox="0 0 64 64">
+        <path d="M6 32c8-12 24-14 36-4l14-8v24l-14-8C30 46 14 44 6 32z" fill="#f6c76a" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="19" cy="30" r="2.6" fill="var(--ink)"/><path d="M30 24c3 5 3 11 0 16" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="c-axolotl" viewBox="0 0 64 64">
+        <path d="M14 26 6 20M13 31 4 31M14 36 6 42M50 26l8-6M51 31l9 0M50 36l8 6" fill="none" stroke="#e98fae" stroke-width="4" stroke-linecap="round"/>
+        <ellipse cx="32" cy="34" rx="20" ry="16" fill="#f6b6c8" stroke="var(--ink)" stroke-width="2.5"/>
+        <circle cx="24" cy="30" r="2.4" fill="var(--ink)"/><circle cx="40" cy="30" r="2.4" fill="var(--ink)"/>
+        <path d="M26 39c4 4 8 4 12 0" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="c-squid" viewBox="0 0 64 64">
+        <path d="M32 4c10 8 12 22 8 32H24C20 26 22 12 32 4z" fill="#b9a5e0" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M25 37c-2 8-5 10-4 17M32 37v18M39 37c2 8 5 10 4 17" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="28" cy="28" r="2.4" fill="var(--ink)"/><circle cx="36" cy="28" r="2.4" fill="var(--ink)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="jump-overlay" id="jump-overlay" role="dialog" aria-modal="true" aria-labelledby="jump-title" hidden>
+    <div class="jump-stage">
+      <svg class="jump-art" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+        <g class="jump-boat">
+          <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M70 122 H234 L214 150 H90 Z" fill="var(--ink)"/>
+        </g>
+        <g class="jump-captain">
+          <circle cx="200" cy="82" r="9" fill="#f3c9a5" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M190 78 q10 -14 20 0 z" fill="var(--ink)"/><path d="M189 78 h22" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M200 91 v18" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M200 96 l-12 -9 M200 96 l12 -9" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M200 109 l-7 13 M200 109 l8 13" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <g class="jump-splash">
+          <circle cx="262" cy="152" r="5"/><circle cx="276" cy="140" r="4"/><circle cx="250" cy="138" r="4"/><circle cx="268" cy="128" r="3"/>
+        </g>
+        <path class="jump-sea" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V200 H0 z"/>
+        <svg class="jump-fish" x="18" y="164" width="34" height="34" aria-hidden="true"><use href="#c-fish"/></svg>
+      </svg>
+      <p class="jump-title" id="jump-title">Jumping ship</p>
+      <div class="jump-bar" aria-hidden="true"><span id="jump-fill"></span></div>
+      <button type="button" class="btn-quiet" id="jump-skip">Skip</button>
+    </div>
+  </div>
 
   <script src="js/match.js" defer></script>
   <script src="js/app.js" defer></script>
