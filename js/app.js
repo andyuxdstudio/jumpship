@@ -72,13 +72,6 @@
     card.appendChild(hook);
     card.appendChild(details);
 
-    var flags = document.createElement("ul");
-    flags.className = "flags";
-    flags.setAttribute("aria-label", "About this pick");
-    var flag = document.createElement("li");
-    flag.textContent = "Picked at random. It is not matched to your skills, pay or hours, and we have not checked how it fits them.";
-    flags.appendChild(flag);
-    card.appendChild(flags);
 
     if (wild.aiRisk) {
       var risk = document.createElement("div");
