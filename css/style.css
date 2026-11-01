@@ -655,13 +655,12 @@ a:hover {
 
 .btn-quiet {
   background: transparent;
-  border: 2px solid transparent;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  border: 2px solid var(--ink-soft);
+  text-decoration: none;
 }
 
 .btn-quiet:hover {
-  border-color: var(--ink-soft);
+  border-color: var(--buoy);
 }
 
 .form-foot {
@@ -1283,5 +1282,4 @@ body.no-scroll { overflow: hidden; }
 .brand-jump { font-style: italic; }
 
 .summary-share { margin-top: var(--space-2); display: grid; gap: 0.4rem; justify-items: start; }
-.summary-share .btn-quiet { padding-left: 0; }
 .summary-share .status:empty { display: none; }
