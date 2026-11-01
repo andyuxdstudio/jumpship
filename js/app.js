@@ -916,6 +916,7 @@
 
   function clearAnswers() {
     state = emptyState();
+    clearJumpError();
     try {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch (err) {
