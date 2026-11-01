@@ -1035,7 +1035,7 @@ body.no-scroll { overflow: hidden; }
   .is-running .jump-jaw { animation: jump-chomp 2.6s ease-in-out forwards; }
 }
 
-.jump-jaw { transform-box: fill-box; transform-origin: 75% 0%; }
+.jump-jaw { transform-box: fill-box; transform-origin: 8% 0%; }
 .jump-shark { transform: translateX(8px); }
 .jump-art { overflow: hidden; }
 
