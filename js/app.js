@@ -131,17 +131,10 @@
     return item;
   }
 
-  /* Gently scroll so the result is on screen and the button stays in view. */
+  /* Scroll down so the wave divider above the result is out of view. */
   function revealWheelResult() {
-    var margin = 16;
-    var viewH = window.innerHeight || document.documentElement.clientHeight;
-    var buttonTop = wheelButton.getBoundingClientRect().top;
-    var resultBottom = wheelResult.getBoundingClientRect().bottom;
-    var needed = resultBottom - viewH + margin;
-    var allowed = buttonTop - margin;
-    var by = Math.min(needed, allowed);
-    if (by <= 4) return;
-    window.scrollBy({ top: by, behavior: reducedMotion() ? "auto" : "smooth" });
+    var top = resultSection.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop);
+    window.scrollTo({ top: top + 20, behavior: reducedMotion() ? "auto" : "smooth" });
   }
 
   function wheelShow() {
