@@ -441,6 +441,9 @@
     if (result.flags.hoursStretch) {
       flags.push("Not fully remote: most employers ask for about a day a week in person.");
     }
+    if (career.pay.median < 40000) {
+      flags.push("Low pay: " + money(career.pay.median) + " in the middle is the lowest of the careers we cover. Check it carries your household before you invest time.");
+    }
     if (result.flags.limitedData) {
       flags.push("Limited data: " + result.flags.limitedData);
     }
