@@ -1050,7 +1050,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 .jump-art { width: 100%; height: auto; overflow: visible; }
-.jump-sea { fill: url(#jump-sea-fill); }
+
 .jump-splash { fill: var(--ink); opacity: 0; }
 .jump-title { font-family: var(--font-display, inherit); font-weight: 700; font-size: calc(var(--step-2, 1.5rem) / 2); margin: 0; }
 
@@ -1583,7 +1583,8 @@ body.no-scroll { overflow: hidden; }
 .hero .wrap > div { max-width: 40rem; }
 .hero-actions { justify-content: center; }
 .jump-overlay .jump-stage { width: min(42rem, 100%); }
-.jump-overlay .jump-art { overflow: hidden; }
+.jump-overlay .jump-art { overflow: visible; }
+.jump-overlay { overflow: hidden; }
 
 /* The Jump button has no icon. */
 #wheel-button::before, .hero .btn::before { content: none; display: none; }
