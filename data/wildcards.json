@@ -1398,5 +1398,624 @@
     "minHours": 40,
     "payFrom": 21000,
     "payTop": 24000
+  },
+  {
+    "id": "barrister",
+    "name": "Barrister",
+    "hook": "Represents clients in court, at tribunals and in legal disputes.",
+    "pay": "£24,000 starting to £250,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/barrister",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, lawyers, 31 out of 100, with a Frey and Osborne figure of 4%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/lawyers"
+        }
+      ]
+    },
+    "themes": [
+      "story",
+      "lead",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 250000
+  },
+  {
+    "id": "solicitor",
+    "name": "Solicitor",
+    "hook": "Advises clients about the law and acts for them in legal matters.",
+    "pay": "£30,000 starting to £80,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/solicitor",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, lawyers, 31 out of 100, with a Frey and Osborne figure of 4%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/lawyers"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "research",
+      "lead"
+    ],
+    "minHours": 37,
+    "payFrom": 30000,
+    "payTop": 80000
+  },
+  {
+    "id": "surgeon",
+    "name": "Surgeon",
+    "hook": "Carries out routine and emergency operations as part of a team.",
+    "pay": "£40,000 starting to £145,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/surgeon",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "AI Exposure scores surgeons 35 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "tech",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 40000,
+    "payTop": 145000
+  },
+  {
+    "id": "gp",
+    "name": "GP",
+    "hook": "Diagnoses and treats patients, and refers them to specialists.",
+    "pay": "£79,000 starting to £119,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/gp",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores the closest match, family medicine physicians, 46 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "research",
+      "lead"
+    ],
+    "minHours": 42,
+    "payFrom": 79000,
+    "payTop": 119000
+  },
+  {
+    "id": "hospital-doctor",
+    "name": "Hospital doctor",
+    "hook": "Diagnoses and treats patients who are admitted to hospital.",
+    "pay": "£40,000 starting to £145,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hospital-doctor",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores the closest match, physicians, 47 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "research",
+      "tech"
+    ],
+    "minHours": 42,
+    "payFrom": 40000,
+    "payTop": 145000
+  },
+  {
+    "id": "anaesthetist",
+    "name": "Anaesthetist",
+    "hook": "Gives anaesthetics and pain relief to patients having surgery.",
+    "pay": "£40,000 starting to £145,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/anaesthetist",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, anesthesiologists, 54 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "tech",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 40000,
+    "payTop": 145000
+  },
+  {
+    "id": "psychiatrist",
+    "name": "Psychiatrist",
+    "hook": "Diagnoses and treats patients with mental health problems.",
+    "pay": "£40,000 starting to £151,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/psychiatrist",
+    "aiRisk": {
+      "percent": 6,
+      "basis": "AI Exposure scores psychiatrists 46 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "research",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 40000,
+    "payTop": 151000
+  },
+  {
+    "id": "optometrist",
+    "name": "Optometrist",
+    "hook": "Tests vision, spots eye health problems and fits glasses and contact lenses.",
+    "pay": "£40,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/optometrist",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores optometrists 30 out of 100, with a Frey and Osborne figure of 14%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/optometrists"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "tech",
+      "research"
+    ],
+    "minHours": 37,
+    "payFrom": 40000,
+    "payTop": 65000
+  },
+  {
+    "id": "civil-engineer",
+    "name": "Civil engineer",
+    "hook": "Designs and manages buildings, bridges, flood defences and transport links.",
+    "pay": "£29,000 starting to £63,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/civil-engineer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores civil engineers 32 out of 100, with a Frey and Osborne figure of 1.9%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/civil-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "tech",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 29000,
+    "payTop": 63000
+  },
+  {
+    "id": "architect",
+    "name": "Architect",
+    "hook": "Designs new buildings and the spaces around them.",
+    "pay": "£31,000 starting to £58,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/architect",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, architects, surveyors and cartographers, 32 out of 100, with a Frey and Osborne figure of 38%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/architects-surveyors-and-cartographers"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "story",
+      "lead"
+    ],
+    "minHours": 35,
+    "payFrom": 31000,
+    "payTop": 58000
+  },
+  {
+    "id": "actuary",
+    "name": "Actuary",
+    "hook": "Predicts long-term financial costs and investment risks.",
+    "pay": "£32,000 starting to £70,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/actuary",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores actuaries 32 out of 100, with a Frey and Osborne figure of 21%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/actuaries"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 32000,
+    "payTop": 70000
+  },
+  {
+    "id": "aerospace-engineer",
+    "name": "Aerospace engineer",
+    "hook": "Designs, tests and builds aeroplanes, spacecraft and satellites.",
+    "pay": "£30,000 starting to £70,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/aerospace-engineer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores aerospace engineers 33 out of 100, with a Frey and Osborne figure of 2%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/aerospace-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "tech",
+      "research"
+    ],
+    "minHours": 37,
+    "payFrom": 30000,
+    "payTop": 70000
+  },
+  {
+    "id": "nuclear-engineer",
+    "name": "Nuclear engineer",
+    "hook": "Designs and builds technology for power, healthcare and defence.",
+    "pay": "£28,000 starting to £58,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/nuclear-engineer",
+    "aiRisk": {
+      "percent": 6,
+      "basis": "AI Exposure scores nuclear engineers 35 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "research",
+      "make"
+    ],
+    "minHours": 39,
+    "payFrom": 28000,
+    "payTop": 58000
+  },
+  {
+    "id": "merchant-navy-engineering-officer",
+    "name": "Merchant Navy engineering officer",
+    "hook": "Maintains the machinery and instruments on board a ship.",
+    "pay": "£30,000 starting to £80,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-engineering-officer",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, mechanical engineers, 32 out of 100, with a Frey and Osborne figure of 1%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/mechanical-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "make",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 80000
+  },
+  {
+    "id": "headteacher",
+    "name": "Headteacher",
+    "hook": "Manages a school so that children and staff can do their best.",
+    "pay": "£61,000 starting to £149,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/headteacher",
+    "aiRisk": {
+      "percent": 4,
+      "basis": "AI Exposure scores the closest match, education administrators, 21 out of 100, with a Frey and Osborne figure of 2%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/education-administrators-all-other"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "teach",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 61000,
+    "payTop": 149000
+  },
+  {
+    "id": "management-consultant",
+    "name": "Management consultant",
+    "hook": "Advises organisations on solving problems and working more efficiently.",
+    "pay": "£27,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/management-consultant",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores the closest match, management analysts, 39 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "research",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 27000,
+    "payTop": 60000
+  },
+  {
+    "id": "chemical-engineer",
+    "name": "Chemical engineer",
+    "hook": "Develops ways to turn raw materials into everyday products.",
+    "pay": "£34,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chemical-engineer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores chemical engineers 30 out of 100, with a Frey and Osborne figure of 2%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/chemical-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "tech",
+      "research"
+    ],
+    "minHours": 39,
+    "payFrom": 34000,
+    "payTop": 65000
+  },
+  {
+    "id": "electrical-engineer",
+    "name": "Electrical engineer",
+    "hook": "Designs, builds and maintains electrical systems and equipment.",
+    "pay": "£27,000 starting to £58,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/electrical-engineer",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores electrical engineers 34 out of 100, with a Frey and Osborne figure of 10%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/electrical-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "make"
+    ],
+    "minHours": 35,
+    "payFrom": 27000,
+    "payTop": 58000
+  },
+  {
+    "id": "quantity-surveyor",
+    "name": "Quantity surveyor",
+    "hook": "Manages the budgets, risks and schedules of construction projects.",
+    "pay": "£26,000 starting to £70,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/quantity-surveyor",
+    "aiRisk": {
+      "percent": 30,
+      "basis": "AI Exposure scores the closest match, cost estimators, 60 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 26000,
+    "payTop": 70000
+  },
+  {
+    "id": "geoscientist",
+    "name": "Geoscientist",
+    "hook": "Studies the Earth’s structure, minerals and energy resources.",
+    "pay": "£28,000 starting to £75,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/geoscientist",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, geoscientists, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 28000,
+    "payTop": 75000
+  },
+  {
+    "id": "mechanical-engineer",
+    "name": "Mechanical engineer",
+    "hook": "Designs, builds and installs machinery for industry.",
+    "pay": "£28,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/mechanical-engineer",
+    "aiRisk": {
+      "percent": 8,
+      "basis": "AI Exposure scores mechanical engineers 32 out of 100, with a Frey and Osborne figure of 1%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/mechanical-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 28000,
+    "payTop": 60000
+  },
+  {
+    "id": "building-surveyor",
+    "name": "Building surveyor",
+    "hook": "Advises clients on the design, construction and repair of buildings.",
+    "pay": "£28,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/building-surveyor",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, architects, surveyors and cartographers, 32 out of 100, with a Frey and Osborne figure of 38%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/architects-surveyors-and-cartographers"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "lead",
+      "make"
+    ],
+    "minHours": 37,
+    "payFrom": 28000,
+    "payTop": 65000
+  },
+  {
+    "id": "data-scientist",
+    "name": "Data scientist",
+    "hook": "Uses software, AI and machine learning to analyse large amounts of data.",
+    "pay": "£32,000 starting to £83,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/data-scientist",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores data scientists 45 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "research"
+    ],
+    "minHours": 37,
+    "payFrom": 32000,
+    "payTop": 83000
+  },
+  {
+    "id": "electronics-engineer",
+    "name": "Electronics engineer",
+    "hook": "Designs systems for industry, from mobile communications to aerospace.",
+    "pay": "£28,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/electronics-engineer",
+    "aiRisk": {
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, electrical engineers, 34 out of 100, with a Frey and Osborne figure of 10%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/electrical-engineers"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "make",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 28000,
+    "payTop": 60000
   }
 ]
