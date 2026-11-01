@@ -101,6 +101,9 @@ Three questions remain open, and nothing is built until this PRD is agreed.
 
 ## As built (November 2026)
 
+> **Update, 1 November 2026:** the main site is now a single function, Spin the wheel. The criteria form, matching, Jump ship scene, How it works and Straight talk were removed. The full version is kept as a snapshot in `/other/`.
+
+
 - **Jump ship flow:** answering the form and pressing Jump ship plays a short boat-and-shark animation, then shows the top five matches, each with a character, pay, AI exposure, ways in and a two-hour taster. Fully remote work is flagged before the results.
 - **Matching:** 14 experience design adjacent careers, ranked on hours, income, skills and an optional low-AI preference.
 - **Spin the wheel:** a spin-the-wheel feature with 56 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.

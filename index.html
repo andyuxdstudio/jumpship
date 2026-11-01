@@ -50,10 +50,7 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#start">Set your trajectory</a></li>
           <li><a href="#wheel">Spin the wheel</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#straight-talk">Straight talk</a></li>
         </ul>
       </nav>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" hidden></button>
@@ -67,7 +64,7 @@
           <h1 id="hero-title">Grab your design skills and jump</h1>
           <p class="hero-lede">Tell us the pay and hours your family needs. Jump Ship maps the transferable skills you already have in experience design to all kinds of careers, then lets you try one in about two hours.</p>
           <div class="hero-actions">
-            <a class="btn" href="#start">Get started</a>
+            <a class="btn" href="#wheel">Get started</a>
           </div>
         </div>
 
@@ -129,124 +126,6 @@
       </div>
     </section>
 
-    <section class="section" id="start" aria-labelledby="start-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="start-title" tabindex="-1">Set your trajectory</h2>
-          <p>Two questions about your limits, then the experience design work you do. It only takes a moment and we'll show you up to five top career matches based on your info.</p>
-        </div>
-
-        <div class="course">
-          <form class="course-form" id="course-form" novalidate>
-            <fieldset class="group">
-              <legend class="visually-hidden">Your limits</legend>
-
-              <div class="field">
-                <label for="income">Lowest salary you can accept</label>
-                <p class="hint" id="income-hint">Per year, before tax, in pounds.</p>
-                <div class="money">
-                  <span class="money-sign" aria-hidden="true">£</span>
-                  <input id="income" name="income" type="text" inputmode="numeric" autocomplete="off" aria-describedby="income-hint income-error" placeholder="Enter income floor">
-                </div>
-                <p class="error" id="income-error" hidden></p>
-              </div>
-
-              <fieldset class="field choices">
-                <legend>Most hours a week you can work in person</legend>
-                <p class="hint" id="hours-hint">Time at a desk, a client's office or on site. Working from home does not count.</p>
-                <label class="choice"><input type="radio" name="hours" value="0" aria-describedby="hours-hint"><span>None, fully remote</span></label>
-                <label class="choice"><input type="radio" name="hours" value="8" aria-describedby="hours-hint"><span>Up to 8 hours (about 1 day)</span></label>
-                <label class="choice"><input type="radio" name="hours" value="16" aria-describedby="hours-hint"><span>Up to 16 hours (about 2 days)</span></label>
-                <label class="choice"><input type="radio" name="hours" value="24" aria-describedby="hours-hint"><span>Up to 24 hours (about 3 days)</span></label>
-                <label class="choice"><input type="radio" name="hours" value="40" aria-describedby="hours-hint"><span>Full time in person</span></label>
-              </fieldset>
-            </fieldset>
-
-            <fieldset class="group">
-              <legend>The experience design work you do</legend>
-              <p class="group-note">Tick everything you have done in the last year or two. Your matches are built from these.</p>
-              <ul class="skills" id="skills" role="list">
-                <li class="skills-loading">Loading skills.</li>
-              </ul>
-              <noscript><p class="error">Jump Ship needs JavaScript to show the skills list.</p></noscript>
-
-              <div class="field add-skill">
-                <label for="custom-skill">Add one we missed</label>
-                <div class="add-row">
-                  <input id="custom-skill" type="text" maxlength="60" autocomplete="off" aria-describedby="custom-error" placeholder="For example, design critique">
-                  <button class="btn-secondary" type="button" id="add-skill">Add skill</button>
-                </div>
-                <p class="error" id="custom-error" hidden></p>
-              </div>
-            </fieldset>
-
-            <div class="actions">
-              <button class="btn-secondary" type="button" id="clear-answers">Clear my answers</button>
-              <button class="btn" type="button" id="jump-button" aria-describedby="jump-error">Jump ship</button>
-            </div>
-            <p class="error error-warn" id="jump-error" role="alert" hidden></p>
-
-            <div class="form-tools">
-              <div class="form-foot">
-                <p class="status" id="status" role="status"></p>
-              </div>
-            </div>
-          </form>
-
-          <aside class="summary is-waiting" id="summary" aria-labelledby="summary-title">
-            <h3 id="summary-title">Your trajectory criteria</h3>
-            <p class="summary-waiting" id="summary-waiting">Waiting for instruction<span class="dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></p>
-            <div class="summary-body" id="summary-body">
-            <dl>
-              <div>
-                <dt>Lowest salary</dt>
-                <dd id="sum-income">Not set</dd>
-              </div>
-              <div>
-                <dt>In-person hours</dt>
-                <dd id="sum-hours">Not set</dd>
-              </div>
-              <div>
-                <dt>Skills</dt>
-                <dd id="sum-skills-count">None picked yet</dd>
-              </div>
-            </dl>
-            <ul class="chips" id="sum-skills" aria-label="Skills you picked" hidden></ul>
-            <p class="summary-note">Your answers stay on this device. Press Jump ship to see your top five matches.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="matches" aria-labelledby="matches-title" hidden>
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="matches-title" tabindex="-1">Your top five matches</h2>
-          <p id="matches-intro">These careers match your limits and use the skills you picked. Pay and AI figures are estimates, each with a source you can check.</p>
-        </div>
-
-        <label class="choice toggle">
-          <input type="checkbox" id="prefer-low-ai" aria-describedby="ai-hint" checked>
-          <span>Prefer careers with lower exposure to AI</span>
-        </label>
-        <div class="tip" id="ai-tip">
-          <button type="button" class="tip-btn" aria-expanded="false" aria-controls="ai-hint">What's this?</button>
-          <p class="tip-body" id="ai-hint" role="tooltip" hidden>On by default. It moves careers where AI could do more of the work further down the list. It never hides one.</p>
-        </div>
-
-        <p class="stale" id="matches-stale" role="status" hidden>You changed your answers, so these matches are out of date. <button type="button" class="btn-secondary" id="jump-again">Jump ship again</button></p>
-        <p class="status matches-status" id="matches-status" role="status">Add your limits and skills above to see your matches.</p>
-        <div class="notice" id="matches-notice" role="note" hidden></div>
-        <ol class="results" id="matches-list" role="list"></ol>
-        <div class="notes" id="matches-notes"></div>
-
-        <p class="match-caption">Pay is the median of advertised UK salaries for permanent roles in the six months to late October 2026. These are estimates, not offers, and starting pay for someone changing career is often lower. Exposure to AI measures how much of a job's tasks AI could do. It is not a forecast of job loss.</p>
-
-        <p class="back-to-start"><button type="button" class="btn-secondary" id="back-to-start">Back to Set your trajectory</button></p>
-      </div>
-    </section>
-
     <section class="section wheel-section" id="wheel" aria-labelledby="wheel-title">
       <div class="wrap wheel-wrap">
         <div class="section-head">
@@ -286,53 +165,6 @@
       </div>
     </section>
 
-    <section class="section" id="how" aria-labelledby="how-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="how-title">How it works</h2>
-          <p>Four steps take you from what you know to a career destination you have actually tried.</p>
-        </div>
-
-        <ol class="legs" role="list">
-          <li class="leg">
-            <h3>Set your limits</h3>
-            <span class="leg-plain">Hours and pay</span>
-            <p>Tell us the lowest income you can accept and the most in-person hours you can work. Careers that break either limit never appear.</p>
-          </li>
-          <li class="leg">
-            <h3>Pick your skills</h3>
-            <span class="leg-plain">What you do in experience design</span>
-            <p>Tap the work you do in your current role: like prototyping, user research, testing, stakeholder management. Add your own if we missed it.</p>
-          </li>
-          <li class="leg">
-            <h3>See your alternative destinations</h3>
-            <span class="leg-plain">Your top five matches</span>
-            <p>Each match explains why it fits your skills and gives an honest reality check on pay, ways in and exposure to AI.</p>
-          </li>
-          <li class="leg">
-            <h3>Swim ashore</h3>
-            <span class="leg-plain">A taster of about two hours</span>
-            <p>Try the career with a guided task. Finish by saying how it felt, and leave with one next step.</p>
-          </li>
-        </ol>
-
-        <p class="side-note"><strong>Not sure where to start?</strong> <a href="#wheel">Spin the wheel</a> for a surprise career suggestion that might just float your boat!</p>
-      </div>
-    </section>
-
-    <section class="section" id="straight-talk" aria-labelledby="talk-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="talk-title">Straight talk about AI and your job</h2>
-          <p>Some roles are changing fast. We would rather tell you than let you find out later, and we always pair the news with something you can do.</p>
-        </div>
-        <ul class="promises" role="list">
-          <li>Pay and AI figures are ranges, marked as estimates, each with a source you can check.</li>
-          <li>If a career looks risky, we say so, then give you a next step and a moment to think.</li>
-          <li>Careers that break your income or hours limits are never shown.</li>
-        </ul>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -481,49 +313,6 @@
     </defs>
   </svg>
 
-  <div class="jump-overlay" id="jump-overlay" role="dialog" aria-modal="true" aria-labelledby="jump-title" hidden>
-    <div class="jump-stage">
-      <svg class="jump-art" viewBox="0 0 320 215" aria-hidden="true" focusable="false">
-        <g class="jump-boat">
-          <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M70 122 H234 L214 150 H90 Z" fill="var(--ink)"/>
-        </g>
-        <g class="jump-captain">
-          <circle cx="200" cy="82" r="9" fill="#f3c9a5" stroke="var(--ink)" stroke-width="1.5"/>
-          <path d="M190 78 q10 -14 20 0 z" fill="var(--ink)"/><path d="M189 78 h22" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
-          <path d="M200 91 v18" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M200 96 l-12 -9 M200 96 l12 -9" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
-          <path d="M200 109 l-7 13 M200 109 l8 13" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
-        </g>
-        <g class="jump-splash">
-          <circle cx="262" cy="152" r="5"/><circle cx="276" cy="140" r="4"/><circle cx="250" cy="138" r="4"/><circle cx="268" cy="128" r="3"/>
-        </g>
-        <path class="jump-sea" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V215 H0 z"/>
-        <g class="jump-shark">
-          <g transform="translate(0 153)" stroke="var(--ink)" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
-            <g class="jump-tail"><path d="M24 27C16 20 9 10 0 1 4 14 4 22 8 28 4 35 6 43 3 51 12 45 19 37 24 29z" fill="#5b7f9c"/></g>
-            <path d="M46 14C45 7 44 1 43 -5 53 0 62 8 67 13z" fill="#5b7f9c"/>
-            <path d="M20 28C34 14 62 8 82 14 94 18 101 23 104 28L70 32V41C52 43 32 37 20 28z" fill="#eaf4f8"/>
-            <path d="M20 28C34 14 62 8 82 14 94 18 101 23 104 28L70 32C64 36 54 36 48 34 40 33 32 31 26 30z" fill="#5b7f9c" stroke="none"/>
-            <path d="M60 37C56 44 52 50 45 55 58 53 69 47 75 39z" fill="#5b7f9c"/>
-            <path d="M70 32 98 29.500 97 37 70 41z" fill="#b8334a" stroke="none"/>
-            <path d="M74 31.500l2.200 5 2.200-5M80 30.800l2.200 5 2.200-5M86 30.100l2.200 5 2.200-5M92 29.400l2.200 5 2.200-5M98 28.700l2 4.500 2-4.500" fill="#fff" stroke-width="0.6"/>
-            <g class="jump-jaw">
-              <path d="M70 32 103 29C99 38 86 43.500 74 42.500L70 41z" fill="#eaf4f8"/>
-              <path d="M77 31.200l2-5 2 5M83 30.600l2-5 2 5M89 30l2-5 2 5M95 29.400l2-4.500 2 4.500" fill="#fff" stroke-width="0.6"/>
-            </g>
-            <circle cx="89" cy="21" r="2.200" fill="var(--ink)" stroke="none"/>
-            <path d="M52 19c2 4 2 8 0 12M56 19c2 4 2 8 0 12M60 19c2 4 2 8 0 12M64 19c2 4 2 8 0 12" fill="none" stroke-width="0.75"/>
-          </g>
-        </g>
-      </svg>
-      <p class="jump-title" id="jump-title">Jumping ship<span class="dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></p>
-      <button type="button" class="btn-quiet" id="jump-skip">Skip</button>
-    </div>
-  </div>
-
-  <script src="js/match.js" defer></script>
   <script src="js/app.js" defer></script>
 </body>
 </html>
