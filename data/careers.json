@@ -97,7 +97,7 @@
     "waysIn": {
       "routes": [
         "A degree is not essential, and graduates can apply for a first product manager job without any product experience.",
-        "It is common to move across from another role, such as marketing or UX design. Employers value transferable skills from other projects.",
+        "It is common to move across from another role, such as marketing or experience design. Employers value transferable skills from other projects.",
         "There is no standard entry route. One university guide says the most important thing is experience in the industry you want to manage a product in."
       ],
       "sources": [
@@ -218,7 +218,7 @@
           "url": "https://www.myworldofwork.co.uk/my-career-options/job-profiles/service-designer"
         }
       ],
-      "caveat": "This source lists routes for new entrants and says nothing about moving across from UX. It comes from Scotland."
+      "caveat": "This source lists routes for new entrants and says nothing about moving across from experience design. It comes from Scotland."
     }
   },
   {
@@ -281,7 +281,7 @@
   },
   {
     "id": "ux-researcher",
-    "name": "UX researcher",
+    "name": "Experience researcher",
     "minHours": 16,
     "pay": {
       "median": 57500,
@@ -380,7 +380,7 @@
           "url": "https://nationalcareers.service.gov.uk/job-profiles/data-analyst-statistician"
         }
       ],
-      "caveat": "These are routes for new entrants. We found no source on moving across from UX."
+      "caveat": "These are routes for new entrants. We found no source on moving across from experience design."
     }
   },
   {
@@ -440,7 +440,7 @@
   },
   {
     "id": "content-designer",
-    "name": "Content designer / UX writer",
+    "name": "Content designer / experience writer",
     "minHours": 8,
     "pay": {
       "median": 55000,

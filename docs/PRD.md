@@ -2,11 +2,11 @@
 
 Oct 31, 2026 · @A
 
-Jump Ship is a website that helps dads in UX find careers that fit their skills and their family life, then try one in about 2 hours.
+Jump Ship is a website that helps dads in experience design find careers that fit their skills and their family life, then try one in about 2 hours.
 
 ## User and problem
 
-- **User:** a dad working in UX design who is worried that AI will reshape or remove his role. He knows his skills but not where to start, because the landscape moves so fast.
+- **User:** a dad working in experience design who is worried that AI will reshape or remove his role. He knows his skills but not where to start, because the landscape moves so fast.
 - **Problem:** existing tools give generic options and ignore the constraints of a working parent.
 - **Source:** lived experience, treated as insight and not yet validated with testers.
 - **Working name:** Jump Ship, with a maritime look and feel. Name and domain availability are unchecked.
@@ -23,7 +23,7 @@ A first visit takes him from a clear promise to a two-hour taster, with no sign-
 
 1. **Land:** a clear promise, with no sign-up.
 2. **Hard filters:** minimum income and the most in-person hours he can do. Remote work counts as low friction.
-3. **Skills:** he taps the UX skills he actually uses, with space to add his own.
+3. **Skills:** he taps the experience design skills he actually uses, with space to add his own.
 4. **Top 5 matches:** each card shows why it fits his skills, a reality check (pay range, entry routes, AI exposure) and flags for soft preferences.
 5. **Surprise me:** a ship's-wheel spin that picks from any career passing his hard filters, including ones outside his top 5.
 6. **Taster:** a guided 2-hour task that ends with "How did that feel?" (energised, neutral or drained), the reality check, one proactive next step and one mindful prompt.
@@ -40,7 +40,7 @@ The smallest useful release is two filters, a skill picker, five matches, a whee
 - **Tone rule:** every honest message is paired with an action or a reflective thought. Maritime imagery stays positive (charting a course, open water, new horizons), with no storms or shipwrecks. Nautical labels always sit beside a plain one, for example "Ports: your matches".
 - **Saving:** local save or a shareable link, instead of accounts.
 
-**Draft career list (14), for review:** product manager, business analyst, content designer / UX writer, service designer, front-end developer, accessibility specialist, UX researcher (adjacent roles), technical writer, customer success manager, data analyst, learning experience designer, delivery / project manager, conversation designer, product marketing manager.
+**Draft career list (14), for review:** product manager, business analyst, content designer / experience writer, service designer, front-end developer, accessibility specialist, experience researcher (adjacent roles), technical writer, customer success manager, data analyst, learning experience designer, delivery / project manager, conversation designer, product marketing manager.
 
 ## Out of scope for MVP
 
@@ -84,7 +84,7 @@ Success is measured through in-product feedback after launch, because no testers
 5. Location, time and budget work as soft flags.
 6. The tone stays honest without discouraging him.
 7. The audience is large enough to reach, and no testers are recruited before launch.
-8. "Dads in UX" will feel inclusive of single dads, and the copy can carry the sole-provider reasoning without naming it.
+8. "Dads in experience design" will feel inclusive of single dads, and the copy can carry the sole-provider reasoning without naming it.
 9. The name "Jump Ship" and its domain are available. This is unverified.
 10. Accessibility needs beyond the defaults above are unknown.
 

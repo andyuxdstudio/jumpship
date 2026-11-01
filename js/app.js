@@ -416,7 +416,7 @@
     tip.textContent = "Ask a colleague, a professional network you already belong to or a local meetup who they know. Then send something like this.";
     talk.appendChild(tip);
     var quote = document.createElement("blockquote");
-    quote.textContent = "Hi, I'm a UX designer thinking about moving into " + career.name.toLowerCase() + " work. Could I ask you three questions over about fifteen minutes? What does a normal week look like? What surprised you? What would you do differently if you were starting again?";
+    quote.textContent = "Hi, I'm an experience designer thinking about moving into " + career.name.toLowerCase() + " work. Could I ask you three questions over about fifteen minutes? What does a normal week look like? What surprised you? What would you do differently if you were starting again?";
     talk.appendChild(quote);
     box.appendChild(talk);
 
@@ -821,7 +821,7 @@
         addNote("Lowering your salary floor or allowing more hours in person would widen the list.");
       } else {
         matchesStatus.textContent = "Careers clear your limits, but none use the skills you picked.";
-        addNote("Tick more of the UX work you do above. Your matches are built from those skills.");
+        addNote("Tick more of the experience design work you do above. Your matches are built from those skills.");
       }
     } else {
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
