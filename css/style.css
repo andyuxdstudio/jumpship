@@ -1058,7 +1058,7 @@ body.no-scroll { overflow: hidden; }
   .is-running .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
   .is-running .jump-captain { animation: jump-leap 3.6s ease-in forwards; transform-origin: 188px 110px; }
   .is-running .jump-splash { animation: jump-splash 3.6s ease-out forwards; }
-  .is-running .jump-shark { animation: jump-swim 4.2s linear forwards; }
+  .is-running .jump-shark { animation: jump-swim 5s linear forwards; }
   .is-running .jump-jaw { animation: jump-chomp 3.6s ease-in-out forwards; }
   .is-running .jump-tail { animation: jump-wag 0.45s ease-in-out infinite; }
 }
@@ -1066,7 +1066,7 @@ body.no-scroll { overflow: hidden; }
 .jump-jaw, .jump-tail { transform-box: fill-box; }
 .jump-jaw { transform-origin: 0% 20%; }
 .jump-tail { transform-origin: 100% 50%; }
-.jump-shark { transform: translateX(-200px); opacity: 0; }
+.jump-shark { transform: translateX(-1000px); opacity: 0; transform-box: fill-box; transform-origin: 50% 50%; }
 .is-running .jump-shark { opacity: 1; }
 .jump-art { overflow: hidden; }
 
@@ -1079,7 +1079,12 @@ body.no-scroll { overflow: hidden; }
   79%, 100% { transform: translate(80px, 80px) rotate(380deg); opacity: 0; }
 }
 @keyframes jump-splash { 0%, 76% { opacity: 0; transform: translateY(14px); } 84% { opacity: 0.9; transform: translateY(-4px); } 100% { opacity: 0; transform: translateY(-12px); } }
-@keyframes jump-swim { 0% { transform: translateX(-200px); } 63% { transform: translateX(180px); } 100% { transform: translateX(460px); } }
+@keyframes jump-swim {
+  0% { transform: translate(-1000px, 0) rotate(0); animation-timing-function: linear; }
+  53% { transform: translate(180px, 0) rotate(0); animation-timing-function: ease-out; }
+  68% { transform: translate(215px, 0) rotate(0); animation-timing-function: ease-in; }
+  100% { transform: translate(1000px, 330px) rotate(20deg); }
+}
 @keyframes jump-chomp {
   0%, 56% { transform: rotate(0); }
   66%, 78% { transform: rotate(38deg); }

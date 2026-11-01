@@ -175,7 +175,7 @@
     overlay.classList.remove("is-running");
     void overlay.offsetWidth;
     overlay.classList.add("is-running");
-    overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 4400);
+    overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 5200);
   }
 
   skipButton.addEventListener("click", wheelShow);
