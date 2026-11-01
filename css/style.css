@@ -1104,6 +1104,17 @@ body.no-scroll { overflow: hidden; }
   .c-octopus { width: 2.1rem; height: 2.1rem; }
 }
 
+/* On wide screens the creatures live in the open water to the right, away from the wheel */
+@media (min-width: 64rem) {
+  .creature { left: auto; bottom: auto; }
+  .c-octopus { right: 11rem; top: 1.5rem; }
+  .c-dolphin { right: 3.5rem; top: 4rem; }
+  .c-axolotl { right: 15rem; top: 9rem; }
+  .c-shark { right: 5rem; top: 14.5rem; }
+  .c-fish { right: 17rem; top: 19rem; }
+  .c-squid { right: 2.5rem; top: 21.5rem; }
+}
+
 /* Creatures drift gently while the wheel spins */
 @media (prefers-reduced-motion: no-preference) {
   .is-spinning .creature { animation: creature-drift 2.4s ease-in-out infinite alternate; }
