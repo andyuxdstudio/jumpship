@@ -1014,7 +1014,7 @@ a:hover {
   gap: 0.6rem 1rem;
 }
 
-.stale[hidden], .jump-overlay[hidden], #matches[hidden], #nav-matches[hidden] { display: none; }
+.stale[hidden], .jump-overlay[hidden], #matches[hidden] { display: none; }
 .stale .btn-secondary { margin-left: auto; }
 
 body.no-scroll { overflow: hidden; }

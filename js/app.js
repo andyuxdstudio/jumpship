@@ -766,7 +766,6 @@
   var matchesIntro = document.getElementById("matches-intro");
   var MATCHES_INTRO = matchesIntro.textContent;
   var matchesStale = document.getElementById("matches-stale");
-  var navMatches = document.getElementById("nav-matches");
   var jumpTimer = null;
   var jumpOpener = null;
   var hasJumped = false;
@@ -779,7 +778,6 @@
     document.body.classList.remove("no-scroll");
     hasJumped = true;
     matchesSection.hidden = false;
-    navMatches.hidden = false;
     window.clearTimeout(matchTimer);
     renderMatches();
     matchesSection.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
