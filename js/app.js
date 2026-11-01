@@ -33,6 +33,7 @@
   var wheelBox = document.querySelector(".wheel-box");
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
+  var resultSection = document.getElementById("result");
   var wildcards = null;
   var wheelTurn = 0;
   var wheelBusy = false;
@@ -150,6 +151,7 @@
     lastWildcard = index;
     var wild = wildcards[index];
     wheelResult.textContent = "";
+    resultSection.hidden = false;
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;

@@ -68,71 +68,7 @@
           </div>
         </div>
 
-        <figure class="chart">
-          <svg viewBox="0 0 600 560" role="img" aria-labelledby="chart-title chart-desc">
-            <title id="chart-title">A sea chart with a dotted trajectory</title>
-            <desc id="chart-desc">A dotted trajectory leads from open water near your current experience design role to a new port on a coastline.</desc>
-            <defs>
-              <mask id="reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="560">
-                <path class="reveal" pathLength="1" d="M 255 255 C 345 285 235 365 302 432"/>
-              </mask>
-            </defs>
-
-            <!-- Shoal, upper left -->
-            <path class="contour" d="M 30 170 C 40 90 120 40 205 60 C 270 76 290 140 270 195 C 250 245 170 265 100 250 C 50 240 25 215 30 170 Z"/>
-            <path class="contour" d="M 65 168 C 72 110 130 78 195 93 C 243 104 255 148 240 188 C 225 224 168 238 118 227 C 82 219 62 199 65 168 Z"/>
-            <path class="contour land" d="M 105 165 C 110 134 148 118 188 128 C 215 135 220 162 210 184 C 199 204 165 208 138 200 C 117 194 103 184 105 165 Z"/>
-
-            <!-- Coastline, lower right -->
-            <path class="contour" d="M 300 470 C 310 380 400 330 490 345 C 570 358 600 420 590 480 C 580 520 520 540 440 535 C 360 530 295 515 300 470 Z"/>
-            <path class="contour" d="M 340 470 C 350 405 420 372 487 383 C 548 393 568 435 560 478 C 552 508 505 518 445 513 C 386 508 336 498 340 470 Z"/>
-            <path class="contour" d="M 385 468 C 392 427 441 407 487 415 C 526 422 535 450 529 476 C 523 494 492 498 450 494 C 410 490 382 485 385 468 Z"/>
-            <path class="contour land" d="M 430 465 C 436 445 462 436 487 441 C 507 445 510 460 505 473 C 500 481 482 483 460 481 C 440 479 428 476 430 465 Z"/>
-
-            <!-- Shark fins either side of the course -->
-            <g class="fin fin-a" transform="translate(232 326)">
-              <g class="fin-move">
-                <path class="fin-body" transform="scale(0.5)" d="M-9 0 C-9 -9 -5 -18 0 -23 C2 -13 9 -4 16 0 Z"/>
-              </g>
-            </g>
-            <g class="fin fin-b" transform="translate(344 352)">
-              <g class="fin-move">
-                <path class="fin-body" transform="scale(0.5)" d="M-9 0 C-9 -9 -5 -18 0 -23 C2 -13 9 -4 16 0 Z"/>
-              </g>
-            </g>
-            <!-- The course -->
-            <path class="course" d="M 255 255 C 345 285 235 365 302 432" mask="url(#reveal)"/>
-            <circle class="mark" cx="255" cy="255" r="9"/>
-            <circle class="mark-end" cx="302" cy="432" r="12"/>
-            <g class="boat-still" transform="translate(265 213)">
-              <path class="boat-sail" d="M14 2 L14 24 L2 24 Z"/>
-              <path class="boat-sail2" d="M16 8 L16 24 L27 24 Z"/>
-              <path class="boat-hull" d="M0 28 H30 L27 33 H3 Z"/>
-            </g>
-            <g class="boat">
-              <g transform="scale(1.265) translate(-51 -23)" stroke="var(--ink)" stroke-linecap="round" stroke-linejoin="round">
-                <g transform="rotate(35 51 15)">
-                  <circle cx="51" cy="8" r="3" fill="#f3c9a5" stroke-width="1.5"/>
-                  <path d="M47.800 7 q3.200 -5 6.400 0z" fill="#0c2a45" stroke-width="1"/>
-                  <path d="M51 11 V19" stroke-width="2.6" fill="none"/>
-                  <path class="arm arm-l" d="M51 13 L46.500 11.800" stroke-width="1.7" fill="none"/>
-                  <path class="arm arm-r" d="M51 13 L55.500 11.800" stroke-width="1.7" fill="none"/>
-                  <path d="M51 19 L48.500 24.500 M51 19 L53.500 24.500" stroke-width="1.7" fill="none"/>
-                </g>
-              </g>
-            </g>
-          </svg>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section wheel-section" id="wheel" aria-labelledby="wheel-title">
-      <div class="wrap wheel-wrap">
-        <div class="section-head">
-          <h2 id="wheel-title" tabindex="-1">Spin the wheel</h2>
-          <p>Feeling sea sick of it all and need some new ideas? The wheel picks a career at random from outside your discipline. It ignores your skills and limits on purpose. Treat it as an adventure to unchartered waters...</p>
-        </div>
-        <div class="wheel-box">
+        <div class="wheel-box hero-wheel" id="wheel">
           <svg class="creature c-octopus" aria-hidden="true" focusable="false"><use href="#c-octopus"/></svg>
           <svg class="creature c-dolphin" aria-hidden="true" focusable="false"><use href="#c-dolphin"/></svg>
           <svg class="creature c-fish" aria-hidden="true" focusable="false"><use href="#c-fish"/></svg>
@@ -160,6 +96,14 @@
             <button type="button" class="btn" id="wheel-button">Spin</button>
             <p class="status" id="wheel-status" role="status"></p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wheel-section" id="result" aria-labelledby="wheel-title" hidden>
+      <div class="wrap wheel-wrap">
+        <div class="section-head">
+          <h2 id="wheel-title" tabindex="-1">Your career</h2>
         </div>
         <ol class="results" id="wheel-result" role="list"></ol>
       </div>
