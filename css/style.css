@@ -1589,34 +1589,3 @@ body.no-scroll { overflow: hidden; }
 #wheel-button::before, .hero .btn::before { content: none; display: none; }
 
 .hero h1, .hero-lede { margin-inline: auto; }
-
-/* ---------- Sea colour: below the wave divider the page is filled with the sand tone ---------- */
-:root {
-  --wave-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='14' viewBox='0 0 240 14'%3E%3Cpath d='M0 7 C20 0 40 0 60 7 S100 14 120 7 S160 0 180 7 S220 14 240 7 V14 H0 Z' fill='black'/%3E%3C/svg%3E");
-}
-.wheel-section,
-.site-footer {
-  background: linear-gradient(var(--sand), var(--sand)) 0 7px / 100% calc(100% - 7px) no-repeat;
-}
-.wheel-section::after,
-.site-footer::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -7px;
-  height: 14px;
-  background: var(--sand);
-  -webkit-mask: var(--wave-fill) repeat-x 0 50% / 240px 14px;
-  mask: var(--wave-fill) repeat-x 0 50% / 240px 14px;
-  pointer-events: none;
-}
-.wheel-section::after { top: 0; }
-:root { --sand: #eadfc2; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --sand: #12354d; }
-}
-:root[data-theme="dark"] { --sand: #12354d; }
-body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
-body > main { flex: 1 0 auto; }
-body > .site-footer { flex: none; }
