@@ -229,11 +229,18 @@ a:hover {
   text-decoration: none;
   border: 2px solid var(--on-buoy);
   border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
-  background: #ffc450;
+  background: var(--on-buoy);
+  color: var(--buoy);
 }
+
+.btn:active { transform: translateY(1px); }
+
+.btn:disabled { cursor: not-allowed; opacity: 0.7; }
 
 .hero-note {
   font-size: var(--step--1);
