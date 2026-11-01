@@ -925,8 +925,8 @@
         return;
       }
       var y = window.pageYOffset || 0;
-      root.style.setProperty("--wave-a", Math.round(y * 0.7) + "px");
-      root.style.setProperty("--wave-b", Math.round(y * 0.3) + "px");
+      root.style.setProperty("--wave-a", Math.round(y * 0.8) + "px");
+      root.style.setProperty("--wave-b", Math.round(y * 0.5) + "px");
     }
 
     function onScroll() {

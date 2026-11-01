@@ -68,8 +68,8 @@ body {
   margin: 0;
   background-color: var(--shallows);
   background-image: var(--waves), var(--waves);
-  background-size: 1100px 920px, 1500px 1250px;
-  background-position: 0 var(--wave-a, 0px), 520px calc(430px + var(--wave-b, 0px));
+  background-size: 900px 754px, 1100px 920px;
+  background-position: 0 var(--wave-a, 0px), 550px calc(460px + var(--wave-b, 0px));
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--step-0);
