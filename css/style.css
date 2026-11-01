@@ -954,15 +954,15 @@ a:hover {
 }
 
 .wheel {
-  width: min(14rem, 60vw);
+  width: min(21rem, 62vw);
   height: auto;
   flex: none;
   /* room around the wheel so the sea creatures keep their distance */
-  margin: 3.5rem 0 2.5rem 4rem;
+  margin: 5rem 0 3.75rem 6rem;
 }
 
 @media (max-width: 40rem) {
-  .wheel { width: min(14rem, 50vw); margin-left: 0; }
+  .wheel { width: min(21rem, 60vw); margin-left: 0; }
 }
 
 #wheel-spin {
@@ -1077,20 +1077,21 @@ body.no-scroll { overflow: hidden; }
 
 .creature {
   position: absolute;
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 5.1rem;
+  height: 5.1rem;
   opacity: 0.95;
   pointer-events: none;
 }
 
-.c-octopus { left: 0; top: -1.2rem; }
-.c-dolphin { left: min(11rem, 40vw); top: -2rem; width: 4rem; height: 4rem; }
-.c-fish { left: min(15rem, 62vw); bottom: -0.4rem; width: 2.4rem; height: 2.4rem; }
-.c-axolotl { left: 19rem; top: -1.4rem; width: 3.8rem; height: 3.8rem; }
+.c-octopus { left: 0; top: -1.8rem; }
+.c-dolphin { left: min(16.5rem, 40vw); top: -3rem; width: 6rem; height: 6rem; }
+.c-fish { left: min(22.5rem, 62vw); bottom: -0.6rem; width: 3.6rem; height: 3.6rem; }
+.c-axolotl { left: 28.5rem; top: -2.1rem; width: 5.7rem; height: 5.7rem; }
 
 @media (max-width: 40rem) {
   .c-axolotl, .c-fish { display: none; }
-  .c-dolphin { left: calc(60vw + 0.5rem); top: 0; }
+  .c-dolphin { left: calc(62vw + 0.5rem); top: 0; width: 5rem; height: 5rem; }
+  .c-octopus { width: 4.2rem; height: 4.2rem; }
 }
 
 /* Creatures drift gently while the wheel spins */
