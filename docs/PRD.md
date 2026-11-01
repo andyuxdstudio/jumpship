@@ -97,3 +97,13 @@ Three questions remain open, and nothing is built until this PRD is agreed.
 - What each success target is measured with (analytics tool, survey tool)
 
 **Review request:** is the draft career list right, and are you happy with the assumptions above? Once the PRD is agreed, a build plan comes next for approval before any code is written.
+
+
+## As built (November 2026)
+
+- **Jump ship flow:** answering the form and pressing Jump ship plays a short boat-and-shark animation, then shows the top five matches, each with a character, pay, AI exposure, ways in and a two-hour taster. Fully remote work is flagged before the results.
+- **Matching:** 14 experience design adjacent careers, ranked on hours, income, skills and an optional low-AI preference.
+- **Change course entirely:** a spin-the-wheel feature with 32 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.
+- **Saving and sharing:** answers save on the device. Copy link puts the answers in the address after the #, so nothing reaches a server.
+- **Analytics:** none at launch. Feedback goes by an email link in the footer.
+- **Accessibility:** automated checks for contrast, names, headings, targets and focus pass in light and dark at desktop and phone width.

@@ -129,16 +129,6 @@ a:hover {
 }
 
 /* Preview bar: delete this element from index.html when the tools are live. */
-.preview-bar {
-  background: var(--buoy);
-  color: var(--on-buoy);
-  font-size: var(--step--1);
-  padding: 0.5rem 0;
-}
-
-.preview-bar p {
-  max-width: 70ch;
-}
 
 /* Header */
 .site-header {
