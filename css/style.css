@@ -1611,3 +1611,6 @@ body.no-scroll { overflow: hidden; }
 .hero-scene .jump-title[hidden] { display: block; visibility: hidden; }
 .hero-wheel #wheel-status { min-height: 1.5em; margin: 0; }
 .hero-wheel { min-height: 0; }
+
+/* The Jump button has no icon. */
+#wheel-button::before, .hero .btn::before { content: none; display: none; }
