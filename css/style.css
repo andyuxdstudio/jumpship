@@ -1194,3 +1194,14 @@ body.no-scroll { overflow: hidden; }
   .nav-js .site-nav li[hidden] { display: none; }
   .nav-js .site-nav a { width: 100%; }
 }
+
+/* AI risk estimate box on wheel results */
+.ai-risk {
+  margin-top: var(--space-3);
+  padding: 1rem 1.1rem;
+  border: 2px dashed currentColor;
+  border-radius: 0.75rem;
+}
+.ai-risk-figure { margin: 0 0 var(--space-2); font-weight: 700; }
+.ai-risk-basis { margin: 0 0 var(--space-2); font-size: 0.9rem; }
+.ai-risk-basis:last-child { margin-bottom: 0; }

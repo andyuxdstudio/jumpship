@@ -646,6 +646,34 @@
     flags.appendChild(flag);
     card.appendChild(flags);
 
+    if (wild.aiRisk) {
+      var risk = document.createElement("div");
+      var big = document.createElement("p");
+      var basis = document.createElement("p");
+      var src = document.createElement("p");
+      risk.className = "ai-risk";
+      risk.setAttribute("role", "group");
+      risk.setAttribute("aria-label", "AI risk estimate");
+      big.className = "ai-risk-figure";
+      big.textContent = "About " + wild.aiRisk.percent + "% risk that AI eliminates this role within 5 years";
+      basis.className = "ai-risk-basis";
+      basis.textContent = "Our rough guess, not a forecast. " + wild.aiRisk.basis + " None of these sites measure a five year job loss, so we blended them into one cautious number.";
+      src.className = "ai-risk-basis";
+      src.appendChild(document.createTextNode("Sources: "));
+      wild.aiRisk.sources.forEach(function (x, i) {
+        var a = document.createElement("a");
+        a.href = x.url;
+        a.rel = "noopener";
+        a.textContent = x.label;
+        if (i) src.appendChild(document.createTextNode(", "));
+        src.appendChild(a);
+      });
+      risk.appendChild(big);
+      risk.appendChild(basis);
+      risk.appendChild(src);
+      card.appendChild(risk);
+    }
+
     item.className = "wild-item";
     item.appendChild(card);
     var art = document.createElementNS("http://www.w3.org/2000/svg", "svg");

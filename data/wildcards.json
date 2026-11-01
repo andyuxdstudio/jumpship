@@ -5,7 +5,17 @@
     "hook": "Gives information and instructions to airline pilots.",
     "pay": "£48,000 starting to £100,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/air-traffic-controller"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/air-traffic-controller",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores it 40 out of 100 overall, but its Frey and Osborne figure is 11%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/air-traffic-controllers"
+        }
+      ]
+    }
   },
   {
     "id": "merchant-navy-deck-officer",
@@ -13,7 +23,17 @@
     "hook": "Responsible for the safety, navigation, operation and crew of cargo and passenger ships.",
     "pay": "£30,000 starting to £80,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-deck-officer"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-deck-officer",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores the closest match, ship captains, mates and pilots, at 38 out of 100, with a Frey and Osborne figure of 27%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/captains-mates-and-pilots-of-water-vessels"
+        }
+      ]
+    }
   },
   {
     "id": "live-sound-engineer",
@@ -21,7 +41,17 @@
     "hook": "Controls the sound at events like theatre performances, music concerts and festivals.",
     "pay": "£25,000 starting to £50,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/live-sound-engineer"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/live-sound-engineer",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores it 46 out of 100, with a Frey and Osborne figure of 13% and high exposure to generative AI.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/sound-engineering-technicians"
+        }
+      ]
+    }
   },
   {
     "id": "tree-surgeon",
@@ -29,7 +59,17 @@
     "hook": "Works in towns and the countryside, assessing tree health and felling unsafe trees.",
     "pay": "£25,000 starting to £35,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tree-surgeon/"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tree-surgeon/",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "JobZone Risk rates it stable, with 5% of task time displaced and the core climbing and chainsaw work protected.",
+      "sources": [
+        {
+          "label": "JobZone Risk",
+          "url": "https://jobzonerisk.com/roles/tree-surgeon"
+        }
+      ]
+    }
   },
   {
     "id": "archaeologist",
@@ -37,7 +77,17 @@
     "hook": "Learns about the past by studying written records, collecting oral histories and excavating remains.",
     "pay": "£24,000 starting to £40,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/archaeologist"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/archaeologist",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "AI Exposure gives the Frey and Osborne figure as 1% and 32 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/anthropologists-and-archeologists"
+        }
+      ]
+    }
   },
   {
     "id": "countryside-ranger",
@@ -45,7 +95,17 @@
     "hook": "Helps protect the environment and support wildlife by looking after forests, coastlines, wetlands and parks.",
     "pay": "£20,000 starting to £28,000 experienced",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/countryside-ranger"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/countryside-ranger",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, forest and conservation workers, at 62 out of 100, but only 27% of tasks overlap with generative AI.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/will-ai-replace/forest-and-conservation-workers"
+        }
+      ]
+    }
   },
   {
     "id": "marine-biologist",
@@ -53,7 +113,17 @@
     "hook": "Studies organisms and ecosystems in the oceans and other saltwater environments.",
     "pay": "Entry-level pay runs from about £12,000 to £30,000 depending on the role, and senior roles reach around £45,000",
     "sourceLabel": "Prospects, November 2025",
-    "sourceUrl": "https://www.prospects.ac.uk/job-profiles/marine-biologist"
+    "sourceUrl": "https://www.prospects.ac.uk/job-profiles/marine-biologist",
+    "aiRisk": {
+      "percent": 25,
+      "basis": "AI Exposure scores the closest match, zoologists and wildlife biologists, at 50 out of 100, with a Frey and Osborne figure of 30%.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations/zoologists-and-wildlife-biologists"
+        }
+      ]
+    }
   },
   {
     "id": "farrier",
@@ -61,6 +131,16 @@
     "hook": "Looks after horses' hooves.",
     "pay": "Pay varies, and the page gives no range",
     "sourceLabel": "National Careers Service",
-    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/farrier"
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/farrier",
+    "aiRisk": {
+      "percent": 3,
+      "basis": "Nestorbot gives farriers an AI disruption score of 10 out of 100 and expects no replacement.",
+      "sources": [
+        {
+          "label": "Nestorbot",
+          "url": "https://nestorbot.vercel.app/disruption/farrier"
+        }
+      ]
+    }
   }
 ]
