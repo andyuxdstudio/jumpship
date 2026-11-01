@@ -1603,3 +1603,8 @@ body.no-scroll { overflow: hidden; }
 
 /* Sea creatures hidden for now. Remove this rule to bring them back. */
 .creature { display: none !important; }
+
+/* ---------- Jump scene in the hero (replaces the wheel) ---------- */
+.hero-scene { width: min(28rem, 100%); }
+.hero-scene .jump-title[hidden] { display: none; }
+.hero-wheel { min-height: 0; }

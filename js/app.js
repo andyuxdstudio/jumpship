@@ -29,13 +29,12 @@
   /* ---------- Wheel ---------- */
 
   var wheelButton = document.getElementById("wheel-button");
-  var wheelSpin = document.getElementById("wheel-spin");
-  var wheelBox = document.querySelector(".wheel-box");
+  var scene = document.getElementById("jump-scene");
+  var sceneTitle = document.getElementById("jump-title");
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
   var resultSection = document.getElementById("result");
   var wildcards = null;
-  var wheelTurn = 0;
   var wheelBusy = false;
   var lastWildcard = -1;
 
@@ -155,7 +154,8 @@
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
-    wheelBox.classList.remove("is-spinning");
+    scene.classList.remove("is-running");
+    sceneTitle.hidden = true;
     revealWheelResult();
     wheelButton.disabled = false;
     wheelButton.textContent = "Jump again";
@@ -170,11 +170,12 @@
     if (reducedMotion()) { wheelShow(); return; }
     wheelBusy = true;
     wheelButton.disabled = true;
-    wheelStatus.textContent = "Spinning.";
-    wheelBox.classList.add("is-spinning");
-    wheelTurn += 1440 + Math.floor(Math.random() * 360);
-    wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
-    window.setTimeout(wheelShow, 5000);
+    wheelStatus.textContent = "Jumping.";
+    scene.classList.remove("is-running");
+    void scene.offsetWidth;
+    scene.classList.add("is-running");
+    sceneTitle.hidden = false;
+    window.setTimeout(wheelShow, 3200);
   }
 
   wheelButton.addEventListener("click", spinWheel);
