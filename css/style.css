@@ -1050,7 +1050,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 .jump-art { width: 100%; height: auto; overflow: visible; }
-.jump-sea { fill: var(--ink); opacity: 0.16; }
+.jump-sea { fill: url(#jump-sea-fill); }
 .jump-splash { fill: var(--ink); opacity: 0; }
 .jump-title { font-family: var(--font-display, inherit); font-weight: 700; font-size: calc(var(--step-2, 1.5rem) / 2); margin: 0; }
 
