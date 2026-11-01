@@ -67,9 +67,9 @@ html {
 body {
   margin: 0;
   background-color: var(--shallows);
-  background-image: var(--waves), var(--waves);
-  background-size: 900px 754px, 1100px 920px;
-  background-position: 0 var(--wave-a, 0px), 550px calc(460px + var(--wave-b, 0px));
+  background-image: var(--waves);
+  background-size: 900px 754px;
+  background-position: 0 var(--wave-a, 0px);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--step-0);
