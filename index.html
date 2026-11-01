@@ -333,7 +333,7 @@
 
   <div class="jump-overlay" id="jump-overlay" role="dialog" aria-modal="true" aria-labelledby="jump-title" hidden>
     <div class="jump-stage">
-      <svg class="jump-art" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+      <svg class="jump-art" viewBox="0 0 320 215" aria-hidden="true" focusable="false">
         <g class="jump-boat">
           <path d="M148 24 L148 112 L88 112 Z" fill="var(--buoy)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
           <path d="M160 48 L160 112 L212 112 Z" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
@@ -349,21 +349,22 @@
         <g class="jump-splash">
           <circle cx="262" cy="152" r="5"/><circle cx="276" cy="140" r="4"/><circle cx="250" cy="138" r="4"/><circle cx="268" cy="128" r="3"/>
         </g>
-        <path class="jump-sea" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V200 H0 z"/>
+        <path class="jump-sea" d="M0 154 q20 -12 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V215 H0 z"/>
         <g class="jump-shark">
-          <g transform="translate(0 152)">
-            <path d="M10 22 0 6 6 22 0 38z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M33 13 41 -4 50 12z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M8 22C20 8 46 6 79 20L60 25H8z" fill="#8c9fae" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M58 25h20l-3 6-4-6-4 6-4-6-3 6z" fill="#fff" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round" transform="translate(0 -1)"/>
-            <path d="M8 25H52L50 34C34 41 20 37 8 27z" fill="#fff" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M52 25H75L68 33H52z" fill="var(--ink)"/>
+          <g transform="translate(0 150)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <g class="jump-tail"><path d="M16 30 0 8 7 30 0 52z" fill="#7f93a3"/></g>
+            <path d="M40 19 51 -3 62 17z" fill="#7f93a3"/>
+            <path d="M12 31C26 13 58 9 95 28L52 33H12z" fill="#7f93a3"/>
+            <path d="M12 33H52V43C36 49 22 45 12 36z" fill="#fff"/>
+            <path d="M40 38 33 52 56 41z" fill="#7f93a3"/>
+            <path d="M52 33 93 28.500 91 38 52 40z" fill="var(--ink)" stroke="none"/>
+            <path d="M60 32l3 6 3-6.500 3 5.500 3-6 3 5 3-6" fill="#fff" stroke-width="1.5"/>
             <g class="jump-jaw">
-              <path d="M51 25H73C69 33 59 37 49 34z" fill="#fff" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
-              <path d="M58 25l2.5-5 3 5 3-5 3 5 3-5" fill="#fff" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M52 33 91 29C89 40 71 46 52 44z" fill="#fff"/>
+              <path d="M62 31.800l3-5.500 3 5 3-5.500 3 5 3-5" fill="#fff" stroke-width="1.5"/>
             </g>
-            <circle cx="62" cy="15" r="2.4" fill="var(--ink)"/>
-            <path d="M44 14c1.5 3 1.5 6 0 9M49 14c1.5 3 1.5 6 0 9M54 14c1.5 3 1.5 6 0 9" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="74" cy="21" r="2.8" fill="var(--ink)" stroke="none"/>
+            <path d="M44 17c2 4 2 8 0 12M49 17c2 4 2 8 0 12M54 17c2 4 2 8 0 12" fill="none" stroke-width="1.6"/>
           </g>
         </g>
       </svg>

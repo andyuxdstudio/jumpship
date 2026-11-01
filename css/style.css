@@ -1033,9 +1033,12 @@ body.no-scroll { overflow: hidden; }
   .is-running .jump-splash { animation: jump-splash 2.6s ease-out forwards; }
   .is-running .jump-shark { animation: jump-swim 2.6s ease-in-out forwards; }
   .is-running .jump-jaw { animation: jump-chomp 2.6s ease-in-out forwards; }
+  .is-running .jump-tail { animation: jump-wag 0.45s ease-in-out infinite; }
 }
 
-.jump-jaw { transform-box: fill-box; transform-origin: 8% 0%; }
+.jump-jaw, .jump-tail { transform-box: fill-box; }
+.jump-jaw { transform-origin: 0% 24%; }
+.jump-tail { transform-origin: 100% 50%; }
 .jump-shark { transform: translateX(8px); }
 .jump-art { overflow: hidden; }
 
@@ -1044,16 +1047,17 @@ body.no-scroll { overflow: hidden; }
   0%, 30% { transform: translate(0, 0) rotate(0); opacity: 1; }
   50% { transform: translate(40px, -42px) rotate(180deg); opacity: 1; }
   66% { transform: translate(62px, 6px) rotate(330deg); opacity: 1; }
-  77% { transform: translate(68px, 70px) rotate(380deg); opacity: 1; }
-  79%, 100% { transform: translate(68px, 70px) rotate(380deg); opacity: 0; }
+  77% { transform: translate(68px, 76px) rotate(380deg); opacity: 1; }
+  79%, 100% { transform: translate(68px, 76px) rotate(380deg); opacity: 0; }
 }
 @keyframes jump-splash { 0%, 76% { opacity: 0; transform: translateY(14px); } 84% { opacity: 0.9; transform: translateY(-4px); } 100% { opacity: 0; transform: translateY(-12px); } }
-@keyframes jump-swim { 0% { transform: translateX(-10px); } 74% { transform: translateX(198px); } 100% { transform: translateX(236px); } }
+@keyframes jump-swim { 0% { transform: translateX(-30px); } 74% { transform: translateX(196px); } 100% { transform: translateX(232px); } }
 @keyframes jump-chomp {
-  0%, 52% { transform: rotate(0); }
-  64%, 76% { transform: rotate(34deg); }
-  82%, 100% { transform: rotate(0); }
+  0%, 56% { transform: rotate(0); }
+  66%, 78% { transform: rotate(32deg); }
+  85%, 100% { transform: rotate(0); }
 }
+@keyframes jump-wag { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
 
 /* ---------- Wheel section ---------- */
 .wheel-section {
