@@ -163,7 +163,6 @@
     if (reducedMotion()) { wheelShow(); return; }
     wheelBusy = true;
     wheelButton.disabled = true;
-    wheelStatus.textContent = "Jumping.";
     scene.classList.remove("is-running");
     void scene.offsetWidth;
     scene.classList.add("is-running");
