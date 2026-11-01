@@ -1250,7 +1250,7 @@ body.no-scroll { overflow: hidden; }
 .nav-toggle[aria-expanded="true"] .nav-bars::before { top: 0; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-bars::after { top: 0; transform: rotate(-45deg); }
 
-@media (max-width: 47.99rem) {
+@media (max-width: 63.99rem) {
   .site-header .wrap { column-gap: 0.5rem; }
   .nav-js .nav-toggle { display: inline-flex; }
   .nav-js .site-nav { display: none; flex-basis: 100%; }

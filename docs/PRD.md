@@ -37,7 +37,7 @@ The smallest useful release is two filters, a skill picker, five matches, a whee
 - **Soft preferences, flagged but never filtering:** location, retraining timeframe, retraining budget.
 - **Fixed, curated careers:** each has a pre-written taster. AI writes the personalised "why this fits you" and the reality check.
 - **Estimates:** pay and AI-risk figures are always shown as ranges, labelled as estimates, with a source link.
-- **Tone rule:** every honest message is paired with an action or a reflective thought. Maritime imagery stays positive (charting a course, open water, new horizons), with no storms or shipwrecks. Nautical labels always sit beside a plain one, for example "Ports: your matches".
+- **Tone rule:** every honest message is paired with an action or a reflective thought. Maritime imagery stays positive (charting a trajectory, open water, new horizons), with no storms or shipwrecks. Nautical labels always sit beside a plain one, for example "Ports: your matches".
 - **Saving:** local save or a shareable link, instead of accounts.
 
 **Draft career list (14), for review:** product manager, business analyst, content designer / experience writer, service designer, front-end developer, accessibility specialist, experience researcher (adjacent roles), technical writer, customer success manager, data analyst, learning experience designer, delivery / project manager, conversation designer, product marketing manager.
@@ -103,7 +103,7 @@ Three questions remain open, and nothing is built until this PRD is agreed.
 
 - **Jump ship flow:** answering the form and pressing Jump ship plays a short boat-and-shark animation, then shows the top five matches, each with a character, pay, AI exposure, ways in and a two-hour taster. Fully remote work is flagged before the results.
 - **Matching:** 14 experience design adjacent careers, ranked on hours, income, skills and an optional low-AI preference.
-- **Change course entirely:** a spin-the-wheel feature with 56 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.
+- **Change trajectory entirely:** a spin-the-wheel feature with 56 unrelated careers, each with sourced pay, a character and a rough AI-risk estimate. The estimate is our own guess blended from AI Exposure scores, labelled as such, and is not a forecast.
 - **Saving and sharing:** answers save on the device. Copy link puts the answers in the address after the #, so nothing reaches a server.
 - **Analytics:** none at launch. Feedback goes by an email link in the footer.
 - **Accessibility:** automated checks for contrast, names, headings, targets and focus pass in light and dark at desktop and phone width.

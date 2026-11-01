@@ -1043,7 +1043,7 @@
     var toggle = document.getElementById("nav-toggle");
     var nav = document.getElementById("site-nav");
     if (!header || !toggle || !nav) return;
-    var small = window.matchMedia ? window.matchMedia("(max-width: 47.99rem)") : null;
+    var small = window.matchMedia ? window.matchMedia("(max-width: 63.99rem)") : null;
 
     header.classList.add("nav-js");
     toggle.hidden = false;
