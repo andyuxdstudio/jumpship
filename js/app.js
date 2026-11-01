@@ -25,13 +25,19 @@
   var sumHours = document.getElementById("sum-hours");
   var sumSkillsCount = document.getElementById("sum-skills-count");
   var sumSkills = document.getElementById("sum-skills");
+  var preferAi = document.getElementById("prefer-low-ai");
+  var matchesStatus = document.getElementById("matches-status");
+  var matchesList = document.getElementById("matches-list");
+  var matchesNotes = document.getElementById("matches-notes");
 
   var catalogue = [];
+  var careers = null; /* null while loading, an array once loaded (empty if it failed) */
+  var matchTimer = null;
   var storageWorks = true;
   var state = emptyState();
 
   function emptyState() {
-    return { income: null, hours: null, skills: [], custom: [] };
+    return { income: null, hours: null, skills: [], custom: [], preferLowAi: true };
   }
 
   /* ---------- Saving and loading ---------- */
@@ -44,6 +50,7 @@
       clean.income = Math.round(raw.income);
     }
     if (VALID_HOURS.indexOf(raw.hours) !== -1) clean.hours = raw.hours;
+    if (typeof raw.preferLowAi === "boolean") clean.preferLowAi = raw.preferLowAi;
 
     if (Array.isArray(raw.skills)) {
       clean.skills = raw.skills.filter(function (id) { return typeof id === "string"; }).slice(0, 100);
@@ -287,6 +294,195 @@
       sumSkills.appendChild(item);
     });
     sumSkills.hidden = labels.length === 0;
+    scheduleMatches();
+  }
+
+  /* ---------- Matches ---------- */
+
+  var DAYS = { 8: "about 1 day", 16: "about 2 days", 24: "about 3 days", 40: "full time" };
+  var BASIS = { study: "A study ranks this job", related: "A study of a related job", estimate: "Our estimate" };
+
+  function money(value) {
+    return "£" + value.toLocaleString("en-GB");
+  }
+
+  function joinWithAnd(items) {
+    if (items.length <= 1) return items.join("");
+    return items.slice(0, -1).join(", ") + " and " + items[items.length - 1];
+  }
+
+  function skillLabel(id) {
+    for (var i = 0; i < catalogue.length; i += 1) {
+      if (catalogue[i].id === id) return catalogue[i].label;
+    }
+    return id;
+  }
+
+  function scheduleMatches() {
+    window.clearTimeout(matchTimer);
+    matchTimer = window.setTimeout(renderMatches, 250);
+  }
+
+  function addNote(text) {
+    var note = document.createElement("p");
+    note.textContent = text;
+    matchesNotes.appendChild(note);
+  }
+
+  function addRow(list, term, build) {
+    var row = document.createElement("div");
+    var dt = document.createElement("dt");
+    var dd = document.createElement("dd");
+    dt.textContent = term;
+    build(dd);
+    row.appendChild(dt);
+    row.appendChild(dd);
+    list.appendChild(row);
+  }
+
+  function addLine(parent, className, text) {
+    var line = document.createElement("span");
+    line.className = className;
+    line.textContent = text;
+    parent.appendChild(line);
+    return line;
+  }
+
+  function buildCard(result) {
+    var career = result.career;
+    var item = document.createElement("li");
+    var card = document.createElement("article");
+    var heading = document.createElement("h3");
+    var why = document.createElement("p");
+    var whyLabel = document.createElement("strong");
+    var uses = document.createElement("p");
+    var details = document.createElement("dl");
+
+    card.className = "match";
+    card.setAttribute("aria-labelledby", "match-" + career.id);
+    heading.id = "match-" + career.id;
+    heading.textContent = career.name;
+
+    why.className = "match-why";
+    whyLabel.textContent = "Why it fits you: ";
+    why.appendChild(whyLabel);
+    why.appendChild(document.createTextNode(result.why.join(" ")));
+
+    uses.className = "match-skills";
+    uses.textContent = (result.matchedIds.length === 1 ? "Uses 1 of your skills: " : "Uses " + result.matchedIds.length + " of your skills: ") +
+      result.matchedIds.map(skillLabel).join(", ") + ".";
+
+    addRow(details, "Typical pay", function (dd) {
+      var pay = career.pay;
+      var range = pay.p90 === null
+        ? "Advertised pay starts around " + money(pay.p10) + ". The upper end is not reported."
+        : "Advertised pay usually runs from " + money(pay.p10) + " to " + money(pay.p90) + ".";
+      dd.appendChild(document.createTextNode(money(pay.median) + " a year in the middle. " + range + " This is an estimate."));
+      var source = document.createElement("span");
+      source.className = "pay-source";
+      source.appendChild(document.createTextNode("Based on " + pay.ads + ". "));
+      var link = document.createElement("a");
+      link.href = pay.sourceUrl;
+      link.rel = "noopener";
+      link.textContent = "Check the source on " + pay.sourceLabel;
+      source.appendChild(link);
+      dd.appendChild(source);
+    });
+
+    addRow(details, "Exposure to AI", function (dd) {
+      dd.appendChild(document.createTextNode(career.ai.level + ". " + BASIS[career.ai.basis] + ": " + career.ai.reason));
+      if (JumpShipMatch.exposureRank(career) >= 3) {
+        addLine(dd, "next-step", "Exposure is not job loss. It measures how much of the work AI could do. Next step: read three live job ads for this role and note what employers ask for now.");
+      }
+    });
+
+    addRow(details, "Time in person", function (dd) {
+      dd.textContent = "Usually at least " + DAYS[career.minHours] + " a week in person. This is our estimate and it varies by employer.";
+    });
+
+    card.appendChild(heading);
+    card.appendChild(why);
+    card.appendChild(uses);
+    card.appendChild(details);
+
+    var flags = [];
+    if (result.flags.lowStart) {
+      flags.push("Starting offers may be lower than your floor. The low end of advertised pay is " + money(career.pay.p10) + ".");
+    }
+    if (result.flags.hoursStretch) {
+      flags.push("Fully remote roles are rarer here. Most employers ask for about a day in person.");
+    }
+    if (result.flags.limitedData) {
+      flags.push("Limited data: " + result.flags.limitedData);
+    }
+    if (flags.length) {
+      var flagList = document.createElement("ul");
+      flagList.className = "flags";
+      flagList.setAttribute("aria-label", "Things to check about " + career.name);
+      flags.forEach(function (text) {
+        var flag = document.createElement("li");
+        flag.textContent = text;
+        flagList.appendChild(flag);
+      });
+      card.appendChild(flagList);
+    }
+
+    item.appendChild(card);
+    return item;
+  }
+
+  function renderMatches() {
+    matchesList.textContent = "";
+    matchesNotes.textContent = "";
+
+    if (careers === null) return;
+    if (!careers.length) {
+      matchesStatus.textContent = "The careers list did not load. Refresh the page to try again.";
+      return;
+    }
+
+    var missing = [];
+    if (state.income === null) missing.push("your lowest salary");
+    if (state.hours === null) missing.push("your in-person hours");
+    if (state.skills.length === 0) missing.push("at least one skill from the list");
+    if (missing.length) {
+      matchesStatus.textContent = "Add " + joinWithAnd(missing) + " above to see your matches.";
+      return;
+    }
+
+    var result = JumpShipMatch.rank(careers, {
+      income: state.income,
+      hours: state.hours,
+      skills: state.skills,
+      preferLowAi: state.preferLowAi
+    });
+
+    if (result.shown.length === 0) {
+      if (result.counts.limits === 0) {
+        matchesStatus.textContent = "None of the " + result.counts.total + " careers we cover clear both your limits.";
+        addNote("Lowering your salary floor or allowing more hours in person would widen the list.");
+      } else {
+        matchesStatus.textContent = "Careers clear your limits, but none use the skills you picked.";
+        addNote("Tick more of the UX work you do above. Your matches are built from those skills.");
+      }
+    } else {
+      matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
+        (result.fitting === 1 ? " career that fits" : " careers that fit") + " your limits and skills.";
+      result.shown.forEach(function (entry) { matchesList.appendChild(buildCard(entry)); });
+      if (result.fitting < JumpShipMatch.TOP) {
+        addNote("Only " + result.fitting + " of the " + result.counts.total + " careers fit. Lowering your salary floor, allowing more hours in person or ticking more skills would widen the list.");
+      }
+    }
+
+    if (state.custom.length) {
+      addNote("Skills you added are kept in your summary but do not change your matches yet.");
+    }
+  }
+
+  function handleAiToggle() {
+    state.preferLowAi = preferAi.checked;
+    save();
+    scheduleMatches();
   }
 
   /* ---------- Clearing ---------- */
@@ -305,6 +501,7 @@
     Array.prototype.forEach.call(form.querySelectorAll('input[name="hours"]'), function (radio) {
       radio.checked = false;
     });
+    preferAi.checked = true;
     renderSkills();
     renderSummary();
     setStatus("Your answers are cleared.");
@@ -315,6 +512,7 @@
 
   function applyStateToForm() {
     incomeInput.value = formatIncome(state.income);
+    preferAi.checked = state.preferLowAi;
     if (state.hours !== null) {
       var radio = form.querySelector('input[name="hours"][value="' + state.hours + '"]');
       if (radio) radio.checked = true;
@@ -347,16 +545,20 @@
     });
     customInput.addEventListener("input", function () { showCustomError(""); });
     clearButton.addEventListener("click", clearAnswers);
+    preferAi.addEventListener("change", handleAiToggle);
 
     if (!storageWorks) {
       setStatus("Your browser is blocking saving, so your answers will clear when you leave this page.");
     }
 
-    fetch("data/skills.json")
-      .then(function (response) {
-        if (!response.ok) throw new Error("Request failed");
+    function getJson(path) {
+      return fetch(path).then(function (response) {
+        if (!response.ok) throw new Error("Request failed: " + path);
         return response.json();
-      })
+      });
+    }
+
+    getJson("data/skills.json")
       .then(function (list) {
         catalogue = Array.isArray(list) ? list : [];
         renderSkills();
@@ -365,6 +567,16 @@
       .catch(function () {
         showSkillsLoadError();
         renderSummary();
+      });
+
+    getJson("data/careers.json")
+      .then(function (list) {
+        careers = Array.isArray(list) ? list : [];
+        scheduleMatches();
+      })
+      .catch(function () {
+        careers = [];
+        scheduleMatches();
       });
   }
 

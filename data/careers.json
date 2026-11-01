@@ -1,0 +1,265 @@
+[
+  {
+    "id": "conversation-designer",
+    "name": "Conversation designer",
+    "minHours": 8,
+    "pay": {
+      "median": 95000, "p10": 57750, "p90": 100000,
+      "ads": "95 job ads citing conversational AI",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/conversational%20ai.do"
+    },
+    "limitedData": "This pay is for ads citing conversational AI, which includes engineers, so it probably overstates what designers earn.",
+    "ai": { "level": "Medium", "basis": "estimate", "reason": "Demand is uncertain: the work is shaped by AI products, which also automate parts of it." },
+    "skills": [
+      { "id": "content-microcopy", "weight": 2, "why": "You write the words people read in an interface, which is the core of designing a conversation." },
+      { "id": "interaction-design", "weight": 2, "why": "You design how a person moves through a task, and a conversation is a task with turns." },
+      { "id": "user-research", "weight": 1, "why": "You test with real people, and conversation designers do the same with transcripts." },
+      { "id": "information-architecture", "weight": 1, "why": "You decide what comes first and what comes next." }
+    ]
+  },
+  {
+    "id": "product-manager",
+    "name": "Product manager",
+    "minHours": 16,
+    "pay": {
+      "median": 70000, "p10": 45000, "p90": 100000,
+      "ads": "546 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/product%20manager.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Medium", "basis": "estimate", "reason": "Drafting specs and analysis is exposed. Prioritising and negotiating with stakeholders needs judgement." },
+    "skills": [
+      { "id": "product-strategy", "weight": 2, "why": "You already weigh what to build first, which is the heart of product management." },
+      { "id": "stakeholder-management", "weight": 2, "why": "You bring different teams to one decision, which is most of the job." },
+      { "id": "user-research", "weight": 1, "why": "You start from what users need, as good product managers do." },
+      { "id": "data-analytics", "weight": 1, "why": "You read the numbers behind a decision." }
+    ]
+  },
+  {
+    "id": "product-marketing-manager",
+    "name": "Product marketing manager",
+    "minHours": 16,
+    "pay": {
+      "median": 70000, "p10": 51250, "p90": 100000,
+      "ads": "103 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/product%20marketing%20manager.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Medium", "basis": "related", "reason": "The government's 2023 study ranks marketing associate professionals twentieth. Positioning is less exposed than campaign production." },
+    "skills": [
+      { "id": "product-strategy", "weight": 2, "why": "You understand what a product is for and who it is for, which is positioning." },
+      { "id": "user-research", "weight": 2, "why": "You know what customers say and do, the evidence behind good messaging." },
+      { "id": "content-microcopy", "weight": 1, "why": "You write clearly for a reader in a hurry." },
+      { "id": "stakeholder-management", "weight": 1, "why": "You line up product, sales and design around one story." }
+    ]
+  },
+  {
+    "id": "service-designer",
+    "name": "Service designer",
+    "minHours": 24,
+    "pay": {
+      "median": 66250, "p10": 44875, "p90": 96500,
+      "ads": "67 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/service%20designer.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Low to medium", "basis": "estimate", "reason": "Fieldwork, workshops and cross-team negotiation are hard to automate. Mapping and synthesis are exposed." },
+    "skills": [
+      { "id": "journey-mapping", "weight": 2, "why": "You already map journeys, which is the core method of service design." },
+      { "id": "workshop-facilitation", "weight": 2, "why": "You run sessions that get a group to agree, which service design depends on." },
+      { "id": "user-research", "weight": 1, "why": "You talk to the people who use the service." },
+      { "id": "stakeholder-management", "weight": 1, "why": "You work across teams, as services always do." }
+    ]
+  },
+  {
+    "id": "delivery-project-manager",
+    "name": "Delivery / project manager",
+    "minHours": 24,
+    "pay": {
+      "median": 60000, "p10": 40000, "p90": 87550,
+      "ads": "1,097 delivery manager job ads, used for delivery and project management",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/delivery%20manager.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Medium to high", "basis": "related", "reason": "The government's 2023 study ranks business and financial project management professionals seventh of all UK occupations." },
+    "skills": [
+      { "id": "stakeholder-management", "weight": 2, "why": "You keep many people moving in the same direction, which is delivery management." },
+      { "id": "team-leadership", "weight": 2, "why": "You lead and coach a team, which this role asks of you every day." },
+      { "id": "workshop-facilitation", "weight": 1, "why": "You run sessions that turn a plan into agreed steps." },
+      { "id": "product-strategy", "weight": 1, "why": "You understand what is being built and why." }
+    ]
+  },
+  {
+    "id": "ux-researcher",
+    "name": "UX researcher",
+    "minHours": 16,
+    "pay": {
+      "median": 57500, "p10": 39100, "p90": 75000,
+      "ads": "596 job ads citing user research",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/user%20research.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Medium", "basis": "estimate", "reason": "Synthesis and note-taking are exposed. Recruiting, interviewing and judgement are less so." },
+    "skills": [
+      { "id": "user-research", "weight": 2, "why": "You already run research, so this role is the closest to your current work." },
+      { "id": "usability-testing", "weight": 2, "why": "You test designs with people and report what you saw." },
+      { "id": "workshop-facilitation", "weight": 1, "why": "You run sessions and interviews that draw out what people think." },
+      { "id": "data-analytics", "weight": 1, "why": "You combine what people say with what the numbers show." }
+    ]
+  },
+  {
+    "id": "data-analyst",
+    "name": "Data analyst",
+    "minHours": 8,
+    "pay": {
+      "median": 57500, "p10": 33050, "p90": 69875,
+      "ads": "995 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/data%20analyst.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "High", "basis": "related", "reason": "The government's 2023 study ranks actuaries, economists and statisticians sixth of all UK occupations." },
+    "skills": [
+      { "id": "data-analytics", "weight": 2, "why": "You already read data to judge whether a design works." },
+      { "id": "user-research", "weight": 2, "why": "You turn observations into findings, the same skill with different data." },
+      { "id": "information-architecture", "weight": 1, "why": "You organise information so others can find it." }
+    ]
+  },
+  {
+    "id": "business-analyst",
+    "name": "Business analyst",
+    "minHours": 24,
+    "pay": {
+      "median": 55000, "p10": 41250, "p90": 80250,
+      "ads": "1,548 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/business%20analyst.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "High", "basis": "study", "reason": "The government's 2023 study ranks management consultants and business analysts first of all UK occupations for AI exposure." },
+    "skills": [
+      { "id": "stakeholder-management", "weight": 2, "why": "You gather needs from people who disagree, which is the daily work of an analyst." },
+      { "id": "journey-mapping", "weight": 2, "why": "You map how work flows, which analysts do to find where a process breaks." },
+      { "id": "information-architecture", "weight": 1, "why": "You structure complex information clearly." },
+      { "id": "data-analytics", "weight": 1, "why": "You back up recommendations with evidence." }
+    ]
+  },
+  {
+    "id": "content-designer",
+    "name": "Content designer / UX writer",
+    "minHours": 8,
+    "pay": {
+      "median": 55000, "p10": 44972, "p90": 70000,
+      "ads": "98 job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/content%20designer.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "Medium to high", "basis": "related", "reason": "The government's 2023 study flags authors and writers as high-automation. Research, structure and policy judgement are less exposed." },
+    "skills": [
+      { "id": "content-microcopy", "weight": 2, "why": "You write the words inside products, which is the heart of content design." },
+      { "id": "information-architecture", "weight": 2, "why": "You decide what goes where and in what order." },
+      { "id": "user-research", "weight": 1, "why": "You test whether the words work for real people." },
+      { "id": "accessibility", "weight": 1, "why": "You write for everyone, including people using assistive technology." }
+    ]
+  },
+  {
+    "id": "accessibility-specialist",
+    "name": "Accessibility specialist",
+    "minHours": 8,
+    "pay": {
+      "median": 54191, "p10": 33500, "p90": 86457,
+      "ads": "1,705 job ads citing accessibility",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/accessibility.do"
+    },
+    "limitedData": "This pay is for any ad citing accessibility, which is a skill and not a job title, so it covers a wide mix of roles.",
+    "ai": { "level": "Low to medium", "basis": "estimate", "reason": "Automated checks cover only part of accessibility. Testing with people and advising teams stay human work." },
+    "skills": [
+      { "id": "accessibility", "weight": 2, "why": "You already design with accessibility in mind, which this role makes your whole job." },
+      { "id": "usability-testing", "weight": 2, "why": "You test with people, including people who use assistive technology." },
+      { "id": "front-end-prototyping", "weight": 1, "why": "You can read the code to see why something fails." },
+      { "id": "design-systems", "weight": 1, "why": "You know that fixing a component fixes it everywhere." }
+    ]
+  },
+  {
+    "id": "front-end-developer",
+    "name": "Front-end developer",
+    "minHours": 8,
+    "pay": {
+      "median": 47500, "p10": 32775, "p90": 60000,
+      "ads": "194 web developer job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/web%20developer.do"
+    },
+    "limitedData": "This pay is for web developer ads in general, not front-end roles specifically.",
+    "ai": { "level": "High", "basis": "related", "reason": "The government's 2026 assessment describes computer programming as highly exposed to AI automation." },
+    "skills": [
+      { "id": "front-end-prototyping", "weight": 2, "why": "You already build in HTML and CSS, which is the base of the job." },
+      { "id": "interaction-design", "weight": 2, "why": "You know how interfaces should behave, which helps you build them well." },
+      { "id": "design-systems", "weight": 1, "why": "You work with components, which is how front-end teams build." },
+      { "id": "accessibility", "weight": 1, "why": "You build interfaces that work for everyone." }
+    ]
+  },
+  {
+    "id": "technical-writer",
+    "name": "Technical writer",
+    "minHours": 8,
+    "pay": {
+      "median": 47500, "p10": 35000, "p90": 65000,
+      "ads": "69 technical author job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/technical%20author.do"
+    },
+    "limitedData": null,
+    "ai": { "level": "High", "basis": "related", "reason": "The government's 2023 study flags authors and writers as high-automation, and a 2025 Microsoft study finds translators among the most exposed." },
+    "skills": [
+      { "id": "content-microcopy", "weight": 2, "why": "You write clear instructions that people can follow." },
+      { "id": "information-architecture", "weight": 2, "why": "You organise documentation so people can find the answer." },
+      { "id": "accessibility", "weight": 1, "why": "You write for readers with different needs." }
+    ]
+  },
+  {
+    "id": "customer-success-manager",
+    "name": "Customer success manager",
+    "minHours": 24,
+    "pay": {
+      "median": 45827, "p10": 28000, "p90": 79000,
+      "ads": "167 self-reported salaries on Payscale",
+      "sourceLabel": "Payscale",
+      "sourceUrl": "https://payscale.com/research/UK/Job=Customer_Success_Manager/Salary"
+    },
+    "limitedData": "This pay is an average of self-reported salaries, not job ads, so it is not measured the same way as the other careers.",
+    "ai": { "level": "Medium", "basis": "related", "reason": "A 2025 Microsoft study finds sales and customer service roles highly exposed, but relationship-led account work less so." },
+    "skills": [
+      { "id": "stakeholder-management", "weight": 2, "why": "You manage relationships with people who depend on your work." },
+      { "id": "data-analytics", "weight": 2, "why": "You use usage data to spot who needs help." },
+      { "id": "journey-mapping", "weight": 1, "why": "You see the whole customer journey, not one screen." }
+    ]
+  },
+  {
+    "id": "learning-experience-designer",
+    "name": "Learning experience designer",
+    "minHours": 8,
+    "pay": {
+      "median": 35000, "p10": 30000, "p90": null,
+      "ads": "13 instructional designer job ads",
+      "sourceLabel": "ITJobsWatch",
+      "sourceUrl": "https://www.itjobswatch.co.uk/jobs/uk/instructional%20designer.do"
+    },
+    "limitedData": "Only 13 job ads were found, and the upper end of pay is not reported, so treat this figure with caution.",
+    "ai": { "level": "Medium to high", "basis": "related", "reason": "The government's 2023 study ranks further education teaching professionals and vocational trainers among the most exposed to language-model AI." },
+    "skills": [
+      { "id": "workshop-facilitation", "weight": 2, "why": "You design sessions that help a group learn something." },
+      { "id": "content-microcopy", "weight": 2, "why": "You explain things clearly in few words." },
+      { "id": "interaction-design", "weight": 1, "why": "You design the steps a learner moves through." },
+      { "id": "usability-testing", "weight": 1, "why": "You test whether people can actually follow what you made." }
+    ]
+  }
+]

@@ -18,7 +18,7 @@
   <!-- Delete this bar when the tools are live (stage 8). -->
   <div class="preview-bar" role="note">
     <div class="wrap">
-      <p>Preview build, stage 2 of 8. The limits and skill picker work and save on your device. Matches, the wheel and tasters arrive next.</p>
+      <p>Preview build, stage 3 of 8. Matching works from your limits and skills. Ways in, the wheel and tasters arrive next.</p>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
         <ul>
           <li><a href="#start">Set your course</a></li>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#example">Example match</a></li>
+          <li><a href="#matches">Your matches</a></li>
           <li><a href="#straight-talk">Straight talk</a></li>
         </ul>
       </nav>
@@ -162,9 +162,30 @@
               </div>
             </dl>
             <ul class="chips" id="sum-skills" aria-label="Skills you picked" hidden></ul>
-            <p class="summary-note">Your answers stay on this device. Your top five matches arrive in the next stage.</p>
+            <p class="summary-note">Your answers stay on this device. Your top five matches appear below.</p>
           </aside>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="matches" aria-labelledby="matches-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="matches-title">Your top five matches</h2>
+          <p>Ports: careers that clear your limits and use the skills you picked. Pay and AI figures are estimates, each with a source you can check.</p>
+        </div>
+
+        <label class="choice toggle">
+          <input type="checkbox" id="prefer-low-ai" aria-describedby="ai-hint" checked>
+          <span>Prefer careers with lower exposure to AI</span>
+        </label>
+        <p class="hint" id="ai-hint">On by default. It moves careers where AI could do more of the work further down the list. It never hides one.</p>
+
+        <p class="status matches-status" id="matches-status" role="status">Add your limits and skills above to see your matches.</p>
+        <ol class="results" id="matches-list" role="list"></ol>
+        <div class="notes" id="matches-notes"></div>
+
+        <p class="match-caption">Pay is the median of advertised UK salaries for permanent roles in the six months to late October 2026. These are estimates, not offers, and starting pay for someone changing career is often lower. Exposure to AI measures how much of a job's tasks AI could do. It is not a forecast of job loss.</p>
       </div>
     </section>
 
@@ -202,39 +223,6 @@
       </div>
     </section>
 
-    <section class="section" id="example" aria-labelledby="example-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="example-title">What a match looks like</h2>
-        </div>
-
-        <article class="match" aria-labelledby="match-title">
-          <p class="match-port">Ports: your matches</p>
-          <h3 id="match-title">Service designer</h3>
-          <p class="match-why"><strong>Why it fits you:</strong> You already map journeys and run research sessions. Both are daily work in this role.</p>
-          <dl>
-            <div>
-              <dt>Typical pay</dt>
-              <dd>£00,000 to £00,000, an estimate with a source you can check</dd>
-            </div>
-            <div>
-              <dt>Ways in</dt>
-              <dd>Placeholder text for the routes people usually take</dd>
-            </div>
-            <div>
-              <dt>Exposure to AI</dt>
-              <dd>Low, medium or high, with a plain reason</dd>
-            </div>
-          </dl>
-          <ul class="chips" aria-label="How it fits your preferences">
-            <li>Remote friendly</li>
-            <li>Short retraining</li>
-          </ul>
-        </article>
-        <p class="match-caption">Layout example only. The figures above are placeholders until the careers data is added.</p>
-      </div>
-    </section>
-
     <section class="section" id="straight-talk" aria-labelledby="talk-title">
       <div class="wrap">
         <div class="section-head">
@@ -257,6 +245,7 @@
     </div>
   </footer>
 
+  <script src="js/match.js" defer></script>
   <script src="js/app.js" defer></script>
 </body>
 </html>
