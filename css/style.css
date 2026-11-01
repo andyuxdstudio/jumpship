@@ -1402,7 +1402,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* "What's this?" tooltip */
-.tip { margin: 0.35rem 0 0; max-width: 32rem; }
+.tip { position: relative; display: inline-block; margin: 0.35rem 0 0; }
 .tip-btn {
   appearance: none;
   background: none;
@@ -1416,7 +1416,13 @@ body.no-scroll { overflow: hidden; }
 }
 .tip-btn:hover, .tip-btn[aria-expanded="true"] { color: var(--ink); }
 .tip-body {
-  margin: 0.5rem 0 0;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 20;
+  width: min(22rem, calc(100vw - 2rem));
+  margin: 0;
+  box-shadow: 0 6px 18px rgb(12 42 69 / 0.25);
   padding: 0.6rem 0.8rem;
   background: var(--surface);
   border: 2px solid var(--ink);

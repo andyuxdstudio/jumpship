@@ -1191,7 +1191,7 @@
     update();
   })();
 
-  // "What's this?" tooltip on the AI toggle: opens on click, tap, hover or keyboard focus, closes on Escape.
+  // "What's this?" tooltip on the AI toggle: an overlay that opens on click, tap or keyboard, and closes on another click or Escape.
   (function aiTip() {
     var tip = document.getElementById("ai-tip");
     if (!tip) return;
@@ -1201,16 +1201,9 @@
       body.hidden = !open;
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     }
-    var byHover = false;
-    btn.addEventListener("click", function () {
-      if (byHover) { byHover = false; return; }   // a mouse click on an already-open hover tip keeps it open
-      set(body.hidden);
-    });
-    tip.addEventListener("mouseenter", function () {
-      if (window.matchMedia("(hover: hover)").matches) { byHover = body.hidden; set(true); }
-    });
-    tip.addEventListener("mouseleave", function () {
-      if (window.matchMedia("(hover: hover)").matches) { byHover = false; set(false); }
+    btn.addEventListener("click", function () { set(body.hidden); });
+    document.addEventListener("click", function (event) {
+      if (!body.hidden && !tip.contains(event.target)) set(false);
     });
     tip.addEventListener("keydown", function (event) {
       if (event.key === "Escape") { set(false); }
