@@ -597,6 +597,7 @@
 
   var wheelButton = document.getElementById("wheel-button");
   var wheelSpin = document.getElementById("wheel-spin");
+  var wheelBox = document.querySelector(".wheel-box");
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
   var wildcards = null;
@@ -702,6 +703,7 @@
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
     wheelBusy = false;
+    wheelBox.classList.remove("is-spinning");
     wheelButton.disabled = false;
     wheelButton.textContent = "Spin again";
   }
@@ -716,6 +718,7 @@
     wheelBusy = true;
     wheelButton.disabled = true;
     wheelStatus.textContent = "Spinning.";
+    wheelBox.classList.add("is-spinning");
     wheelTurn += 1440 + Math.floor(Math.random() * 360);
     wheelSpin.style.transform = "rotate(" + wheelTurn + "deg)";
     window.setTimeout(wheelShow, 5000);

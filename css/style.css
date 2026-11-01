@@ -1087,6 +1087,18 @@ body.no-scroll { overflow: hidden; }
   .c-dolphin { left: calc(60vw + 0.5rem); top: 0; }
 }
 
+/* Creatures drift gently while the wheel spins */
+@media (prefers-reduced-motion: no-preference) {
+  .is-spinning .creature { animation: creature-drift 2.4s ease-in-out infinite alternate; }
+  .is-spinning .c-octopus { animation-name: creature-bob; animation-duration: 1.9s; }
+  .is-spinning .c-dolphin { animation-name: creature-swim; animation-duration: 2.6s; }
+  .is-spinning .c-fish { animation-name: creature-drift; animation-duration: 1.6s; }
+  .is-spinning .c-axolotl { animation-name: creature-bob; animation-duration: 2.3s; animation-delay: -0.8s; }
+}
+@keyframes creature-bob { from { transform: translateY(-5px) rotate(-4deg); } to { transform: translateY(5px) rotate(4deg); } }
+@keyframes creature-swim { from { transform: translate(-6px, 3px) rotate(-6deg); } to { transform: translate(6px, -4px) rotate(5deg); } }
+@keyframes creature-drift { from { transform: translateX(-5px) rotate(-3deg); } to { transform: translateX(5px) translateY(-3px) rotate(3deg); } }
+
 /* ---------- Tasters ---------- */
 .taster {
   margin-top: var(--space-3);
