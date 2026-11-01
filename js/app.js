@@ -91,6 +91,11 @@
       : "Your browser is blocking saving, so your answers will clear when you leave this page.");
   }
 
+  var shareStatusEl = document.getElementById("share-status");
+  function setShareStatus(message) {
+    shareStatusEl.textContent = message;
+  }
+
   function setStatus(message) {
     statusEl.textContent = message;
   }
@@ -949,12 +954,12 @@
       shareBox.hidden = false;
       shareField.focus();
       shareField.select();
-      setStatus("Copy the link from the box below.");
+      setShareStatus("Copy the link from the box below.");
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(function () {
         shareBox.hidden = true;
-        setStatus("Link copied. It holds your answers.");
+        setShareStatus("Link copied. It holds your answers.");
       }, fallback);
     } else {
       fallback();
