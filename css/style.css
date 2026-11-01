@@ -1355,3 +1355,15 @@ body.no-scroll { overflow: hidden; }
 }
 .summary:not(.is-waiting) .summary-waiting,
 .summary.is-waiting .summary-body { display: none; }
+
+.summary-waiting { margin-top: 20px; }
+.summary-waiting .dots span { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .summary-waiting .dots span { animation: dot-wait 1.8s ease-in-out infinite; }
+  .summary-waiting .dots span:nth-child(2) { animation-delay: 0.3s; }
+  .summary-waiting .dots span:nth-child(3) { animation-delay: 0.6s; }
+}
+@keyframes dot-wait {
+  0%, 60%, 100% { opacity: 0.15; }
+  30% { opacity: 1; }
+}
