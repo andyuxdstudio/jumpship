@@ -168,7 +168,7 @@
     void scene.offsetWidth;
     scene.classList.add("is-running");
     sceneTitle.hidden = false;
-    window.setTimeout(wheelShow, 3200);
+    window.setTimeout(wheelShow, 4200);
   }
 
   wheelButton.addEventListener("click", spinWheel);
