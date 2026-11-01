@@ -957,6 +957,12 @@ a:hover {
   width: min(14rem, 60vw);
   height: auto;
   flex: none;
+  /* room around the wheel so the sea creatures keep their distance */
+  margin: 3.5rem 0 2.5rem 4rem;
+}
+
+@media (max-width: 40rem) {
+  .wheel { width: min(14rem, 50vw); margin-left: 0; }
 }
 
 #wheel-spin {
