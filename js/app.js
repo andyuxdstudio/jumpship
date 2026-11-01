@@ -1108,9 +1108,13 @@
         // Scrolling down pushes specks up, faster for bigger ones. Wrap around the screen.
         var y = ((d.y - scroll * d.speed) % span + span) % span - d.r * 2;
         var x = d.x + Math.sin(t * 0.25 + d.phase) * d.sway;
-        var g = ctx.createRadialGradient(x, y, 0, x, y, d.r);
+        // Progressive softness: the smallest specks are crisp, the largest are medium blurred.
+        var soft = Math.min(1, (d.r - 1) / 10);
+        var reach = d.r * (1 + soft * 0.6);
+        var core = 0.98 - soft * 0.8;
+        var g = ctx.createRadialGradient(x, y, 0, x, y, reach);
         g.addColorStop(0, "rgba(" + rgb + "," + d.alpha + ")");
-        g.addColorStop(0.7, "rgba(" + rgb + "," + (d.alpha * 0.8).toFixed(3) + ")");
+        g.addColorStop(core, "rgba(" + rgb + "," + d.alpha + ")");
         g.addColorStop(1, "rgba(" + rgb + ",0)");
         ctx.save();
         ctx.translate(x, y);
@@ -1119,7 +1123,7 @@
         ctx.translate(-x, -y);
         ctx.fillStyle = g;
         ctx.beginPath();
-        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.arc(x, y, reach, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
