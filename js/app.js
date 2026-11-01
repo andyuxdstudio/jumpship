@@ -763,6 +763,8 @@
   var jumpFill = document.getElementById("jump-fill");
   var matchesSection = document.getElementById("matches");
   var matchesTitle = document.getElementById("matches-title");
+  var matchesIntro = document.getElementById("matches-intro");
+  var MATCHES_INTRO = matchesIntro.textContent;
   var matchesStale = document.getElementById("matches-stale");
   var navMatches = document.getElementById("nav-matches");
   var jumpTimer = null;
@@ -860,6 +862,7 @@
     matchesNotice.textContent = "";
     matchesNotice.hidden = true;
     matchesTitle.textContent = "Your top five matches";
+    matchesIntro.textContent = MATCHES_INTRO;
 
     if (careers === null) return;
     if (!careers.length) {
@@ -884,7 +887,8 @@
     });
 
     if (result.shown.length === 0) {
-      matchesTitle.textContent = "No matches have been found this time. Try selecting more skills or modifying your income floor.";
+      matchesTitle.textContent = "No matches have been found this time.";
+      matchesIntro.textContent = "Try selecting more skills or modifying your income floor.";
       matchesStatus.textContent = "";
     } else {
       matchesStatus.textContent = "Showing " + result.shown.length + " of " + result.fitting +
