@@ -65,7 +65,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--shallows);
+  background: var(--shallows) url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(12,42,69,0.07)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E") 0 0 / 1100px 920px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--step-0);
@@ -1131,3 +1131,34 @@ body.no-scroll { overflow: hidden; }
 .taster-pause { font-style: italic; }
 .taster-talk summary { cursor: pointer; }
 .taster-talk blockquote { margin: 0.6rem 0 0; padding-left: 0.9rem; border-left: 0.3rem solid var(--buoy); }
+
+/* Dark mode waves */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(232,243,246,0.06)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E"); }
+}
+:root[data-theme="dark"] body { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(232,243,246,0.06)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E"); }
+
+/* ---------- The boat on the chart ---------- */
+.chart .boat { display: none; }
+
+@supports (offset-path: path("M 0 0")) {
+  .chart .boat {
+    display: block;
+    offset-path: path("M 255 255 C 345 285 235 365 302 432");
+    offset-distance: 0%;
+    offset-rotate: auto;
+  }
+}
+
+.boat-hull { fill: var(--surface); stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; }
+.boat-sail { fill: var(--buoy); stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.boat-wake { fill: none; stroke: var(--course); stroke-width: 2; stroke-linecap: round; opacity: 0.7; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .chart .boat { animation: chart-sail 2.6s ease-out 0.4s both; }
+}
+
+@keyframes chart-sail {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
