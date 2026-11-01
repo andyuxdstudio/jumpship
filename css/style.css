@@ -6,6 +6,7 @@
   --wave-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='14' viewBox='0 0 240 14'%3E%3Cpath d='M0 7 C20 0 40 0 60 7 S100 14 120 7 S160 0 180 7 S220 14 240 7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   --waves: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(12,42,69,0.049)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E");
   --shallows: #e3f1f3;
+  --sand: #eadfc2;
   --surface: #f7fbfc;
   --ink: #0c2a45;
   --ink-soft: #35536b;
@@ -45,6 +46,7 @@
   :root:not([data-theme="light"]) {
     --warn: #f2b134;
     --shallows: #071c2f;
+    --sand: #12354d;
     --surface: #0d2b45;
     --ink: #e8f3f6;
     --ink-soft: #b3cad5;
@@ -59,6 +61,7 @@
 :root[data-theme="dark"] {
   --warn: #f2b134;
   --shallows: #071c2f;
+  --sand: #12354d;
   --surface: #0d2b45;
   --ink: #e8f3f6;
   --ink-soft: #b3cad5;
@@ -931,7 +934,8 @@ a:hover {
 /* Footer */
 .site-footer {
   position: relative;
-  padding-block: var(--space-4);
+  background: linear-gradient(var(--sand), var(--sand)) bottom / 100% calc(100% - 9rem) no-repeat;
+  padding-block: 0 var(--space-4);
   font-size: var(--step--1);
   color: var(--ink-soft);
 }
@@ -1589,3 +1593,32 @@ body.no-scroll { overflow: hidden; }
 #wheel-button::before, .hero .btn::before { content: none; display: none; }
 
 .hero h1, .hero-lede { margin-inline: auto; }
+
+/* ---------- Sea floor: replaces the second wave divider above the footer ---------- */
+.site-footer::before { content: none; display: none; }
+.seabed {
+  position: relative;
+  height: 9rem;
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+}
+.seabed svg {
+  position: absolute;
+  bottom: 1.35rem;
+  left: 50%;
+  width: max(62.5rem, 100%);
+  transform: translateX(-50%);
+  height: calc(100% - 1.35rem);
+}
+.seabed::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2.5rem;
+  background: var(--sand);
+  -webkit-mask: var(--sand-ridge) repeat-x 0 0 / 300px 40px;
+  mask: var(--sand-ridge) repeat-x 0 0 / 300px 40px;
+}
+:root {
+  --sand-ridge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='40' viewBox='0 0 300 40'%3E%3Cpath d='M0 16 C40 6 90 6 130 14 S220 22 260 12 S290 10 300 16 V40 H0 Z' fill='black'/%3E%3C/svg%3E");
+}
