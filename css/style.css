@@ -1719,3 +1719,8 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 
 /* Same wave treatment as the results screen: the line sits fully inside the footer's box, so nothing can clip its crests */
 .site-footer::before { top: 0; }
+
+/* Mobile default view: footer text sits 50px lower */
+@media (max-width: 55.99rem) {
+  body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
+}
