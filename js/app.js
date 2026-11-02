@@ -548,7 +548,9 @@
       "No sharks around here, right?",
       "It\u2019s gonna be OK, right?",
       "This is the life, ey?",
-      "My arms hurt"
+      "My arms hurt",
+      "Definitely no sharks?",
+      "I think I just saw a fin"
     ];
     var bag = [];
     function nextLine() {
