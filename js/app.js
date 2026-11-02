@@ -188,7 +188,7 @@
     window.clearTimeout(titleTimer);
     if (!reduce) {
       titleTimer = window.setTimeout(function () {
-        sceneTitle.firstChild.nodeValue = "Searching for land";
+        sceneTitle.firstChild.nodeValue = "Searching";
       }, 3200);
     }
     overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 5200);
