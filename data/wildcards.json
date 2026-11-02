@@ -2017,5 +2017,159 @@
     "minHours": 40,
     "payFrom": 28000,
     "payTop": 60000
+  },
+  {
+    "id": "patent-attorney",
+    "name": "Patent attorney",
+    "hook": "Helps clients protect new inventions and designs.",
+    "pay": "£35,000 starting to £95,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/patent-attorney",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, legal support workers, 53 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "story",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 35000,
+    "payTop": 95000
+  },
+  {
+    "id": "trade-mark-attorney",
+    "name": "Trade mark attorney",
+    "hook": "Helps clients safeguard brand identity, such as logos and packaging.",
+    "pay": "£30,000 starting to £90,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/trade-mark-attorney",
+    "aiRisk": {
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, legal support workers, 53 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "story",
+      "research",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 30000,
+    "payTop": 90000
+  },
+  {
+    "id": "company-secretary",
+    "name": "Company secretary",
+    "hook": "Makes sure directors follow company law and finance rules.",
+    "pay": "£28,000 starting to £95,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/company-secretary",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores the closest match, compliance officers, 40 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "research"
+    ],
+    "minHours": 37,
+    "payFrom": 28000,
+    "payTop": 95000
+  },
+  {
+    "id": "pathologist",
+    "name": "Pathologist",
+    "hook": "Interprets test results from blood and tissue samples to help diagnose illness.",
+    "pay": "£54,000 starting to £115,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/pathologist",
+    "aiRisk": {
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, pathologists, 54 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "tech",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 54000,
+    "payTop": 115000
+  },
+  {
+    "id": "prison-governor",
+    "name": "Prison governor",
+    "hook": "Oversees the running of a prison, including security, budgets and staff.",
+    "pay": "£65,000 starting to £94,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/prison-governor",
+    "aiRisk": {
+      "percent": 5,
+      "basis": "AI Exposure scores the closest match, supervisors of correctional officers, 39 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 65000,
+    "payTop": 94000
+  },
+  {
+    "id": "technical-architect",
+    "name": "Technical architect",
+    "hook": "Sets the technical strategy for IT systems and links technical teams to delivery.",
+    "pay": "£42,000 starting to £90,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/technical-architect",
+    "aiRisk": {
+      "percent": 20,
+      "basis": "AI Exposure scores the closest match, computer network architects, 39 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "lead",
+      "make"
+    ],
+    "minHours": 37,
+    "payFrom": 42000,
+    "payTop": 90000
   }
 ]
