@@ -160,6 +160,7 @@
     document.body.classList.add("has-result");
     wheelResult.appendChild(buildWildcardCard(wild));
     wheelStatus.textContent = "The wheel chose " + wild.name + ".";
+    document.dispatchEvent(new CustomEvent("jumpship:result"));
     wheelBusy = false;
     closeOverlay();
     revealWheelResult();
@@ -474,6 +475,18 @@
     var holder = button.parentNode;
     var narrow = window.matchMedia("(max-width: 55.99rem)");
     var ticking = false;
+    var baseline = null;   /* scroll position once the automatic scroll to the result has settled */
+    var armTimer = null;
+    document.addEventListener("jumpship:result", function () {
+      baseline = null;
+      holder.classList.remove("is-floating");
+      button.classList.remove("is-floating");
+      window.clearTimeout(armTimer);
+      armTimer = window.setTimeout(function () {
+        baseline = window.pageYOffset || document.documentElement.scrollTop;
+        queue();
+      }, 1600);
+    });
     function update() {
       ticking = false;
       var floating = false;
@@ -481,9 +494,13 @@
         var vh = window.innerHeight;
         var card = wheelResult.getBoundingClientRect();
         var spot = holder.getBoundingClientRect();
-        floating = card.top < vh * 0.5 && spot.top > vh - 68;
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+        floating = baseline !== null && y > baseline + 40 && card.top < vh * 0.5 && spot.top > vh - 68;
       }
-      if (floating !== button.classList.contains("is-floating")) button.classList.toggle("is-floating", floating);
+      if (floating !== button.classList.contains("is-floating")) {
+        button.classList.toggle("is-floating", floating);
+        holder.classList.toggle("is-floating", floating);
+      }
     }
     function queue() {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }

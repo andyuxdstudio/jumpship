@@ -1726,24 +1726,42 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 /* Swim back to boat: sits under the career card */
 .swim-back { display: flex; justify-content: center; margin-top: var(--space-4); }
 
-/* Mobile: "Nope, return to boat" slides up as a sticky button near the end of the career card */
+/* Mobile: "Nope, return to boat" slides up on a tidy bar with a slightly canted top edge */
 .swim-back { min-height: 3.25rem; }
 @media (max-width: 55.99rem) {
+  .swim-back.is-floating::before,
+  .swim-back.is-floating::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5.5rem;
+    z-index: 40;
+    pointer-events: none;
+    clip-path: polygon(0 1.1rem, 100% 0, 100% 100%, 0 100%);
+    animation: swim-bar-in 0.4s ease-out;
+  }
+  .swim-back.is-floating::before { background: var(--ink); }
+  .swim-back.is-floating::after { background: var(--surface); top: auto; transform: translateY(0); clip-path: polygon(0 calc(1.1rem + 3px), 100% 3px, 100% 100%, 0 100%); }
   .swim-back .btn.is-floating {
     position: fixed;
     left: 50%;
     bottom: 16px;
-    z-index: 40;
+    z-index: 41;
     transform: translateX(-50%);
     white-space: nowrap;
-    box-shadow: 0 6px 18px rgba(12, 42, 69, 0.28);
-    animation: swim-back-in 0.35s ease-out;
+    animation: swim-back-in 0.45s ease-out 0.08s backwards;
   }
 }
 @keyframes swim-back-in {
-  from { opacity: 0; transform: translate(-50%, 24px); }
+  from { opacity: 0; transform: translate(-50%, 40px); }
   to { opacity: 1; transform: translate(-50%, 0); }
 }
+@keyframes swim-bar-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .swim-back .btn.is-floating { animation: none; }
+  .swim-back.is-floating::before, .swim-back.is-floating::after, .swim-back .btn.is-floating { animation: none; }
 }
