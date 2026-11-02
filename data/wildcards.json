@@ -2171,5 +2171,1014 @@
     "minHours": 37,
     "payFrom": 42000,
     "payTop": 90000
+  },
+  {
+    "id": "cleaner",
+    "name": "Cleaner",
+    "hook": "Keeps homes, offices and public spaces clean and tidy.",
+    "pay": "£19,000 starting to £25,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/cleaner",
+    "aiRisk": {
+      "percent": 2,
+      "basis": "Futureproof scores the closest match, cleaners and domestics, 5 out of 84 on exposure to AI.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 19000,
+    "payTop": 25000
+  },
+  {
+    "id": "horse-groom",
+    "name": "Horse groom",
+    "hook": "Feeds, grooms and exercises horses and looks after their stables.",
+    "pay": "£16,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/horse-groom",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 16000,
+    "payTop": 28000
+  },
+  {
+    "id": "dog-groomer",
+    "name": "Dog groomer",
+    "hook": "Washes, trims and styles dogs to keep them healthy and looking good.",
+    "pay": "£15,000 starting to £23,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dog-groomer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 15000,
+    "payTop": 23000
+  },
+  {
+    "id": "hospital-porter",
+    "name": "Hospital porter",
+    "hook": "Moves patients, equipment and medical supplies around a hospital.",
+    "pay": "£25,000 starting to £27,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hospital-porter",
+    "aiRisk": {
+      "percent": 1,
+      "basis": "Futureproof scores hospital porters 1 out of 84 on exposure to AI, one of the lowest on its list.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "people",
+      "make"
+    ],
+    "minHours": 37,
+    "payFrom": 25000,
+    "payTop": 27000
+  },
+  {
+    "id": "horticultural-therapist",
+    "name": "Horticultural therapist",
+    "hook": "Uses gardening to help people recover and build confidence.",
+    "pay": "£19,000 starting to £27,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/horticultural-therapist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "teach",
+      "make"
+    ],
+    "minHours": 37,
+    "payFrom": 19000,
+    "payTop": 27000
+  },
+  {
+    "id": "hotel-housekeeper",
+    "name": "Hotel housekeeper",
+    "hook": "Keeps hotel rooms and public areas spotless and well stocked.",
+    "pay": "£21,000 starting to £28,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hotel-housekeeper",
+    "aiRisk": {
+      "percent": 2,
+      "basis": "Futureproof scores the closest match, cleaners and domestics, 5 out of 84 on exposure to AI.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "lead",
+      "make",
+      "people"
+    ],
+    "minHours": 38,
+    "payFrom": 21000,
+    "payTop": 28000
+  },
+  {
+    "id": "driving-instructor",
+    "name": "Driving instructor",
+    "hook": "Teaches people how to drive safely and pass their driving test.",
+    "pay": "£32,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/driving-instructor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "teach",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 45000
+  },
+  {
+    "id": "funeral-director",
+    "name": "Funeral director",
+    "hook": "Arranges funerals and supports families through their loss.",
+    "pay": "£24,000 starting to £35,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/funeral-director",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 35000
+  },
+  {
+    "id": "dryliner",
+    "name": "Dryliner",
+    "hook": "Fits plasterboard to walls and ceilings to create finished interior spaces.",
+    "pay": "£22,000 starting to £43,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dryliner",
+    "aiRisk": {
+      "percent": 2,
+      "basis": "Futureproof scores the closest match, plasterers, 4 out of 84 on exposure to AI.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 22000,
+    "payTop": 43000
+  },
+  {
+    "id": "furniture-maker",
+    "name": "Furniture maker",
+    "hook": "Designs and builds furniture from wood and other materials.",
+    "pay": "£23,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/furniture-maker",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "story"
+    ],
+    "minHours": 38,
+    "payFrom": 23000,
+    "payTop": 32000
+  },
+  {
+    "id": "cycle-mechanic",
+    "name": "Cycle mechanic",
+    "hook": "Builds, services and repairs bicycles.",
+    "pay": "£23,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/cycle-mechanic",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 38,
+    "payFrom": 23000,
+    "payTop": 30000
+  },
+  {
+    "id": "tram-driver",
+    "name": "Tram driver",
+    "hook": "Drives trams safely through busy city streets.",
+    "pay": "£24,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tram-driver",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 32000
+  },
+  {
+    "id": "train-conductor",
+    "name": "Train conductor",
+    "hook": "Checks tickets and looks after passengers and safety on trains.",
+    "pay": "£25,000 starting to £37,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/train-conductor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 37000
+  },
+  {
+    "id": "forklift-driver",
+    "name": "Forklift driver",
+    "hook": "Moves and stacks goods in warehouses and yards.",
+    "pay": "£23,000 starting to £32,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/forklift-driver",
+    "aiRisk": {
+      "percent": 2,
+      "basis": "Futureproof scores fork-lift truck drivers 4 out of 84 on exposure to AI.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 23000,
+    "payTop": 32000
+  },
+  {
+    "id": "gamekeeper",
+    "name": "Gamekeeper",
+    "hook": "Looks after wildlife and land for shooting, fishing and conservation.",
+    "pay": "£24,000 starting to £30,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/gamekeeper",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 30000
+  },
+  {
+    "id": "dog-handler",
+    "name": "Dog handler",
+    "hook": "Works with specially trained dogs to protect, search and detect.",
+    "pay": "£23,000 starting to £34,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dog-handler",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 40,
+    "payFrom": 23000,
+    "payTop": 34000
+  },
+  {
+    "id": "crane-driver",
+    "name": "Crane driver",
+    "hook": "Operates lifting machinery at sites such as construction areas, quarries and ports.",
+    "pay": "£25,000 starting to £52,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/crane-driver",
+    "aiRisk": {
+      "percent": 2,
+      "basis": "Futureproof scores crane drivers 5 out of 84 on exposure to AI.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 25000,
+    "payTop": 52000
+  },
+  {
+    "id": "costume-designer",
+    "name": "Costume designer",
+    "hook": "Designs and makes costumes for stage, film and television.",
+    "pay": "£25,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/costume-designer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "story"
+    ],
+    "minHours": 38,
+    "payFrom": 25000,
+    "payTop": 45000
+  },
+  {
+    "id": "conservator",
+    "name": "Conservator",
+    "hook": "Preserves and restores objects and artworks so they last.",
+    "pay": "£26,000 starting to £38,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/conservator",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "make",
+      "story"
+    ],
+    "minHours": 37,
+    "payFrom": 26000,
+    "payTop": 38000
+  },
+  {
+    "id": "counsellor",
+    "name": "Counsellor",
+    "hook": "Listens to people and helps them work through problems and change.",
+    "pay": "£25,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/counsellor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 37,
+    "payFrom": 25000,
+    "payTop": 48000
+  },
+  {
+    "id": "chemist",
+    "name": "Chemist",
+    "hook": "Studies materials and reactions to develop new products and processes.",
+    "pay": "£26,000 starting to £40,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chemist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 26000,
+    "payTop": 40000
+  },
+  {
+    "id": "dental-nurse",
+    "name": "Dental nurse",
+    "hook": "Supports dentists during treatment and looks after patients.",
+    "pay": "£25,000 starting to £39,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dental-nurse",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 25000,
+    "payTop": 39000
+  },
+  {
+    "id": "dental-technician",
+    "name": "Dental technician",
+    "hook": "Makes dental devices such as crowns, bridges, dentures and braces.",
+    "pay": "£32,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dental-technician",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 32000,
+    "payTop": 48000
+  },
+  {
+    "id": "early-years-teacher",
+    "name": "Early years teacher",
+    "hook": "Teaches and cares for children from birth to five years old.",
+    "pay": "£27,000 starting to £42,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/early-years-teacher",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "teach",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 27000,
+    "payTop": 42000
+  },
+  {
+    "id": "ecologist",
+    "name": "Ecologist",
+    "hook": "Studies plants, animals and their habitats to protect the natural world.",
+    "pay": "£24,000 starting to £50,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/ecologist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "make"
+    ],
+    "minHours": 38,
+    "payFrom": 24000,
+    "payTop": 50000
+  },
+  {
+    "id": "embalmer",
+    "name": "Embalmer",
+    "hook": "Prepares the deceased with care and respect for their family.",
+    "pay": "£21,000 starting to £35,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/embalmer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 21000,
+    "payTop": 35000
+  },
+  {
+    "id": "forensic-scientist",
+    "name": "Forensic scientist",
+    "hook": "Analyses evidence from crime scenes to help solve cases.",
+    "pay": "£27,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/forensic-scientist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 27000,
+    "payTop": 45000
+  },
+  {
+    "id": "heat-pump-engineer",
+    "name": "Heat pump engineer",
+    "hook": "Installs and services heat pumps for low-carbon heating.",
+    "pay": "£24,000 starting to £46,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/heat-pump-engineer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 46000
+  },
+  {
+    "id": "heavy-vehicle-technician",
+    "name": "Heavy vehicle technician",
+    "hook": "Services and repairs lorries, buses and other heavy vehicles.",
+    "pay": "£26,000 starting to £55,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/heavy-vehicle-technician",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "make",
+      "tech"
+    ],
+    "minHours": 40,
+    "payFrom": 26000,
+    "payTop": 55000
+  },
+  {
+    "id": "helicopter-pilot",
+    "name": "Helicopter pilot",
+    "hook": "Flies helicopters for rescue, transport, police and industry work.",
+    "pay": "£30,000 starting to £55,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/helicopter-pilot",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "tech",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 55000
+  },
+  {
+    "id": "helicopter-engineer",
+    "name": "Helicopter engineer",
+    "hook": "Inspects, maintains and repairs helicopters so they stay safe to fly.",
+    "pay": "£30,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/helicopter-engineer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "tech",
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 60000
+  },
+  {
+    "id": "horse-riding-instructor",
+    "name": "Horse riding instructor",
+    "hook": "Teaches people to ride and look after horses.",
+    "pay": "£24,000 starting to £34,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/horse-riding-instructor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "teach",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 24000,
+    "payTop": 34000
+  },
+  {
+    "id": "hydrologist",
+    "name": "Hydrologist",
+    "hook": "Studies water in rivers, lakes and underground to manage floods and supply.",
+    "pay": "£28,000 starting to £45,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hydrologist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 38,
+    "payFrom": 28000,
+    "payTop": 45000
+  },
+  {
+    "id": "immigration-officer",
+    "name": "Immigration officer",
+    "hook": "Checks people and documents entering the country at the border.",
+    "pay": "£30,000 starting to £44,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/immigration-officer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "research"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 44000
+  },
+  {
+    "id": "insurance-underwriter",
+    "name": "Insurance underwriter",
+    "hook": "Decides which risks an insurer will cover and at what price.",
+    "pay": "£27,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/insurance-underwriter",
+    "aiRisk": {
+      "percent": 33,
+      "basis": "Futureproof scores the loosest match, pensions and insurance clerks, 65 out of 84. An underwriter judges risk, so we guessed lower.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 27000,
+    "payTop": 65000
+  },
+  {
+    "id": "further-education-teacher",
+    "name": "Further education teacher",
+    "hook": "Teaches teenagers and adults in colleges and training centres.",
+    "pay": "£28,000 starting to £47,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/further-education-teacher",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "teach",
+      "people"
+    ],
+    "minHours": 37,
+    "payFrom": 28000,
+    "payTop": 47000
+  },
+  {
+    "id": "economist",
+    "name": "Economist",
+    "hook": "Studies money, markets and policy to explain and predict trends.",
+    "pay": "£28,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/economist",
+    "aiRisk": {
+      "percent": 40,
+      "basis": "Futureproof scores the closest match, actuaries, economists and statisticians, 64 out of 84 on exposure to AI. We assumed that exposure is not the same as job loss.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 28000,
+    "payTop": 60000
+  },
+  {
+    "id": "higher-education-lecturer",
+    "name": "Higher education lecturer",
+    "hook": "Teaches and researches at universities and colleges.",
+    "pay": "£37,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/higher-education-lecturer",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "teach",
+      "research"
+    ],
+    "minHours": 37,
+    "payFrom": 37000,
+    "payTop": 65000
+  },
+  {
+    "id": "hotel-manager",
+    "name": "Hotel manager",
+    "hook": "Runs a hotel, from guests and staff to budgets and bookings.",
+    "pay": "£30,000 starting to £60,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hotel-manager",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "lead",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 30000,
+    "payTop": 60000
+  },
+  {
+    "id": "computer-games-developer",
+    "name": "Computer games developer",
+    "hook": "Designs, builds and tests video games.",
+    "pay": "£27,000 starting to £71,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/computer-games-developer",
+    "aiRisk": {
+      "percent": 35,
+      "basis": "Futureproof scores the closest match, programmers and software development professionals, 63 out of 84 on exposure to AI. We assumed that exposure is not the same as job loss.",
+      "sources": [
+        {
+          "label": "Futureproof UK rankings",
+          "url": "https://futureproof.collab365.com/rankings?market=uk"
+        }
+      ]
+    },
+    "themes": [
+      "tech",
+      "make",
+      "story"
+    ],
+    "minHours": 37,
+    "payFrom": 27000,
+    "payTop": 71000
+  },
+  {
+    "id": "clinical-psychologist",
+    "name": "Clinical psychologist",
+    "hook": "Assesses and treats people with mental health and behavioural problems.",
+    "pay": "£49,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/clinical-psychologist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "research",
+      "teach"
+    ],
+    "minHours": 37,
+    "payFrom": 49000,
+    "payTop": 65000
+  },
+  {
+    "id": "clinical-scientist",
+    "name": "Clinical scientist",
+    "hook": "Develops and runs the tests that help diagnose and treat patients.",
+    "pay": "£49,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/clinical-scientist",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "tech"
+    ],
+    "minHours": 37,
+    "payFrom": 49000,
+    "payTop": 65000
+  },
+  {
+    "id": "childrens-nurse",
+    "name": "Children’s nurse",
+    "hook": "Cares for babies, children and young people who are ill or injured.",
+    "pay": "£32,000 starting to £48,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/childrens-nurse",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 37,
+    "payFrom": 32000,
+    "payTop": 48000
+  },
+  {
+    "id": "health-visitor",
+    "name": "Health visitor",
+    "hook": "Supports families with young children through home visits and advice.",
+    "pay": "£40,000 starting to £57,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/health-visitor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "teach"
+    ],
+    "minHours": 37,
+    "payFrom": 40000,
+    "payTop": 57000
+  },
+  {
+    "id": "district-nurse",
+    "name": "District nurse",
+    "hook": "Cares for patients in their own homes and in the community.",
+    "pay": "£40,000 starting to £57,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/district-nurse",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "people",
+      "lead"
+    ],
+    "minHours": 37,
+    "payFrom": 40000,
+    "payTop": 57000
+  },
+  {
+    "id": "construction-manager",
+    "name": "Construction manager",
+    "hook": "Plans and runs building projects from groundwork to completion.",
+    "pay": "£27,000 starting to £65,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/construction-manager",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "lead",
+      "make"
+    ],
+    "minHours": 40,
+    "payFrom": 27000,
+    "payTop": 65000
+  },
+  {
+    "id": "crown-prosecutor",
+    "name": "Crown prosecutor",
+    "hook": "Decides which cases go to court and presents the evidence.",
+    "pay": "£44,000 starting to £71,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/crown-prosecutor",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "story",
+      "research",
+      "lead"
+    ],
+    "minHours": 40,
+    "payFrom": 44000,
+    "payTop": 71000
+  },
+  {
+    "id": "chief-inspector",
+    "name": "Chief inspector",
+    "hook": "Leads police teams and operations in a local area.",
+    "pay": "£61,000 starting to £70,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chief-inspector",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "lead",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 61000,
+    "payTop": 70000
+  },
+  {
+    "id": "coroner",
+    "name": "Coroner",
+    "hook": "Investigates sudden, violent or unexplained deaths and holds inquests.",
+    "pay": "£102,000 starting to £153,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/coroner",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "research",
+      "lead",
+      "story"
+    ],
+    "minHours": 40,
+    "payFrom": 102000,
+    "payTop": 153000
+  },
+  {
+    "id": "health-service-manager",
+    "name": "Health service manager",
+    "hook": "Runs hospital and community health services behind the scenes.",
+    "pay": "£32,000 starting to £77,000 experienced",
+    "sourceLabel": "National Careers Service",
+    "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/health-service-manager",
+    "aiRisk": {
+      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
+      "sources": []
+    },
+    "themes": [
+      "lead",
+      "people"
+    ],
+    "minHours": 40,
+    "payFrom": 32000,
+    "payTop": 77000
   }
 ]
