@@ -1706,3 +1706,9 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 }
 #result.wheel-section { padding-top: var(--space-4); }
 #wheel-result { margin-top: var(--space-3); }
+
+/* Mobile: keep the drifting boat and wave divider clear of the Jump button */
+@media (max-width: 55.99rem) {
+  .hero { padding-bottom: 7.5rem; }
+  body.has-result .hero { padding-bottom: var(--space-5); }
+}
