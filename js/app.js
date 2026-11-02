@@ -537,6 +537,41 @@
     window.addEventListener("resize", queue);
   })();
 
+  /* The sailor on the drifting boat occasionally speaks up */
+  (function boatBubbles() {
+    if (reducedMotion()) return;
+    var lines = ["Let\u2019s jump!", "Hello?", "Hey, are we doing this?", "Help me!"];
+    var last = -1;
+    function visibleBoat() {
+      var boats = document.querySelectorAll(".drift-boat");
+      for (var i = 0; i < boats.length; i++) {
+        if (window.getComputedStyle(boats[i]).display === "none") continue;
+        var r = boats[i].getBoundingClientRect();
+        if (r.width && r.top > 40 && r.bottom < window.innerHeight && r.left > 0 && r.right < window.innerWidth) return boats[i];
+      }
+      return null;
+    }
+    function speak() {
+      var boat = !document.hidden && overlay.hidden ? visibleBoat() : null;
+      if (boat) {
+        var n;
+        do { n = Math.floor(Math.random() * lines.length); } while (n === last);
+        last = n;
+        var bubble = document.createElement("span");
+        bubble.className = "boat-bubble";
+        bubble.setAttribute("aria-hidden", "true");
+        bubble.textContent = lines[n];
+        boat.appendChild(bubble);
+        if (bubble.getBoundingClientRect().right > window.innerWidth - 8) {
+          bubble.classList.add("is-left");
+        }
+        window.setTimeout(function () { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); }, 4100);
+      }
+      window.setTimeout(speak, 6000 + Math.random() * 7000);
+    }
+    window.setTimeout(speak, 4000 + Math.random() * 3000);
+  })();
+
   (function backToTop() {
     var link = document.getElementById("back-to-top");
     if (!link) return;

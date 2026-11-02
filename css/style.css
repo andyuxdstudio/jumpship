@@ -1814,3 +1814,36 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   outline-width: 4px;
   outline-offset: 5px;
 }
+
+/* Occasional speech bubbles from the sailor on the drifting boat */
+.boat-bubble {
+  position: absolute;
+  left: 66%;
+  bottom: 60%;
+  padding: 0.3rem 0.65rem;
+  background: #fff;
+  color: #0c2a45;
+  border: 2px solid #0c2a45;
+  border-radius: 0.8rem 0.8rem 0.8rem 0.15rem;
+  font-family: var(--font-display, inherit);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transform-origin: 0 100%;
+  animation: bubble-pop 4s ease-out forwards;
+  pointer-events: none;
+}
+.boat-bubble.is-left {
+  left: auto;
+  right: 66%;
+  border-radius: 0.8rem 0.8rem 0.15rem 0.8rem;
+  transform-origin: 100% 100%;
+}
+@keyframes bubble-pop {
+  0% { opacity: 0; transform: scale(0.4); }
+  8% { opacity: 1; transform: scale(1.06); }
+  12% { transform: scale(1); }
+  88% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
