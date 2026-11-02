@@ -556,9 +556,17 @@
     /* after every jump, the very next bubble is this one (never shown before the first jump) */
     var jumpLine = "That last jump was nuts!";
     var jumpPending = false;
+    var toeDone = false;
+    var toeIn = 0;
     document.addEventListener("jumpship:result", function () { jumpPending = true; });
     function nextLine() {
-      if (jumpPending) { jumpPending = false; return jumpLine; }
+      if (jumpPending) {
+        jumpPending = false;
+        if (!toeDone) { toeDone = true; toeIn = 1 + Math.floor(Math.random() * 2); }
+        return jumpLine;
+      }
+      /* once, after the first jump: lands as the first or second bubble after "nuts" */
+      if (toeIn > 0 && --toeIn === 0) return "I think that shark took my little toe";
       /* shuffle bag: every line is used once, in a random order, before any repeats */
       if (!bag.length) {
         bag = lines.slice();
