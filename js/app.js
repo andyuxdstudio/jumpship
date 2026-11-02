@@ -468,6 +468,28 @@
       window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
       wheelButton.focus({ preventScroll: true });
     });
+
+    /* On mobile the button floats at the bottom of the screen once the reader scrolls
+       into the career card and nears its end, then settles into place under the card. */
+    var holder = button.parentNode;
+    var narrow = window.matchMedia("(max-width: 55.99rem)");
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var floating = false;
+      if (narrow.matches && !resultSection.hidden) {
+        var vh = window.innerHeight;
+        var card = wheelResult.getBoundingClientRect();
+        var spot = holder.getBoundingClientRect();
+        floating = card.top < 0 && card.bottom - vh < vh * 0.75 && spot.top > vh - 68;
+      }
+      if (floating !== button.classList.contains("is-floating")) button.classList.toggle("is-floating", floating);
+    }
+    function queue() {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
   })();
 
   (function backToTop() {

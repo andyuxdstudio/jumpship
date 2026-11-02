@@ -1725,3 +1725,25 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 
 /* Swim back to boat: sits under the career card */
 .swim-back { display: flex; justify-content: center; margin-top: var(--space-4); }
+
+/* Mobile: "Nope, return to boat" slides up as a sticky button near the end of the career card */
+.swim-back { min-height: 3.25rem; }
+@media (max-width: 55.99rem) {
+  .swim-back .btn.is-floating {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    z-index: 40;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(12, 42, 69, 0.28);
+    animation: swim-back-in 0.35s ease-out;
+  }
+}
+@keyframes swim-back-in {
+  from { opacity: 0; transform: translate(-50%, 24px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .swim-back .btn.is-floating { animation: none; }
+}
