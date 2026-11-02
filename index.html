@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=202611021604">
+  <link rel="stylesheet" href="css/style.css?v=202611021606">
   <script>
     /* Set the theme before the page paints so there is no flash. A saved choice wins, then the device setting. */
     (function () {
@@ -407,7 +407,7 @@
               <path d="M70 32 103 29C99 38 86 43.500 74 42.500L70 41z" fill="#eaf4f8"/>
               <path d="M77 31.200l2-5 2 5M83 30.600l2-5 2 5M89 30l2-5 2 5M95 29.400l2-4.500 2 4.500" fill="#fff" stroke-width="0.6"/>
             </g>
-            <circle cx="89" cy="21" r="2.200" fill="var(--ink)" stroke="none"/>
+            <circle class="jump-eye" cx="89" cy="21" r="2.200" fill="var(--ink)" stroke="none"/>
             <path d="M52 19c2 4 2 8 0 12M56 19c2 4 2 8 0 12M60 19c2 4 2 8 0 12M64 19c2 4 2 8 0 12" fill="none" stroke-width="0.75"/>
           </g>
         </g></g>
@@ -417,7 +417,7 @@
             <path d="M0 26C18 4 54 4 78 14L78 40C54 50 18 48 0 26z" fill="#b9a5e0"/>
             <path d="M14 26C30 14 52 12 70 17" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.500"/>
             <ellipse cx="84" cy="27" rx="14" ry="13" fill="#a48fd3"/>
-            <circle cx="88" cy="22" r="6" fill="#fff"/><circle cx="90" cy="22" r="3" fill="var(--ink)" stroke="none"/>
+            <g class="jump-eye"><circle cx="88" cy="22" r="6" fill="#fff"/><circle cx="90" cy="22" r="3" fill="var(--ink)" stroke="none"/></g>
             <g class="jump-tent" fill="none" stroke-width="2.600">
               <path d="M96 22q22-8 42-3M96 27q24 2 46 8M96 32q22 10 38 22M96 36q16 12 24 28"/>
               <path d="M96 20q34-26 70-14" stroke-width="2"/><path d="M96 24q38-20 72 6" stroke-width="2"/>
@@ -434,7 +434,7 @@
             <g class="jump-bell">
               <path d="M0 32C0 2 52 2 52 32q-6 6-13 0-6 6-13 0-6 6-13 0-7 6-13 0z" fill="#f2a0c8" fill-opacity=".92"/>
               <path d="M10 20q16-14 32 0" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2.500"/>
-              <circle cx="18" cy="22" r="2.200" fill="var(--ink)" stroke="none"/><circle cx="34" cy="22" r="2.200" fill="var(--ink)" stroke="none"/>
+              <circle class="jump-eye" cx="18" cy="22" r="2.200" fill="var(--ink)" stroke="none"/><circle class="jump-eye" cx="34" cy="22" r="2.200" fill="var(--ink)" stroke="none"/>
               <path d="M23 27q3 3 6 0" fill="none"/>
             </g>
           </g>
@@ -447,9 +447,8 @@
             <ellipse cx="60" cy="40" rx="36" ry="22" fill="#e0524f"/>
             <path d="M40 34q20-12 40 0" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2.500"/>
             <path d="M50 18v-10M70 18v-10" fill="none"/>
-            <circle cx="50" cy="6" r="6" fill="#fff"/><circle cx="70" cy="6" r="6" fill="#fff"/>
-            <circle cx="51" cy="6" r="2.800" fill="var(--ink)" stroke="none"/><circle cx="69" cy="6" r="2.800" fill="var(--ink)" stroke="none"/>
-            <path d="M50 48q10 8 20 0" fill="none"/>
+            <g class="jump-eye"><circle cx="50" cy="6" r="6" fill="#fff"/><circle cx="51" cy="6" r="2.800" fill="var(--ink)" stroke="none"/></g><g class="jump-eye"><circle cx="70" cy="6" r="6" fill="#fff"/><circle cx="69" cy="6" r="2.800" fill="var(--ink)" stroke="none"/></g>
+                        <path d="M50 48q10 8 20 0" fill="none"/>
           </g>
         </g></g>
       </svg>
@@ -458,6 +457,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=202611021604" defer></script>
+  <script src="js/app.js?v=202611021606" defer></script>
 </body>
 </html>

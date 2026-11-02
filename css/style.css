@@ -1929,3 +1929,13 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   72%      { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
   74.500%, 100% { transform: rotate(-6deg); }
 }
+
+/* blinking eyes: a quick squash now and then */
+.jump-eye { transform-box: fill-box; transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-running .jump-eye { animation: jump-blink 2.6s ease-in-out infinite; }
+  .is-running .jump-c-squid .jump-eye { animation-delay: -0.9s; animation-duration: 2.9s; }
+  .is-running .jump-c-jelly .jump-eye { animation-delay: -0.4s; animation-duration: 2.3s; }
+  .is-running .jump-c-crab .jump-eye { animation-delay: -1.5s; animation-duration: 2.1s; }
+}
+@keyframes jump-blink { 0%, 86%, 100% { transform: scaleY(1); } 91% { transform: scaleY(0.08); } }
