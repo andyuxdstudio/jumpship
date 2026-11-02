@@ -1688,17 +1688,27 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
   top: -1.15rem;
   right: 1.5rem;
   transform: rotate(2.5deg);
-  filter: drop-shadow(0 2px 0 color-mix(in srgb, var(--ink) 35%, transparent));
 }
 .career-badge-text {
   display: block;
   padding: 0.5rem 1.7rem 0.5rem 1.2rem;
-  background: var(--buoy);
-  color: var(--on-buoy);
+  position: relative;
+  isolation: isolate;
+  background: #f2b134;
+  color: #fff;
   font-weight: 700;
   font-size: var(--step-0);
   line-height: 1.2;
   white-space: nowrap;
+  clip-path: polygon(0 0, 100% 0, 93% 100%, 4% 100%);
+}
+/* Orange (#f2b134) outline around a #0c2a45 fill */
+.career-badge-text::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  background: #0c2a45;
   clip-path: polygon(0 0, 100% 0, 93% 100%, 4% 100%);
 }
 @media (max-width: 30rem) {
