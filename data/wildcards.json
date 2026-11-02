@@ -2205,8 +2205,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/horse-groom",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, animal caretakers, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2224,8 +2230,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dog-groomer",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, animal caretakers, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2333,8 +2345,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/funeral-director",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, funeral home managers, 45 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "people",
@@ -2376,8 +2394,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/furniture-maker",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 25,
+      "basis": "AI Exposure scores the closest match, cabinetmakers and bench carpenters, 61 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2395,8 +2419,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/cycle-mechanic",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, bicycle repairers, 44 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2414,8 +2444,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/tram-driver",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 25,
+      "basis": "AI Exposure scores the closest match, subway and streetcar operators, 59 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "people",
@@ -2495,8 +2531,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dog-handler",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, animal trainers, 40 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "people",
@@ -2539,8 +2581,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/costume-designer",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, costume attendants, 53 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2597,8 +2645,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chemist",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, chemists, 41 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "research",
@@ -2616,8 +2670,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dental-nurse",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, dental assistants, 53 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "people",
@@ -2635,8 +2695,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/dental-technician",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, dental laboratory technicians, 52 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2692,8 +2758,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/embalmer",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, morticians, undertakers and funeral arrangers, 44 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2711,8 +2783,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/forensic-scientist",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, forensic science technicians, 40 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "research",
@@ -2749,8 +2827,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/heavy-vehicle-technician",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, bus and truck mechanics and diesel engine specialists, 53 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "make",
@@ -2768,8 +2852,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/helicopter-pilot",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 15,
+      "basis": "AI Exposure scores the closest match, commercial pilots, 50 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "tech",
@@ -2863,12 +2953,12 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/insurance-underwriter",
     "aiRisk": {
-      "percent": 33,
-      "basis": "Futureproof scores the loosest match, pensions and insurance clerks, 65 out of 84. An underwriter judges risk, so we guessed lower.",
+      "percent": 35,
+      "basis": "AI Exposure scores the closest match, insurance underwriters, 74 out of 100 overall.",
       "sources": [
         {
-          "label": "Futureproof UK rankings",
-          "url": "https://futureproof.collab365.com/rankings?market=uk"
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
         }
       ]
     },
@@ -2951,8 +3041,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/hotel-manager",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, lodging managers, 38 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "lead",
@@ -3131,8 +3227,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/chief-inspector",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, first-line supervisors of police and detectives, 38 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "lead",
@@ -3150,8 +3252,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/coroner",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 12,
+      "basis": "AI Exposure scores the closest match, judges, magistrate judges and magistrates, 43 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "research",
@@ -3170,8 +3278,14 @@
     "sourceLabel": "National Careers Service",
     "sourceUrl": "https://nationalcareers.service.gov.uk/job-profiles/health-service-manager",
     "aiRisk": {
-      "basis": "We could not find a trustworthy source for this role, so there is no estimate. Please check an AI exposure ranking for the closest match.",
-      "sources": []
+      "percent": 10,
+      "basis": "AI Exposure scores the closest match, medical and health services managers, 37 out of 100 overall.",
+      "sources": [
+        {
+          "label": "AI Exposure",
+          "url": "https://www.aiexposure.org/occupations"
+        }
+      ]
     },
     "themes": [
       "lead",
