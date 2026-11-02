@@ -1736,11 +1736,11 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
     left: 0;
     right: 0;
     bottom: 0;
-    height: 5.5rem;
+    height: calc(5.5rem + 50px);
     z-index: 40;
     pointer-events: none;
-    -webkit-mask: var(--swim-shape) no-repeat 0 0 / 100% 100%;
-    mask: var(--swim-shape) no-repeat 0 0 / 100% 100%;
+    -webkit-mask: var(--swim-shape) no-repeat 0 0 / 100% 88px, linear-gradient(#000, #000) no-repeat 0 87px / 100% 100%;
+    mask: var(--swim-shape) no-repeat 0 0 / 100% 88px, linear-gradient(#000, #000) no-repeat 0 87px / 100% 100%;
     animation: swim-bar-in 0.4s ease-out;
   }
   .swim-back.is-floating::before { background: var(--ink); }
