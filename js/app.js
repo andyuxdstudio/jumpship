@@ -546,7 +546,7 @@
       "Hey, are we doing this?",
       "Help me!",
       "No sharks around here, right?",
-      "Who won Celebrity Traitors, btw?",
+      "It\u2019s gonna be OK, right?",
       "I\u2019m bored, tbh\u2026",
       "My arms hurt"
     ];
