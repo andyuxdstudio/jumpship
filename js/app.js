@@ -33,6 +33,7 @@
   var skipButton = document.getElementById("jump-skip");
   var sceneTitle = document.getElementById("jump-title");
   var overlayTimer = null;
+  var titleTimer = null;
   var wheelStatus = document.getElementById("wheel-status");
   var wheelResult = document.getElementById("wheel-result");
   var resultSection = document.getElementById("result");
@@ -142,6 +143,7 @@
 
   function closeOverlay() {
     window.clearTimeout(overlayTimer);
+    window.clearTimeout(titleTimer);
     overlay.hidden = true;
     overlay.classList.remove("is-running");
     document.body.classList.remove("no-scroll");
@@ -183,6 +185,12 @@
     overlay.classList.remove("is-running");
     void overlay.offsetWidth;
     overlay.classList.add("is-running");
+    window.clearTimeout(titleTimer);
+    if (!reduce) {
+      titleTimer = window.setTimeout(function () {
+        sceneTitle.firstChild.nodeValue = "Searching for land";
+      }, 3200);
+    }
     overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 5200);
   }
 
