@@ -1847,3 +1847,9 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   88% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.9); }
 }
+
+/* Everything below the Jump / Jump again button sits 40px lower, leaving room for the sailor's speech bubbles */
+.hero { padding-bottom: calc(var(--space-5) + 40px); }
+@media (max-width: 55.99rem) {
+  .hero { padding-bottom: calc(5.5rem + 40px); }
+}
