@@ -1719,3 +1719,10 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 @media (min-width: 56rem) {
   body:not(.has-result) .hero { padding-bottom: calc(8rem + 40px); }
 }
+
+/* Mobile default view: the footer starts below the fold, and the wave line is drawn over the boat's hull
+   so the crest is never hidden behind it */
+@media (max-width: 55.99rem) {
+  body:not(.has-result) .hero { min-height: calc(100vh - 76px + 24px); min-height: calc(100svh - 76px + 24px); }
+}
+.site-footer::before, #result::before { z-index: 3; }
