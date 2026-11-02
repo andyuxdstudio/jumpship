@@ -1880,7 +1880,7 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 
 .jump-squid { transform: translateX(-1000px); opacity: 0; }
 .jump-jelly { transform: translateY(1400px); opacity: 0; }
-.jump-crab { transform: translateY(1400px); opacity: 0; }
+.jump-crab { transform: translateX(1400px); opacity: 0; }
 .is-running .jump-squid, .is-running .jump-jelly, .is-running .jump-crab { opacity: 1; }
 .jump-tent, .jump-jtent, .jump-bell, .jump-snap { transform-box: fill-box; }
 .jump-tent { transform-origin: 0% 50%; }
@@ -1911,10 +1911,11 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 @keyframes jump-drift { 0%, 100% { transform: skewX(-7deg); } 50% { transform: skewX(7deg) scaleY(1.06); } }
 @keyframes jump-pulse { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.08, 0.86); } }
 @keyframes jump-crab-up {
-  0%   { transform: translateY(1400px); }
-  42%  { transform: translateY(0); }
-  84%  { transform: translateY(0); }
-  100% { transform: translateY(1400px); }
+  0%   { transform: translateX(1400px); }
+  42%  { transform: translateX(0); }
+  84%  { transform: translateX(0); }
+  100% { transform: translateX(1400px); }
+}
 }
 @keyframes jump-snap {
   0%, 50% { transform: rotate(38deg); }
