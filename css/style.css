@@ -1807,11 +1807,11 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 
 /* Primary orange buttons: navy border, a transparent gap, then an outer stroke (navy in light mode, orange in dark mode) */
 .btn:not(.btn-secondary) {
-  outline: 3px solid var(--btn-ring);
+  outline: 1.5px solid var(--btn-ring);
   outline-offset: 3px;
 }
 .btn:not(.btn-secondary):focus-visible {
-  outline-width: 4px;
+  outline-width: 2px;
   outline-offset: 5px;
 }
 
