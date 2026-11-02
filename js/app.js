@@ -540,7 +540,16 @@
   /* The sailor on the drifting boat occasionally speaks up */
   (function boatBubbles() {
     if (reducedMotion()) return;
-    var lines = ["Let\u2019s jump!", "Hello?", "Hey, are we doing this?", "Help me!"];
+    var lines = [
+      "Let\u2019s jump!",
+      "Hello?",
+      "Hey, are we doing this?",
+      "Help me!",
+      "No sharks around here, right?",
+      "Who won Celebrity Traitors, btw?",
+      "I\u2019m bored, tbh\u2026",
+      "My arms hurt"
+    ];
     var last = -1;
     function visibleBoat() {
       var boats = document.querySelectorAll(".drift-boat");
