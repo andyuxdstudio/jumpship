@@ -547,7 +547,7 @@
       "Help me!",
       "No sharks around here, right?",
       "It\u2019s gonna be OK, right?",
-      "I\u2019m bored, tbh\u2026",
+      "This is the life, ey?",
       "My arms hurt"
     ];
     var bag = [];
