@@ -1789,3 +1789,7 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 }
 #swim-back:focus-visible { outline: 3px solid #0c2a45; outline-offset: 3px; }
 #swim-back:hover { filter: brightness(0.96); }
+
+/* Icons inside the Jump and Nope buttons */
+#wheel-button, #swim-back { gap: 0.6rem; }
+.btn-icon { width: 1.6em; height: 1.6em; flex: none; display: block; }

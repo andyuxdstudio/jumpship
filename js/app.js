@@ -165,7 +165,7 @@
     closeOverlay();
     revealWheelResult();
     wheelButton.disabled = false;
-    wheelButton.textContent = "Jump again";
+    document.getElementById("wheel-label").textContent = "Jump again";
     wheelButton.focus({ preventScroll: true });
   }
 
