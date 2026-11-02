@@ -499,16 +499,21 @@
     /* Slide in when scrolling down; slide out when scrolling back up; swap instantly
        when the normal button under the card comes into view. */
     function setFloating(on, handOff) {
-      var shown = button.classList.contains("is-floating") && !button.classList.contains("is-leaving");
-      window.clearTimeout(leaveTimer);
+      var floatingNow = button.classList.contains("is-floating");
+      var leaving = button.classList.contains("is-leaving");
       if (on) {
-        if (!shown) setClasses(true, false);
-      } else if (shown && !handOff) {
+        window.clearTimeout(leaveTimer);
+        if (!floatingNow || leaving) setClasses(true, false);
+      } else if (floatingNow && !leaving) {
+        if (handOff) { window.clearTimeout(leaveTimer); setClasses(false, false); return; }
         setClasses(true, true);
+        window.clearTimeout(leaveTimer);
         leaveTimer = window.setTimeout(function () { setClasses(false, false); }, reducedMotion() ? 0 : 400);
-      } else if (shown || button.classList.contains("is-leaving")) {
+      } else if (leaving && handOff) {
+        window.clearTimeout(leaveTimer);
         setClasses(false, false);
       }
+      /* already leaving: further scroll events must not cut the exit animation short */
     }
     function update() {
       ticking = false;
