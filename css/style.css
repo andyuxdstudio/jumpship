@@ -1605,7 +1605,8 @@ body.no-scroll { overflow: hidden; }
 .site-footer .wrap > p:first-child { margin-right: auto; }
 
 /* ---------- A little boat sails along the wave divider above the footer ---------- */
-.site-footer { overflow-x: clip; }
+/* No overflow clipping on the footer itself: it cut the crests off the wave line that sits across its top edge */
+body { overflow-x: clip; }
 .drift-boat {
   position: absolute;
   left: 0;
