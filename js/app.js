@@ -481,7 +481,7 @@
         var vh = window.innerHeight;
         var card = wheelResult.getBoundingClientRect();
         var spot = holder.getBoundingClientRect();
-        floating = card.top < 0 && card.bottom - vh < vh * 0.75 && spot.top > vh - 68;
+        floating = card.top < vh * 0.5 && spot.top > vh - 68;
       }
       if (floating !== button.classList.contains("is-floating")) button.classList.toggle("is-floating", floating);
     }
