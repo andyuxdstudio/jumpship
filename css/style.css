@@ -1879,20 +1879,20 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 .jump-overlay:not([data-creature="crab"]) .jump-c-crab { display: none; }
 
 .jump-squid { transform: translateX(-1000px); opacity: 0; }
-.jump-jelly { transform: translateY(400px); opacity: 0; }
-.jump-crab { transform: translateY(300px); opacity: 0; }
+.jump-jelly { transform: translateY(1400px); opacity: 0; }
+.jump-crab { transform: translateY(1400px); opacity: 0; }
 .is-running .jump-squid, .is-running .jump-jelly, .is-running .jump-crab { opacity: 1; }
 .jump-tent, .jump-jtent, .jump-bell, .jump-snap { transform-box: fill-box; }
 .jump-tent { transform-origin: 0% 50%; }
 .jump-jtent { transform-origin: 50% 0%; }
 .jump-bell { transform-origin: 50% 100%; }
-.jump-snap { transform-origin: 20% 90%; }
+.jump-snap { transform-origin: 80% 85%; }
 
 @media (prefers-reduced-motion: no-preference) {
   .is-running .jump-squid { animation: jump-swim 5s linear forwards; }
   .is-running .jump-tent { animation: jump-grab 5s ease-in-out forwards; }
   .is-running .jump-jelly { animation: jump-rise 5s ease-in-out forwards; }
-  .is-running .jump-jtent { animation: jump-drift 1.1s ease-in-out infinite; }
+    .is-running .jump-jtent { animation: jump-drift 1.1s ease-in-out infinite; }
   .is-running .jump-bell { animation: jump-pulse 0.9s ease-in-out infinite; }
   .is-running .jump-crab { animation: jump-crab-up 5s ease-in-out forwards; }
   .is-running .jump-snap { animation: jump-snap 5s linear forwards; }
@@ -1903,24 +1903,24 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   100% { transform: rotate(0); }
 }
 @keyframes jump-rise {
-  0%   { transform: translateY(400px); }
+  0%   { transform: translateY(1400px); }
   55%  { transform: translateY(0); }
   72%  { transform: translateY(-8px); }
-  100% { transform: translateY(400px); }
+  100% { transform: translateY(1400px); }
 }
 @keyframes jump-drift { 0%, 100% { transform: skewX(-7deg); } 50% { transform: skewX(7deg) scaleY(1.06); } }
 @keyframes jump-pulse { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.08, 0.86); } }
 @keyframes jump-crab-up {
-  0%   { transform: translateY(300px); }
+  0%   { transform: translateY(1400px); }
   42%  { transform: translateY(0); }
   84%  { transform: translateY(0); }
-  100% { transform: translateY(300px); }
+  100% { transform: translateY(1400px); }
 }
 @keyframes jump-snap {
-  0%, 50% { transform: rotate(-36deg); }
-  55%, 58% { transform: rotate(0); }
-  62%, 65% { transform: rotate(-36deg); }
-  69%, 72% { transform: rotate(0); }
-  76%, 79% { transform: rotate(-36deg); }
-  83%, 100% { transform: rotate(0); }
+  0%, 50% { transform: rotate(38deg); }
+  55%, 58% { transform: rotate(-4deg); }
+  62%, 65% { transform: rotate(38deg); }
+  69%, 72% { transform: rotate(-4deg); }
+  76%, 79% { transform: rotate(38deg); }
+  83%, 100% { transform: rotate(-4deg); }
 }
