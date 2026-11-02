@@ -1818,27 +1818,43 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 /* Occasional speech bubbles from the sailor on the drifting boat */
 .boat-bubble {
   position: absolute;
-  left: 66%;
-  bottom: 60%;
+  left: calc(67% - 0.9rem);
+  bottom: calc(64% + 12px);
   padding: 0.3rem 0.65rem;
   background: #fff;
   color: #0c2a45;
   border: 2px solid #0c2a45;
-  border-radius: 0.8rem 0.8rem 0.8rem 0.15rem;
+  border-radius: 0.8rem;
   font-family: var(--font-display, inherit);
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
-  transform-origin: 0 100%;
+  transform-origin: 0.9rem 100%;
   animation: bubble-pop 4s ease-out forwards;
   pointer-events: none;
 }
+/* the point of the bubble, aimed just above the sailor's head */
+.boat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: calc(0.9rem - 5px);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-right: 2px solid #0c2a45;
+  border-bottom: 2px solid #0c2a45;
+  transform: rotate(45deg);
+}
 .boat-bubble.is-left {
   left: auto;
-  right: 66%;
-  border-radius: 0.8rem 0.8rem 0.15rem 0.8rem;
-  transform-origin: 100% 100%;
+  right: calc(33% - 0.9rem);
+  transform-origin: calc(100% - 0.9rem) 100%;
+}
+.boat-bubble.is-left::after {
+  left: auto;
+  right: calc(0.9rem - 5px);
 }
 @keyframes bubble-pop {
   0% { opacity: 0; transform: scale(0.4); }

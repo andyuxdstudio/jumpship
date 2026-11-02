@@ -578,7 +578,11 @@
       bubble.setAttribute("aria-hidden", "true");
       bubble.textContent = nextLine();
       boat.appendChild(bubble);
-      if (bubble.getBoundingClientRect().right > window.innerWidth - 8) bubble.classList.add("is-left");
+      /* past the halfway point (or if it would run off the edge) the bubble speaks to the left */
+      var br = boat.getBoundingClientRect();
+      if (br.left + br.width / 2 > window.innerWidth / 2 || bubble.getBoundingClientRect().right > window.innerWidth - 8) {
+        bubble.classList.add("is-left");
+      }
       window.setTimeout(function () { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); }, 4100);
     }
     /* now and then, whenever the boat happens to be fully in view */
