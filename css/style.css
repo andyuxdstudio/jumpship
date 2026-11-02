@@ -1610,7 +1610,7 @@ body { overflow-x: clip; }
 .drift-boat {
   position: absolute;
   left: 0;
-  top: -74px;
+  top: -67px;
   width: 7rem;
   pointer-events: none;
   transform: translateX(33vw);
@@ -1712,7 +1712,7 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 @media (max-width: 55.99rem) {
   .hero { padding-bottom: calc(8rem + 40px); }
   body.has-result .hero { padding-bottom: 5.5rem; }
-  .drift-boat { width: 5.5rem; top: -58px; }
+  .drift-boat { width: 5.5rem; top: -53px; }
   body.has-result .result-boat { top: -53px; }
 }
 
@@ -1726,3 +1726,6 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 @media (max-width: 55.99rem) {
   body:not(.has-result) .hero { min-height: calc(100vh - 76px + 24px); min-height: calc(100svh - 76px + 24px); }
 }
+
+/* Same wave treatment as the results screen: the line sits fully inside the footer's box, so nothing can clip its crests */
+.site-footer::before { top: 0; }
