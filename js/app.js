@@ -553,7 +553,12 @@
       "I think I just saw a fin"
     ];
     var bag = [];
+    /* after every jump, the very next bubble is this one (never shown before the first jump) */
+    var jumpLine = "That last jump was nuts!";
+    var jumpPending = false;
+    document.addEventListener("jumpship:result", function () { jumpPending = true; });
     function nextLine() {
+      if (jumpPending) { jumpPending = false; return jumpLine; }
       /* shuffle bag: every line is used once, in a random order, before any repeats */
       if (!bag.length) {
         bag = lines.slice();
