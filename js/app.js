@@ -169,11 +169,23 @@
     wheelButton.focus({ preventScroll: true });
   }
 
-  var creatureOrder = ["squid", "jelly", "crab"];
-  var creatureTurn = -1;
+  var creatureBag = [];
+  var creatureLast = "";
+  var creatureFirstDone = false;
   function nextCreature() {
-    if (creatureTurn < 0) { creatureTurn = 0; return "shark"; }
-    return creatureOrder[creatureTurn++ % creatureOrder.length];
+    /* the very first jump is always the shark, then the other three come up in a random order */
+    if (!creatureFirstDone) { creatureFirstDone = true; return "shark"; }
+    if (!creatureBag.length) {
+      creatureBag = ["squid", "jelly", "crab"];
+      for (var i = creatureBag.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = creatureBag[i]; creatureBag[i] = creatureBag[j]; creatureBag[j] = t;
+      }
+      /* never the same creature twice in a row across a reshuffle */
+      if (creatureBag[creatureBag.length - 1] === creatureLast) { creatureBag.unshift(creatureBag.pop()); }
+    }
+    creatureLast = creatureBag.pop();
+    return creatureLast;
   }
 
   function spinWheel() {
