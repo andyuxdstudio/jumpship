@@ -544,7 +544,7 @@
       "Let\u2019s jump!",
       "Hello?",
       "Hey, are we doing this?",
-      "Help me!",
+      "I\u2019m gonna do it...",
       "No sharks around here, right?",
       "It\u2019s gonna be OK, right?",
       "This is the life, ey?",
