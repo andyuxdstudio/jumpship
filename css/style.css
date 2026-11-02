@@ -3,7 +3,7 @@
    Light mode is "day chart", dark mode is "night watch". */
 
 :root {
-  --wave-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='14' viewBox='0 0 240 14'%3E%3Cpath d='M0 7 C20 0 40 0 60 7 S100 14 120 7 S160 0 180 7 S220 14 240 7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --wave-rule: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%273840%27 height=%2714%27 viewBox=%270 0 3840 14%27%3E%3Cpath d=%27M0 7 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0 c20 -7 40 -7 60 0 s40 7 60 0%27 fill=%27none%27 stroke=%27black%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3C/svg%3E");
   --waves: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22920%22 viewBox=%220 0 1100 920%22%3E%3Cg fill=%22none%22 stroke=%22rgba(12,42,69,0.049)%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M60 70 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M67 79 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M520 40 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M860 150 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M867 159 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M250 260 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M700 330 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M90 470 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M97 479 q9 -5 18 0 t18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M480 520 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M487 529 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M930 560 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M300 720 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M307 729 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M740 760 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M40 850 q9 -5 18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M600 880 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3Cpath d=%22M607 889 q9 -5 18 0 t18 0 t18 0 t18 0%22/%3E%3C/g%3E%3C/svg%3E");
   --shallows: #e3f1f3;
   --surface: #f7fbfc;
@@ -345,8 +345,8 @@ a:hover {
   top: -7px;
   height: 14px;
   background: var(--rule);
-  -webkit-mask: var(--wave-rule) repeat-x 0 50% / 240px 14px;
-  mask: var(--wave-rule) repeat-x 0 50% / 240px 14px;
+  -webkit-mask: var(--wave-rule) repeat-x 0 50% / 3840px 14px;
+  mask: var(--wave-rule) repeat-x 0 50% / 3840px 14px;
   pointer-events: none;
 }
 
@@ -1725,4 +1725,3 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 @media (max-width: 55.99rem) {
   body:not(.has-result) .hero { min-height: calc(100vh - 76px + 24px); min-height: calc(100svh - 76px + 24px); }
 }
-.site-footer::before, #result::before { z-index: 3; }
