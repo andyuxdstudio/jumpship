@@ -1722,3 +1722,6 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 
 /* Default view: footer text sits 50px lower (mobile and desktop) */
 body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
+
+/* Swim back to boat: sits under the career card */
+.swim-back { display: flex; justify-content: center; margin-top: var(--space-4); }

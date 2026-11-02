@@ -460,6 +460,40 @@
   })();
 
   // Back to top link in the footer: smooth scroll, then move focus to the skip link area at the top.
+  /* Swim back to boat: scroll up to the start, then return the page to its default state */
+  (function swimBack() {
+    var button = document.getElementById("swim-back");
+    if (!button) return;
+    var swimming = false;
+    function reset() {
+      resultSection.hidden = true;
+      document.body.classList.remove("has-result");
+      wheelResult.textContent = "";
+      wheelStatus.textContent = "";
+      wheelButton.textContent = "Jump";
+      swimming = false;
+      button.disabled = false;
+      wheelButton.focus({ preventScroll: true });
+    }
+    button.addEventListener("click", function () {
+      if (swimming) return;
+      swimming = true;
+      button.disabled = true;
+      if (reducedMotion() || (window.pageYOffset || document.documentElement.scrollTop) < 2) {
+        window.scrollTo(0, 0);
+        reset();
+        return;
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      var started = Date.now();
+      (function wait() {
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+        if (y < 2 || Date.now() - started > 2500) { reset(); return; }
+        window.requestAnimationFrame(wait);
+      })();
+    });
+  })();
+
   (function backToTop() {
     var link = document.getElementById("back-to-top");
     if (!link) return;
