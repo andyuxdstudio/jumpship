@@ -169,6 +169,13 @@
     wheelButton.focus({ preventScroll: true });
   }
 
+  var creatureOrder = ["squid", "jelly", "crab"];
+  var creatureTurn = -1;
+  function nextCreature() {
+    if (creatureTurn < 0) { creatureTurn = 0; return "shark"; }
+    return creatureOrder[creatureTurn++ % creatureOrder.length];
+  }
+
   function spinWheel() {
     if (wheelBusy) return;
     if (!wildcards || !wildcards.length) {
@@ -180,6 +187,8 @@
     wheelBusy = true;
     wheelButton.disabled = true;
     sceneTitle.firstChild.nodeValue = reduce ? "Setting sail" : "Jumping ship";
+    /* first jump is always the shark, then the other three creatures take turns */
+    overlay.setAttribute("data-creature", nextCreature());
     overlay.hidden = false;
     document.body.classList.add("no-scroll");
     skipButton.focus();
