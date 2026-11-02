@@ -480,8 +480,8 @@
     var autoUntil = 0;
     document.addEventListener("jumpship:result", function () {
       baseline = null;
-      holder.classList.remove("is-floating");
-      button.classList.remove("is-floating");
+      window.clearTimeout(leaveTimer);
+      setClasses(false, false);
       window.clearTimeout(armTimer);
       autoUntil = Date.now() + 1100;
       armTimer = window.setTimeout(function () {
@@ -489,21 +489,41 @@
         queue();
       }, 1150);
     });
+    var leaveTimer = null;
+    function setClasses(on, leaving) {
+      [button, holder].forEach(function (el) {
+        el.classList.toggle("is-floating", on);
+        el.classList.toggle("is-leaving", leaving);
+      });
+    }
+    /* Slide in when scrolling down; slide out when scrolling back up; swap instantly
+       when the normal button under the card comes into view. */
+    function setFloating(on, handOff) {
+      var shown = button.classList.contains("is-floating") && !button.classList.contains("is-leaving");
+      window.clearTimeout(leaveTimer);
+      if (on) {
+        if (!shown) setClasses(true, false);
+      } else if (shown && !handOff) {
+        setClasses(true, true);
+        leaveTimer = window.setTimeout(function () { setClasses(false, false); }, reducedMotion() ? 0 : 400);
+      } else if (shown || button.classList.contains("is-leaving")) {
+        setClasses(false, false);
+      }
+    }
     function update() {
       ticking = false;
       var floating = false;
+      var spotVisible = false;
       if (narrow.matches && !resultSection.hidden) {
         var vh = window.innerHeight;
         var card = wheelResult.getBoundingClientRect();
         var spot = holder.getBoundingClientRect();
         var y = window.pageYOffset || document.documentElement.scrollTop;
+        spotVisible = spot.top <= vh - 68;
         if (Date.now() < autoUntil) baseline = y;
         floating = baseline !== null && Date.now() >= autoUntil && y > baseline + 3 && card.top < vh * 0.5 && spot.top > vh - 68;
       }
-      if (floating !== button.classList.contains("is-floating")) {
-        button.classList.toggle("is-floating", floating);
-        holder.classList.toggle("is-floating", floating);
-      }
+      setFloating(floating, spotVisible);
     }
     function queue() {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }

@@ -1748,13 +1748,19 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   .swim-back .btn.is-floating {
     position: fixed;
     left: 50%;
-    bottom: 16px;
+    bottom: 36px;
     z-index: 41;
     transform: translateX(-50%);
     white-space: nowrap;
     animation: swim-back-in 0.45s ease-out 0.08s backwards;
   }
 }
+@media (max-width: 55.99rem) {
+  .swim-back.is-leaving::before, .swim-back.is-leaving::after { animation: swim-bar-out 0.35s ease-in forwards; }
+  .swim-back .btn.is-leaving { animation: swim-back-out 0.3s ease-in forwards; }
+}
+@keyframes swim-bar-out { from { transform: translateY(0); } to { transform: translateY(100%); } }
+@keyframes swim-back-out { from { opacity: 1; transform: translate(-50%, 0); } to { opacity: 0; transform: translate(-50%, 40px); } }
 @keyframes swim-back-in {
   from { opacity: 0; transform: translate(-50%, 40px); }
   to { opacity: 1; transform: translate(-50%, 0); }
@@ -1764,5 +1770,5 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   to { transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .swim-back.is-floating::before, .swim-back.is-floating::after, .swim-back .btn.is-floating { animation: none; }
+  .swim-back.is-floating::before, .swim-back.is-floating::after, .swim-back .btn.is-floating, .swim-back.is-leaving::before, .swim-back.is-leaving::after, .swim-back .btn.is-leaving { animation: none; }
 }
