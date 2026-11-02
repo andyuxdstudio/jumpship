@@ -1772,3 +1772,20 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 @media (prefers-reduced-motion: reduce) {
   .swim-back.is-floating::before, .swim-back.is-floating::after, .swim-back .btn.is-floating, .swim-back.is-leaving::before, .swim-back.is-leaving::after, .swim-back .btn.is-leaving { animation: none; }
 }
+
+/* "Nope, return to boat": always dark blue text on orange, in light and dark mode and in every state
+   (hover, focus, active, after a tap on touch screens) */
+#swim-back,
+#swim-back:hover,
+#swim-back:focus,
+#swim-back:focus-visible,
+#swim-back:active,
+#swim-back:visited,
+#swim-back:disabled {
+  background: #f2b134;
+  color: #0c2a45;
+  border-color: #0c2a45;
+  opacity: 1;
+}
+#swim-back:focus-visible { outline: 3px solid #0c2a45; outline-offset: 3px; }
+#swim-back:hover { filter: brightness(0.96); }
