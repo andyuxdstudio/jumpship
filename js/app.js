@@ -550,7 +550,18 @@
       "I\u2019m bored, tbh\u2026",
       "My arms hurt"
     ];
-    var last = -1;
+    var bag = [];
+    function nextLine() {
+      /* shuffle bag: every line is used once, in a random order, before any repeats */
+      if (!bag.length) {
+        bag = lines.slice();
+        for (var i = bag.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = bag[i]; bag[i] = bag[j]; bag[j] = t;
+        }
+      }
+      return bag.pop();
+    }
     function visibleBoat() {
       var boats = document.querySelectorAll(".drift-boat");
       for (var i = 0; i < boats.length; i++) {
@@ -560,25 +571,35 @@
       }
       return null;
     }
-    function speak() {
-      var boat = !document.hidden && overlay.hidden ? visibleBoat() : null;
-      if (boat) {
-        var n;
-        do { n = Math.floor(Math.random() * lines.length); } while (n === last);
-        last = n;
-        var bubble = document.createElement("span");
-        bubble.className = "boat-bubble";
-        bubble.setAttribute("aria-hidden", "true");
-        bubble.textContent = lines[n];
-        boat.appendChild(bubble);
-        if (bubble.getBoundingClientRect().right > window.innerWidth - 8) {
-          bubble.classList.add("is-left");
-        }
-        window.setTimeout(function () { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); }, 4100);
-      }
-      window.setTimeout(speak, 6000 + Math.random() * 7000);
+    function say(boat) {
+      if (!boat || boat.querySelector(".boat-bubble") || document.hidden || !overlay.hidden) return;
+      var bubble = document.createElement("span");
+      bubble.className = "boat-bubble";
+      bubble.setAttribute("aria-hidden", "true");
+      bubble.textContent = nextLine();
+      boat.appendChild(bubble);
+      if (bubble.getBoundingClientRect().right > window.innerWidth - 8) bubble.classList.add("is-left");
+      window.setTimeout(function () { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); }, 4100);
     }
-    window.setTimeout(speak, 4000 + Math.random() * 3000);
+    /* now and then, whenever the boat happens to be fully in view */
+    function occasionally() {
+      say(visibleBoat());
+      window.setTimeout(occasionally, 6000 + Math.random() * 7000);
+    }
+    window.setTimeout(occasionally, 4000 + Math.random() * 3000);
+    /* and always 2 seconds after the boat sails in again from the left */
+    document.querySelectorAll(".drift-boat").forEach(function (boat) {
+      function entered(event) {
+        if (event.target !== boat || event.animationName !== "drift-loop") return;
+        window.setTimeout(function () {
+          if (window.getComputedStyle(boat).display === "none") return;
+          var r = boat.getBoundingClientRect();
+          if (r.top > 40 && r.bottom < window.innerHeight) { boat.querySelector(".boat-bubble") || say(boat); }
+        }, 2000);
+      }
+      boat.addEventListener("animationstart", entered);
+      boat.addEventListener("animationiteration", entered);
+    });
   })();
 
   (function backToTop() {
