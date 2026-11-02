@@ -1913,15 +1913,19 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 @keyframes jump-crab-up {
   0%   { transform: translateX(1400px); }
   42%  { transform: translateX(0); }
-  84%  { transform: translateX(0); }
+  86%  { transform: translateX(0); }
   100% { transform: translateX(1400px); }
 }
-}
+/* open wide while the crab waits, then snap shut hard, again and again once the sailor splashes in */
 @keyframes jump-snap {
-  0%, 50% { transform: rotate(38deg); }
-  55%, 58% { transform: rotate(-4deg); }
-  62%, 65% { transform: rotate(38deg); }
-  69%, 72% { transform: rotate(-4deg); }
-  76%, 79% { transform: rotate(38deg); }
-  83%, 100% { transform: rotate(-4deg); }
+  0%, 52%  { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
+  54.500%  { transform: rotate(-6deg); }
+  57%      { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
+  59.500%  { transform: rotate(-6deg); }
+  62%      { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
+  64.500%  { transform: rotate(-6deg); }
+  67%      { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
+  69.500%  { transform: rotate(-6deg); }
+  72%      { transform: rotate(46deg); animation-timing-function: cubic-bezier(0.9, 0, 1, 1); }
+  74.500%, 100% { transform: rotate(-6deg); }
 }
