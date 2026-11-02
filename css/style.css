@@ -1709,7 +1709,7 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 
 /* Mobile: keep the drifting boat and wave divider clear of the Jump button */
 @media (max-width: 55.99rem) {
-  .hero { padding-bottom: 8rem; }
+  .hero { padding-bottom: calc(8rem + 40px); }
   body.has-result .hero { padding-bottom: 5.5rem; }
   .drift-boat { width: 5.5rem; top: -58px; }
   body.has-result .result-boat { top: -53px; }
@@ -1717,5 +1717,5 @@ body.has-result .wheel-section { padding-bottom: calc(var(--space-5) * 0.75); }
 
 /* Desktop: more room between the content and the footer wave (not on the results screen) */
 @media (min-width: 56rem) {
-  body:not(.has-result) .hero { padding-bottom: 8rem; }
+  body:not(.has-result) .hero { padding-bottom: calc(8rem + 40px); }
 }
