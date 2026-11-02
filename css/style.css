@@ -1616,11 +1616,11 @@ body.no-scroll { overflow: hidden; }
 }
 .drift-boat svg { display: block; width: 100%; height: auto; transform-origin: 50% 90%; }
 @media (prefers-reduced-motion: no-preference) {
-  .drift-boat { animation: drift-first 20s linear forwards, drift-loop 27.5s linear 21s infinite; }
+  .drift-boat { animation: drift-first 20s linear forwards, drift-loop 27.5s linear 20s infinite; }
   .drift-boat svg { animation: drift-bob 3.4s ease-in-out infinite alternate; }
 }
-@keyframes drift-first { from { transform: translateX(33vw); } to { transform: translateX(calc(100vw + 20px)); } }
-@keyframes drift-loop { from { transform: translateX(-9rem); } to { transform: translateX(calc(100vw + 20px)); } }
+@keyframes drift-first { from { transform: translateX(33vw); } to { transform: translateX(100vw); } }
+@keyframes drift-loop { from { transform: translateX(-100%); } to { transform: translateX(100vw); } }
 @keyframes drift-bob { from { transform: rotate(-2.2deg) translateY(1px); } to { transform: rotate(2.2deg) translateY(-1px); } }
 
 /* ---------- Once a career is showing: the boat sails the upper wave, and the footer becomes the sea floor ---------- */
