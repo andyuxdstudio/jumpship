@@ -173,10 +173,10 @@
   var creatureLast = "";
   var creatureFirstDone = false;
   function nextCreature() {
-    /* the very first jump is always the shark, then the other three come up in a random order */
-    if (!creatureFirstDone) { creatureFirstDone = true; return "shark"; }
+    /* the very first jump is always the shark, then all four come up in a random order */
+    if (!creatureFirstDone) { creatureFirstDone = true; creatureLast = "shark"; return "shark"; }
     if (!creatureBag.length) {
-      creatureBag = ["squid", "jelly", "crab"];
+      creatureBag = ["shark", "squid", "jelly", "crab"];
       for (var i = creatureBag.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var t = creatureBag[i]; creatureBag[i] = creatureBag[j]; creatureBag[j] = t;
@@ -198,7 +198,7 @@
     var reduce = reducedMotion();
     wheelBusy = true;
     wheelButton.disabled = true;
-    sceneTitle.firstChild.nodeValue = reduce ? "Setting sail" : "Jumping ship";
+    sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
     overlay.hidden = false;
