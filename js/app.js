@@ -149,10 +149,38 @@
     document.body.classList.remove("no-scroll");
   }
 
+  /* no repeats until every career has been shown; the seen list survives a page refresh when storage allows */
+  var seenWildcards = null;
+  function loadSeen() {
+    var ids = [];
+    try { ids = JSON.parse(window.localStorage.getItem("jumpship-seen") || "[]"); } catch (e) { ids = []; }
+    return Array.isArray(ids) ? ids : [];
+  }
+  function saveSeen() {
+    try { window.localStorage.setItem("jumpship-seen", JSON.stringify(seenWildcards)); } catch (e) {}
+  }
+  function pickWildcard() {
+    if (!seenWildcards) seenWildcards = loadSeen();
+    var pool = [];
+    for (var i = 0; i < wildcards.length; i++) {
+      if (seenWildcards.indexOf(wildcards[i].id) === -1) pool.push(i);
+    }
+    if (!pool.length) {
+      /* all seen: start a new round, but not with the one just shown */
+      seenWildcards = [];
+      for (var k = 0; k < wildcards.length; k++) {
+        if (k !== lastWildcard || wildcards.length === 1) pool.push(k);
+      }
+    }
+    var pick = pool[Math.floor(Math.random() * pool.length)];
+    seenWildcards.push(wildcards[pick].id);
+    saveSeen();
+    return pick;
+  }
+
   function wheelShow() {
     if (!wheelBusy) return;
-    var index;
-    do { index = Math.floor(Math.random() * wildcards.length); } while (wildcards.length > 1 && index === lastWildcard);
+    var index = pickWildcard();
     lastWildcard = index;
     var wild = wildcards[index];
     wheelResult.textContent = "";
