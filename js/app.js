@@ -533,10 +533,9 @@
       setClasses(false, false);
       window.clearTimeout(armTimer);
       autoUntil = Date.now() + 1100;
-      armTimer = window.setTimeout(function () {
-        baseline = window.pageYOffset || document.documentElement.scrollTop;
-        queue();
-      }, 1150);
+      armTimer = window.setTimeout(queue, 1150);
+      /* the button slides in as soon as the career card is on screen, no scrolling needed */
+      window.requestAnimationFrame(queue);
     });
     var leaveTimer = null;
     function setClasses(on, leaving) {
@@ -575,7 +574,7 @@
         var y = window.pageYOffset || document.documentElement.scrollTop;
         spotVisible = spot.top <= vh - 68;
         if (Date.now() < autoUntil) baseline = y;
-        floating = baseline !== null && Date.now() >= autoUntil && y > baseline + 3 && card.top < vh * 0.5 && spot.top > vh - 68;
+        floating = y > 60 && card.top < vh - 40 && spot.top > vh - 68;
       }
       setFloating(floating, spotVisible);
     }
