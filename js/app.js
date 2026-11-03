@@ -563,19 +563,16 @@
     if (reducedMotion()) return;
     var lines = [
       "Let\u2019s jump!",
-      "Hello?",
       "Hey, are we doing this?",
       "I\u2019m gonna do it...",
-      "No sharks around here, right?",
       "It\u2019s gonna be OK, right?",
-      "This is the life, ey?",
       "My arms hurt",
       "Definitely no sharks?",
       "I think I just saw a fin"
     ];
     var bag = [];
     /* after every jump, the very next bubble is this one (never shown before the first jump) */
-    var jumpLine = "That last jump was nuts!";
+    var jumpLine = "I\u2019m soaked";
     var jumpPending = false;
     var toeDone = false;
     var toeIn = 0;
@@ -587,7 +584,7 @@
         return jumpLine;
       }
       /* once, after the first jump: lands as the first or second bubble after "nuts" */
-      if (toeIn > 0 && --toeIn === 0) return "I think that shark took my little toe";
+      if (toeIn > 0 && --toeIn === 0) return "Choppy today";
       /* shuffle bag: every line is used once, in a random order, before any repeats */
       if (!bag.length) {
         bag = lines.slice();
