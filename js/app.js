@@ -228,7 +228,7 @@
     var reduce = reducedMotion();
     wheelBusy = true;
     wheelButton.disabled = true;
-    sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
+    sceneTitle.firstChild.nodeValue = reduce ? "Searching for career" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
     /* coming from the holding scene: swap states in one step so the boat keeps bobbing without a restart */
@@ -247,7 +247,7 @@
     window.clearTimeout(titleTimer);
     if (!reduce) {
       titleTimer = window.setTimeout(function () {
-        sceneTitle.firstChild.nodeValue = "Searching";
+        sceneTitle.firstChild.nodeValue = "Searching for career";
       }, 3200);
     }
     overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 5200);
