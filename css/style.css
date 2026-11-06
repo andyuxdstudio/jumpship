@@ -1989,18 +1989,38 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 .jump-overlay.is-holding .jump-cap-wrap { clip-path: url(#sea-clip); }
 .jump-overlay.is-holding .jump-captain { transform-origin: 188px 110px; }
 @media (prefers-reduced-motion: no-preference) {
-  .jump-overlay.is-holding .jump-captain { animation: jump-board 4.2s ease-in-out forwards; }
+  .jump-overlay.is-holding .jump-captain { animation: jump-board 4.6s ease-in-out forwards; }
 }
 @keyframes jump-again-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-/* swims in from the right, stroking along the waterline, then hops up and over the side */
+/* front crawl towards the boat (head first, arms windmilling), then a somersault up onto the deck */
+.cap-arm { transform-box: fill-box; }
+.cap-arm-l { transform-origin: 100% 100%; }
+.cap-arm-r { transform-origin: 0% 100%; }
+.hold-splash { opacity: 0; }
+.hold-splash .hs-d, .hold-splash .hs-ring { transform-box: fill-box; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .jump-overlay.is-holding .cap-arm-l { animation: crawl 0.7s linear 4; }
+  .jump-overlay.is-holding .cap-arm-r { animation: crawl 0.7s linear -0.35s 4; }
+  .jump-overlay.is-holding .hold-splash { animation: hold-splash-show 4.6s linear forwards; }
+  .jump-overlay.is-holding .hs-d { animation: hold-drop 1.5s ease-out 2.8s both; }
+  .jump-overlay.is-holding .hs-d2 { animation-delay: 2.85s; }
+  .jump-overlay.is-holding .hs-d3 { animation-delay: 2.9s; }
+  .jump-overlay.is-holding .hs-d4 { animation-delay: 2.82s; }
+  .jump-overlay.is-holding .hs-d5 { animation-delay: 2.88s; }
+  .jump-overlay.is-holding .hs-ring { animation: hold-ring 1.9s ease-out 2.8s both; }
+}
+@keyframes crawl { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
+@keyframes hold-splash-show { 0%, 60% { opacity: 0; } 61%, 100% { opacity: 1; } }
+@keyframes hold-drop { 0% { opacity: 0; transform: translateY(8px) scale(0.5); } 18% { opacity: 0.95; transform: translateY(-16px) scale(1); } 60% { opacity: 0.8; transform: translateY(-4px) scale(1); } 100% { opacity: 0; transform: translateY(6px) scale(0.8); } }
+@keyframes hold-ring { 0% { opacity: 0; transform: scale(0.3); } 15% { opacity: 0.8; } 100% { opacity: 0; transform: scale(1.8); } }
 @keyframes jump-board {
-  0%   { transform: translate(190px, 40px) rotate(82deg); opacity: 0; }
-  6%   { transform: translate(176px, 38px) rotate(82deg); opacity: 1; }
-  16%  { transform: translate(154px, 43px) rotate(82deg); }
-  26%  { transform: translate(132px, 38px) rotate(82deg); }
-  36%  { transform: translate(110px, 43px) rotate(82deg); }
-  46%  { transform: translate(88px, 38px) rotate(82deg); }
-  58%  { transform: translate(66px, 42px) rotate(82deg); }
-  74%  { transform: translate(40px, -16px) rotate(30deg); animation-timing-function: ease-in; }
-  100% { transform: translate(0, 0) rotate(0); }
+  0%   { transform: translate(190px, 40px) rotate(-82deg); opacity: 0; }
+  6%   { transform: translate(176px, 38px) rotate(-82deg); opacity: 1; }
+  16%  { transform: translate(154px, 43px) rotate(-82deg); }
+  26%  { transform: translate(132px, 38px) rotate(-82deg); }
+  36%  { transform: translate(110px, 43px) rotate(-82deg); }
+  46%  { transform: translate(88px, 38px) rotate(-82deg); }
+  60%  { transform: translate(66px, 42px) rotate(-82deg); animation-timing-function: cubic-bezier(0.3, 0.1, 0.5, 1); }
+  72%  { transform: translate(34px, -34px) rotate(-250deg); animation-timing-function: cubic-bezier(0.5, 0, 0.7, 0.9); }
+  84%, 100% { transform: translate(0, 0) rotate(-360deg); }
 }

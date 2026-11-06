@@ -274,7 +274,7 @@
         captain.removeEventListener("animationend", done);
         aboard();
       });
-      settleTimer = window.setTimeout(aboard, 4600);
+      settleTimer = window.setTimeout(aboard, 5000);
     }
   }
   function closeHold() {
