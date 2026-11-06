@@ -204,7 +204,15 @@
     closeOverlay();
     revealWheelResult();
     wheelButton.disabled = false;
-    document.getElementById("wheel-label").textContent = "Jump again";
+    /* once he has jumped, the top button reads and looks like Nope: Return to boat, with the anchor */
+    document.getElementById("wheel-label").textContent = "Return to boat";
+    var heroIcon = wheelButton.querySelector(".btn-icon");
+    var anchorIcon = document.querySelector("#swim-back .btn-icon");
+    if (heroIcon && anchorIcon && !heroIcon.hasAttribute("data-anchor")) {
+      var swapped = anchorIcon.cloneNode(true);
+      swapped.setAttribute("data-anchor", "");
+      heroIcon.parentNode.replaceChild(swapped, heroIcon);
+    }
     wheelButton.focus({ preventScroll: true });
   }
 
