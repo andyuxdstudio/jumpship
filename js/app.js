@@ -244,7 +244,8 @@
     if (fromHold) overlay.classList.add("is-running");
     window.clearTimeout(settleTimer);
     overlay.hidden = false;
-    if (overlaySky) overlaySky.resize();
+    /* from the holding scene the sky carries straight on; only a fresh opening builds a new one */
+    if (overlaySky && !fromHold) overlaySky.resize();
     document.body.classList.add("no-scroll");
     skipButton.focus();
     if (!fromHold) {
