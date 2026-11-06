@@ -276,6 +276,7 @@
     /* glide the boat from wherever it is back to the jumping spot, then run the usual sequence */
     var x = 0;
     try { x = new DOMMatrix(window.getComputedStyle(sail).transform).m41 || 0; } catch (e) { x = 0; }
+    if (Math.abs(x) < 1) { sail.style.cssText = ""; spinWheel(); return; }
     overlay.classList.add("is-settling");
     sceneTitle.firstChild.nodeValue = "Jumping ship";
     sail.style.animation = "none";

@@ -1988,6 +1988,6 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 .jump-overlay.is-settling #jump-again { visibility: hidden; }
 .jump-overlay.is-holding .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
 @media (prefers-reduced-motion: no-preference) {
-  .jump-overlay.is-holding .jump-sail { animation: jump-hold-cross 14s linear infinite; }
+  .jump-overlay.is-holding .jump-sail { animation: jump-hold-in 3.4s cubic-bezier(0.2, 0.7, 0.3, 1) forwards; }
 }
-@keyframes jump-hold-cross { from { transform: translateX(-640px); } to { transform: translateX(660px); } }
+@keyframes jump-hold-in { from { transform: translateX(-640px); } to { transform: translateX(0); } }
