@@ -266,7 +266,7 @@
     if (wheelBusy) return;
     window.clearTimeout(settleTimer);
     window.scrollTo(0, 0);
-    sceneTitle.firstChild.nodeValue = reducedMotion() ? "Ready to jump" : "Returning to boat";
+    sceneTitle.firstChild.nodeValue = reducedMotion() ? "Ready to jump again?" : "Returning to boat";
     overlay.classList.remove("is-running", "is-aboard");
     overlay.classList.add("is-holding");
     overlay.hidden = false;
@@ -278,7 +278,7 @@
     function aboard() {
       if (!overlay.classList.contains("is-holding") || overlay.classList.contains("is-aboard")) return;
       overlay.classList.add("is-aboard");
-      sceneTitle.firstChild.nodeValue = "Ready to jump";
+      sceneTitle.firstChild.nodeValue = "Ready to jump again?";
       jumpAgain.focus();
       document.dispatchEvent(new CustomEvent("jumpship:aboard"));
     }
