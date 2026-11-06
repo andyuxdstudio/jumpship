@@ -381,7 +381,13 @@
     }
 
     function size() {
-      ratio = Math.min(window.devicePixelRatio || 1, 2);
+      var nextRatio = Math.min(window.devicePixelRatio || 1, 2);
+      /* only rebuild when the window really changed size, so the sky stays the same from scene to scene */
+      if (stars.length && window.innerWidth === width && window.innerHeight === height && nextRatio === ratio) {
+        draw(Date.now());
+        return;
+      }
+      ratio = nextRatio;
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = Math.round(width * ratio);
