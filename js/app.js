@@ -143,7 +143,12 @@
     window.scrollTo({ top: top + 20, behavior: reducedMotion() ? "auto" : "smooth" });
   }
 
+  function clearStageBubbles() {
+    var old = overlay.querySelectorAll(".stage-bubble");
+    for (var i = 0; i < old.length; i++) old[i].parentNode.removeChild(old[i]);
+  }
   function closeOverlay() {
+    clearStageBubbles();
     window.clearTimeout(overlayTimer);
     window.clearTimeout(titleTimer);
     overlay.hidden = true;
@@ -232,6 +237,7 @@
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
     /* coming from the holding scene: swap states in one step so the boat keeps bobbing without a restart */
+    clearStageBubbles();
     var fromHold = overlay.classList.contains("is-holding");
     overlay.classList.remove("is-holding", "is-aboard");
     if (fromHold) overlay.classList.add("is-running");
@@ -271,6 +277,7 @@
       overlay.classList.add("is-aboard");
       sceneTitle.firstChild.nodeValue = "Ready to jump";
       jumpAgain.focus();
+      document.dispatchEvent(new CustomEvent("jumpship:aboard"));
     }
     window.clearTimeout(settleTimer);
     if (reducedMotion() || !captain) { aboard(); }
@@ -703,6 +710,43 @@
       window.setTimeout(occasionally, 6000 + Math.random() * 7000);
     }
     window.setTimeout(occasionally, 4000 + Math.random() * 3000);
+    /* the same cycle of lines, spoken in the holding scene while the sailor waits to jump again */
+    var holdTimer = null;
+    var holdStage = overlay.querySelector(".jump-stage");
+    function sayInHold() {
+      if (document.hidden || overlay.hidden || !holdStage) return;
+      if (!overlay.classList.contains("is-holding") || !overlay.classList.contains("is-aboard")) return;
+      if (holdStage.querySelector(".stage-bubble")) return;
+      var head = overlay.querySelector(".jump-captain circle");
+      if (!head) return;
+      var rem = parseFloat(window.getComputedStyle(document.documentElement).fontSize) || 16;
+      var sr = holdStage.getBoundingClientRect();
+      var hr = head.getBoundingClientRect();
+      var bubble = document.createElement("span");
+      bubble.className = "boat-bubble stage-bubble";
+      bubble.setAttribute("aria-hidden", "true");
+      bubble.textContent = nextLine();
+      holdStage.appendChild(bubble);
+      /* the tail points at the top right of his head */
+      bubble.style.left = (hr.right + 2 - sr.left - 0.9 * rem) + "px";
+      bubble.style.top = (hr.top - 13 - sr.top - bubble.offsetHeight) + "px";
+      if (bubble.getBoundingClientRect().right > window.innerWidth - 8) {
+        bubble.classList.add("is-left");
+        bubble.style.left = "auto";
+        bubble.style.right = (sr.right - (hr.left - 2) - 0.9 * rem) + "px";
+      }
+      window.setTimeout(function () { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); }, 4100);
+    }
+    function holdLoop() {
+      window.clearTimeout(holdTimer);
+      if (!overlay.classList.contains("is-holding") || !overlay.classList.contains("is-aboard")) return;
+      sayInHold();
+      holdTimer = window.setTimeout(holdLoop, 6000 + Math.random() * 7000);
+    }
+    document.addEventListener("jumpship:aboard", function () {
+      window.clearTimeout(holdTimer);
+      holdTimer = window.setTimeout(holdLoop, 1500);
+    });
     /* and always 2 seconds after the boat sails in again from the left */
     document.querySelectorAll(".drift-boat").forEach(function (boat) {
       function entered(event) {

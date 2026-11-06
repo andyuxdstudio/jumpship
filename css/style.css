@@ -2051,3 +2051,8 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   .jump-overlay.is-running .jump-cap-bob { animation: jump-bob 1.4s ease-in-out infinite, jump-recoil 3.6s linear forwards; }
   .jump-overlay.is-holding .jump-cap-bob { animation: jump-bob 1.4s ease-in-out infinite, jump-landing 4.6s linear forwards; }
 }
+
+/* speech bubbles in the holding scene */
+.jump-stage { position: relative; }
+.boat-bubble.stage-bubble { bottom: auto; right: auto; z-index: 2; }
+.boat-bubble.stage-bubble.is-left { left: auto; }
