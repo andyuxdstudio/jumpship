@@ -1981,13 +1981,26 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   100% { opacity: 0; transform: scaleY(1.7); }
 }
 
-/* ---------- Holding state after "Nope": the boat sails across and waits until the reader chooses to jump again ---------- */
+/* ---------- Holding state after "Nope": the sailor swims back and climbs aboard, then waits until the reader chooses to jump again ---------- */
 #jump-again { display: none; align-items: center; gap: 0.5rem; }
-.jump-overlay.is-holding #jump-again { display: inline-flex; }
+.jump-overlay.is-holding.is-aboard #jump-again { display: inline-flex; animation: jump-again-in 0.5s ease-out both; }
 .jump-overlay.is-holding #jump-skip { display: none; }
-.jump-overlay.is-settling #jump-again { visibility: hidden; }
 .jump-overlay.is-holding .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
+.jump-overlay.is-holding .jump-cap-wrap { clip-path: url(#sea-clip); }
+.jump-overlay.is-holding .jump-captain { transform-origin: 188px 110px; }
 @media (prefers-reduced-motion: no-preference) {
-  .jump-overlay.is-holding .jump-sail { animation: jump-hold-in 3.4s cubic-bezier(0.2, 0.7, 0.3, 1) forwards; }
+  .jump-overlay.is-holding .jump-captain { animation: jump-board 4.2s ease-in-out forwards; }
 }
-@keyframes jump-hold-in { from { transform: translateX(-640px); } to { transform: translateX(0); } }
+@keyframes jump-again-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+/* swims in from the right, stroking along the waterline, then hops up and over the side */
+@keyframes jump-board {
+  0%   { transform: translate(190px, 40px) rotate(82deg); opacity: 0; }
+  6%   { transform: translate(176px, 38px) rotate(82deg); opacity: 1; }
+  16%  { transform: translate(154px, 43px) rotate(82deg); }
+  26%  { transform: translate(132px, 38px) rotate(82deg); }
+  36%  { transform: translate(110px, 43px) rotate(82deg); }
+  46%  { transform: translate(88px, 38px) rotate(82deg); }
+  58%  { transform: translate(66px, 42px) rotate(82deg); }
+  74%  { transform: translate(40px, -16px) rotate(30deg); animation-timing-function: ease-in; }
+  100% { transform: translate(0, 0) rotate(0); }
+}

@@ -231,7 +231,8 @@
     sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
-    overlay.classList.remove("is-holding", "is-settling");
+    overlay.classList.remove("is-holding", "is-aboard");
+    window.clearTimeout(settleTimer);
     overlay.hidden = false;
     document.body.classList.add("no-scroll");
     skipButton.focus();
@@ -253,41 +254,39 @@
     window.clearTimeout(settleTimer);
     window.scrollTo(0, 0);
     sceneTitle.firstChild.nodeValue = "Ready to jump";
-    overlay.classList.remove("is-running", "is-settling");
+    overlay.classList.remove("is-running", "is-aboard");
     overlay.classList.add("is-holding");
     overlay.hidden = false;
     document.body.classList.add("no-scroll");
     jumpAgain.disabled = false;
-    jumpAgain.focus();
+    /* the Jump again button appears once the sailor is back on board */
+    var captain = overlay.querySelector(".jump-captain");
+    function aboard() {
+      if (!overlay.classList.contains("is-holding") || overlay.classList.contains("is-aboard")) return;
+      overlay.classList.add("is-aboard");
+      jumpAgain.focus();
+    }
+    window.clearTimeout(settleTimer);
+    if (reducedMotion() || !captain) { aboard(); }
+    else {
+      captain.addEventListener("animationend", function done(event) {
+        if (event.animationName !== "jump-board") return;
+        captain.removeEventListener("animationend", done);
+        aboard();
+      });
+      settleTimer = window.setTimeout(aboard, 4600);
+    }
   }
   function closeHold() {
     window.clearTimeout(settleTimer);
-    var sail = overlay.querySelector(".jump-sail");
-    if (sail) sail.style.cssText = "";
-    overlay.classList.remove("is-holding", "is-settling");
+    overlay.classList.remove("is-holding", "is-aboard");
     closeOverlay();
     wheelButton.focus({ preventScroll: true });
   }
   function jumpFromHold() {
     if (wheelBusy || !overlay.classList.contains("is-holding")) return;
     jumpAgain.disabled = true;
-    var sail = overlay.querySelector(".jump-sail");
-    if (reducedMotion() || !sail) { spinWheel(); return; }
-    /* glide the boat from wherever it is back to the jumping spot, then run the usual sequence */
-    var x = 0;
-    try { x = new DOMMatrix(window.getComputedStyle(sail).transform).m41 || 0; } catch (e) { x = 0; }
-    if (Math.abs(x) < 1) { sail.style.cssText = ""; spinWheel(); return; }
-    overlay.classList.add("is-settling");
-    sceneTitle.firstChild.nodeValue = "Jumping ship";
-    sail.style.animation = "none";
-    sail.style.transform = "translateX(" + x + "px)";
-    void sail.getBoundingClientRect();
-    sail.style.transition = "transform 0.9s ease-in-out";
-    sail.style.transform = "translateX(0px)";
-    settleTimer = window.setTimeout(function () {
-      sail.style.cssText = "";
-      spinWheel();
-    }, 950);
+    spinWheel();
   }
   jumpAgain.addEventListener("click", jumpFromHold);
 
