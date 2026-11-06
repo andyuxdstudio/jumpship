@@ -31,6 +31,8 @@
   var wheelButton = document.getElementById("wheel-button");
   var overlay = document.getElementById("jump-overlay");
   var skipButton = document.getElementById("jump-skip");
+  var jumpAgain = document.getElementById("jump-again");
+  var settleTimer = null;
   var sceneTitle = document.getElementById("jump-title");
   var overlayTimer = null;
   var titleTimer = null;
@@ -229,6 +231,7 @@
     sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
+    overlay.classList.remove("is-holding", "is-settling");
     overlay.hidden = false;
     document.body.classList.add("no-scroll");
     skipButton.focus();
@@ -244,10 +247,54 @@
     overlayTimer = window.setTimeout(wheelShow, reduce ? 1000 : 5200);
   }
 
+  /* After "Nope": the same scene, but the boat just sails across and waits. The reader decides when to jump. */
+  function openHold() {
+    if (wheelBusy) return;
+    window.clearTimeout(settleTimer);
+    window.scrollTo(0, 0);
+    sceneTitle.firstChild.nodeValue = "Ready to jump";
+    overlay.classList.remove("is-running", "is-settling");
+    overlay.classList.add("is-holding");
+    overlay.hidden = false;
+    document.body.classList.add("no-scroll");
+    jumpAgain.disabled = false;
+    jumpAgain.focus();
+  }
+  function closeHold() {
+    window.clearTimeout(settleTimer);
+    var sail = overlay.querySelector(".jump-sail");
+    if (sail) sail.style.cssText = "";
+    overlay.classList.remove("is-holding", "is-settling");
+    closeOverlay();
+    wheelButton.focus({ preventScroll: true });
+  }
+  function jumpFromHold() {
+    if (wheelBusy || !overlay.classList.contains("is-holding")) return;
+    jumpAgain.disabled = true;
+    var sail = overlay.querySelector(".jump-sail");
+    if (reducedMotion() || !sail) { spinWheel(); return; }
+    /* glide the boat from wherever it is back to the jumping spot, then run the usual sequence */
+    var x = 0;
+    try { x = new DOMMatrix(window.getComputedStyle(sail).transform).m41 || 0; } catch (e) { x = 0; }
+    overlay.classList.add("is-settling");
+    sceneTitle.firstChild.nodeValue = "Jumping ship";
+    sail.style.animation = "none";
+    sail.style.transform = "translateX(" + x + "px)";
+    void sail.getBoundingClientRect();
+    sail.style.transition = "transform 0.9s ease-in-out";
+    sail.style.transform = "translateX(0px)";
+    settleTimer = window.setTimeout(function () {
+      sail.style.cssText = "";
+      spinWheel();
+    }, 950);
+  }
+  jumpAgain.addEventListener("click", jumpFromHold);
+
   skipButton.addEventListener("click", wheelShow);
   overlay.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") { wheelShow(); }
-    if (event.key === "Tab") { event.preventDefault(); skipButton.focus(); }
+    var holding = overlay.classList.contains("is-holding");
+    if (event.key === "Escape") { if (holding) { closeHold(); } else { wheelShow(); } }
+    if (event.key === "Tab") { event.preventDefault(); (holding ? jumpAgain : skipButton).focus(); }
   });
 
   wheelButton.addEventListener("click", spinWheel);
@@ -515,8 +562,7 @@
     var button = document.getElementById("swim-back");
     if (!button) return;
     button.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
-      wheelButton.focus({ preventScroll: true });
+      openHold();
     });
 
     /* On mobile the button floats at the bottom of the screen once the reader scrolls

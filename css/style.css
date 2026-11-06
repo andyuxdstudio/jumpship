@@ -1980,3 +1980,14 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   78% { opacity: 1; transform: scaleY(1.1); }
   100% { opacity: 0; transform: scaleY(1.7); }
 }
+
+/* ---------- Holding state after "Nope": the boat sails across and waits until the reader chooses to jump again ---------- */
+#jump-again { display: none; align-items: center; gap: 0.5rem; }
+.jump-overlay.is-holding #jump-again { display: inline-flex; }
+.jump-overlay.is-holding #jump-skip { display: none; }
+.jump-overlay.is-settling #jump-again { visibility: hidden; }
+.jump-overlay.is-holding .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
+@media (prefers-reduced-motion: no-preference) {
+  .jump-overlay.is-holding .jump-sail { animation: jump-hold-cross 14s linear infinite; }
+}
+@keyframes jump-hold-cross { from { transform: translateX(-640px); } to { transform: translateX(660px); } }
