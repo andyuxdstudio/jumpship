@@ -29,8 +29,6 @@
   /* ---------- Wheel ---------- */
 
   var wheelButton = document.getElementById("wheel-button");
-  var holdSection = document.getElementById("hold");
-  var holdButton = document.getElementById("hold-jump");
   var overlay = document.getElementById("jump-overlay");
   var skipButton = document.getElementById("jump-skip");
   var sceneTitle = document.getElementById("jump-title");
@@ -186,7 +184,6 @@
     lastWildcard = index;
     var wild = wildcards[index];
     wheelResult.textContent = "";
-    holdSection.hidden = false;
     resultSection.hidden = false;
     document.body.classList.add("has-result");
     wheelResult.appendChild(buildWildcardCard(wild));
@@ -196,7 +193,6 @@
     closeOverlay();
     revealWheelResult();
     wheelButton.disabled = false;
-    holdButton.disabled = false;
     document.getElementById("wheel-label").textContent = "Jump again";
     wheelButton.focus({ preventScroll: true });
   }
@@ -230,7 +226,6 @@
     var reduce = reducedMotion();
     wheelBusy = true;
     wheelButton.disabled = true;
-    holdButton.disabled = true;
     sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
@@ -256,7 +251,6 @@
   });
 
   wheelButton.addEventListener("click", spinWheel);
-  holdButton.addEventListener("click", spinWheel);
 
   /* ---------- Background: a quiet night sky. Faint twinkling stars, and now and then a shooting star ---------- */
 
@@ -521,10 +515,8 @@
     var button = document.getElementById("swim-back");
     if (!button) return;
     button.addEventListener("click", function () {
-      var y = window.pageYOffset || document.documentElement.scrollTop;
-      var target = holdSection.getBoundingClientRect().top + y - window.innerHeight * 0.4;
-      window.scrollTo({ top: Math.max(0, target), behavior: reducedMotion() ? "auto" : "smooth" });
-      holdButton.focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
+      wheelButton.focus({ preventScroll: true });
     });
 
     /* On mobile the button floats at the bottom of the screen once the reader scrolls
@@ -582,7 +574,7 @@
         var y = window.pageYOffset || document.documentElement.scrollTop;
         spotVisible = spot.top <= vh - 68;
         if (Date.now() < autoUntil) baseline = y;
-        floating = y > 60 && holdSection.getBoundingClientRect().bottom < vh * 0.3 && card.top < vh - 40 && spot.top > vh - 68;
+        floating = y > 60 && card.top < vh - 40 && spot.top > vh - 68;
       }
       setFloating(floating, spotVisible);
     }

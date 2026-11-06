@@ -1980,12 +1980,3 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   78% { opacity: 1; transform: scaleY(1.1); }
   100% { opacity: 0; transform: scaleY(1.7); }
 }
-
-/* ---------- Holding state: the boat and sailor drift past while waiting for another jump ---------- */
-.hold-section { overflow: visible; overflow-x: clip; padding-block: calc(var(--space-5) + 3.5rem) calc(var(--space-5) + 6rem); }
-.hold-wrap .btn { display: inline-flex; align-items: center; gap: 0.5rem; }
-.hold-boat { width: 9rem; top: -91px; }
-.hold-wrap { display: flex; justify-content: center; }
-@media (max-width: 55.99rem) {
-  .hold-boat { width: 7rem; top: -68px; }
-}
