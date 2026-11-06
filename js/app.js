@@ -317,7 +317,10 @@
     if (event.key === "Tab") { event.preventDefault(); (holding ? jumpAgain : skipButton).focus(); }
   });
 
-  wheelButton.addEventListener("click", spinWheel);
+  /* the first jump goes straight to the scene; once a career has been shown, Jump again opens the same holding scene as Nope */
+  wheelButton.addEventListener("click", function () {
+    if (document.body.classList.contains("has-result")) { openHold(); } else { spinWheel(); }
+  });
 
   /* ---------- Background: a quiet night sky. Faint twinkling stars, and now and then a shooting star ---------- */
 
@@ -676,7 +679,9 @@
         var y = window.pageYOffset || document.documentElement.scrollTop;
         spotVisible = spot.top <= vh - 68;
         if (Date.now() < autoUntil) baseline = y;
-        floating = y > 60 && card.top < vh - 40 && spot.top > vh - 68;
+        var hero = wheelButton.getBoundingClientRect();
+        var heroVisible = hero.bottom > 0 && hero.top < vh;   /* even slightly in view: the floating Nope steps aside early */
+        floating = !heroVisible && y > 60 && card.top < vh - 40 && spot.top > vh - 68;
       }
       setFloating(floating, spotVisible);
     }
