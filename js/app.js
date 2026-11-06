@@ -60,7 +60,7 @@
     badge.setAttribute("aria-hidden", "true");
     var badgeText = document.createElement("span");
     badgeText.className = "career-badge-text";
-    badgeText.textContent = "Your career alternative";
+    badgeText.textContent = "Float your boat?";
     badge.appendChild(badgeText);
     card.appendChild(badge);
     card.setAttribute("aria-labelledby", "wild-" + wild.id);
