@@ -2044,3 +2044,10 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   46% { translate: 0 0.6px; rotate: 0.4deg; }
   55%, 100% { translate: 0 0; rotate: 0deg; }
 }
+
+/* The sailor rides the boat: he takes exactly the same rock, dip and recoil, so his feet stay planted on the deck */
+.jump-cap-bob { transform-origin: 160px 130px; }
+@media (prefers-reduced-motion: no-preference) {
+  .jump-overlay.is-running .jump-cap-bob { animation: jump-bob 1.4s ease-in-out infinite, jump-recoil 3.6s linear forwards; }
+  .jump-overlay.is-holding .jump-cap-bob { animation: jump-bob 1.4s ease-in-out infinite, jump-landing 4.6s linear forwards; }
+}
