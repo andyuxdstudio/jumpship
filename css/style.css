@@ -1058,7 +1058,7 @@ body.no-scroll { overflow: hidden; }
 .jump-title { font-family: var(--font-display, inherit); font-weight: 700; font-size: calc(var(--step-2, 1.5rem) / 2); margin: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .is-running .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
+  .is-running .jump-boat { animation: jump-bob 1.4s ease-in-out infinite, jump-recoil 3.6s linear forwards; transform-origin: 160px 130px; }
   .is-running .jump-captain { animation: jump-leap 3.6s ease-in forwards; transform-origin: 188px 110px; }
   .is-running .jump-splash { animation: jump-splash 3.6s ease-out forwards; }
   .is-running .jump-shark { animation: jump-swim 5s linear forwards; }
@@ -1982,13 +1982,16 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 }
 
 /* ---------- Holding state after "Nope": the sailor swims back and climbs aboard, then waits until the reader chooses to jump again ---------- */
-#jump-again { display: none; align-items: center; gap: 0.5rem; }
-.jump-overlay.is-holding.is-aboard #jump-again { display: inline-flex; animation: jump-again-in 0.5s ease-out both; }
-.jump-overlay.is-holding #jump-skip { display: none; }
-.jump-overlay.is-holding .jump-boat { animation: jump-bob 1.4s ease-in-out infinite; transform-origin: 160px 130px; }
+/* Skip and Jump again share one grid cell, so swapping them never moves the scene */
+#jump-skip, #jump-again { grid-row: 3; grid-column: 1; justify-self: center; }
+#jump-again { display: inline-flex; align-items: center; gap: 0.5rem; visibility: hidden; }
+.jump-overlay.is-holding.is-aboard #jump-again { visibility: visible; animation: jump-again-in 0.5s ease-out both; }
+.jump-overlay.is-holding #jump-skip { visibility: hidden; }
+.jump-overlay.is-holding .jump-boat { transform-origin: 160px 130px; }
 .jump-overlay.is-holding .jump-cap-wrap { clip-path: url(#sea-clip); }
 .jump-overlay.is-holding .jump-captain { transform-origin: 188px 110px; }
 @media (prefers-reduced-motion: no-preference) {
+  .jump-overlay.is-holding .jump-boat { animation: jump-bob 1.4s ease-in-out infinite, jump-landing 4.6s linear forwards; }
   .jump-overlay.is-holding .jump-captain { animation: jump-board 4.6s ease-in-out forwards; }
 }
 @keyframes jump-again-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -2023,4 +2026,21 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
   60%  { transform: translate(66px, 42px) rotate(-82deg); animation-timing-function: cubic-bezier(0.3, 0.1, 0.5, 1); }
   72%  { transform: translate(34px, -34px) rotate(-250deg); animation-timing-function: cubic-bezier(0.5, 0, 0.7, 0.9); }
   84%, 100% { transform: translate(0, 0) rotate(-360deg); }
+}
+
+/* the boat feels the sailor: it dips when he lands aboard, and again as he pushes off to jump.
+   These use the separate translate/rotate properties so the gentle bob carries on underneath, unbroken. */
+@keyframes jump-landing {
+  0%, 82% { translate: 0 0; rotate: 0deg; }
+  86% { translate: 0 4px; rotate: 3deg; }
+  92% { translate: 0 -1.5px; rotate: -1deg; }
+  97% { translate: 0 0.5px; rotate: 0.3deg; }
+  100% { translate: 0 0; rotate: 0deg; }
+}
+@keyframes jump-recoil {
+  0%, 27% { translate: 0 0; rotate: 0deg; }
+  31% { translate: 0 4px; rotate: 3deg; }
+  38% { translate: 0 -2px; rotate: -1.5deg; }
+  46% { translate: 0 0.6px; rotate: 0.4deg; }
+  55%, 100% { translate: 0 0; rotate: 0deg; }
 }

@@ -231,14 +231,19 @@
     sceneTitle.firstChild.nodeValue = reduce ? "Searching" : "Jumping ship";
     /* first jump is always the shark, then the other three creatures take turns */
     overlay.setAttribute("data-creature", nextCreature());
+    /* coming from the holding scene: swap states in one step so the boat keeps bobbing without a restart */
+    var fromHold = overlay.classList.contains("is-holding");
     overlay.classList.remove("is-holding", "is-aboard");
+    if (fromHold) overlay.classList.add("is-running");
     window.clearTimeout(settleTimer);
     overlay.hidden = false;
     document.body.classList.add("no-scroll");
     skipButton.focus();
-    overlay.classList.remove("is-running");
-    void overlay.offsetWidth;
-    overlay.classList.add("is-running");
+    if (!fromHold) {
+      overlay.classList.remove("is-running");
+      void overlay.offsetWidth;
+      overlay.classList.add("is-running");
+    }
     window.clearTimeout(titleTimer);
     if (!reduce) {
       titleTimer = window.setTimeout(function () {
