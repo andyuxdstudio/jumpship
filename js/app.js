@@ -33,6 +33,7 @@
   var skipButton = document.getElementById("jump-skip");
   var jumpAgain = document.getElementById("jump-again");
   var settleTimer = null;
+  var overlaySky = null;
   var sceneTitle = document.getElementById("jump-title");
   var overlayTimer = null;
   var titleTimer = null;
@@ -243,6 +244,7 @@
     if (fromHold) overlay.classList.add("is-running");
     window.clearTimeout(settleTimer);
     overlay.hidden = false;
+    if (overlaySky) overlaySky.resize();
     document.body.classList.add("no-scroll");
     skipButton.focus();
     if (!fromHold) {
@@ -268,6 +270,7 @@
     overlay.classList.remove("is-running", "is-aboard");
     overlay.classList.add("is-holding");
     overlay.hidden = false;
+    if (overlaySky) overlaySky.resize();
     document.body.classList.add("no-scroll");
     jumpAgain.disabled = false;
     /* the Jump again button appears once the sailor is back on board */
@@ -314,13 +317,10 @@
 
   /* ---------- Background: a quiet night sky. Faint twinkling stars, and now and then a shooting star ---------- */
 
-  (function nightSky() {
-    var canvas = document.createElement("canvas");
-    canvas.className = "dust";
-    canvas.setAttribute("aria-hidden", "true");
-    document.body.insertBefore(canvas, document.body.firstChild);
+  function makeSky(opts) {
+    var canvas = opts.canvas;
     var ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx) return { resize: function () {} };
 
     var stars = [];
     var clouds = [];
@@ -350,8 +350,8 @@
     function buildClouds() {
       clouds = [];
       // Each cloud keeps to its own horizontal lane, so clouds never overlap whatever speed they drift at
-      var laneTop = 200;
-      var laneBottom = Math.max(laneTop + 110, height * 0.75);
+      var laneTop = opts.laneTop;
+      var laneBottom = opts.laneBottom ? opts.laneBottom(height) : Math.max(laneTop + 110, height * 0.75);
       var lanes = [];
       for (var ly = laneTop; ly <= laneBottom; ly += 115) lanes.push(ly);
       for (var s = lanes.length - 1; s > 0; s -= 1) {
@@ -442,18 +442,14 @@
 
     function draw(now) {
       var calm = reducedMotion();
-      var scroll = calm ? 0 : (window.pageYOffset || 0);
+      var scroll = (calm || opts.still) ? 0 : (window.pageYOffset || 0);
       var t = calm ? 0 : (now - startTime) / 1000;
       var rgb = colour();
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       ctx.clearRect(0, 0, width, height);
 
       // The first wave divider on the page is the horizon. Nothing is drawn below it.
-      var horizon = height;
-      var edges = [document.getElementById("result"), document.querySelector(".site-footer")];
-      for (var e = 0; e < edges.length; e += 1) {
-        if (edges[e] && !edges[e].hidden) { horizon = Math.min(height, edges[e].getBoundingClientRect().top); break; }
-      }
+      var horizon = opts.horizon(height);
       ctx.save();
       ctx.beginPath();
       ctx.rect(0, 0, width, Math.max(0, horizon));
@@ -505,7 +501,7 @@
 
     function loop(now) {
       window.requestAnimationFrame(loop);
-      if (document.hidden) return;
+      if (document.hidden || !opts.active()) return;
       var wait = (shots.length || !isDark()) ? 33 : 90;     // smooth while a star is streaking, calm otherwise
       if (now - last < wait) return;
       last = now;
@@ -518,7 +514,44 @@
     new MutationObserver(function () { draw(Date.now()); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     size();
     if (!reducedMotion()) window.requestAnimationFrame(loop);
-  })();
+    return { resize: size };
+  }
+
+  /* the page backdrop: stars by night, drifting clouds by day, above the first wave line */
+  var pageCanvas = document.createElement("canvas");
+  pageCanvas.className = "dust";
+  pageCanvas.setAttribute("aria-hidden", "true");
+  document.body.insertBefore(pageCanvas, document.body.firstChild);
+  makeSky({
+    canvas: pageCanvas,
+    laneTop: 200,
+    active: function () { return true; },
+    horizon: function (height) {
+      var edges = [document.getElementById("result"), document.querySelector(".site-footer")];
+      for (var e = 0; e < edges.length; e += 1) {
+        if (edges[e] && !edges[e].hidden) { return Math.min(height, edges[e].getBoundingClientRect().top); }
+      }
+      return height;
+    }
+  });
+  /* the same backdrop behind the progress and holding scenes, above that scene's waves */
+  var overlayCanvas = document.createElement("canvas");
+  overlayCanvas.className = "jump-sky";
+  overlayCanvas.setAttribute("aria-hidden", "true");
+  overlay.insertBefore(overlayCanvas, overlay.firstChild);
+  function overlayHorizon() {
+    var art = overlay.querySelector(".jump-art");
+    var r = art ? art.getBoundingClientRect() : null;
+    return r && r.height ? r.top + r.height * (146 / 215) : 0;
+  }
+  overlaySky = makeSky({
+    canvas: overlayCanvas,
+    still: true,
+    laneTop: 40,
+    laneBottom: function () { return Math.max(100, overlayHorizon() - 60); },
+    active: function () { return !overlay.hidden; },
+    horizon: overlayHorizon
+  });
 
   // Sea creatures near the wheel drift at their own random speeds as the page scrolls (parallax).
   (function creatureParallax() {

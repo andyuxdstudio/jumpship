@@ -2056,3 +2056,7 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 .jump-stage { position: relative; }
 .boat-bubble.stage-bubble { bottom: auto; right: auto; z-index: 2; }
 .boat-bubble.stage-bubble.is-left { left: auto; }
+
+/* sky behind the progress and holding scenes */
+.jump-sky { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.jump-overlay .jump-stage { position: relative; z-index: 1; }
