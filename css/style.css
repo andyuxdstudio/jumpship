@@ -2063,3 +2063,8 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 
 /* the logo and the light/dark switch stay visible above the progress and holding scenes */
 body.no-scroll .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 101; }
+
+/* Once he has jumped and a career is showing, the boat waits empty and still in the middle of the waves,
+   exactly where the holding scene finds it when he swims back for another go */
+body.has-result .result-boat { animation: none; left: 50%; transform: translateX(-50%); }
+body.has-result .result-boat svg g { display: none; }

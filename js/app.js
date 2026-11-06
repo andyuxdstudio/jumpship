@@ -724,6 +724,7 @@
     function visibleBoat() {
       var boats = document.querySelectorAll(".drift-boat");
       for (var i = 0; i < boats.length; i++) {
+        if (boats[i].classList.contains("result-boat")) continue;   /* empty once he has jumped */
         if (window.getComputedStyle(boats[i]).display === "none") continue;
         var r = boats[i].getBoundingClientRect();
         if (r.width && r.top > 40 && r.bottom < window.innerHeight && r.left > 0 && r.right < window.innerWidth) return boats[i];
