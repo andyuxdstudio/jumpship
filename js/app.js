@@ -30,6 +30,9 @@
 
   var wheelButton = document.getElementById("wheel-button");
   var overlay = document.getElementById("jump-overlay");
+  /* the focus ring on Skip only shows for keyboard users; a mouse or touch jump never leaves an orange ring behind */
+  document.addEventListener("keydown", function () { document.documentElement.classList.add("kbd"); }, true);
+  document.addEventListener("pointerdown", function () { document.documentElement.classList.remove("kbd"); }, true);
   var skipButton = document.getElementById("jump-skip");
   var jumpAgain = document.getElementById("jump-again");
   var settleTimer = null;
