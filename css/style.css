@@ -2060,3 +2060,6 @@ body:not(.has-result) .site-footer { padding-top: calc(var(--space-4) + 50px); }
 /* sky behind the progress and holding scenes */
 .jump-sky { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .jump-overlay .jump-stage { position: relative; z-index: 1; }
+
+/* the logo and the light/dark switch stay visible above the progress and holding scenes */
+body.no-scroll .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 101; }
