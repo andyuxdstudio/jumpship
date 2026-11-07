@@ -2075,7 +2075,7 @@ html:not(.kbd) #jump-skip:focus-visible { outline: none; }
    There is just enough room left above the waves for the empty boat. */
 body.has-result .hero .wrap > div { display: none; }
 body.has-result .hero { padding: 0; }
-body.has-result #result { margin-top: 4.5rem; }
+body.has-result #result { margin-top: calc(4.5rem + 100px); }
 @media (max-width: 55.99rem) {
-  body.has-result #result { margin-top: 4rem; }
+  body.has-result #result { margin-top: calc(4rem + 100px); }
 }
