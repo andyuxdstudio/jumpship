@@ -2083,3 +2083,12 @@ body.has-result #result { margin-top: calc(4.5rem + 100px); }
 /* Parallax: with a career showing, the wave line and the boat drift a touch slower than the card */
 body.has-result #result::before { transform: translateY(var(--par, 0px)); will-change: transform; }
 body.has-result .result-boat { transform: translate(-50%, var(--par, 0px)); will-change: transform; }
+
+/* Returning to the boat: the sea fades up while the scene zooms in from the page's own boat and waves */
+@media (prefers-reduced-motion: no-preference) {
+  .jump-overlay.is-zooming { animation: scene-fade 0.6s ease-out both; }
+  .jump-overlay.is-zooming .jump-stage,
+  .jump-overlay.is-zooming .jump-sky { transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%); animation: scene-zoom 1s cubic-bezier(0.33, 0.1, 0.25, 1) both; }
+}
+@keyframes scene-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scene-zoom { from { transform: translate(var(--zoom-dx, 0), var(--zoom-dy, 0)) scale(var(--zoom-s, 0.82)); } to { transform: none; } }

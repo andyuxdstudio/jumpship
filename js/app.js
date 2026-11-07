@@ -156,7 +156,7 @@
     window.clearTimeout(overlayTimer);
     window.clearTimeout(titleTimer);
     overlay.hidden = true;
-    overlay.classList.remove("is-running");
+    overlay.classList.remove("is-running", "is-zooming");
     document.body.classList.remove("no-scroll");
   }
 
@@ -277,7 +277,7 @@
   function openHold() {
     if (wheelBusy) return;
     window.clearTimeout(settleTimer);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" });
     sceneTitle.firstChild.nodeValue = reducedMotion() ? "Ready to jump again?" : "Returning to boat";
     overlay.classList.remove("is-running", "is-aboard");
     overlay.classList.add("is-holding");
@@ -285,6 +285,22 @@
     if (overlaySky) overlaySky.resize();
     document.body.classList.add("no-scroll");
     jumpAgain.disabled = false;
+    /* the scene zooms in from the page's own boat, so the two boats and wave lines coincide as it fades up */
+    var pageBoat = document.querySelector(".result-boat svg"), sceneBoat = overlay.querySelector(".jump-boat");
+    overlay.classList.remove("is-zooming");
+    if (pageBoat && sceneBoat && !reducedMotion()) {
+      var pb = pageBoat.getBoundingClientRect(), sb = sceneBoat.getBoundingClientRect();
+      if (pb.width && sb.width) {
+        var sx = sb.left + sb.width / 2, sy = sb.bottom;
+        overlay.style.setProperty("--zoom-x", Math.round(sx) + "px");
+        overlay.style.setProperty("--zoom-y", Math.round(sy) + "px");
+        overlay.style.setProperty("--zoom-dx", Math.round(pb.left + pb.width / 2 - sx) + "px");
+        overlay.style.setProperty("--zoom-dy", Math.round(pb.bottom - 14 - sy) + "px");
+        overlay.style.setProperty("--zoom-s", Math.max(0.3, Math.min(0.95, pb.width / sb.width)).toFixed(3));
+        void overlay.offsetWidth;
+        overlay.classList.add("is-zooming");
+      }
+    }
     /* the Jump again button appears once the sailor is back on board */
     var captain = overlay.querySelector(".jump-captain");
     function aboard() {
