@@ -837,3 +837,22 @@
     .then(function (list) { wildcards = Array.isArray(list) ? list : []; })
     .catch(function () { wildcards = []; });
 })();
+
+/* Parallax: the wave and boat above the career card lag slightly behind the card as the page scrolls */
+(function () {
+  var result = document.getElementById("result");
+  if (!result || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  var queued = false;
+  function apply() {
+    queued = false;
+    if (!document.body.classList.contains("has-result")) { result.style.removeProperty("--par"); return; }
+    var top = result.getBoundingClientRect().top, vh = window.innerHeight;
+    var d = (vh * 0.4 - top) * 0.1;
+    d = Math.max(-36, Math.min(36, d));
+    result.style.setProperty("--par", d.toFixed(1) + "px");
+  }
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(apply); } }
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  new MutationObserver(queue).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+})();

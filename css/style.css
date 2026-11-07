@@ -2079,3 +2079,7 @@ body.has-result #result { margin-top: calc(4.5rem + 100px); }
 @media (max-width: 55.99rem) {
   body.has-result #result { margin-top: calc(4rem + 100px); }
 }
+
+/* Parallax: with a career showing, the wave line and the boat drift a touch slower than the card */
+body.has-result #result::before { transform: translateY(var(--par, 0px)); will-change: transform; }
+body.has-result .result-boat { transform: translate(-50%, var(--par, 0px)); will-change: transform; }
