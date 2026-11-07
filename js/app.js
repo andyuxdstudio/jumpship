@@ -687,9 +687,8 @@
         var y = window.pageYOffset || document.documentElement.scrollTop;
         spotVisible = spot.top <= vh - 68;
         if (Date.now() < autoUntil) baseline = y;
-        var hero = wheelButton.getBoundingClientRect();
-        var heroVisible = hero.bottom > 0 && hero.top < vh;   /* even slightly in view: the floating Nope steps aside early */
-        floating = !heroVisible && y > 60 && card.top < vh - 40 && spot.top > vh - 68;
+        /* the top button is hidden now, so the floating Nope simply stays put until the one under the card takes over */
+        floating = card.top < vh - 40 && spot.top > vh - 68;
       }
       setFloating(floating, spotVisible);
     }
